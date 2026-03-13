@@ -25,7 +25,7 @@
 }}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:var(--bg)}
-#app{display:grid;grid-template-columns:200px 1fr 240px;height:100vh;min-height:0}
+#app{display:grid;grid-template-columns:250px 1fr 310px;height:100vh;min-height:0}
 .panel{border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;background:var(--bg)}
 .panel.right{border-right:none;border-left:1px solid var(--border)}
 .panel-inner{flex:1;overflow-y:auto;padding:10px 10px 16px}
@@ -52,12 +52,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;cursor:pointer;transition:border-color .12s;flex-shrink:0}
 .card:hover{border-color:var(--border2)}
 .card.pinned{border-left-width:3px}
-.card-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap}
-.card-name{font-weight:600;font-size:13px;flex:1;min-width:0}
-.faction-badge{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0}
-.card-id{font-size:10px;color:var(--text3);white-space:nowrap;flex-shrink:0}
-.card-cost{font-size:10px;color:var(--text3);white-space:nowrap;flex-shrink:0;margin-left:auto}
+.card-header{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.card-icon{width:24px;height:24px;border-radius:4px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
+.card-icon-fb{width:24px;height:24px;border-radius:4px;flex-shrink:0}
+.card-title-block{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.card-id-name{font-weight:700;font-size:13px;line-height:1.25}
+.card-id-part{color:var(--text3);font-weight:600;margin-right:5px}
+.card-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.card-cost{font-size:11px;color:var(--text3)}
 .card-cat{font-size:10px;color:var(--text3)}
+.faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
+.faction-badge img{width:14px;height:14px;object-fit:contain;image-rendering:pixelated}
 .card-effect{font-size:12px;color:var(--text2);line-height:1.55;margin-bottom:4px}
 .card-formula{font-size:11px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
@@ -66,18 +71,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .tag-scale{background:var(--tag-scale-bg);color:var(--tag-scale-text);border:1px solid var(--border)}
 .no-results{text-align:center;color:var(--text3);font-size:13px;padding:48px 20px;line-height:1.8}
 .faction-group{margin-bottom:10px}
-.faction-group-lbl{font-size:10px;font-weight:700;color:var(--text3);padding:2px 2px;margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em}
-.faction-btn{display:flex;align-items:center;gap:7px;width:100%;padding:4px 6px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:12px;color:var(--text);text-align:left}
+.faction-group-lbl{font-size:10px;font-weight:700;color:var(--text3);padding:2px 4px;margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em}
+.faction-btn{display:flex;align-items:center;gap:8px;width:100%;padding:5px 7px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:13px;color:var(--text);text-align:left}
 .faction-btn:hover{background:var(--bg2)}
 .faction-btn.active{background:var(--bg3);font-weight:600}
-.faction-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.faction-btn-icon{width:22px;height:22px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
+.faction-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .filter-section{margin-bottom:8px}
 .filter-group-lbl{font-size:10px;font-weight:700;color:var(--text3);padding:2px 2px;margin-bottom:3px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;user-select:none}
 .filter-group-lbl:hover{color:var(--text2)}
 .arrow{font-size:9px;transition:transform .15s;display:inline-block;opacity:.6}
 .arrow.open{transform:rotate(90deg)}
 .filter-items{display:flex;flex-direction:column;gap:1px;margin-bottom:4px}
-.filter-btn{display:flex;align-items:center;gap:5px;width:100%;padding:3px 5px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:11px;color:var(--text2);text-align:left}
+.filter-btn{display:flex;align-items:center;gap:5px;width:100%;padding:3px 5px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:12px;color:var(--text2);text-align:left}
 .filter-btn:hover{background:var(--bg2);color:var(--text)}
 .filter-btn.active{background:var(--bg3);color:var(--text);font-weight:600}
 .fcheck{width:12px;height:12px;border:1px solid var(--border2);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:8px;line-height:1}
@@ -141,6 +147,24 @@ const FACTIONS=[
   {group:'Mercenary',factions:['Mercenary']},
   {group:'Astral',factions:['Archon','Djinn','Makers']},
 ];
+const ICONS={
+  Fairy:'RG icons/FairyTradeTreaty.png',
+  Elven:'RG icons/ElvenTradeTreaty.png',
+  Angel:'RG icons/AngelTradeTreaty.png',
+  Goblin:'RG icons/GoblinTradeTreaty.png',
+  Undead:'RG icons/UndeadTradeTreaty.png',
+  Demon:'RG icons/DemonTradeTreaty.png',
+  Titan:'RG icons/TitanTradeTreaty.png',
+  Druid:'RG icons/DruidTradeTreaty.png',
+  Faceless:'RG icons/FacelessTradeTreaty.png',
+  Dwarven:'RG icons/DwarvenTradeTreaty.png',
+  Drow:'RG icons/DrowTradeTreaty.png',
+  Dragon:'RG icons/DragonTradeTreaty.png',
+  Mercenary:'RG icons/MercenaryFirstContract.png',
+  Archon:'RG icons/ArchonTradeTreaty.png',
+  Djinn:'RG icons/DjinnTradeTreaty.png',
+  Makers:'RG icons/MakersTradeTreaty.png',
+};
 const FC={
   Fairy:{bg:'#e8609a',text:'#fff'},Elven:{bg:'#5aad4e',text:'#fff'},Angel:{bg:'#7ecfea',text:'#1a4a55'},
   Goblin:{bg:'#7a9e3b',text:'#fff'},Undead:{bg:'#4a4a8a',text:'#fff'},Demon:{bg:'#c93022',text:'#fff'},
@@ -151,20 +175,17 @@ const FC={
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
 const EFFECT_GROUPS={
-  'Production':{open:true,items:['All Buildings','Specific Buildings','Click Reward','Building Cost Reduction']},
-  'Mana & Spells':{open:true,items:['Max Mana','Mana Regen','Spell Duration','Spell Cost','Autoclick']},
-  'Faction Coins':{open:false,items:['FC Find Chance','Tax Collection Worth','Triggered Tax Collections']},
-  'Assistants':{open:false,items:['Assistant Count','Assistant Production']},
-  'Offline':{open:false,items:['Offline Production','Offline Gains']},
-  'Other':{open:false,items:['Royal Exchange Bonus','Research Budget']},
+  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking','Building Cost Reduction']},
+  'Mana & Spells':{open:true,items:['Mana & Spells']},
+  'Resources':{open:false,items:['Faction Coins','Coins & Gems','Assistants']},
+  'Other':{open:false,items:['Offline','Progression']},
 };
 const SCALING_GROUPS={
-  'Buildings':{open:true,items:['Buildings Owned','Specific Building Count','Highest Buildings Built']},
-  'Coins & Gems':{open:true,items:['FC Found','Gems Owned','Coins Owned','Tax Collection Casts']},
-  'Mana & Spells':{open:false,items:['Max Mana','Mana Regen','Spell Casts','Spell Activity Time','Active Spells']},
-  'Activity':{open:false,items:['Clicks','Time Played','Offline Time','Excavation Depth','Assistants Owned']},
-  'Progression':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Royal Exchanges','Lineage Level']},
-  'Misc':{open:false,items:['Flat Bonus']},
+  'Buildings':{open:true,items:['Buildings','Specific Building Count']},
+  'Economy':{open:true,items:['Coins & Gems','Faction Coins','Assistants']},
+  'Spells':{open:false,items:['Mana & Spells']},
+  'Activity':{open:false,items:['Activity']},
+  'Meta':{open:false,items:['Progression','Misc']},
 };
 
 let UPGRADES=[];
@@ -172,8 +193,14 @@ let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),win
 Object.keys(EFFECT_GROUPS).forEach(g=>state.eg[g]=EFFECT_GROUPS[g].open);
 Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 
-fetch('data.json').then(r=>r.json()).then(data=>{UPGRADES=data;render();})
-  .catch(()=>{document.getElementById('cards').innerHTML='<div class="no-results">Could not load data.json.</div>';});
+const FACTION_FILES=[
+  'fairy','elven','angel','goblin','undead','demon',
+  'titan','druid','faceless','dwarven','drow','dragon',
+  'mercenary','archon','djinn','makers'
+];
+Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
+  .then(arrays=>{UPGRADES=arrays.flat();render();})
+  .catch(e=>{document.getElementById('cards').innerHTML='<div class="no-results">Could not load faction data.</div>';console.error(e);});
 
 function buildFactionList(){
   const el=document.getElementById('faction-list');el.innerHTML='';
@@ -183,7 +210,10 @@ function buildFactionList(){
     factions.forEach(f=>{
       const c=FC[f]||{bg:'#888',text:'#fff'};
       const b=document.createElement('button');b.className='faction-btn'+(state.factions.has(f)?' active':'');
-      b.innerHTML=`<span class="faction-dot" style="background:${c.bg}"></span>${f}`;
+      const iconPart=ICONS[f]
+        ?`<img src="${ICONS[f]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${c.bg}\\'></span>'">`
+        :`<span class="faction-dot" style="background:${c.bg}"></span>`;
+      b.innerHTML=`${iconPart}<span>${f}</span>`;
       b.onclick=()=>{state.factions.has(f)?state.factions.delete(f):state.factions.add(f);render();};
       w.appendChild(b);
     });
@@ -248,7 +278,7 @@ function getFiltered(){
   return UPGRADES.filter(u=>{
     if(state.factions.size>0&&!state.factions.has(u.faction))return false;
     const q=state.search.toLowerCase();
-    if(q){const hay=[u.name,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
+    if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     if(state.effects.size>0&&![...state.effects].every(e=>(u.effects||[]).includes(e)))return false;
     if(state.scalings.size>0&&![...state.scalings].every(s=>(u.scaling||[]).includes(s)))return false;
     if(state.windows.size>0){if(!u.window||!u.window.length)return false;if(![...state.windows].some(w=>u.window.includes(w)))return false;}
@@ -265,14 +295,28 @@ function buildCards(filtered){
     const card=document.createElement('div');card.className='card'+(pinned?' pinned':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
-    const scalingTags=(u.scaling||[]).map((s,i)=>`<span class="tag tag-scale">&#8627; ${s}${u.window&&u.window[i]?' ('+u.window[i]+')':''}</span>`).join('');
+    const scalingTags=(u.scaling||[]).map((s,i)=>{
+      const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
+      return`<span class="tag tag-scale">&#8627; ${s}${win}</span>`;
+    }).join('');
+    const iconSrc=ICONS[u.faction];
+    const iconHtml=iconSrc
+      ?`<img src="${iconSrc}" class="card-icon" alt="${u.faction}" onerror="this.style.display='none;this.nextSibling.style.display=\\'inline-block\\''">` 
+      :`<span class="card-icon-fb" style="background:${c.bg}"></span>`;
+    const badgeIconHtml=iconSrc
+      ?`<img src="${iconSrc}" width="14" height="14" style="object-fit:contain;image-rendering:pixelated" alt="" onerror="this.style.display='none'">`
+      :'';
     card.innerHTML=`
       <div class="card-header">
-        <span class="card-name">${u.name}</span>
-        ${u.category?`<span class="card-cat">${u.category}</span>`:''}
-        <span class="faction-badge" style="background:${c.bg};color:${c.text}">${u.faction}</span>
-        <span class="card-id">${u.id}</span>
-        <span class="card-cost">${u.cost||''}</span>
+        ${iconHtml}
+        <div class="card-title-block">
+          <div class="card-id-name"><span class="card-id-part">${u.id}</span>${u.name}</div>
+          <div class="card-meta">
+            ${u.cost?`<span class="card-cost">${u.cost}</span>`:''}
+            ${u.category?`<span class="card-cat">${u.category}</span>`:''}
+          </div>
+        </div>
+        <span class="faction-badge" style="background:${c.bg};color:${c.text}">${badgeIconHtml}${u.faction}</span>
       </div>
       <div class="card-effect">${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
