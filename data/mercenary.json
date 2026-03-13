@@ -1,0 +1,49 @@
+[
+  {
+    "id": "MC1",
+    "name": "Mercenary First Contract",
+    "faction": "Mercenary",
+    "tier": 1,
+    "cost": "5e55",
+    "effect": "Unlocks Tier 1. Choose a spell and 4 faction upgrades from any faction matching your alignment.",
+    "formula": "",
+    "effects": [],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "MC2",
+    "name": "Mercenary Second Contract",
+    "faction": "Mercenary",
+    "tier": 2,
+    "cost": "2.5e64",
+    "effect": "Unlocks Tier 2. Holy Crusaders (Good): gain Crusader Assistants from spells cast + clicking power. Heresiarchs (Evil): boost Evil buildings by most-built. Trade Lords (Neutral): assistants find all FC types; Mana Regen from FC found.",
+    "formula": "Crusaders: +(0.5 * ((1+0.8*x)^(0.5+0.05*A)-1)); Trade Lords: floor(10*log10(1+x^1.5))/10",
+    "effects": [
+      "Assistants",
+      "Specific Buildings",
+      "Faction Coins",
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Activity",
+      "Coins & Gems",
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "MC3",
+    "name": "Mercenary Third Contract",
+    "faction": "Mercenary",
+    "tier": 3,
+    "cost": "5e72",
+    "effect": "Unlocks Tier 3 and a second spell slot from any faction.",
+    "formula": "",
+    "effects": [],
+    "scaling": [],
+    "window": []
+  }
+]

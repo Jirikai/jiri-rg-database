@@ -1,0 +1,204 @@
+[
+  {
+    "id": "DD1",
+    "name": "Druidic Vocabulary",
+    "faction": "Druid",
+    "tier": 1,
+    "cost": "5e20",
+    "effect": "Increase production of all buildings by tier, best bonus to lowest.",
+    "formula": "(4000 * (12 - T))%, where T is building tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "DD2",
+    "name": "Animal Companions",
+    "faction": "Druid",
+    "tier": 1,
+    "cost": "5e21",
+    "effect": "Instantly gain 3 Animal assistants; more come based on time this Era.",
+    "formula": "+(3 + 1.75 * x ^ 0.5), where x is time this Era",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DD3",
+    "name": "Natural Recycling",
+    "faction": "Druid",
+    "tier": 1,
+    "cost": "5e22",
+    "effect": "Increase Faction Coin find chance additively and multiplicatively based on total buildings owned.",
+    "formula": "(0.4 * x ^ 0.4)% additive+multiplicative, where x is buildings owned",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DD4",
+    "name": "Earthly Bond",
+    "faction": "Druid",
+    "tier": 2,
+    "cost": "5e24",
+    "effect": "Increase Maximum Mana additively based on highest Stone Pillars built this Reincarnation.",
+    "formula": "+(2 * x), where x is highest Stone Pillars this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DD5",
+    "name": "Bardic Knowledge",
+    "faction": "Druid",
+    "tier": 2,
+    "cost": "5e25",
+    "effect": "Increase production of all buildings based on Maximum Mana.",
+    "formula": "(16 * ln(1 + x) ^ 2)%, where x is Maximum Mana",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "DD6",
+    "name": "Shapeshifting",
+    "faction": "Druid",
+    "tier": 2,
+    "cost": "5e26",
+    "effect": "Increase Mana Regeneration additively based on assistants owned.",
+    "formula": "+(1.3 * x ^ 0.7), where x is assistants owned",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Assistants"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DD7",
+    "name": "Mabinogion",
+    "faction": "Druid",
+    "tier": 3,
+    "cost": "5e28",
+    "effect": "Increase production of Non-Unique buildings by tier, best bonus to lowest.",
+    "formula": "(12 * 1.8 ^ (12 - T))%, where T is building tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "DD8",
+    "name": "Earthly Soul",
+    "faction": "Druid",
+    "tier": 3,
+    "cost": "5e29",
+    "effect": "Increase Mana Regeneration additively based on highest Stone Pillars this Reincarnation.",
+    "formula": "+(x ^ 0.25), where x is highest Stone Pillars this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DD9",
+    "name": "Building Jungle",
+    "faction": "Druid",
+    "tier": 3,
+    "cost": "5e30",
+    "effect": "Increase production of each building based on buildings of the same type owned.",
+    "formula": "(1.5 * x ^ 0.9)%, where x is buildings of same type",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DD10",
+    "name": "Building Vines",
+    "faction": "Druid",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Increase spell duration based on highest Ziggurats built this Reincarnation.",
+    "formula": "(0.5 * x ^ 0.5)%, where x is highest Ziggurats this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DD11",
+    "name": "Lunar Cycle",
+    "faction": "Druid",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Increase Maximum Mana additively by online time this Era; multiplicatively by offline time this Era.",
+    "formula": "+(50 * x ^ 0.85) online; (0.5 * y ^ 0.5)% offline, where x/y are online/offline time this Era",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DD12",
+    "name": "Grove Farming",
+    "faction": "Druid",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Increase production of all buildings by tier; middle tiers get best bonus.",
+    "formula": "(0.8 * ((6 - abs(6 - T)) ^ 4))%, where T is building tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": []
+  }
+]

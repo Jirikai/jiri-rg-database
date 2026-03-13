@@ -1,0 +1,202 @@
+[
+  {
+    "id": "AN1",
+    "name": "Holy Bells",
+    "faction": "Angel",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "Increase Mana Regeneration based on buildings owned.",
+    "formula": "+(1.6 * x ^ 0.4), where x is buildings owned",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "AN2",
+    "name": "Angelic Determination",
+    "faction": "Angel",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "Increase production of all buildings based on spells cast this Era. Increase Angel Coins found by 500%.",
+    "formula": "(4 * ln(1 + x) ^ 2)%, where x is spells cast this Era",
+    "effects": [
+      "All Buildings",
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "AN3",
+    "name": "Angel Feathers",
+    "faction": "Angel",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Increase Faction Coin find chance additively based on active spells.",
+    "formula": "+(10 * x)%, where x is active spells",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "AN4",
+    "name": "Guardian Angels",
+    "faction": "Angel",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Spell casts count 100% more.",
+    "formula": "",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "AN5",
+    "name": "Angelic Wisdom",
+    "faction": "Angel",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "Decrease cost of all spells by 50%. Increases offline spell cast amount based on offline Mana Regeneration.",
+    "formula": "(10 * log10(1 + x))%, where x is offline Mana Regen",
+    "effects": [
+      "Mana & Spells",
+      "Offline"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "AN6",
+    "name": "Archangel Feathers",
+    "faction": "Angel",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Increase Mana Regeneration multiplicatively by 50%.",
+    "formula": "",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "AN7",
+    "name": "Magical Gates",
+    "faction": "Angel",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Increase Maximum Mana based on time spent as Good this Reincarnation.",
+    "formula": "+(3.5 * x ^ 0.7), where x is Good time this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AN8",
+    "name": "Angelic Dominance",
+    "faction": "Angel",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Spell durations are increased by 50%.",
+    "formula": "",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "AN9",
+    "name": "Wings of Liberty",
+    "faction": "Angel",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Increase production of all buildings based on Mana Regeneration.",
+    "formula": "(4 * ln(1 + x) ^ 2)%, where x is Mana Regeneration",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "AN10",
+    "name": "Angelic Fortress",
+    "faction": "Angel",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Increase maximum Mana based on highest Holy Sites built this Reincarnation.",
+    "formula": "+(x ^ 1.05), where x is highest Holy Sites this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AN11",
+    "name": "Sacred Ground",
+    "faction": "Angel",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Increase spell duration based on time spent as Order this Reincarnation.",
+    "formula": "(0.5 * x ^ 0.5)%, where x is Order time this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AN12",
+    "name": "Divine Providence",
+    "faction": "Angel",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Increase Mana Regeneration multiplicatively based on spells cast this Era.",
+    "formula": "(1.5 * ln(1 + x) ^ 2)%, where x is spells cast this Era",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": [
+      "Era"
+    ]
+  }
+]

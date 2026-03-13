@@ -1,0 +1,212 @@
+[
+  {
+    "id": "DM1",
+    "name": "Torture Chambers",
+    "faction": "Demon",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "Increase production of Royal Castles / Evil Fortresses / Iron Strongholds (by alignment) based on assistants owned.",
+    "formula": "(6 * ln(1 + x) ^ 3)%, where x is assistants owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Assistants"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DM2",
+    "name": "Devil Tyrant",
+    "faction": "Demon",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "The three highest building tiers count more based on time spent as Evil this Reincarnation.",
+    "formula": "(1.2 * x ^ 0.4)%, where x is Evil time this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DM3",
+    "name": "Evil Conquerors",
+    "faction": "Demon",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Increase production of all buildings based on highest Hell Portals built this Reincarnation.",
+    "formula": "(4 * x ^ 0.8)%, where x is highest Hell Portals this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DM4",
+    "name": "Lava Pits",
+    "faction": "Demon",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Increase base production of Evil Fortresses by +200,000 and Hell Portals by +2,000,000. Playtime this Era counts more by 6 extra hours.",
+    "formula": "",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DM5",
+    "name": "Demon Overseers",
+    "faction": "Demon",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "Increase production of three highest building tiers based on Trophies unlocked.",
+    "formula": "(2 * x ^ 0.8)%, where x is trophies unlocked",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Progression"
+    ],
+    "window": []
+  },
+  {
+    "id": "DM6",
+    "name": "Demonic Presence",
+    "faction": "Demon",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Increase Maximum Mana additively based on Evil spells cast this Era.",
+    "formula": "+(6 * x ^ 0.4), where x is Evil spells cast this Era",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DM7",
+    "name": "Infernal Magic",
+    "faction": "Demon",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Hell Portals also increase Mana Regeneration.",
+    "formula": "+(3.5 * x ^ 0.35), where x is Hell Portals owned",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DM8",
+    "name": "Burning Legion",
+    "faction": "Demon",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Gain assistants based on Hell Portals owned.",
+    "formula": "+(1.5 * x ^ 0.65), where x is Hell Portals owned",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DM9",
+    "name": "Very Bad Guys",
+    "faction": "Demon",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Increase production of Heaven's Gate / Hell Portals / Ancient Pyramid (by alignment) based on highest Hell Portals this Reincarnation.",
+    "formula": "(4 * x ^ 0.8)%, where x is highest Hell Portals this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DM10",
+    "name": "Abyssal Furnace",
+    "faction": "Demon",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Increase production of all buildings based on highest Burning Abysses this Reincarnation. Higher tiers get better bonuses.",
+    "formula": "(0.5 * T ^ 1.5 * x ^ 0.5)%, where T is tier, x is highest Burning Abysses this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DM11",
+    "name": "Demonic Fury",
+    "faction": "Demon",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Multiplicatively increase FC find chance based on minimum of Evil and Chaos time this Reincarnation.",
+    "formula": "(0.25 * min(x, y) ^ 0.75)%, where x is Evil time, y is Chaos time this Reincarnation",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DM12",
+    "name": "Devastation",
+    "faction": "Demon",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Increase production of three highest building tiers based on Mana Regeneration.",
+    "formula": "(2.5 * ln(1 + x) ^ 2.5)%, where x is Mana Regeneration",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  }
+]

@@ -1,0 +1,206 @@
+[
+  {
+    "id": "AR1",
+    "name": "Star Trading",
+    "faction": "Archon",
+    "tier": 1,
+    "cost": "1e150",
+    "effect": "Increase production of all buildings based on highest Royal Exchanges made this Reincarnation.",
+    "formula": "(0.9 * x)%, where x is highest Royal Exchanges this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Coins & Gems"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AR2",
+    "name": "Energy Recharge",
+    "faction": "Archon",
+    "tier": 1,
+    "cost": "1e151",
+    "effect": "Maximum Mana counts more based on Order time this Reincarnation. Also improves Precognition and sets duration to 5 min.",
+    "formula": "(0.25 * x ^ 0.5)%, where x is Order time this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AR3",
+    "name": "Cosmic Resonance",
+    "faction": "Archon",
+    "tier": 1,
+    "cost": "1e152",
+    "effect": "Increase Royal Exchange bonus based on clicks this Reincarnation.",
+    "formula": "+(0.5 * x ^ 0.5)%, where x is clicks this Reincarnation",
+    "effects": [
+      "Coins & Gems"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AR4",
+    "name": "Constellation",
+    "faction": "Archon",
+    "tier": 2,
+    "cost": "1e158",
+    "effect": "Multiplicatively increase Mana Regeneration based on Unique Buildings owned.",
+    "formula": "(0.5 * x ^ 0.5)%, where x is Unique Buildings owned",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "AR5",
+    "name": "Archon Pride",
+    "faction": "Archon",
+    "tier": 2,
+    "cost": "1e159",
+    "effect": "Multiplicatively increase assistants based on current Lineage level.",
+    "formula": "(x)%, where x is current Lineage level",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Progression"
+    ],
+    "window": []
+  },
+  {
+    "id": "AR6",
+    "name": "Absent-mindedness",
+    "faction": "Archon",
+    "tier": 2,
+    "cost": "1e160",
+    "effect": "Increase Offline bonus based on Excavation Resets this Reincarnation.",
+    "formula": "(30 + 3 * (x + y) ^ 3)%, where x is free resets, y is ruby resets this Reincarnation",
+    "effects": [
+      "Offline"
+    ],
+    "scaling": [
+      "Misc"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AR7",
+    "name": "Superior Consciousness",
+    "faction": "Archon",
+    "tier": 3,
+    "cost": "1e163",
+    "effect": "Increase production of Unique buildings based on their quantity.",
+    "formula": "(x)%, where x is Unique Buildings owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "AR8",
+    "name": "Strange Attraction",
+    "faction": "Archon",
+    "tier": 3,
+    "cost": "1e164",
+    "effect": "Multiplicatively increase FC find chance based on activity time of your least-used spell.",
+    "formula": "(100 + 0.8 * x ^ 0.8)%, where x is least-used spell activity time this Reincarnation",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AR9",
+    "name": "Arcane Core",
+    "faction": "Archon",
+    "tier": 3,
+    "cost": "1e165",
+    "effect": "Increase production of all buildings based on mana produced this Reincarnation.",
+    "formula": "(2.5 * log10(1 + x) ^ 2.5)%, where x is mana produced this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "AR10",
+    "name": "Purity of Form",
+    "faction": "Archon",
+    "tier": 4,
+    "cost": "1e170",
+    "effect": "Lineage levels count 200% more for all purposes.",
+    "formula": "",
+    "effects": [
+      "Progression"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "AR11",
+    "name": "Absolute Hierarchy",
+    "faction": "Archon",
+    "tier": 4,
+    "cost": "1e171",
+    "effect": "Remove 1 Ascension Penalty from Call to Arms.",
+    "formula": "",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "AR12",
+    "name": "Essence Extractor",
+    "faction": "Archon",
+    "tier": 4,
+    "cost": "1e172",
+    "effect": "Multiplicatively increase production bonus from Gems based on duration of longest spell.",
+    "formula": "(0.15 * x ^ 0.7)%, where x is longest spell duration",
+    "effects": [
+      "Coins & Gems"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  }
+]

@@ -1,0 +1,216 @@
+[
+  {
+    "id": "FC1",
+    "name": "Territorial Expanse",
+    "faction": "Faceless",
+    "tier": 1,
+    "cost": "5e20",
+    "effect": "Increase production of Citadels / Necropolises / Labyrinths (by alignment) based on assistants owned.",
+    "formula": "(50 * ln(1 + x) ^ 2.5)%, where x is assistants owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Assistants"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FC2",
+    "name": "Evolutive Mutation",
+    "faction": "Faceless",
+    "tier": 1,
+    "cost": "5e21",
+    "effect": "Increase Faction Coin find chance based on highest Labyrinths built this Reincarnation.",
+    "formula": "floor(3 * x ^ 0.6)%, where x is highest Labyrinths this Reincarnation",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "FC3",
+    "name": "Deep Memory",
+    "faction": "Faceless",
+    "tier": 1,
+    "cost": "5e22",
+    "effect": "Multiplicatively increase assistants based on longest game session this Reincarnation.",
+    "formula": "(0.3 * x ^ 0.7)%, where x is longest session this Reincarnation",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "FC4",
+    "name": "Gold Synthesis",
+    "faction": "Faceless",
+    "tier": 2,
+    "cost": "5e24",
+    "effect": "Increase production of Neutral buildings based on coins owned.",
+    "formula": "(0.2 * ln(1 + x) ^ 2)%, where x is coins owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Coins & Gems"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FC5",
+    "name": "Mitosis",
+    "faction": "Faceless",
+    "tier": 2,
+    "cost": "5e25",
+    "effect": "Gain Faceless Assistants based on buildings owned.",
+    "formula": "floor(0.5 * x ^ 0.5), where x is buildings owned",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FC6",
+    "name": "Overgrowth",
+    "faction": "Faceless",
+    "tier": 2,
+    "cost": "5e26",
+    "effect": "Increase production based on highest buildings purchased in a single game this Reincarnation.",
+    "formula": "(0.8 * x ^ 0.8)%, where x is highest single-game buildings this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "FC7",
+    "name": "Magical Treasure",
+    "faction": "Faceless",
+    "tier": 3,
+    "cost": "5e28",
+    "effect": "Increase Mana Regeneration based on assistants owned.",
+    "formula": "+(2.5 * x ^ 0.5), where x is assistants owned",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Assistants"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FC8",
+    "name": "Abominations",
+    "faction": "Faceless",
+    "tier": 3,
+    "cost": "5e29",
+    "effect": "Increase production of assistants based on active spells.",
+    "formula": "(20 * x ^ 0.9)%, where x is active spells",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "FC9",
+    "name": "Hive Mind",
+    "faction": "Faceless",
+    "tier": 3,
+    "cost": "5e30",
+    "effect": "Increase production based on total time affiliated with Faceless (All Time, persists through Reincarnations).",
+    "formula": "(x ^ 0.5)%, where x is Faceless time (All Time)",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "All Time"
+    ]
+  },
+  {
+    "id": "FC10",
+    "name": "Primal Knowledge",
+    "faction": "Faceless",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Multiplicatively increase FC find chance based on highest Forbidden Libraries this Reincarnation. Grows over time, resets every 15 minutes.",
+    "formula": "((t % 900) / 75 * x ^ 0.4)%, t is time this Era, x is highest Forbidden Libraries",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Buildings",
+      "Activity"
+    ],
+    "window": [
+      "Era",
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "FC11",
+    "name": "Forbidden Language",
+    "faction": "Faceless",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Increase spell durations based on Reincarnations made.",
+    "formula": "(0.8 * x ^ 0.8)%, where x is Reincarnations made",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Progression"
+    ],
+    "window": []
+  },
+  {
+    "id": "FC12",
+    "name": "Dimension Door",
+    "faction": "Faceless",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Increase production of all buildings based on highest Maximum Mana this Reincarnation.",
+    "formula": "(2 * ln(1 + x) ^ 2)%, where x is highest Max Mana this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana & Spells"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  }
+]

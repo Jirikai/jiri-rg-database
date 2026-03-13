@@ -1,0 +1,218 @@
+[
+  {
+    "id": "EL1",
+    "name": "Elven Mint",
+    "faction": "Elven",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "The base chance to find Faction Coins is increased multiplicatively by 150%.",
+    "formula": "",
+    "effects": [
+      "Faction Coins"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "EL2",
+    "name": "Elven Treasure Casing",
+    "faction": "Elven",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "Increase base clicking reward by +25,000 per Trophy unlocked. Increase FC find chance based on Trophies.",
+    "formula": "+(1 + 0.1 * x) ^ 0.95)%, where x is Trophies unlocked",
+    "effects": [
+      "Clicking",
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Progression"
+    ],
+    "window": []
+  },
+  {
+    "id": "EL3",
+    "name": "Ancient Clicking Arts",
+    "faction": "Elven",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Increase Mana Regeneration based on clicks made this Reincarnation.",
+    "formula": "+(2 * log10(1 + x) ^ 1.25), where x is clicks this Reincarnation",
+    "effects": [
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "EL4",
+    "name": "Elven Emissary",
+    "faction": "Elven",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Increase clicking reward based on Good buildings owned. Assistants find 3x as many Faction Coins.",
+    "formula": "(x ^ 0.6)%, where x is Good buildings owned",
+    "effects": [
+      "Clicking",
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "EL5",
+    "name": "Elven Efficiency",
+    "faction": "Elven",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "Increase Royal Exchange bonus based on Faction Coins found this Era.",
+    "formula": "+(2 * ln(1 + x) ^ 2)%, where x is FC found this Era",
+    "effects": [
+      "Coins & Gems"
+    ],
+    "scaling": [
+      "Coins & Gems"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "EL6",
+    "name": "Secret Clicking Techniques",
+    "faction": "Elven",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Increase the production of all buildings based on clicks made this Reincarnation.",
+    "formula": "(2 * x ^ 0.4)%, where x is clicks this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "EL7",
+    "name": "Elven Diplomacy",
+    "faction": "Elven",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Clicks count more based on Faction Coins found this Era.",
+    "formula": "(2 * ln(1 + x) ^ 2)%, where x is FC found this Era",
+    "effects": [
+      "Clicking"
+    ],
+    "scaling": [
+      "Coins & Gems"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "EL8",
+    "name": "Elven Luck",
+    "faction": "Elven",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Each click has a 1% chance to produce 2500% of total production in coins and generate bonus Faction Coins. Assistants trigger this once per second.",
+    "formula": "Production: (2500 * (x + y)); FC: (x * (R+1)), where R is reincarnations",
+    "effects": [
+      "Clicking",
+      "Faction Coins"
+    ],
+    "scaling": [
+      "Progression"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "EL9",
+    "name": "Sylvan Treasure Frills",
+    "faction": "Elven",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Additively increase base clicking reward by 50% of your building production.",
+    "formula": "",
+    "effects": [
+      "Clicking"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "EL10",
+    "name": "Wooden Dice",
+    "faction": "Elven",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Increase Elven Luck chance and effects based on highest Arboreal Cities this Reincarnation. Also triggers 100,000 Tax Collections on Luck proc.",
+    "formula": "Luck chance: +(x ^ 0.4)%; Prod: (40 * x ^ 0.8)%, where x is highest Arboreal Cities",
+    "effects": [
+      "Clicking",
+      "Faction Coins",
+      "Mana & Spells"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "EL11",
+    "name": "Camouflage",
+    "faction": "Elven",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Assistants and Clicks count 1,000% more for all purposes. Increase assistant production based on assistants owned.",
+    "formula": "(2 * ln(1 + x) ^ 2)%, where x is assistants owned",
+    "effects": [
+      "Assistants",
+      "Clicking"
+    ],
+    "scaling": [
+      "Assistants"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "EL12",
+    "name": "Elven Discipline",
+    "faction": "Elven",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Increase assistants additively and multiplicatively based on Faction Coins found this Era.",
+    "formula": "+(50 * ln(1 + x) ^ 1.5) additive; (1.5 * log10(1 + x) ^ 1.5)% multiplicative, where x is FC this Era",
+    "effects": [
+      "Assistants"
+    ],
+    "scaling": [
+      "Coins & Gems"
+    ],
+    "window": [
+      "Era"
+    ]
+  }
+]
