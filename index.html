@@ -49,24 +49,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .pin-chip{font-size:11px;padding:2px 8px;border-radius:20px;cursor:pointer;border:none;font-weight:600}
 .pin-chip:hover{opacity:.75}
 .cards{flex:1;overflow-y:auto;padding:10px 14px;display:flex;flex-direction:column;gap:8px;min-height:0}
-.card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;cursor:pointer;transition:border-color .12s;flex-shrink:0}
+.card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:13px 16px;cursor:pointer;transition:border-color .12s;flex-shrink:0}
 .card:hover{border-color:var(--border2)}
 .card.pinned{border-left-width:3px}
 .card-header{display:flex;align-items:center;gap:8px;margin-bottom:5px}
-.card-icon{width:24px;height:24px;border-radius:4px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
-.card-icon-fb{width:24px;height:24px;border-radius:4px;flex-shrink:0}
+.card-icon{width:32px;height:32px;border-radius:4px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
+.card-icon-fb{width:32px;height:32px;border-radius:4px;flex-shrink:0}
 .card-title-block{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
-.card-id-name{font-weight:700;font-size:13px;line-height:1.25}
-.card-id-part{color:var(--text3);font-weight:600;margin-right:5px}
+.card-id-name{font-weight:700;font-size:15px;line-height:1.25}
+.card-id-part{color:var(--text3);font-weight:600;margin-right:5px;font-size:13px}
 .card-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.card-cost{font-size:11px;color:var(--text3)}
+.card-cost{font-size:12px;color:var(--text3)}
 .card-cat{font-size:10px;color:var(--text3)}
 .faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
-.faction-badge img{width:14px;height:14px;object-fit:contain;image-rendering:pixelated}
-.card-effect{font-size:12px;color:var(--text2);line-height:1.55;margin-bottom:4px}
-.card-formula{font-size:11px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
+.faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
+.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
+.card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
-.tag{font-size:10px;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.tag{font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap}
 .tag-effect{background:var(--tag-effect-bg);color:var(--tag-effect-text)}
 .tag-scale{background:var(--tag-scale-bg);color:var(--tag-scale-text);border:1px solid var(--border)}
 .no-results{text-align:center;color:var(--text3);font-size:13px;padding:48px 20px;line-height:1.8}
@@ -175,17 +175,16 @@ const FC={
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
 const EFFECT_GROUPS={
-  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking','Building Cost Reduction']},
-  'Mana & Spells':{open:true,items:['Mana & Spells']},
-  'Resources':{open:false,items:['Faction Coins','Coins & Gems','Assistants']},
-  'Other':{open:false,items:['Offline','Progression']},
+  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking Reward','Click Count','Gems Bonus','Building Cost Reduction','Royal Exchange Cost Reduction','Assistant Amount','Assistant Production','Offline Production']},
+  'Mana & Spells':{open:true,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection']},
+  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production']},
 };
 const SCALING_GROUPS={
-  'Buildings':{open:true,items:['Buildings','Specific Building Count']},
-  'Economy':{open:true,items:['Coins & Gems','Faction Coins','Assistants']},
-  'Spells':{open:false,items:['Mana & Spells']},
-  'Activity':{open:false,items:['Activity']},
-  'Meta':{open:false,items:['Progression','Misc']},
+  'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
+  'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
+  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time']},
+  'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
+  'Misc':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations']},
 };
 
 let UPGRADES=[];
