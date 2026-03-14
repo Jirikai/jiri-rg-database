@@ -656,13 +656,14 @@
     "faction": "Dragon",
     "category": "Spells",
     "cost": "1500 mana",
-    "effect": "Activates one random breath effect per cast (additional breaths per tier purchased).\n\nRed: Increase Unique Building production based on Faction Coins found this Era.\nGreen: Increase all building production based on spells cast this Reincarnation (higher bonus for lower tiers).\nWhite: Gain assistants based on time spent as Neutral this Reincarnation.\nBlack: Increase all building production based on Dragon's Breath activity time this Era.\nYellow (A2+): Multiplicatively increase production bonus from Gems based on assistants owned.\nTier bonus: None.",
-    "formula": "Red: (1.75 * ln(1 + x)^1.75)%, x = FC found this Era. Green: (0.000001 * ln(1 + x)^6 * (11-T)^5)%, x = spells cast this Reincarnation. White: +(30 * x^0.7), x = Neutral time this Reincarnation. Black: (30 + 0.85 * x^0.85)%, x = Dragon's Breath activity time this Era. Yellow: (1.75 * ln(x)^1.75)%, x = assistants owned",
+    "effect": "Activates one of the following effects at random.\n\nRed: Increase Unique Building production based on Faction Coins found this Era.\nGreen: Increase all building production based on spells cast this Reincarnation (higher bonus for lower tiers).\nBlue: Multiplicatively increase Mana Regeneration by 200%.\nWhite: Gain assistants based on time spent as Neutral this Reincarnation.\nBlack: Increase all building production based on Dragon's Breath activity time this Era.\nYellow (A2+): Multiplicatively increase production bonus from Gems based on assistants owned.\nTier bonus: Additional effect per tier purchased.",
+    "formula": "Red: (1.75 * ln(1 + x)^1.75)%, x = FC found this Era.\nGreen: (0.000001 * ln(1 + x)^6 * (11-T)^5)%, x = spells cast this Reincarnation.\nBlue: x200% Mana Regeneration.\nWhite: +(30 * x^0.7), x = Neutral time this Reincarnation.\nBlack: (30 + 0.85 * x^0.85)%, x = Dragon's Breath activity time this Era.\nYellow: (1.75 * ln(x)^1.75)%, x = assistants owned.",
     "effects": [
       "Unique Buildings",
       "All Buildings",
       "Assistant Amount",
-      "Gems Bonus"
+      "Gems Bonus",
+      "Mana Regeneration"
     ],
     "scaling": [
       "Faction Coins Found",
