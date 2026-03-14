@@ -16,7 +16,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Common"
+    "spellClass": "Common",
+    "parentSpell": ""
   },
   {
     "id": "Coin-Pillage",
@@ -35,7 +36,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Common"
+    "spellClass": "Common",
+    "parentSpell": "Tax-Collection"
   },
   {
     "id": "Call-to-Arms",
@@ -59,7 +61,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Common"
+    "spellClass": "Common",
+    "parentSpell": ""
   },
   {
     "id": "Spiritual-Surge",
@@ -70,7 +73,8 @@
     "effect": "Increase the production of all buildings based on Reincarnations made.\nTier bonus: Reincarnations count 5% more per tier.",
     "formula": "(2500 * (R^0.9))%, where R = Reincarnations made",
     "effects": [
-      "All Buildings"
+      "All Buildings",
+      "Reincarnation Count"
     ],
     "scaling": [
       "Reincarnations"
@@ -82,7 +86,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Common"
+    "spellClass": "Common",
+    "parentSpell": ""
   },
   {
     "id": "Holy-Light",
@@ -104,7 +109,8 @@
     "proof": [
       "Good"
     ],
-    "spellClass": "Alignment"
+    "spellClass": "Alignment",
+    "parentSpell": ""
   },
   {
     "id": "Blood-Frenzy",
@@ -125,7 +131,8 @@
     "proof": [
       "Evil"
     ],
-    "spellClass": "Alignment"
+    "spellClass": "Alignment",
+    "parentSpell": ""
   },
   {
     "id": "Gem-Grinder",
@@ -151,7 +158,8 @@
     "proof": [
       "Neutral"
     ],
-    "spellClass": "Alignment"
+    "spellClass": "Alignment",
+    "parentSpell": ""
   },
   {
     "id": "Fairy-Chanting",
@@ -175,7 +183,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Fairy-Choir",
@@ -194,7 +203,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Fairy-Chanting"
   },
   {
     "id": "Moon-Blessing",
@@ -218,7 +228,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Sun-Blessing",
@@ -237,7 +248,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Moon-Blessing"
   },
   {
     "id": "God's-Hand",
@@ -263,7 +275,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "God's-Rest",
@@ -286,7 +299,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "God's-Hand"
   },
   {
     "id": "Diamond-Pickaxe",
@@ -310,7 +324,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Goblin's-Greed",
@@ -337,7 +352,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Greed-Drive",
@@ -356,7 +372,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Goblin's-Greed"
   },
   {
     "id": "Night-Time",
@@ -379,7 +396,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "True-Night",
@@ -402,7 +420,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Night-Time"
   },
   {
     "id": "Hellfire-Blast",
@@ -426,7 +445,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Hell-Rush",
@@ -445,7 +465,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Hellfire-Blast"
   },
   {
     "id": "Combo-Strike",
@@ -469,7 +490,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Perfect-Combo",
@@ -492,7 +514,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Combo-Strike"
   },
   {
     "id": "Lightning-Strike",
@@ -518,7 +541,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Lightning-Storm",
@@ -537,7 +561,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Lightning-Strike"
   },
   {
     "id": "Brainwave",
@@ -556,7 +581,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Faceless-Overmind",
@@ -575,7 +601,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Brainwave"
   },
   {
     "id": "Grand-Balance",
@@ -599,7 +626,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Halls-of-Balance",
@@ -619,7 +647,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Grand-Balance"
   },
   {
     "id": "Dragon's-Breath",
@@ -653,7 +682,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Dragon's-Roar",
@@ -676,7 +706,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Dragon's-Breath"
   },
   {
     "id": "Share-Benefits",
@@ -703,7 +734,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Reap-Interests",
@@ -726,7 +758,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Appraisal-Vantage",
@@ -753,7 +786,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Temporal-Flux",
@@ -779,7 +813,8 @@
     "proof": [
       "Order"
     ],
-    "spellClass": "Alignment"
+    "spellClass": "Alignment",
+    "parentSpell": ""
   },
   {
     "id": "Maelstrom",
@@ -810,7 +845,8 @@
     "proof": [
       "Chaos"
     ],
-    "spellClass": "Alignment"
+    "spellClass": "Alignment",
+    "parentSpell": ""
   },
   {
     "id": "All-Creation",
@@ -836,7 +872,8 @@
     "proof": [
       "Balance"
     ],
-    "spellClass": "Alignment"
+    "spellClass": "Alignment",
+    "parentSpell": ""
   },
   {
     "id": "Precognition",
@@ -864,7 +901,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Chrono-Loading",
@@ -883,7 +921,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Precognition"
   },
   {
     "id": "Limited-Wish",
@@ -913,7 +952,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Persistent-Entropy",
@@ -932,7 +972,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Limited-Wish"
   },
   {
     "id": "Infinite-Spiral",
@@ -962,7 +1003,8 @@
     "ascensionPenalty": true,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   },
   {
     "id": "Reality-Crater",
@@ -985,7 +1027,8 @@
     "ascensionPenalty": false,
     "spellUpgrade": true,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": "Infinite-Spiral"
   },
   {
     "id": "Catalyst",
@@ -1004,6 +1047,7 @@
     "ascensionPenalty": false,
     "spellUpgrade": false,
     "proof": [],
-    "spellClass": "Faction"
+    "spellClass": "Faction",
+    "parentSpell": ""
   }
 ]
