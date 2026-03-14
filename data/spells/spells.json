@@ -14,7 +14,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Coin-Pillage",
@@ -31,7 +32,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Call-to-Arms",
@@ -53,7 +55,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Spiritual-Surge",
@@ -74,29 +77,13 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Holy-Light",
     "name": "Holy Light",
-    "faction": [
-      "Fairy",
-      "Elven",
-      "Angel",
-      "Goblin",
-      "Undead",
-      "Demon",
-      "Titan",
-      "Druid",
-      "Faceless",
-      "Dwarven",
-      "Drow",
-      "Dragon",
-      "Mercenary",
-      "Archon",
-      "Djinn",
-      "Makers"
-    ],
+    "faction": "All",
     "category": "Spells",
     "cost": "900 mana",
     "effect": "Increase clicking reward by 1750%.\nTier bonus: Multiplicatively increase Mana Regeneration by 10% per tier.",
@@ -109,29 +96,15 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": [
+      "Good"
+    ]
   },
   {
     "id": "Blood-Frenzy",
     "name": "Blood Frenzy",
-    "faction": [
-      "Fairy",
-      "Elven",
-      "Angel",
-      "Goblin",
-      "Undead",
-      "Demon",
-      "Titan",
-      "Druid",
-      "Faceless",
-      "Dwarven",
-      "Drow",
-      "Dragon",
-      "Mercenary",
-      "Archon",
-      "Djinn",
-      "Makers"
-    ],
+    "faction": "All",
     "category": "Spells",
     "cost": "600 mana",
     "effect": "Increases the production of all Evil buildings by 1500%.\nTier bonus: Increase the production of Non-Unique Buildings by 500% per tier.",
@@ -143,29 +116,15 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": [
+      "Evil"
+    ]
   },
   {
     "id": "Gem-Grinder",
     "name": "Gem Grinder",
-    "faction": [
-      "Fairy",
-      "Elven",
-      "Angel",
-      "Goblin",
-      "Undead",
-      "Demon",
-      "Titan",
-      "Druid",
-      "Faceless",
-      "Dwarven",
-      "Drow",
-      "Dragon",
-      "Mercenary",
-      "Archon",
-      "Djinn",
-      "Makers"
-    ],
+    "faction": "All",
     "category": "Spells",
     "cost": "1000 mana",
     "effect": "Multiplicatively increase production bonus from Gems based on Reincarnations made.\nTier bonus: Multiplicatively increase Royal Exchange bonus by 10% per tier.",
@@ -182,7 +141,10 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": [
+      "Neutral"
+    ]
   },
   {
     "id": "Fairy-Chanting",
@@ -204,7 +166,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Fairy-Choir",
@@ -221,7 +184,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Moon-Blessing",
@@ -243,7 +207,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Sun-Blessing",
@@ -260,7 +225,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "God's-Hand",
@@ -284,7 +250,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "God's-Rest",
@@ -305,7 +272,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Diamond-Pickaxe",
@@ -327,7 +295,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Goblin's-Greed",
@@ -352,7 +321,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Greed-Drive",
@@ -369,7 +339,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Night-Time",
@@ -390,7 +361,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "True-Night",
@@ -411,7 +383,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Hellfire-Blast",
@@ -433,7 +406,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Hell-Rush",
@@ -450,7 +424,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Combo-Strike",
@@ -472,7 +447,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Perfect-Combo",
@@ -493,7 +469,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Lightning-Strike",
@@ -517,7 +494,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Lightning-Storm",
@@ -534,7 +512,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Brainwave",
@@ -551,7 +530,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Faceless-Overmind",
@@ -568,7 +548,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Grand-Balance",
@@ -590,7 +571,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Halls-of-Balance",
@@ -608,7 +590,8 @@
     "window": [],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Dragon's-Breath",
@@ -640,7 +623,8 @@
     ],
     "minAscension": 1,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Dragon's-Roar",
@@ -661,7 +645,8 @@
     ],
     "minAscension": 1,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Share-Benefits",
@@ -686,7 +671,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Reap-Interests",
@@ -707,7 +693,8 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Appraisal-Vantage",
@@ -732,18 +719,13 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Temporal-Flux",
     "name": "Temporal Flux",
-    "faction": [
-      "Angel",
-      "Titan",
-      "Dwarven",
-      "Dragon",
-      "Archon"
-    ],
+    "faction": "All",
     "category": "Spells",
     "cost": "950 mana",
     "effect": "Increase the production of Unique Buildings based on time spent this Era. Also multiplicatively increase Mana Regeneration based on time spent this Era.\nTier bonus: Mana produced this Era counts 10% more per tier.",
@@ -760,18 +742,15 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": [
+      "Order"
+    ]
   },
   {
     "id": "Maelstrom",
     "name": "Maelstrom",
-    "faction": [
-      "Fairy",
-      "Demon",
-      "Drow",
-      "Djinn",
-      "Faceless"
-    ],
+    "faction": "All",
     "category": "Spells",
     "cost": "700 mana",
     "effect": "Increase the production of two random buildings based on one of these stats, chosen at random: mana produced, trophies unlocked, Faction Coins found, or assistants owned.\nTier bonus: Affect 1 more random building per tier.",
@@ -793,17 +772,15 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": [
+      "Chaos"
+    ]
   },
   {
     "id": "All-Creation",
     "name": "All Creation",
-    "faction": [
-      "Elven",
-      "Goblin",
-      "Druid",
-      "Makers"
-    ],
+    "faction": "All",
     "category": "Spells",
     "cost": "1100 mana",
     "effect": "Increase production of all buildings based on Mana Regeneration.\nTier bonus: Multiplicatively increase production bonus from Gems by 10% per tier.",
@@ -820,7 +797,10 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": [
+      "Balance"
+    ]
   },
   {
     "id": "Precognition",
@@ -846,7 +826,8 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Chrono-Loading",
@@ -863,7 +844,8 @@
     "window": [],
     "minAscension": 2,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Limited-Wish",
@@ -891,7 +873,8 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Persistent-Entropy",
@@ -908,7 +891,8 @@
     "window": [],
     "minAscension": 2,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Infinite-Spiral",
@@ -936,7 +920,8 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": true,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   },
   {
     "id": "Reality-Crater",
@@ -957,7 +942,8 @@
     ],
     "minAscension": 2,
     "ascensionPenalty": false,
-    "spellUpgrade": true
+    "spellUpgrade": true,
+    "proof": []
   },
   {
     "id": "Catalyst",
@@ -974,6 +960,7 @@
     "window": [],
     "minAscension": 2,
     "ascensionPenalty": false,
-    "spellUpgrade": false
+    "spellUpgrade": false,
+    "proof": []
   }
 ]
