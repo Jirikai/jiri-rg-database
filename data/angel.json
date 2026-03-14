@@ -193,17 +193,17 @@
   },
   {
     "id": "AN11",
-    "name": "Sacred Ground",
+    "name": "Angelic Fortitude",
     "faction": "Angel",
     "tier": 4,
     "cost": "1e80",
-    "effect": "Increase spell duration based on time spent as Order this Reincarnation.",
-    "formula": "(0.5 * x^0.5)%, where x = Order time this Reincarnation",
+    "effect": "Multiplicatively increase Faction Coin find chance based on the sum of all your spells' activity time.",
+    "formula": "(x^0.7)%, where x = sum of all spells' activity time this Reincarnation",
     "effects": [
-      "Spell Duration"
+      "FC Find Chance"
     ],
     "scaling": [
-      "Alignment Time"
+      "Spell Activity Time"
     ],
     "window": [
       "Reincarnation"
@@ -213,21 +213,20 @@
   },
   {
     "id": "AN12",
-    "name": "Divine Providence",
+    "name": "Seraphim Wings",
     "faction": "Angel",
     "tier": 4,
     "cost": "1e95",
-    "effect": "Increase Mana Regeneration multiplicatively based on spells cast this Era.",
-    "formula": "(1.5 * ln(1+x)^2)%, where x = spells cast this Era",
+    "effect": "Multiplicatively increase Maximum Mana, Mana Regeneration, Faction Coin find chance and assistants by 200%.",
+    "formula": "",
     "effects": [
-      "Mana Regeneration"
+      "Max Mana",
+      "Mana Regeneration",
+      "FC Find Chance",
+      "Assistant Amount"
     ],
-    "scaling": [
-      "Spells Cast"
-    ],
-    "window": [
-      "Era"
-    ],
+    "scaling": [],
+    "window": [],
     "minAscension": 2,
     "ascensionPenalty": false
   }
