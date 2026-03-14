@@ -88,6 +88,11 @@ body{display:flex;flex-direction:column}
 .tag{font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap}
 .tag-effect{background:var(--tag-effect-bg);color:var(--tag-effect-text)}
 .tag-scale{background:var(--tag-scale-bg);color:var(--tag-scale-text);border:1px solid var(--border)}
+.tag-clickable{cursor:pointer;transition:opacity .12s,outline .12s}
+.tag-clickable:hover{opacity:.75}
+.tag-clickable.tag-active{outline:2px solid currentColor;outline-offset:1px}
+.faction-badge{cursor:pointer;transition:opacity .12s}
+.faction-badge:hover{opacity:.8}
 .no-results{text-align:center;color:var(--text3);font-size:13px;padding:48px 20px;line-height:1.8}
 .faction-group{margin-bottom:8px}
 .faction-group-lbl{font-size:11px;font-weight:700;color:var(--text3);padding:4px 4px 2px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
@@ -467,11 +472,6 @@ function buildCards(filtered){
     const card=document.createElement('div');card.className='card'+(pinned?' pinned':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
-    const scalingTags=(u.scaling||[]).map((s,i)=>{
-      const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
-      return`<span class="tag tag-scale">&#8627; ${s}${win}</span>`;
-    }).join('');
-    // Icon: use category icon for research, faction icon for upgrades
     const isResearch=!!u.category;
     const rc=isResearch?RESEARCH_COLORS[u.category]:null;
     const badgeBg=rc?rc.bg:c.bg;
@@ -506,12 +506,62 @@ function buildCards(filtered){
       <div class="card-effect">${factionTagsHtml}${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
       <div class="card-bottom-row">
-        <div class="card-tags-wrap">
-          ${(u.effects||[]).map(e=>`<span class="tag tag-effect">${e}</span>`).join('')}
-          ${scalingTags}
-        </div>
+        <div class="card-tags-wrap"></div>
         ${reqHtml}
       </div>`;
+
+    // Faction badge click → filter by faction (or category for research)
+    const badge=card.querySelector('.faction-badge');
+    if(badge){
+      badge.addEventListener('click',e=>{
+        e.stopPropagation();
+        if(isResearch){
+          state.upgradeTypes.has(u.category)?state.upgradeTypes.delete(u.category):state.upgradeTypes.add(u.category);
+        } else {
+          const f=Array.isArray(u.faction)?u.faction[0]:u.faction;
+          state.factions.has(f)?state.factions.delete(f):state.factions.add(f);
+        }
+        render();
+      });
+    }
+
+    // Research faction restriction tags → filter by faction
+    card.querySelectorAll('.card-faction-tag').forEach(el=>{
+      const f=el.textContent.trim();
+      el.classList.add('tag-clickable');
+      el.style.cursor='pointer';
+      el.addEventListener('click',e=>{
+        e.stopPropagation();
+        state.factions.has(f)?state.factions.delete(f):state.factions.add(f);
+        render();
+      });
+    });
+
+    // Effect & scaling tags — build as DOM nodes so we can attach handlers
+    const tagsWrap=card.querySelector('.card-tags-wrap');
+    (u.effects||[]).forEach(eff=>{
+      const t=document.createElement('span');
+      t.className='tag tag-effect tag-clickable'+(state.effects.has(eff)?' tag-active':'');
+      t.textContent=eff;
+      t.addEventListener('click',e=>{
+        e.stopPropagation();
+        state.effects.has(eff)?state.effects.delete(eff):state.effects.add(eff);
+        render();
+      });
+      tagsWrap.appendChild(t);
+    });
+    (u.scaling||[]).forEach((s,i)=>{
+      const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
+      const t=document.createElement('span');
+      t.className='tag tag-scale tag-clickable'+(state.scalings.has(s)?' tag-active':'');
+      t.textContent='\u21b3 '+s+win;
+      t.addEventListener('click',e=>{
+        e.stopPropagation();
+        state.scalings.has(s)?state.scalings.delete(s):state.scalings.add(s);
+        render();
+      });
+      tagsWrap.appendChild(t);
+    });
     el.appendChild(card);
   });
 }
