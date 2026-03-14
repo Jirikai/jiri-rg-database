@@ -63,7 +63,7 @@
       "All Buildings"
     ],
     "scaling": [
-      "Mana Produced"
+      "Mana Regeneration"
     ],
     "window": [
       "Era"
@@ -79,7 +79,7 @@
     "formula": "Assistants: (0.4 * x^0.6)%; Spells: (0.2 * x^0.6)%; x = offline time this Reincarnation",
     "effects": [
       "Assistant Amount",
-      "Spells Cast"
+      "Misc"
     ],
     "scaling": [
       "Offline Time"
@@ -100,7 +100,7 @@
       "Gems Bonus"
     ],
     "scaling": [
-      "Spell Duration"
+      "Spell Activity Time"
     ],
     "window": []
   },
@@ -153,7 +153,7 @@
       "Assistant Amount"
     ],
     "scaling": [
-      "Mana Produced"
+      "Mana Regeneration"
     ],
     "window": [
       "Reincarnation"

@@ -1,0 +1,623 @@
+[
+  {
+    "id": "A1",
+    "name": "Plague",
+    "faction": [
+      "Undead"
+    ],
+    "category": "Alchemy",
+    "cost": "7.5e125",
+    "requirement": "None",
+    "effect": "Increase the production of Undercities based on assistants owned.",
+    "formula": "(200 * x^0.9)%, where x = assistants owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A10",
+    "name": "Transmutation",
+    "faction": [
+      "Goblin"
+    ],
+    "category": "Alchemy",
+    "cost": "2.883e127",
+    "requirement": "2,250 Goblin Banks",
+    "effect": "Increase production of all other buildings by 90% per Goblin Bank built.",
+    "formula": "\u00d790% per Goblin Bank built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A25",
+    "name": "Deflagration",
+    "faction": [
+      "Demon"
+    ],
+    "category": "Alchemy",
+    "cost": "1.263e130",
+    "requirement": "6,666 seconds Hellfire Blast activity time (This R)",
+    "effect": "Fix Hellfire Blast duration to 4 seconds, reduce its mana cost by 400, and increase its bonus by 1,600%.",
+    "formula": "",
+    "effects": [
+      "Spell Duration",
+      "Spell Cost Reduction"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "A30",
+    "name": "Delayed Reaction",
+    "faction": [
+      "Fairy"
+    ],
+    "category": "Alchemy",
+    "cost": "9.588e130",
+    "requirement": "5,000 seconds Fairy Chanting activity time (This R)",
+    "effect": "Increase Fairy Chanting duration based on Enchanted Fields, Inns and Blacksmiths built. Also provides a progressively increasing production bonus while active.",
+    "formula": "Duration: +(0.2 * x^0.8) seconds; Prod: floor(1000 * t^1.5)%; x = Farms+Inns+Blacksmiths, t = FC active time",
+    "effects": [
+      "Spell Duration",
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A50",
+    "name": "Gilding",
+    "faction": [
+      "Angel"
+    ],
+    "category": "Alchemy",
+    "cost": "3.188e134",
+    "requirement": "120 Mana/s as Undead",
+    "effect": "While Mana Regeneration exceeds Maximum Mana, increase production of Heaven's Domains based on Mana Regen and Max Mana.",
+    "formula": "(90 * (x/y)^0.9)%, where x = Mana Regen, y = Max Mana",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Regeneration",
+      "Max Mana"
+    ],
+    "window": []
+  },
+  {
+    "id": "A55",
+    "name": "Refraction",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "2.421e135",
+    "requirement": "25,000 spells cast (This Game)",
+    "effect": "Improve offline production based on total spells cast.",
+    "formula": "round(5 * x^0.85)%, where x = spells cast (Total)",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": []
+  },
+  {
+    "id": "A105",
+    "name": "Fusion",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "1.544e144",
+    "requirement": "2,750 Blacksmiths",
+    "effect": "Increase production of all buildings based on Faction Coins found this game.",
+    "formula": "round(0.7 * ln(1+x)^3)%, where x = FC found this game",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A120",
+    "name": "Vivification",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "6.76e146",
+    "requirement": "6,500 Max Mana",
+    "effect": "Gain assistants based on Maximum Mana.",
+    "formula": "+(x^0.5), where x = Maximum Mana",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": []
+  },
+  {
+    "id": "A135",
+    "name": "Decay",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "2.96e149",
+    "requirement": "1 hour time spent (This Reincarnation) \u2014 unlock as Undead",
+    "effect": "Increase production of all buildings based on time spent this Reincarnation.",
+    "formula": "(0.3 * x^0.7)%, where x = time this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "A150",
+    "name": "Synthesis",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "1.296e152",
+    "requirement": "Research Explosives (A270) & Delayed Reaction (A30)",
+    "effect": "Increase duration of all spells based on Faction Coins found this Era.",
+    "formula": "(1.5 * ln(1+x)^1.5)%, where x = FC found this Era",
+    "effects": [
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A175",
+    "name": "Soulweaving",
+    "faction": [
+      "Undead"
+    ],
+    "category": "Alchemy",
+    "cost": "3.273e156",
+    "requirement": "Research Cursing (D25) & Reinforcing (C135)",
+    "effect": "Increase production of all buildings based on Reincarnations made.",
+    "formula": "round(2.5 * x^2.25)%, where x = Reincarnations made",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "A200",
+    "name": "Corrosion",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "8.265e160",
+    "requirement": "Research Plague (A1) & Decay (A135)",
+    "effect": "Increase clicking reward based on time spent this Era.",
+    "formula": "(3 * x^0.7)%, where x = time this Era",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A250",
+    "name": "Philosopher's Stone",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "5.27e169",
+    "requirement": "Research Transmutation (A10) & Empowered Luck (S175)",
+    "effect": "Increase production bonus from Gems based on Research Points.",
+    "formula": "floor(x^0.9 / 25)%, where x = Research Points",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "A251",
+    "name": "Infusion",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Alchemy",
+    "cost": "7.905e169",
+    "requirement": "Secrets of the Ancients as Druid",
+    "effect": "Increase production of Stonehenge Circles based on Mana produced this game.",
+    "formula": "round(0.75 * x^0.6)%, where x = Mana produced this game",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A270",
+    "name": "Explosives",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "1.752e173",
+    "requirement": "Research Deflagration (A25) & Delayed Reaction (A30)",
+    "effect": "When you cast a spell, increase production of your most productive building based on mana produced this game for 20 seconds.",
+    "formula": "round(0.7 * x^0.6)%, where x = Mana Produced (Total)",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A300",
+    "name": "Creeping",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Alchemy",
+    "cost": "3.36e178",
+    "requirement": "5M mana produced (This Game) as Druid",
+    "effect": "Increase Mana Regeneration based on mana produced this game.",
+    "formula": "floor(30 * ln(1+x)^1.2) / 10, where x = Mana Produced (This Game)",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A305",
+    "name": "Engraving",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "2.552e179",
+    "requirement": "2 days as Druids (All Time)",
+    "effect": "Increase FC find chance based on spells cast this game. Also increase FC chance by 100% multiplicatively.",
+    "formula": "floor(3.5 * ln(1+x)^3.5)%, where x = spells cast this game",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A330",
+    "name": "Adaptation",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "6.443e183",
+    "requirement": "Research Mutation (D260) & Meditation (D275)",
+    "effect": "Increase production of all buildings based on time spent as other factions.",
+    "formula": "(0.05 * (x - y)^0.7)%, where x = All Time playtime, y = highest All Time faction time",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "All Time"
+    ]
+  },
+  {
+    "id": "A375",
+    "name": "Transfusion",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Alchemy",
+    "cost": "5.41e191",
+    "requirement": "Research Infusion (A251) & Engraving (A305)",
+    "effect": "Gain assistants based on mana produced this game.",
+    "formula": "floor(4.5 * ln(1+x)), where x = Mana Produced (This Game)",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A400",
+    "name": "Bloodspring",
+    "faction": [
+      "Fairy",
+      "Elven",
+      "Angel",
+      "Goblin",
+      "Undead",
+      "Demon",
+      "Titan",
+      "Druid",
+      "Faceless",
+      "Dwarven",
+      "Drow",
+      "Dragon",
+      "Archon",
+      "Djinn",
+      "Makers"
+    ],
+    "category": "Alchemy",
+    "cost": "1.366e196",
+    "requirement": "Research Assimilation (S251) & Transfusion (A375)",
+    "effect": "Get your faction's Bloodline effect for free. Bloodstream counts time spent with both factions.",
+    "formula": "",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "A410",
+    "name": "Poisons",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Alchemy",
+    "cost": "7.877e197",
+    "requirement": "4,000 Spider Sanctuaries",
+    "effect": "Increase production of all other buildings by 95% per Spider Sanctuary owned.",
+    "formula": "\u00d795% per Spider Sanctuary owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A480",
+    "name": "Waste",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "1.67e210",
+    "requirement": "2,000 Royal Exchanges",
+    "effect": "Increase offline production based on Royal Exchanges purchased.",
+    "formula": "120 * x^0.85, where x = Royal Exchanges made",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": []
+  },
+  {
+    "id": "A495",
+    "name": "Elixirs",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Alchemy",
+    "cost": "7.314e212",
+    "requirement": "500 Base Assistants as Drow",
+    "effect": "Increase assistant production based on Research Points.",
+    "formula": "(40 * x^0.4)%, where x = Researches made",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "A545",
+    "name": "Mineralogy",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "4.663e221",
+    "requirement": "700 Trophies",
+    "effect": "Increase Mana Regeneration based on Gems owned.",
+    "formula": "(log10(x) / 2), where x = Gems owned",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": []
+  },
+  {
+    "id": "A590",
+    "name": "Hexing",
+    "faction": [
+      "Undead",
+      "Drow"
+    ],
+    "category": "Alchemy",
+    "cost": "3.916e229",
+    "requirement": "200 Drow Exchanges as Drodead, Research Cursing (D25) & Poisons (A410)",
+    "effect": "Increase production of all buildings based on mana produced and percentage of offline time this game.",
+    "formula": "(0.045 * x^0.45 * p)%, where x = Mana Produced (This Game), p = % offline time",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana Produced",
+      "Offline Time"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A1200",
+    "name": "Melting",
+    "faction": [
+      "Titan",
+      "Druid",
+      "Faceless",
+      "Dragon"
+    ],
+    "category": "Alchemy",
+    "cost": "5.195e66",
+    "requirement": "5,000 Iron Strongholds, any Neutral or Dragon",
+    "effect": "Increase production of all other buildings per Iron Stronghold owned by 0.35%.",
+    "formula": "(0.35 * x)%, where x = Iron Strongholds owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A1325",
+    "name": "Calefaction",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "1.449e74",
+    "requirement": "4,500 Excavations (This R)",
+    "effect": "Increase Mana Regeneration based on excavations made.",
+    "formula": "floor(0.02 * x), where x = current excavations",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": []
+  },
+  {
+    "id": "A1500",
+    "name": "Sublimation",
+    "faction": [
+      "Druid",
+      "Dragon"
+    ],
+    "category": "Alchemy",
+    "cost": "3.843e84",
+    "requirement": "6 hours Grand Balance activity time (This Game), Research D590 & A1325, as Druid or Dragon",
+    "effect": "Increase FC find chance based on Unique Buildings owned. Also increase FC chance by 250% multiplicatively.",
+    "formula": "(40 * x * 0.8), where x = Unique Buildings owned",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "A2950",
+    "name": "Combination",
+    "faction": [
+      "Mercenary"
+    ],
+    "category": "Alchemy",
+    "cost": "2.59e173",
+    "requirement": "All Lineages at Level 15",
+    "effect": "Select an additional bloodline and gain the base effect of its Lineage. Combination Bloodline effects R60/R115 power.",
+    "formula": "",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "A3400",
+    "name": "Chemistry",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "5.69e197",
+    "requirement": "1e30 FC found (This Game), Research Customizing (C3000) & Manipulation (S3200)",
+    "effect": "Increase FC find chance based on total Lineage levels. Also increase FC chance by 300% multiplicatively.",
+    "formula": "3 * x^2.25, where x = total Lineage levels",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Lineage Level"
+    ],
+    "window": []
+  }
+]

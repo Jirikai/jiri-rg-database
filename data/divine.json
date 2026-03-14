@@ -1,0 +1,606 @@
+[
+  {
+    "id": "D1",
+    "name": "Blessing",
+    "faction": [
+      "Angel"
+    ],
+    "category": "Divine",
+    "cost": "7.5e125",
+    "requirement": "None",
+    "effect": "Increase the production of Heaven's Gates based on time spent with at least one active spell this Reincarnation.",
+    "formula": "(80 + 8 * x^0.8)%, where x = time with active spell this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "D10",
+    "name": "Inflame",
+    "faction": [
+      "Demon"
+    ],
+    "category": "Divine",
+    "cost": "2.883e127",
+    "requirement": "2,000 Infernal Realms",
+    "effect": "Increase the production of all other buildings by 160% per Infernal Realm built this Era.",
+    "formula": "\u00d7160% per Infernal Realm built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D25",
+    "name": "Cursing",
+    "faction": [
+      "Undead"
+    ],
+    "category": "Divine",
+    "cost": "1.263e130",
+    "requirement": "1 hour offline (This Reincarnation)",
+    "effect": "Increase production of all buildings based on offline production bonus.",
+    "formula": "(ln(1+x)^2.5)%, where x = offline production bonus multiplier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": []
+  },
+  {
+    "id": "D50",
+    "name": "Hallowing",
+    "faction": [
+      "Elven"
+    ],
+    "category": "Divine",
+    "cost": "3.188e134",
+    "requirement": "15,000 Good Buildings as Angel",
+    "effect": "Increase FC find chance based on Training Grounds built.",
+    "formula": "+(2 * x^1.5), where x = Training Grounds built",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D55",
+    "name": "Transfixion",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "2.421e135",
+    "requirement": "3e6 Mana produced (This Game)",
+    "effect": "Increase clicking reward based on spells cast this game.",
+    "formula": "(3 * x^0.7)%, where x = spells cast this game",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D135",
+    "name": "Illumination",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "2.96e149",
+    "requirement": "250 Mana/s as Angel",
+    "effect": "Increase Mana Regeneration based on Gems owned.",
+    "formula": "+(5 + 0.05 * ln(1+x)^1.5), where x = Gems owned",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": []
+  },
+  {
+    "id": "D150",
+    "name": "Retribution",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.296e152",
+    "requirement": "Research Betrayal (W120) & Transfixion (D55)",
+    "effect": "Increase FC find chance additively based on Research Points and multiplicatively by 50%.",
+    "formula": "+(5 * x^0.75), where x = Research Points",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "D175",
+    "name": "Resurrection",
+    "faction": [
+      "Angel"
+    ],
+    "category": "Divine",
+    "cost": "3.273e156",
+    "requirement": "Research Blessing (D1) & Refraction (A55)",
+    "effect": "Gain assistants based on God's Hand activity time this Reincarnation.",
+    "formula": "+(2.5 * x^0.75), where x = God's Hand activity time this Reincarnation",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "D200",
+    "name": "Transcendence",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "8.265e160",
+    "requirement": "Research Resurrection (D175) & Illumination (D135)",
+    "effect": "Decrease cost of all spells by 20% and increase their duration by 20%.",
+    "formula": "",
+    "effects": [
+      "Spell Cost Reduction",
+      "Spell Duration"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "D205",
+    "name": "Communion",
+    "faction": [
+      "Fairy",
+      "Elven",
+      "Angel"
+    ],
+    "category": "Divine",
+    "cost": "6.276e161",
+    "requirement": "333 Holy Lights (Total this R), Research Gemcutting (C175) & Illumination (D135)",
+    "effect": "Increase Holy Light duration based on time spent this Era. Also multiplicatively increase autoclick power by 10%.",
+    "formula": "+(2 * x^0.7), where x = time this Era",
+    "effects": [
+      "Spell Duration",
+      "Autoclick"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D225",
+    "name": "Weather Control",
+    "faction": [
+      "Fairy"
+    ],
+    "category": "Divine",
+    "cost": "2.087e165",
+    "requirement": "Research Light Condenser (C25) & Vacuumancy (S30)",
+    "effect": "Increase the production of Enchanted Fields based on Maximum Mana.",
+    "formula": "(2.5 * x^0.8)%, where x = Maximum Mana",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": []
+  },
+  {
+    "id": "D245",
+    "name": "Sanctification",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "6.94e168",
+    "requirement": "3 hours Spiritual Surge activity time (This R), Research Soulweaving (A175) & Necromancy (S225)",
+    "effect": "Increase the production of Unique Buildings based on Non-Unique Buildings owned.",
+    "formula": "(2.5 * x^0.55)%, where x = Non-Unique Buildings owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D250",
+    "name": "Demonology",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "5.27e169",
+    "requirement": "Research Transcendence (D200) & Pyromancy (S150)",
+    "effect": "Gain assistants based on Faction Coins found this game.",
+    "formula": "floor(ln(1+x)^1.5), where x = FC found this game",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D260",
+    "name": "Mutation",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Divine",
+    "cost": "3.039e171",
+    "requirement": "3,000 Sunken Cities",
+    "effect": "Increase the production of all other buildings by 95% per Sunken City owned.",
+    "formula": "\u00d795% per Sunken City owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D275",
+    "name": "Meditation",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Divine",
+    "cost": "1.331e174",
+    "requirement": "10,000 Mana as Druid",
+    "effect": "Increase Mana Regeneration based on current Mana. Also increases offline spell cast amount multiplicatively by 300%.",
+    "formula": "(0.35 * x^0.35 + 0.035 * log(x)^3.5), where x = Max Mana",
+    "effects": [
+      "Mana Regeneration",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": []
+  },
+  {
+    "id": "D290",
+    "name": "Transubstantiation",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "5.827e176",
+    "requirement": "1 Rough Stone Artifact",
+    "effect": "Each artifact found increases Maximum Mana additively and multiplicatively.",
+    "formula": "Additive: +(50 * x^1.1); Mult: (x^0.95)%; x = artifacts found",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": []
+  },
+  {
+    "id": "D320",
+    "name": "Deliverance",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.117e180",
+    "requirement": "350 Mana/s",
+    "effect": "Increase assistant production based on Mana Regeneration.",
+    "formula": "(20 * x^0.8)%, where x = Mana Regeneration",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": []
+  },
+  {
+    "id": "D330",
+    "name": "Eternity",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "6.443e183",
+    "requirement": "Research Offering (E275) & Deliverance (D320)",
+    "effect": "Double the duration of all faction spells.",
+    "formula": "",
+    "effects": [
+      "Spell Duration"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "D350",
+    "name": "Descent",
+    "faction": [
+      "Titan"
+    ],
+    "category": "Divine",
+    "cost": "2.142e187",
+    "requirement": "Research Swarming (W250) & Heroism (W330)",
+    "effect": "Gain assistants based on Olympian Halls owned.",
+    "formula": "floor(x^0.5), where x = Olympian Halls owned",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D400",
+    "name": "Miracle",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.366e196",
+    "requirement": "Research Communion (D205) & Transubstantiation (D290)",
+    "effect": "Increase production of a random building by \u00d7250. Target changes every 2 minutes. Offline: all buildings \u00d775.",
+    "formula": "",
+    "effects": [
+      "All Buildings",
+      "Offline Production"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "D435",
+    "name": "Devotion",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Divine",
+    "cost": "1.989e202",
+    "requirement": "4 hours Diamond Pickaxe activity time (This Game)",
+    "effect": "Increase production of Good buildings based on spells cast this game.",
+    "formula": "(1.5 * x^0.85)%, where x = spells cast this game",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D480",
+    "name": "Mercy",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.67e210",
+    "requirement": "12h as each Good, Evil and Neutral alignment (This R)",
+    "effect": "Increase production of all buildings based on the difference in time between alignments. Smaller difference = higher bonus.",
+    "formula": "(100000 * (tmin/tmax)^1.5)%, where tmin/tmax are shortest/longest alignment times",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "D525",
+    "name": "Purity",
+    "faction": [
+      "Fairy",
+      "Elven",
+      "Angel"
+    ],
+    "category": "Divine",
+    "cost": "1.402e218",
+    "requirement": "1d12h as Good (This R), Research Communion (D205) & Devotion (D435)",
+    "effect": "Increase Holy Light multiplier based on faction spells cast this game.",
+    "formula": "(300 * x^0.3)%, where x = faction spells cast this game",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D560",
+    "name": "Ritualism",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Divine",
+    "cost": "2.042e224",
+    "requirement": "Research Necromancy (S225) & Heirlooms (S500) as Drow",
+    "effect": "Increase Mana Regeneration based on trophies unlocked.",
+    "formula": "(floor(0.6 * x) / 10), where x = trophies unlocked",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": []
+  },
+  {
+    "id": "D590",
+    "name": "Dispelling",
+    "faction": [
+      "Angel",
+      "Dwarven"
+    ],
+    "category": "Divine",
+    "cost": "3.916e229",
+    "requirement": "200 Dwarf Exchanges as Dwangel, Research Shattering (W320) & Waste (A480)",
+    "effect": "Increase the production of Unique Buildings based on Mana Regeneration.",
+    "formula": "(5 * x^0.95)%, where x = Mana Regeneration",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": []
+  },
+  {
+    "id": "D1125",
+    "name": "Oblation",
+    "faction": [
+      "Titan",
+      "Druid",
+      "Faceless",
+      "Dragon"
+    ],
+    "category": "Divine",
+    "cost": "1.772e62",
+    "requirement": "Any Neutral, build Dragon's Unique Building",
+    "effect": "Increase the production of Wyrm's Den based on FC find chance.",
+    "formula": "(1.55 * x^0.55)%, where x = FC find chance",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": []
+  },
+  {
+    "id": "D1275",
+    "name": "Solemnity",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.524e71",
+    "requirement": "80,000 Total Buildings",
+    "effect": "Increase production of each building by +0.3% per building of the same type.",
+    "formula": "+(0.3 * x)%, where x = buildings of same type",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "D1375",
+    "name": "Soulrending",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.378e77",
+    "requirement": "7 days as Good (All Time)",
+    "effect": "Ascensions count 50% more for Spiritual Surge.",
+    "formula": "",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "D2775",
+    "name": "Intervention",
+    "faction": [
+      "Mercenary"
+    ],
+    "category": "Divine",
+    "cost": "3.373e160",
+    "requirement": "Secrets of the Warriors",
+    "effect": "Increase production of Unique Buildings based on time spent with Mercenaries (All Time).",
+    "formula": "(10 * x^0.7)%, where x = Mercenary time (All Time)",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "All Time"
+    ]
+  },
+  {
+    "id": "D3350",
+    "name": "Vampirism",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "5.983e194",
+    "requirement": "1e26% offline bonus, Research Intervention (D2775) & Upheaval (W3150)",
+    "effect": "Increase assistants additively and multiplicatively based on Offline Bonus.",
+    "formula": "Additive: +(3.25 * log10(1+x)^2.25); Mult: (0.05 * log10(1+x)^2)%; x = Offline Bonus",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": []
+  }
+]

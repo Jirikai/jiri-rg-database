@@ -225,16 +225,18 @@ const RESEARCH_COLORS={
 const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
-  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking Reward','Click Count','Gems Bonus','Building Cost Reduction','Royal Exchange Cost Reduction','Assistant Amount','Assistant Production','Offline Production']},
-  'Mana & Spells':{open:true,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection']},
-  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production']},
+  'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction']},
+  'Clicking & Assistants':{open:true,items:['Clicking Reward','Autoclick','Click Count','Assistant Amount','Assistant Production']},
+  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts']},
+  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction']},
+  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Misc']},
 };
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
   'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time']},
   'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
-  'Misc':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations']},
+  'Misc':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Tax Collection']},
 };
 
 let UPGRADES=[];
@@ -246,7 +248,7 @@ const FACTION_FILES=[
   'fairy','elven','angel','goblin','undead','demon',
   'titan','druid','faceless','dwarven','drow','dragon',
   'mercenary','archon','djinn','makers',
-  'spellcraft'
+  'spellcraft','craftsmanship','divine','economics','alchemy','warfare'
 ];
 Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
   .then(arrays=>{UPGRADES=arrays.flat();render();})

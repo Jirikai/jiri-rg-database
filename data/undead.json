@@ -116,8 +116,7 @@
     "effect": "Buildings and spell activity times count 75% more.",
     "formula": "",
     "effects": [
-      "All Buildings",
-      "Spell Activity Time"
+      "Misc"
     ],
     "scaling": [],
     "window": []
@@ -206,7 +205,7 @@
       "Offline Production"
     ],
     "scaling": [
-      "Spell Duration"
+      "Spell Activity Time"
     ],
     "window": []
   }
