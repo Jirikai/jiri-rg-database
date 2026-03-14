@@ -25,7 +25,7 @@
     "effect": "50% of your total building production is added to base clicking reward.",
     "formula": "",
     "effects": [
-      "Building → Click Conversion"
+      "Building \u2192 Click Conversion"
     ],
     "scaling": [
       "Buildings Owned"
@@ -174,7 +174,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -209,7 +211,8 @@
     "formula": "(2 * ln(1+x)^2)%, where x = assistants owned",
     "effects": [
       "Assistant Production",
-      "Click Count"
+      "Click Count",
+      "Assistant Count"
     ],
     "scaling": [
       "Assistants Owned"

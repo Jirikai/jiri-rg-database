@@ -89,7 +89,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -227,7 +229,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": true
   }

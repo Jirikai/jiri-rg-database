@@ -77,6 +77,7 @@ body{display:flex;flex-direction:column}
 .pin-chip:hover{opacity:.75}
 .cards{flex:1;overflow-y:auto;padding:10px 14px;display:flex;flex-direction:column;gap:8px;min-height:0}
 .card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:13px 16px;cursor:pointer;transition:border-color .12s;flex-shrink:0}
+.card.spell-upgrade-card{background:var(--bg2);margin-left:16px;border-left:2px solid #7a6aaa33}
 .card:hover{border-color:var(--border2)}
 .card.pinned{border-left-width:3px}
 .card-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -88,6 +89,8 @@ body{display:flex;flex-direction:column}
 .card-meta{display:none}
 .card-cost{font-size:11px;color:var(--text3);margin-left:auto;white-space:nowrap;flex-shrink:0}
 .card-cat{font-size:10px;color:var(--text3)}
+.spell-upgrade-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+.spell-upgrade-card{background:var(--bg2);margin-left:16px;border-left:2px solid var(--border2)}
 .faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
 .faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -100,7 +103,7 @@ body{display:flex;flex-direction:column}
 .req-short{display:none}
 @media(max-width:640px){.req-full{display:none}.req-short{display:inline}}
 .req-label{font-weight:600}
-.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
+.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px;white-space:pre-line}
 .card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
 .tag{font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap}
@@ -115,6 +118,8 @@ body{display:flex;flex-direction:column}
 .faction-group{margin-bottom:8px}
 .faction-group-lbl{font-size:11px;font-weight:700;color:var(--text3);padding:4px 4px 2px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
 .faction-btn{display:flex;align-items:center;gap:10px;width:100%;padding:5px 8px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:14px;color:var(--text);text-align:left}
+.faction-btn.sub-btn{margin-left:14px;width:calc(100% - 14px);font-size:13px;background:var(--bg2)}
+.faction-btn.sub-btn:hover{background:var(--bg3)}
 .faction-btn:hover{background:var(--bg2)}
 .faction-btn.active{background:var(--bg3);font-weight:600}
 .faction-btn-icon{width:28px;height:28px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
@@ -384,6 +389,12 @@ const ICONS={
   Archon:'RG icons/ArchonTradeTreaty.png',
   Djinn:'RG icons/DjinnTradeTreaty.png',
   Makers:'RG icons/MakersTradeTreaty.png',
+  'FactionUpgrades':'RG icons/MercenaryFirstContract.png',
+  'Spells:All':'RG icons/FullWishChallengeReward.png',
+  'Spells:Faction':'RG icons/ElvenTradeTreaty.png',
+  'Spells:Common':'RG icons/CoinPillageSpellUpgrade.png',
+  'Spells:Alignment':'RG icons/TemporalFluxTier2.png',
+  'Research:All':'RG icons/Alchemy.png',
 };
 const FC={
   Fairy:{bg:'#e8609a',text:'#fff'},Elven:{bg:'#5aad4e',text:'#fff'},Angel:{bg:'#7ecfea',text:'#1a4a55'},
@@ -392,6 +403,14 @@ const FC={
   Dwarven:{bg:'#2a5faa',text:'#fff'},Drow:{bg:'#a0256a',text:'#fff'},Dragon:{bg:'#2d6e2d',text:'#fff'},
   Mercenary:{bg:'#2e2e2e',text:'#eee'},Archon:{bg:'#5b9bd5',text:'#fff'},Djinn:{bg:'#a67fc4',text:'#fff'},
   Makers:{bg:'#b0b8c8',text:'#2a2a3a'},
+};
+const PROOF_FACTIONS={
+  Good:    ['Fairy','Elven','Angel','Dwarven','Mercenary','Archon','Djinn','Makers'],
+  Evil:    ['Goblin','Undead','Demon','Drow','Mercenary','Archon','Djinn','Makers'],
+  Neutral: ['Titan','Druid','Faceless','Dragon','Mercenary','Archon','Djinn','Makers'],
+  Order:   ['Angel','Undead','Titan','Dwarven','Drow','Dragon','Mercenary','Archon'],
+  Chaos:   ['Fairy','Demon','Faceless','Dwarven','Drow','Dragon','Mercenary','Djinn'],
+  Balance: ['Elven','Goblin','Druid','Dwarven','Drow','Dragon','Mercenary','Makers'],
 };
 const RESEARCH_COLORS={
   Spells:{bg:'#7a6aaa',text:'#fff'},
@@ -402,28 +421,22 @@ const RESEARCH_COLORS={
   Alchemy:{bg:'#4a4a8a',text:'#fff'},
   Warfare:{bg:'#c93022',text:'#fff'},
 };
-const SPELL_COLORS={
-  'Tax-Collection':     {bg:'#e8d88a',text:'#5a4a00'},
-  'Coin-Pillage':       {bg:'#e8d88a',text:'#5a4a00'},
-  'Call-to-Arms':       {bg:'#8a9aaa',text:'#fff'},
-  'Spiritual-Surge':    {bg:'#c8962a',text:'#fff'},
-  'Holy-Light':         {bg:'#7eaadc',text:'#fff'},
-  'God\'s-Rest':        {bg:'#7eaadc',text:'#fff'},
-  'Blood-Frenzy':       {bg:'#c93022',text:'#fff'},
-  'Gem-Grinder':        {bg:'#9b85c4',text:'#fff'},
-  'Temporal-Flux':      {bg:'#5b9bd5',text:'#fff'},
-  'Maelstrom':          {bg:'#a67fc4',text:'#fff'},
-  'All-Creation':       {bg:'#b0b8c8',text:'#2a2a3a'},
-  'Share-Benefits':     {bg:'#2e2e2e',text:'#eee'},
-  'Reap-Interests':     {bg:'#2e2e2e',text:'#eee'},
-  'Appraisal-Vantage':  {bg:'#2e2e2e',text:'#eee'},
-  'Precognition':       {bg:'#5b9bd5',text:'#fff'},
-  'Chrono-Loading':     {bg:'#5b9bd5',text:'#fff'},
-  'Limited-Wish':       {bg:'#a67fc4',text:'#fff'},
-  'Persistent-Entropy': {bg:'#a67fc4',text:'#fff'},
-  'Infinite-Spiral':    {bg:'#b0b8c8',text:'#2a2a3a'},
-  'Reality-Crater':     {bg:'#b0b8c8',text:'#2a2a3a'},
-  'Catalyst':           {bg:'#a67fc4',text:'#fff'},
+const SPELL_PARENT_MAP={
+  'Coin-Pillage':'Tax-Collection',
+  'Fairy-Choir':'Fairy-Chanting',
+  'Sun-Blessing':'Moon-Blessing',
+  'God\'s-Rest':'God\'s-Hand',
+  'Greed-Drive':'Goblin\'s-Greed',
+  'True-Night':'Night-Time',
+  'Hell-Rush':'Hellfire-Blast',
+  'Perfect-Combo':'Combo-Strike',
+  'Lightning-Storm':'Lightning-Strike',
+  'Faceless-Overmind':'Brainwave',
+  'Halls-of-Balance':'Grand-Balance',
+  'Dragon\'s-Roar':'Dragon\'s-Breath',
+  'Chrono-Loading':'Precognition',
+  'Persistent-Entropy':'Limited-Wish',
+  'Reality-Crater':'Infinite-Spiral',
 };
 const SPELL_ICONS={
   'Tax-Collection':     'RG icons/CoinPillageSpellUpgrade.png',
@@ -472,11 +485,11 @@ const SPELL_ICONS={
 const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
-  'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction']},
-  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production']},
-  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts']},
-  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction']},
-  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Misc']},
+  'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction','Building Count']},
+  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production','Assistant Count']},
+  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts','Spell Cast Count']},
+  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction','Royal Exchange Count']},
+  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Reincarnation Count','Research Points Count','Misc']},
 };
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
@@ -565,45 +578,119 @@ function toggleLeftSection(key){
 function buildTypeList(){
   const el=document.getElementById('type-list');el.innerHTML='';
 
-  // Faction Upgrades entry
-  const fuActive=state.upgradeTypes.has('Faction Upgrades');
-  const fu=document.createElement('button');
-  fu.className='faction-btn'+(fuActive?' active':'');
-  fu.innerHTML=`<span class="faction-dot" style="background:#888"></span><span>Faction Upgrades</span>`;
-  fu.onclick=()=>{fuActive?state.upgradeTypes.delete('Faction Upgrades'):state.upgradeTypes.add('Faction Upgrades');render();};
-  el.appendChild(fu);
+  const SPELL_SUBS=['Spells:Faction','Spells:Common','Spells:Alignment'];
+  const RESEARCH_SUBS=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 
-  // Spells entry
-  const spActive=state.upgradeTypes.has('Spells');
-  const sprc=RESEARCH_COLORS['Spells'];
-  const sp=document.createElement('button');
-  sp.className='faction-btn'+(spActive?' active':'');
-  sp.innerHTML=`<span class="faction-dot" style="background:${sprc.bg}"></span><span>Spells</span>`;
-  sp.onclick=()=>{spActive?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');render();};
-  el.appendChild(sp);
+  function makeBtn(key,label,iconKey,color,onclick){
+    const active=state.upgradeTypes.has(key);
+    const b=document.createElement('button');
+    b.className='faction-btn'+(active?' active':'');
+    const icon=ICONS[iconKey];
+    const iconPart=icon
+      ?`<img src="${icon}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\'faction-dot\' style=\'background:${color}\'></span>'">`
+      :`<span class="faction-dot" style="background:${color}"></span>`;
+    b.innerHTML=`${iconPart}<span>${label}</span>`;
+    b.onclick=onclick||(()=>{state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);render();});
+    return b;
+  }
+
+  function spellClick(key,shift){
+    if(key==='Spells'){
+      // All: always exclusive — clear subs, toggle All
+      SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+      state.upgradeTypes.has('Spells')?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');
+    } else {
+      // Always deselect All when picking a sub
+      state.upgradeTypes.delete('Spells');
+      if(shift){
+        // Shift = exclusive: clear others, select only this
+        const wasActive=state.upgradeTypes.has(key);
+        SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+        if(!wasActive)state.upgradeTypes.add(key);
+      } else {
+        // Normal = additive toggle
+        state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);
+        // If all 3 subs selected, collapse to All
+        if(SPELL_SUBS.every(s=>state.upgradeTypes.has(s))){
+          SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+          state.upgradeTypes.add('Spells');
+        }
+      }
+    }
+    render();
+  }
+
+  function researchClick(key,shift){
+    if(key==='Research:All'){
+      // All: always exclusive — clear subs, toggle All
+      RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+      state.upgradeTypes.has('Research:All')?state.upgradeTypes.delete('Research:All'):state.upgradeTypes.add('Research:All');
+    } else {
+      // Always deselect All when picking a sub
+      state.upgradeTypes.delete('Research:All');
+      if(shift){
+        // Shift = exclusive: clear others, select only this
+        const wasActive=state.upgradeTypes.has(key);
+        RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+        if(!wasActive)state.upgradeTypes.add(key);
+      } else {
+        // Normal = additive toggle
+        state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);
+        if(RESEARCH_SUBS.every(s=>state.upgradeTypes.has(s))){
+          RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+          state.upgradeTypes.add('Research:All');
+        }
+      }
+    }
+    render();
+  }
+
+  // Faction Upgrades
+  el.appendChild(makeBtn('Faction Upgrades','Faction Upgrades','FactionUpgrades','#888'));
+
+  // Spells collapsible group
+  const spellsGroup=document.createElement('div');spellsGroup.className='faction-group';
+  const spellsOpen=state._spellsOpen!==false;
+  const spellsAnyActive=['Spells',...SPELL_SUBS].some(t=>state.upgradeTypes.has(t));
+  const spellsLbl=document.createElement('div');spellsLbl.className='faction-group-lbl';
+  spellsLbl.style.cursor='pointer';
+  spellsLbl.innerHTML=`<span style="color:${spellsAnyActive?'var(--accent)':'inherit'}">Spells</span><span class="arrow${spellsOpen?' open':''}" style="float:right">&#9654;</span>`;
+  spellsLbl.onclick=()=>{state._spellsOpen=!spellsOpen;render();};
+  spellsGroup.appendChild(spellsLbl);
+  if(spellsOpen){
+    [
+      ['Spells',          'All',       'Spells:All',       '#7a6aaa', false],
+      ['Spells:Faction',  'Faction',   'Spells:Faction',   '#7a6aaa', true],
+      ['Spells:Common',   'Common',    'Spells:Common',    '#9a9a9a', true],
+      ['Spells:Alignment','Alignment', 'Spells:Alignment', '#5b9bd5', true],
+    ].forEach(([key,label,iconKey,color,sub])=>{
+      const b=makeBtn(key,label,iconKey,color,()=>{});
+      if(sub)b.classList.add('sub-btn');
+      b.onclick=(e)=>spellClick(key,e.shiftKey);
+      spellsGroup.appendChild(b);
+    });
+  }
+  el.appendChild(spellsGroup);
 
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
   const researchOpen=state._researchOpen!==false;
+  const researchAnyActive=['Research:All',...RESEARCH_SUBS].some(t=>state.upgradeTypes.has(t));
   const researchLbl=document.createElement('div');researchLbl.className='faction-group-lbl';
   researchLbl.style.cursor='pointer';
-  researchLbl.innerHTML=`Research <span class="arrow${researchOpen?' open':''}" style="float:right">&#9654;</span>`;
+  researchLbl.innerHTML=`<span style="color:${researchAnyActive?'var(--accent)':'inherit'}">Research</span><span class="arrow${researchOpen?' open':''}" style="float:right">&#9654;</span>`;
   researchLbl.onclick=()=>{state._researchOpen=!researchOpen;render();};
   researchGroup.appendChild(researchLbl);
-  if(!researchOpen){el.appendChild(researchGroup);return;}
-  const RESEARCH_TYPES=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
-  RESEARCH_TYPES.forEach(t=>{
-    const rc=RESEARCH_COLORS[t];
-    const active=state.upgradeTypes.has(t);
-    const b=document.createElement('button');
-    b.className='faction-btn'+(active?' active':'');
-    const iconPart=ICONS[t]
-      ?`<img src="${ICONS[t]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${rc.bg}\\'></span>'">`
-      :`<span class="faction-dot" style="background:${rc.bg}"></span>`;
-    b.innerHTML=`${iconPart}<span>${t}</span>`;
-    b.onclick=()=>{active?state.upgradeTypes.delete(t):state.upgradeTypes.add(t);render();};
-    researchGroup.appendChild(b);
-  });
+  if(researchOpen){
+    [['Research:All','All Research','Research:All','#4a4a8a',false],
+     ...RESEARCH_SUBS.map(t=>[t,t,t,RESEARCH_COLORS[t].bg,true])
+    ].forEach(([key,label,iconKey,color,sub])=>{
+      const b=makeBtn(key,label,iconKey,color,()=>{});
+      if(sub)b.classList.add('sub-btn');
+      b.onclick=(e)=>researchClick(key,e.shiftKey);
+      researchGroup.appendChild(b);
+    });
+  }
   el.appendChild(researchGroup);
 }
 
@@ -695,7 +782,22 @@ function buildActiveFilters(){
 }
 
 function getFiltered(){
-  return UPGRADES.filter(u=>{
+  const byId=Object.fromEntries(UPGRADES.map(u=>[u.id,u]));
+  const matched=new Set();
+  const forcedParents=new Set();
+  UPGRADES.forEach(u=>{
+    if(passesFilter(u)){
+      matched.add(u.id);
+      // If this is a spell upgrade, always include its parent
+      const parentId=SPELL_PARENT_MAP[u.id];
+      if(parentId)forcedParents.add(parentId);
+    }
+  });
+  // Also add forced parents that didn't match on their own
+  forcedParents.forEach(id=>{if(!matched.has(id))matched.add(id);});
+  return UPGRADES.filter(u=>matched.has(u.id));
+}
+function passesFilter(u){
     // Ascension slider: hide upgrades above current ascension
     if(state.ascMax!==3&&(u.minAscension||0)>state.ascMax)return false;
     // Ascension unlock filter: show only specific unlock tiers
@@ -704,10 +806,38 @@ function getFiltered(){
     if(state.penaltyFilter==='affected'&&!u.ascensionPenalty)return false;
     if(state.penaltyFilter==='free'&&u.ascensionPenalty)return false;
     const fList=Array.isArray(u.faction)?u.faction:[u.faction];
-    if(state.factions.size>0&&!fList.some(f=>state.factions.has(f)||f==='All'))return false;
+    if(state.factions.size>0){
+      // For proof-gated spells, derive eligible factions from proof requirements
+      const proofs=u.proof||[];
+      if(proofs.length>0){
+        // Intersect all proof faction lists — spell needs ALL proofs
+        let eligible=proofs.reduce((acc,p)=>{
+          const pf=PROOF_FACTIONS[p]||[];
+          return acc===null?pf:acc.filter(f=>pf.includes(f));
+        },null)||[];
+        if(!eligible.some(f=>state.factions.has(f)))return false;
+      } else {
+        if(!fList.some(f=>state.factions.has(f)||f==='All'))return false;
+      }
+    }
     if(state.upgradeTypes.size>0){
       const uType=u.category||'Faction Upgrades';
-      if(!state.upgradeTypes.has(uType))return false;
+      if(uType==='Spells'){
+        const hasSpellFilter=['Spells','Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+        if(!hasSpellFilter)return false;
+        const subActive=['Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+        if(subActive){
+          const cls=u.spellClass||'Faction';
+          if(state.upgradeTypes.has('Spells:Faction')&&cls==='Faction')return true;
+          if(state.upgradeTypes.has('Spells:Common')&&cls==='Common')return true;
+          if(state.upgradeTypes.has('Spells:Alignment')&&cls==='Alignment')return true;
+          if(!state.upgradeTypes.has('Spells'))return false;
+        }
+      } else {
+        const isResearchType=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'].includes(uType);
+        if(isResearchType&&state.upgradeTypes.has('Research:All'))return true;
+        if(!state.upgradeTypes.has(uType))return false;
+      }
     }
     const q=state.search.toLowerCase();
     if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
@@ -715,30 +845,48 @@ function getFiltered(){
     if(state.scalings.size>0){const sc=u.scaling||[];if(state.scalingsMode==='AND'?![...state.scalings].every(s=>sc.includes(s)):[...state.scalings].every(s=>!sc.includes(s)))return false;}
     if(state.windows.size>0){if(!u.window||!u.window.length)return false;if(![...state.windows].some(w=>u.window.includes(w)))return false;}
     return true;
-  });
 }
 
 function buildCards(filtered){
   const el=document.getElementById('cards');el.innerHTML='';
   if(!filtered.length){el.innerHTML='<div class="no-results">No upgrades match the current filters.</div>';return;}
+  // Always sort spells: Faction first, then Common, then Alignment; upgrades follow parent
+  const spellClassOrder={Faction:0,Common:1,Alignment:2};
+  const byId=Object.fromEntries(UPGRADES.map(u=>[u.id,u]));
+  filtered=filtered.slice().sort((a,b)=>{
+    if(a.category==='Spells'&&b.category==='Spells'){
+      const aParentId=SPELL_PARENT_MAP[a.id]||a.id;
+      const bParentId=SPELL_PARENT_MAP[b.id]||b.id;
+      const aBase=byId[aParentId]||a;
+      const bBase=byId[bParentId]||b;
+      const classA=spellClassOrder[aBase.spellClass||'Faction']??0;
+      const classB=spellClassOrder[bBase.spellClass||'Faction']??0;
+      if(classA!==classB)return classA-classB;
+      // Within same class keep original JSON order; upgrade always after parent
+      const aOrder=UPGRADES.indexOf(aBase)*2+(a.spellUpgrade?1:0);
+      const bOrder=UPGRADES.indexOf(bBase)*2+(b.spellUpgrade?1:0);
+      return aOrder-bOrder;
+    }
+    return 0;
+  });
   filtered.forEach(u=>{
     const pinned=state.pinned.includes(u.id);
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
-    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'');
+    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
     const isResearch=!!u.category&&u.category!=='Spells';
     const isSpell=u.category==='Spells';
     const rc=isResearch?RESEARCH_COLORS[u.category]:null;
-    const sc=isSpell?(SPELL_COLORS[u.id]||FC[u.faction]||{bg:'#7a6aaa',text:'#fff'}):null;
-    const badgeBg=sc?sc.bg:rc?rc.bg:c.bg;
-    const badgeText=sc?sc.text:rc?rc.text:c.text;
+    const spellBadge={bg:'#7a6aaa',text:'#fff'};
+    const badgeBg=isSpell?spellBadge.bg:rc?rc.bg:c.bg;
+    const badgeText=isSpell?spellBadge.text:rc?rc.text:c.text;
     const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
       ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
       :`<span class="card-icon-fb" style="background:${badgeBg}"></span>`;
     const badgeLabel=u.category||u.faction;
-    const badgeIconHtml=iconSrc
+    const badgeIconHtml=(!isSpell&&iconSrc)
       ?`<img src="${iconSrc}" width="14" height="14" style="object-fit:contain;image-rendering:pixelated" alt="" onerror="this.style.display='none'">`
       :'';
     // For research: faction restriction tags with their faction colour, shown inline near description
@@ -752,6 +900,7 @@ function buildCards(filtered){
     // Spell cards: show cost in place of id badge; suppress id badge entirely for spells
     const costHtml=isSpell&&u.cost?`<span class="card-cost">${u.cost}</span>`:'';
     const idBadgeHtml=isSpell?'':`<span class="card-id-part" style="background:${badgeBg};color:${badgeText}">${u.id}</span>`;
+    const spellUpgradeLabelHtml=u.spellUpgrade?`<div class="spell-upgrade-label">Spell Upgrade</div>`:'';
     card.innerHTML=`
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -763,6 +912,7 @@ function buildCards(filtered){
             <span class="card-name-text">${u.name}</span>
             ${costHtml}
           </div>
+          ${spellUpgradeLabelHtml}
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>
@@ -778,7 +928,9 @@ function buildCards(filtered){
     if(badge){
       badge.addEventListener('click',e=>{
         e.stopPropagation();
-        if(isResearch){
+        if(isSpell){
+          state.upgradeTypes.has('Spells')?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');
+        } else if(isResearch){
           state.upgradeTypes.has(u.category)?state.upgradeTypes.delete(u.category):state.upgradeTypes.add(u.category);
         } else {
           const f=Array.isArray(u.faction)?u.faction[0]:u.faction;

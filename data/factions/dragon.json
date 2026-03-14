@@ -5,7 +5,7 @@
     "faction": "Dragon",
     "tier": 1,
     "cost": "5e66",
-    "effect": "Increase production of all buildings based on Neutral time this Reincarnation. Effect is ×7.5x stronger on Stone Pillars, Labyrinths and Hall of Legends.",
+    "effect": "Increase production of all buildings based on Neutral time this Reincarnation. Effect is \u00d77.5x stronger on Stone Pillars, Labyrinths and Hall of Legends.",
     "formula": "(0.3 * x^0.7)%; (7.5 * x^0.75)% on Stone Pillars/Labyrinths/HoL; x = Neutral time this Reincarnation",
     "effects": [
       "All Buildings",
@@ -27,7 +27,7 @@
     "tier": 1,
     "cost": "5e67",
     "effect": "Increase production of Iron Stronghold by 200% per spell affecting it. Also reduces Dragon's Breath tier cost scaling by 0.3.",
-    "formula": "×200% per active spell effect on Iron Stronghold",
+    "formula": "\u00d7200% per active spell effect on Iron Stronghold",
     "effects": [
       "Specific Buildings",
       "Spell Cost Reduction"
@@ -35,7 +35,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": true
   },
@@ -95,7 +97,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": true
   },
@@ -175,7 +179,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": true
   },
@@ -197,7 +203,7 @@
     "window": [
       "Reincarnation"
     ],
-    "minAscension": 1,
+    "minAscension": 2,
     "ascensionPenalty": false
   },
   {
@@ -218,7 +224,7 @@
     "window": [
       "Reincarnation"
     ],
-    "minAscension": 1,
+    "minAscension": 2,
     "ascensionPenalty": false
   },
   {
@@ -235,8 +241,10 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
-    "minAscension": 1,
+    "window": [
+      ""
+    ],
+    "minAscension": 2,
     "ascensionPenalty": true
   }
 ]

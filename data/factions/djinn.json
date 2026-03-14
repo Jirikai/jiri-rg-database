@@ -53,7 +53,9 @@
     "scaling": [
       "Misc"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": false
   },
@@ -87,7 +89,8 @@
     "formula": "Assistants: (0.4 * x^0.6)%; Spells: (0.2 * x^0.6)%; x = offline time this Reincarnation",
     "effects": [
       "Assistant Amount",
-      "Misc"
+      "Misc",
+      "Spell Cast Count"
     ],
     "scaling": [
       "Offline Time"
@@ -112,7 +115,9 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": false
   },
@@ -232,7 +237,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": false
   }

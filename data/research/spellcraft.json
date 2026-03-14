@@ -32,7 +32,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Heaven's Gate (This Game)",
     "effect": "Increase the production of all other buildings by 160% per Heaven's Domain built.",
-    "formula": "×160% per Heaven's Domain built",
+    "formula": "\u00d7160% per Heaven's Domain built",
     "effects": [
       "All Buildings"
     ],
@@ -108,9 +108,11 @@
       "Mana Regeneration"
     ],
     "scaling": [
-      "Reincarnations"
+      "Research Points"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -131,7 +133,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -152,7 +156,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -197,7 +203,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -241,7 +249,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -377,7 +387,9 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -398,7 +410,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -419,7 +433,9 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -436,7 +452,8 @@
     "formula": "(ln(1+x)^1.5)%, where x = highest spells cast this Reincarnation",
     "effects": [
       "Artifact Count",
-      "Trophy Count"
+      "Trophy Count",
+      "Spell Cast Count"
     ],
     "scaling": [
       "Spells Cast"
@@ -513,7 +530,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -558,7 +577,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -601,7 +622,9 @@
     "scaling": [
       "Spell Duration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": true
   },
@@ -670,7 +693,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": true
   }

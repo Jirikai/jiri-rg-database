@@ -32,7 +32,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Infernal Realms",
     "effect": "Increase the production of all other buildings by 160% per Infernal Realm built this Era.",
-    "formula": "×160% per Infernal Realm built",
+    "formula": "\u00d7160% per Infernal Realm built",
     "effects": [
       "All Buildings"
     ],
@@ -62,7 +62,9 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -129,7 +131,9 @@
     "scaling": [
       "Gems Owned"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -148,9 +152,11 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Reincarnations"
+      "Research Points"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -240,7 +246,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -300,7 +308,7 @@
     "cost": "3.039e171",
     "requirement": "3,000 Sunken Cities",
     "effect": "Increase the production of all other buildings by 95% per Sunken City owned.",
-    "formula": "×160% per Sunken City built",
+    "formula": "\u00d7160% per Sunken City built",
     "effects": [
       "All Buildings"
     ],
@@ -331,7 +339,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -352,7 +362,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -373,7 +385,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -461,7 +475,9 @@
     "scaling": [
       "Spell Duration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -530,7 +546,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -552,7 +570,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -576,7 +596,9 @@
     "scaling": [
       "Faction Coins Found"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": true
   },
@@ -616,7 +638,7 @@
     "effect": "Reincarnations count 50% more.",
     "formula": "",
     "effects": [
-      "Misc"
+      "Reincarnation Count"
     ],
     "scaling": [],
     "window": [],
@@ -663,7 +685,9 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": false
   }

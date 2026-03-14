@@ -133,7 +133,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
