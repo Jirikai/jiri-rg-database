@@ -1,15 +1,217 @@
 [
-  {"id":"DR1","name":"Dragonscales","faction":"Dragon","tier":1,"cost":"5e66","effect":"Increase production of all buildings based on Neutral time this Reincarnation. Effect is ×7.5x stronger on Stone Pillars, Labyrinths and Hall of Legends.","formula":"(0.3 * x^0.7)%; (7.5 * x^0.75)% on Stone Pillars/Labyrinths/HoL; x = Neutral time this Reincarnation","effects":["All Buildings","Specific Buildings"],"scaling":["Alignment Time"],"window":["Reincarnation"]},
-  {"id":"DR2","name":"Iron Flight","faction":"Dragon","tier":1,"cost":"5e67","effect":"Increase production of Iron Stronghold by 200% per spell affecting it. Also reduces Dragon's Breath tier cost scaling by 0.3.","formula":"×200% per active spell effect on Iron Stronghold","effects":["Specific Buildings"],"scaling":["Active Spells"],"window":[]},
-  {"id":"DR3","name":"Imposing Presence","faction":"Dragon","tier":1,"cost":"5e68","effect":"Increase Mana Regeneration additively based on Neutral buildings built. Also multiplicatively increase assistants by 75% while White Breath is active.","formula":"+(0.7 * x^0.7), where x = Neutral buildings built","effects":["Mana Regeneration","Assistant Amount"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"DR4","name":"Dragonborn","faction":"Dragon","tier":2,"cost":"5e70","effect":"Increase assistants additively and multiplicatively, and their production, based on all time spent as Dragons (All Time).","formula":"Additive: +(5 * x^0.5); Mult: (0.5 * x^0.25)%; Prod: (0.7 * x^0.3)%; x = Dragons time (All Time)","effects":["Assistant Amount","Assistant Production"],"scaling":["Time Played"],"window":["All Time"]},
-  {"id":"DR5","name":"Bountiful Hoard","faction":"Dragon","tier":2,"cost":"5e71","effect":"Increase production of all buildings based on Artifacts found.","formula":"(5 * x^1.25)%, where x = artifacts found","effects":["All Buildings"],"scaling":["Artifacts Found"],"window":[]},
-  {"id":"DR6","name":"Sharp Claws","faction":"Dragon","tier":2,"cost":"5e72","effect":"Multiplicatively increase Royal Exchange bonus and Faction Coin find chance based on clicks made this Era.","formula":"FC: (0.8 * x^0.4)%; RE: (x^0.5)%; x = clicks this Era","effects":["Royal Exchange Production","FC Find Chance"],"scaling":["Clicks"],"window":["Era"]},
-  {"id":"DR7","name":"Ancient Hunger","faction":"Dragon","tier":3,"cost":"5e74","effect":"Increase Maximum Mana additively and multiplicatively based on Faction Coins found this Era.","formula":"Additive: +(15 * ln(1+x)^2.5); Mult: (0.5 * ln(1+x)^1.5)%; x = FC found this Era","effects":["Max Mana"],"scaling":["Faction Coins Found"],"window":["Era"]},
-  {"id":"DR8","name":"Eternal Wisdom","faction":"Dragon","tier":3,"cost":"5e75","effect":"Increase production of all buildings based on Royal Exchange bonus.","formula":"(1.5 * x^0.75)%, where x = individual Royal Exchange bonus","effects":["All Buildings"],"scaling":["Royal Exchange Count"],"window":["Era"]},
-  {"id":"DR9","name":"Chromatic Scales","faction":"Dragon","tier":3,"cost":"5e76","effect":"Increase production of all buildings based on active Dragon's Breath effects. Also increase offline production by 100%.","formula":"(250 * x^2)%, where x = active Dragon's Breath effects","effects":["All Buildings","Offline Production"],"scaling":["Active Spells"],"window":[]},
-  {"id":"DR10","name":"Dragon Union / Proof","faction":"Dragon","tier":4,"cost":"1e26 Dwarven+Drow coins","effect":"Alignment bonus. Order: all buildings from Order time. Chaos: Unique/Non-Unique from assistants (target by FC chance parity). Balance: Max Mana from Lineage level.","formula":"Order: (3*x^0.7)%; Chaos U: (0.9*x^0.35)%; N-U: (2.7*x^0.35)%; Balance: (8*x^0.8)%","effects":["All Buildings","Specific Buildings","Max Mana"],"scaling":["Alignment Time","Assistants Owned","Lineage Level"],"window":["Reincarnation"]},
-  {"id":"DR11","name":"Fang Food","faction":"Dragon","tier":4,"cost":"1e100","effect":"Multiplicatively increase Mana Regeneration and Assistants based on highest Dragon Pastures built this Reincarnation.","formula":"(0.6 * x^0.6)%, where x = highest Dragon Pastures this Reincarnation","effects":["Mana Regeneration","Assistant Amount"],"scaling":["Specific Building Count"],"window":["Reincarnation"]},
-  {"id":"DR12","name":"Wyrm's Rest","faction":"Dragon","tier":4,"cost":"1e110","effect":"Increase the Ascension multiplier for Royal Market bonus by 0.7. White Breath also multiplicatively increases Assistants based on Dragon time this Reincarnation.","formula":"(1.25 * ln(1+x)^1.25)%, where x = Dragon time this Reincarnation","effects":["Royal Exchange Production","Assistant Amount"],"scaling":["Time Played"],"window":["Reincarnation"]},
-  {"id":"DR13","name":"Draconic Supremacy","faction":"Dragon","tier":4,"cost":"1e120","effect":"Increase production of all buildings based on Maximum Mana.","formula":"(10 * ln(1+x)^2)%, where x = Maximum Mana","effects":["All Buildings"],"scaling":["Max Mana"],"window":[]}
+  {
+    "id": "DG1",
+    "name": "Dragonscales",
+    "faction": "Dragon",
+    "tier": 1,
+    "cost": "5e66",
+    "effect": "Increase production of all buildings based on Neutral time this Reincarnation. Effect is ×7.5x stronger on Stone Pillars, Labyrinths and Hall of Legends.",
+    "formula": "(0.3 * x^0.7)%; (7.5 * x^0.75)% on Stone Pillars/Labyrinths/HoL; x = Neutral time this Reincarnation",
+    "effects": [
+      "All Buildings",
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DG2",
+    "name": "Iron Flight",
+    "faction": "Dragon",
+    "tier": 1,
+    "cost": "5e67",
+    "effect": "Increase production of Iron Stronghold by 200% per spell affecting it. Also reduces Dragon's Breath tier cost scaling by 0.3.",
+    "formula": "×200% per active spell effect on Iron Stronghold",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "DG3",
+    "name": "Imposing Presence",
+    "faction": "Dragon",
+    "tier": 1,
+    "cost": "5e68",
+    "effect": "Increase Mana Regeneration additively based on Neutral buildings built. Also multiplicatively increase assistants by 75% while White Breath is active.",
+    "formula": "+(0.7 * x^0.7), where x = Neutral buildings built",
+    "effects": [
+      "Mana Regeneration",
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DG4",
+    "name": "Dragonborn",
+    "faction": "Dragon",
+    "tier": 2,
+    "cost": "5e70",
+    "effect": "Increase assistants additively and multiplicatively, and their production, based on all time spent as Dragons (All Time).",
+    "formula": "Additive: +(5 * x^0.5); Mult: (0.5 * x^0.25)%; Prod: (0.7 * x^0.3)%; x = Dragons time (All Time)",
+    "effects": [
+      "Assistant Amount",
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "All Time"
+    ]
+  },
+  {
+    "id": "DG5",
+    "name": "Bountiful Hoard",
+    "faction": "Dragon",
+    "tier": 2,
+    "cost": "5e71",
+    "effect": "Increase production of all buildings based on Artifacts found.",
+    "formula": "(5 * x^1.25)%, where x = artifacts found",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": []
+  },
+  {
+    "id": "DG6",
+    "name": "Sharp Claws",
+    "faction": "Dragon",
+    "tier": 2,
+    "cost": "5e72",
+    "effect": "Multiplicatively increase Royal Exchange bonus and Faction Coin find chance based on clicks made this Era.",
+    "formula": "FC: (0.8 * x^0.4)%; RE: (x^0.5)%; x = clicks this Era",
+    "effects": [
+      "Royal Exchange Production",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DG7",
+    "name": "Ancient Hunger",
+    "faction": "Dragon",
+    "tier": 3,
+    "cost": "5e74",
+    "effect": "Increase Maximum Mana additively and multiplicatively based on Faction Coins found this Era.",
+    "formula": "Additive: +(15 * ln(1+x)^2.5); Mult: (0.5 * ln(1+x)^1.5)%; x = FC found this Era",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DG8",
+    "name": "Eternal Wisdom",
+    "faction": "Dragon",
+    "tier": 3,
+    "cost": "5e75",
+    "effect": "Increase production of all buildings based on Royal Exchange bonus.",
+    "formula": "(1.5 * x^0.75)%, where x = individual Royal Exchange bonus",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "DG9",
+    "name": "Chromatic Scales",
+    "faction": "Dragon",
+    "tier": 3,
+    "cost": "5e76",
+    "effect": "Increase production of all buildings based on active Dragon's Breath effects. Also increase offline production by 100%.",
+    "formula": "(250 * x^2)%, where x = active Dragon's Breath effects",
+    "effects": [
+      "All Buildings",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "DG10",
+    "name": "Fang Food",
+    "faction": "Dragon",
+    "tier": 4,
+    "cost": "1e100",
+    "effect": "Multiplicatively increase Mana Regeneration and Assistants based on highest Dragon Pastures built this Reincarnation.",
+    "formula": "(0.6 * x^0.6)%, where x = highest Dragon Pastures this Reincarnation",
+    "effects": [
+      "Mana Regeneration",
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DG11",
+    "name": "Wyrm's Rest",
+    "faction": "Dragon",
+    "tier": 4,
+    "cost": "1e110",
+    "effect": "Increase the Ascension multiplier for Royal Market bonus by 0.7. White Breath also multiplicatively increases Assistants based on Dragon time this Reincarnation.",
+    "formula": "(1.25 * ln(1+x)^1.25)%, where x = Dragon time this Reincarnation",
+    "effects": [
+      "Royal Exchange Production",
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "DG12",
+    "name": "Draconic Supremacy",
+    "faction": "Dragon",
+    "tier": 4,
+    "cost": "1e120",
+    "effect": "Increase production of all buildings based on Maximum Mana.",
+    "formula": "(10 * ln(1+x)^2)%, where x = Maximum Mana",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": []
+  }
 ]

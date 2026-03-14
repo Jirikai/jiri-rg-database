@@ -1,14 +1,214 @@
 [
-  {"id":"FR1","name":"Pixie Dust Fertilizer","faction":"Fairy","tier":1,"cost":"5e7","effect":"Increase the base production of Farms, Inns, and Blacksmiths by +600 and reduce their building cost multipliers by -0.02.","formula":"","effects":["Specific Buildings","Building Cost Reduction"],"scaling":[],"window":[]},
-  {"id":"FR2","name":"Fairy Workers","faction":"Fairy","tier":1,"cost":"5e8","effect":"Increase the production of Farms, Inns and Blacksmiths based on assistants owned.","formula":"(5 * ln(1+x)^2.5)%, where x = assistants owned","effects":["Specific Buildings"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"FR3","name":"Spellsmith","faction":"Fairy","tier":1,"cost":"5e9","effect":"Increase Mana Regeneration based on Farms, Inns, and Blacksmiths built.","formula":"+(0.3 * x^0.3), where x = Farms+Inns+Blacksmiths built","effects":["Mana Regeneration"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"FR4","name":"Fairy Cuisine","faction":"Fairy","tier":2,"cost":"5e11","effect":"Autoclick based on active spells.","formula":"+(x) autoclicks, where x = active spells","effects":["Clicking Reward"],"scaling":["Active Spells"],"window":[]},
-  {"id":"FR5","name":"Golden Pots","faction":"Fairy","tier":2,"cost":"5e12","effect":"100% of the production of Farms, Inns and Blacksmiths is added to base clicking reward. Also increase Faction Coin find chance by +20%.","formula":"","effects":["Clicking Reward","FC Find Chance"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"FR6","name":"Swarm of Fairies","faction":"Fairy","tier":2,"cost":"5e13","effect":"Gain assistants based on Farms, Inns, and Blacksmiths built.","formula":"+(0.3 * x^0.7), where x = Farms+Inns+Blacksmiths built","effects":["Assistant Amount"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"FR7","name":"Starmetal Alloys","faction":"Fairy","tier":3,"cost":"5e15","effect":"Increase production bonus from Gems based on Fairy Chanting activity time this Era.","formula":"(0.35 * x^0.65)%, where x = Fairy Chanting activity time this Era","effects":["Gems Bonus"],"scaling":["Spell Activity Time"],"window":["Era"]},
-  {"id":"FR8","name":"Rainbow Link","faction":"Fairy","tier":3,"cost":"5e16","effect":"Increase production of all buildings based on Farms, Inns and Blacksmiths built.","formula":"(1.25 * x^0.75)%, where x = Farms+Inns+Blacksmiths built","effects":["All Buildings"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"FR9","name":"Kind Hearts","faction":"Fairy","tier":3,"cost":"5e17","effect":"Increase Maximum Mana based on Good Buildings built.","formula":"+(1.3 * x^0.7), where x = Good buildings built","effects":["Max Mana"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"FR10","name":"Bubble Swarm","faction":"Fairy","tier":4,"cost":"1e60","effect":"Increase maximum Mana based on the highest amount of Swarming Towers built this Reincarnation.","formula":"+(2.5 * x^1.5), where x = highest Swarming Towers this Reincarnation","effects":["Max Mana"],"scaling":["Specific Building Count"],"window":["Reincarnation"]},
-  {"id":"FR11","name":"Pheromones","faction":"Fairy","tier":4,"cost":"1e80","effect":"Multiplicatively increase assistants based on time spent as Chaos this Reincarnation.","formula":"(0.6 * x^0.6)%, where x = Chaos time this Reincarnation","effects":["Assistant Amount"],"scaling":["Alignment Time"],"window":["Reincarnation"]},
-  {"id":"FR12","name":"Dream Catchers","faction":"Fairy","tier":4,"cost":"1e95","effect":"Multiplicatively increase Mana Regeneration based on Chaos spells cast this Reincarnation.","formula":"(0.01 * ln(1+x)^6)%, where x = Chaos spells cast this Reincarnation","effects":["Mana Regeneration"],"scaling":["Spells Cast"],"window":["Reincarnation"]}
+  {
+    "id": "FR1",
+    "name": "Pixie Dust Fertilizer",
+    "faction": "Fairy",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "Increase the base production of Farms, Inns, and Blacksmiths by +600 and reduce their building cost multipliers by -0.02.",
+    "formula": "",
+    "effects": [
+      "Specific Buildings",
+      "Building Cost Reduction"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "FR2",
+    "name": "Fairy Workers",
+    "faction": "Fairy",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "Increase the production of Farms, Inns and Blacksmiths based on assistants owned.",
+    "formula": "(5 * ln(1+x)^2.5)%, where x = assistants owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR3",
+    "name": "Spellsmith",
+    "faction": "Fairy",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Increase Mana Regeneration based on Farms, Inns, and Blacksmiths built.",
+    "formula": "+(0.3 * x^0.3), where x = Farms+Inns+Blacksmiths built",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR4",
+    "name": "Starmetal Alloys",
+    "faction": "Fairy",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Autoclick based on active spells.",
+    "formula": "+(x) autoclicks, where x = active spells",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": []
+  },
+  {
+    "id": "FR5",
+    "name": "Golden Pots",
+    "faction": "Fairy",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "100% of the production of Farms, Inns and Blacksmiths is added to base clicking reward. Also increase Faction Coin find chance by +20%.",
+    "formula": "",
+    "effects": [
+      "Clicking Reward",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR6",
+    "name": "Swarm of Fairies",
+    "faction": "Fairy",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Gain assistants based on Farms, Inns, and Blacksmiths built.",
+    "formula": "+(0.3 * x^0.7), where x = Farms+Inns+Blacksmiths built",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR7",
+    "name": "Fairy Cuisine",
+    "faction": "Fairy",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Increase production bonus from Gems based on Fairy Chanting activity time this Era.",
+    "formula": "(0.35 * x^0.65)%, where x = Fairy Chanting activity time this Era",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR8",
+    "name": "Rainbow Link",
+    "faction": "Fairy",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Increase production of all buildings based on Farms, Inns and Blacksmiths built.",
+    "formula": "(1.25 * x^0.75)%, where x = Farms+Inns+Blacksmiths built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR9",
+    "name": "Kind Hearts",
+    "faction": "Fairy",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Increase Maximum Mana based on Good Buildings built.",
+    "formula": "+(1.3 * x^0.7), where x = Good buildings built",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "FR10",
+    "name": "Bubble Swarm",
+    "faction": "Fairy",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Increase maximum Mana based on the highest amount of Swarming Towers built this Reincarnation.",
+    "formula": "+(2.5 * x^1.5), where x = highest Swarming Towers this Reincarnation",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "FR11",
+    "name": "Pheromones",
+    "faction": "Fairy",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Multiplicatively increase assistants based on time spent as Chaos this Reincarnation.",
+    "formula": "(0.6 * x^0.6)%, where x = Chaos time this Reincarnation",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "FR12",
+    "name": "Dream Catchers",
+    "faction": "Fairy",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Multiplicatively increase Mana Regeneration based on Chaos spells cast this Reincarnation.",
+    "formula": "(0.01 * ln(1+x)^6)%, where x = Chaos spells cast this Reincarnation",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  }
 ]

@@ -30,7 +30,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Infernal Realms",
     "effect": "Increase the production of all other buildings by 160% per Infernal Realm built this Era.",
-    "formula": "\u00d7160% per Infernal Realm built",
+    "formula": "×160% per Infernal Realm built",
     "effects": [
       "All Buildings"
     ],
@@ -265,7 +265,7 @@
     ]
   },
   {
-    "id": "D260",
+    "id": "D290",
     "name": "Mutation",
     "faction": [
       "Faceless"
@@ -274,7 +274,7 @@
     "cost": "3.039e171",
     "requirement": "3,000 Sunken Cities",
     "effect": "Increase the production of all other buildings by 95% per Sunken City owned.",
-    "formula": "\u00d7160% per Sunken City built",
+    "formula": "×160% per Sunken City built",
     "effects": [
       "All Buildings"
     ],
@@ -286,7 +286,7 @@
     ]
   },
   {
-    "id": "D275",
+    "id": "D300",
     "name": "Meditation",
     "faction": [
       "Druid"
@@ -306,7 +306,7 @@
     "window": []
   },
   {
-    "id": "D290",
+    "id": "D270",
     "name": "Transubstantiation",
     "faction": [
       "All"
@@ -404,7 +404,7 @@
     ]
   },
   {
-    "id": "D435",
+    "id": "D525",
     "name": "Devotion",
     "faction": [
       "Dwarven"
@@ -424,7 +424,7 @@
     "window": []
   },
   {
-    "id": "D480",
+    "id": "D450",
     "name": "Mercy",
     "faction": [
       "All"
@@ -445,7 +445,7 @@
     ]
   },
   {
-    "id": "D525",
+    "id": "D625",
     "name": "Purity",
     "faction": [
       "Fairy",
@@ -468,7 +468,7 @@
     ]
   },
   {
-    "id": "D560",
+    "id": "D650",
     "name": "Ritualism",
     "faction": [
       "Drow"
@@ -487,7 +487,7 @@
     "window": []
   },
   {
-    "id": "D590",
+    "id": "D700",
     "name": "Dispelling",
     "faction": [
       "Angel",
@@ -507,7 +507,7 @@
     "window": []
   },
   {
-    "id": "D1125",
+    "id": "D1175",
     "name": "Oblation",
     "faction": [
       "Titan",
@@ -568,7 +568,7 @@
     "window": []
   },
   {
-    "id": "D2775",
+    "id": "D2850",
     "name": "Intervention",
     "faction": [
       "Mercenary"

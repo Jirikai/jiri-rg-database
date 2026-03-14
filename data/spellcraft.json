@@ -30,7 +30,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Heaven's Gate (This Game)",
     "effect": "Increase the production of all other buildings by 160% per Heaven's Domain built.",
-    "formula": "\u00d7160% per Heaven's Domain built",
+    "formula": "×160% per Heaven's Domain built",
     "effects": [
       "All Buildings"
     ],
@@ -266,7 +266,7 @@
     ]
   },
   {
-    "id": "S251",
+    "id": "S281",
     "name": "Assimilation",
     "faction": [
       "Faceless"
@@ -408,7 +408,7 @@
     ]
   },
   {
-    "id": "S435",
+    "id": "S525",
     "name": "Spellbinding",
     "faction": [
       "Drow"
@@ -426,11 +426,12 @@
       "Spell Activity Time"
     ],
     "window": [
+      "Reincarnation",
       "Reincarnation"
     ]
   },
   {
-    "id": "S460",
+    "id": "S425",
     "name": "Focus",
     "faction": [
       "All"
@@ -451,7 +452,7 @@
     ]
   },
   {
-    "id": "S500",
+    "id": "S475",
     "name": "Heirlooms",
     "faction": [
       "All"
@@ -471,7 +472,7 @@
     "window": []
   },
   {
-    "id": "S545",
+    "id": "S550",
     "name": "Hierarchy",
     "faction": [
       "All"
@@ -492,7 +493,7 @@
     ]
   },
   {
-    "id": "S590",
+    "id": "S700",
     "name": "Trickery",
     "faction": [
       "Fairy",
@@ -573,7 +574,7 @@
     ]
   },
   {
-    "id": "S2875",
+    "id": "S2900",
     "name": "Scholarship",
     "faction": [
       "Mercenary"

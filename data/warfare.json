@@ -30,7 +30,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Warrior Barracks",
     "effect": "Increase production of all other buildings by 130% per Elven Training Ground built.",
-    "formula": "\u00d7130% per Training Ground built",
+    "formula": "×130% per Training Ground built",
     "effects": [
       "All Buildings"
     ],
@@ -70,7 +70,7 @@
     ],
     "category": "Warfare",
     "cost": "3.188e134",
-    "requirement": "1 hour as Evil (This R) \u2014 unlock as Demon",
+    "requirement": "1 hour as Evil (This R) — unlock as Demon",
     "effect": "Increase FC find chance based on Undercities built.",
     "formula": "+(2 * x^1.2), where x = Undercities built",
     "effects": [
@@ -266,7 +266,7 @@
     "window": []
   },
   {
-    "id": "W260",
+    "id": "W290",
     "name": "Athletics",
     "faction": [
       "Titan"
@@ -275,7 +275,7 @@
     "cost": "3.039e171",
     "requirement": "3,000 Olympian Halls",
     "effect": "Increase production of all other buildings by 200% per Olympian Hall built.",
-    "formula": "\u00d7200% per Olympian Hall built",
+    "formula": "×200% per Olympian Hall built",
     "effects": [
       "All Buildings"
     ],
@@ -287,7 +287,7 @@
     ]
   },
   {
-    "id": "W275",
+    "id": "W300",
     "name": "Domination",
     "faction": [
       "Faceless"
@@ -308,7 +308,7 @@
     ]
   },
   {
-    "id": "W290",
+    "id": "W270",
     "name": "Entrench",
     "faction": [
       "All"
@@ -403,7 +403,7 @@
     "window": []
   },
   {
-    "id": "W405",
+    "id": "W501",
     "name": "Ambush",
     "faction": [
       "Drow"
@@ -422,7 +422,7 @@
     "window": []
   },
   {
-    "id": "W520",
+    "id": "W600",
     "name": "Stalking",
     "faction": [
       "Drow"
@@ -443,7 +443,7 @@
     ]
   },
   {
-    "id": "W525",
+    "id": "W625",
     "name": "Bloodlust",
     "faction": [
       "Goblin",
@@ -466,7 +466,7 @@
     ]
   },
   {
-    "id": "W560",
+    "id": "W650",
     "name": "Resilience",
     "faction": [
       "Dwarven"
@@ -487,7 +487,7 @@
     ]
   },
   {
-    "id": "W590",
+    "id": "W700",
     "name": "Torture",
     "faction": [
       "Demon",

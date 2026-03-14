@@ -30,7 +30,7 @@
     "cost": "2.883e127",
     "requirement": "2,250 Goblin Banks",
     "effect": "Increase production of all other buildings by 90% per Goblin Bank built.",
-    "formula": "\u00d790% per Goblin Bank built",
+    "formula": "×90% per Goblin Bank built",
     "effects": [
       "All Buildings"
     ],
@@ -168,7 +168,7 @@
     ],
     "category": "Alchemy",
     "cost": "2.96e149",
-    "requirement": "1 hour time spent (This Reincarnation) \u2014 unlock as Undead",
+    "requirement": "1 hour time spent (This Reincarnation) — unlock as Undead",
     "effect": "Increase production of all buildings based on time spent this Reincarnation.",
     "formula": "(0.3 * x^0.7)%, where x = time this Reincarnation",
     "effects": [
@@ -262,7 +262,7 @@
     "window": []
   },
   {
-    "id": "A251",
+    "id": "A281",
     "name": "Infusion",
     "faction": [
       "Druid"
@@ -417,7 +417,7 @@
     "window": []
   },
   {
-    "id": "A410",
+    "id": "A510",
     "name": "Poisons",
     "faction": [
       "Drow"
@@ -426,7 +426,7 @@
     "cost": "7.877e197",
     "requirement": "4,000 Spider Sanctuaries",
     "effect": "Increase production of all other buildings by 120% per Spider Sanctuary built.",
-    "formula": "\u00d7120% per Spider Sanctuary built",
+    "formula": "×120% per Spider Sanctuary built",
     "effects": [
       "All Buildings"
     ],
@@ -438,7 +438,7 @@
     ]
   },
   {
-    "id": "A480",
+    "id": "A450",
     "name": "Waste",
     "faction": [
       "All"
@@ -457,7 +457,7 @@
     "window": []
   },
   {
-    "id": "A495",
+    "id": "A575",
     "name": "Elixirs",
     "faction": [
       "Dwarven"
@@ -476,7 +476,7 @@
     "window": []
   },
   {
-    "id": "A545",
+    "id": "A550",
     "name": "Mineralogy",
     "faction": [
       "All"
@@ -497,7 +497,7 @@
     ]
   },
   {
-    "id": "A590",
+    "id": "A700",
     "name": "Hexing",
     "faction": [
       "Undead",
@@ -531,7 +531,7 @@
     "cost": "5.195e66",
     "requirement": "5,000 Iron Strongholds, any Neutral or Dragon",
     "effect": "Increase production of all other buildings by 135% per Wyrm's Den built.",
-    "formula": "\u00d7(135 * x)%, where x = Wyrm's Den owned",
+    "formula": "×(135 * x)%, where x = Wyrm's Den owned",
     "effects": [
       "All Buildings"
     ],

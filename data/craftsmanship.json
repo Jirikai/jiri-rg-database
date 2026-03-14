@@ -30,7 +30,7 @@
     "cost": "2.883e127",
     "requirement": "2,500 Enchanted Fields",
     "effect": "Increase the production of Inns and Blacksmiths by 70% per Enchanted Field built.",
-    "formula": "\u00d770% per Enchanted Field built",
+    "formula": "×70% per Enchanted Field built",
     "effects": [
       "Specific Buildings"
     ],
@@ -238,7 +238,7 @@
     "cost": "2.087e165",
     "requirement": "Research Dummy Targets (C1) & Vivification (A120)",
     "effect": "Each Elven Training Ground counts as more buildings for Call to Arms based on assistants owned.",
-    "formula": "\u00d7(20 * ln(1+x)^2), where x = assistants owned",
+    "formula": "×(20 * ln(1+x)^2), where x = assistants owned",
     "effects": [
       "Assistant Amount"
     ],
@@ -271,7 +271,7 @@
     ]
   },
   {
-    "id": "C251",
+    "id": "C281",
     "name": "Architecture",
     "faction": [
       "Titan"
@@ -408,7 +408,7 @@
     ]
   },
   {
-    "id": "C405",
+    "id": "C501",
     "name": "Metallurgy",
     "faction": [
       "Dwarven"
@@ -429,7 +429,7 @@
     ]
   },
   {
-    "id": "C460",
+    "id": "C425",
     "name": "Distribution",
     "faction": [
       "All"
@@ -450,7 +450,7 @@
     ]
   },
   {
-    "id": "C500",
+    "id": "C475",
     "name": "Minecrafting",
     "faction": [
       "All"
@@ -469,7 +469,7 @@
     "window": []
   },
   {
-    "id": "C520",
+    "id": "C600",
     "name": "Blacksmithing",
     "faction": [
       "Dwarven"
@@ -488,7 +488,7 @@
     "window": []
   },
   {
-    "id": "C590",
+    "id": "C700",
     "name": "Alloys",
     "faction": [
       "Elven",

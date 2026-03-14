@@ -1,14 +1,220 @@
 [
-  {"id":"GB1","name":"Strong Currency","faction":"Goblin","tier":1,"cost":"5e7","effect":"Gain assistants based on Faction Coins found this Era.","formula":"+(1.25 * ln(1+x)^1.5), where x = FC found this Era","effects":["Assistant Amount"],"scaling":["Faction Coins Found"],"window":["Era"]},
-  {"id":"GB2","name":"Slave Trading","faction":"Goblin","tier":1,"cost":"5e8","effect":"Increase production of all buildings based on Evil buildings built.","formula":"(3 * x^0.7)%, where x = Evil buildings built","effects":["All Buildings"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"GB3","name":"Cheap Materials","faction":"Goblin","tier":1,"cost":"5e9","effect":"Tax Collection is worth more seconds based on buildings built.","formula":"+(1.5 * x^0.5), where x = buildings built","effects":["Tax Collection"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"GB4","name":"Fool's Gold","faction":"Goblin","tier":2,"cost":"5e11","effect":"Increase Faction Coin find chance based on the highest amount of Witch Conclaves built this Reincarnation.","formula":"floor(3 * x^0.6)%, where x = highest Witch Conclaves this Reincarnation","effects":["FC Find Chance"],"scaling":["Specific Building Count"],"window":["Reincarnation"]},
-  {"id":"GB5","name":"Goblin Economists","faction":"Goblin","tier":2,"cost":"5e12","effect":"Multiplicatively increase Mana Regeneration based on current Coins owned.","formula":"(15 + 0.5 * ln(1+x)^1.25)%, where x = coins owned","effects":["Mana Regeneration"],"scaling":["Coins Owned"],"window":["Era"]},
-  {"id":"GB6","name":"Hobgoblin Gladiators","faction":"Goblin","tier":2,"cost":"5e13","effect":"Increase production of all buildings based on Tax Collection worth.","formula":"(4 * ln(1+x)^2)%, where x = Tax Collection worth in seconds","effects":["All Buildings"],"scaling":["Tax Collection"],"window":["Era"]},
-  {"id":"GB7","name":"Goblin Central Bank","faction":"Goblin","tier":3,"cost":"5e15","effect":"Each time you cast a spell, cast free Tax Collections based on your Maximum Mana.","formula":"+(1 + 1.5 * ln(1 + 0.001 * x)^1.5), where x = Maximum Mana","effects":["Tax Collection"],"scaling":["Max Mana"],"window":[]},
-  {"id":"GB8","name":"Black Market","faction":"Goblin","tier":3,"cost":"5e16","effect":"Multiplicatively increase production bonus from Gems based on Gems owned. Also increase Offline production based on Tax Collection casts this Era.","formula":"Gems: (100 + 2*ln(1+x))%; Offline: (ln(1+x)^2)%; x = Gems / TC casts","effects":["Gems Bonus","Offline Production"],"scaling":["Gems Owned","Spells Cast"],"window":["Era"]},
-  {"id":"GB9","name":"Green Fingers Discount","faction":"Goblin","tier":3,"cost":"5e17","effect":"Gain Coins randomly every 120 seconds (value increases over time this Reincarnation). Single large offline roll on login.","formula":"((randRange(1,1500) * x) * (1 + 0.01 * y^0.8)); x = production/s, y = time this Reincarnation","effects":["Offline Production"],"scaling":["Time Played"],"window":["Reincarnation"]},
-  {"id":"GB10","name":"Fool's Gems","faction":"Goblin","tier":4,"cost":"1e60","effect":"Multiplicatively increase production bonus from Gems based on highest Slave Markets built this Reincarnation.","formula":"(0.3 * x^0.7)%, where x = highest Slave Markets this Reincarnation","effects":["Gems Bonus"],"scaling":["Specific Building Count"],"window":["Reincarnation"]},
-  {"id":"GB11","name":"Money is Magic","faction":"Goblin","tier":4,"cost":"1e80","effect":"Multiplicatively increase Mana Regeneration based on Tax Collection casts this Era.","formula":"(1.8 * ln(1+x)^1.8)%, where x = Tax Collection casts this Era","effects":["Mana Regeneration"],"scaling":["Spells Cast"],"window":["Era"]},
-  {"id":"GB12","name":"Lousy Architecture","faction":"Goblin","tier":4,"cost":"1e95","effect":"Reduce Non-Unique building cost multiplier by 0.01. Increase Non-Unique building production based on buildings of same tier.","formula":"(x^0.65)%, where x = buildings of same tier","effects":["All Buildings","Building Cost Reduction"],"scaling":["Buildings Owned"],"window":["Era"]}
+  {
+    "id": "GB1",
+    "name": "Strong Currency",
+    "faction": "Goblin",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "Gain assistants based on Faction Coins found this Era.",
+    "formula": "+(1.25 * ln(1+x)^1.5), where x = FC found this Era",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "GB2",
+    "name": "Slave Trading",
+    "faction": "Goblin",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "Increase production of all buildings based on Evil buildings built.",
+    "formula": "(3 * x^0.7)%, where x = Evil buildings built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "GB3",
+    "name": "Cheap Materials",
+    "faction": "Goblin",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Tax Collection is worth more seconds based on buildings built.",
+    "formula": "+(1.5 * x^0.5), where x = buildings built",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "GB4",
+    "name": "Fool's Gold",
+    "faction": "Goblin",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Increase Faction Coin find chance based on the highest amount of Witch Conclaves built this Reincarnation.",
+    "formula": "floor(3 * x^0.6)%, where x = highest Witch Conclaves this Reincarnation",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "GB5",
+    "name": "Goblin Economists",
+    "faction": "Goblin",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "Multiplicatively increase Mana Regeneration based on current Coins owned.",
+    "formula": "(15 + 0.5 * ln(1+x)^1.25)%, where x = coins owned",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Coins Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "GB6",
+    "name": "Hobgoblin Gladiators",
+    "faction": "Goblin",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Increase production of all buildings based on Tax Collection worth.",
+    "formula": "(4 * ln(1+x)^2)%, where x = Tax Collection worth in seconds",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Tax Collection"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "GB7",
+    "name": "Goblin Central Bank",
+    "faction": "Goblin",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Each time you cast a spell, cast free Tax Collections based on your Maximum Mana.",
+    "formula": "+(1 + 1.5 * ln(1 + 0.001 * x)^1.5), where x = Maximum Mana",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": []
+  },
+  {
+    "id": "GB8",
+    "name": "Black Market",
+    "faction": "Goblin",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Multiplicatively increase production bonus from Gems based on Gems owned. Also increase Offline production based on Tax Collection casts this Era.",
+    "formula": "Gems: (100 + 2*ln(1+x))%; Offline: (ln(1+x)^2)%; x = Gems / TC casts",
+    "effects": [
+      "Gems Bonus",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Gems Owned",
+      "Spells Cast"
+    ],
+    "window": [
+      "Era",
+      "Era"
+    ]
+  },
+  {
+    "id": "GB9",
+    "name": "Green Fingers Discount",
+    "faction": "Goblin",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Gain Coins randomly every 120 seconds (value increases over time this Reincarnation). Single large offline roll on login.",
+    "formula": "((randRange(1,1500) * x) * (1 + 0.01 * y^0.8)); x = production/s, y = time this Reincarnation",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "GB10",
+    "name": "Fool's Gems",
+    "faction": "Goblin",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Multiplicatively increase production bonus from Gems based on highest Slave Markets built this Reincarnation.",
+    "formula": "(0.3 * x^0.7)%, where x = highest Slave Markets this Reincarnation",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "GB11",
+    "name": "Money is Magic",
+    "faction": "Goblin",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Multiplicatively increase Mana Regeneration based on Tax Collection casts this Era.",
+    "formula": "(1.8 * ln(1+x)^1.8)%, where x = Tax Collection casts this Era",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "GB12",
+    "name": "Lousy Architecture",
+    "faction": "Goblin",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Reduce Non-Unique building cost multiplier by 0.01. Increase Non-Unique building production based on buildings of same tier.",
+    "formula": "(x^0.65)%, where x = buildings of same tier",
+    "effects": [
+      "All Buildings",
+      "Building Cost Reduction"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  }
 ]
