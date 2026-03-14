@@ -417,7 +417,7 @@ function buildFactionList(){
       b.innerHTML=`${iconPart}<span>${f}</span>`;
       b.onclick=(e)=>{
         const already=state.factions.has(f);
-        const multi=e.shiftKey||state.factions.size>1||(state.factions.size===1&&!already)||state.factions.has('Mercenary');
+        const multi=e.shiftKey||state.factions.size>1||state.factions.has('Mercenary');
         if(multi){
           // Shift-click or multi-select mode: just toggle this faction
           already?state.factions.delete(f):state.factions.add(f);
