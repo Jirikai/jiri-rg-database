@@ -368,7 +368,7 @@ const SCALING_GROUPS={
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
   'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time']},
   'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
-  'Misc':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Tax Collection']},
+  'Other':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Tax Collection','Misc']},
 };
 
 let UPGRADES=[];
@@ -405,7 +405,19 @@ function buildFactionList(){
         ?`<img src="${ICONS[f]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\'faction-dot\' style=\'background:${c.bg}\'></span>'">`
         :`<span class="faction-dot" style="background:${c.bg}"></span>`;
       b.innerHTML=`${iconPart}<span>${f}</span>`;
-      b.onclick=()=>{state.factions.has(f)?state.factions.delete(f):state.factions.add(f);render();};
+      b.onclick=(e)=>{
+        const already=state.factions.has(f);
+        const multi=e.shiftKey||state.factions.size>1||(state.factions.size===1&&!already)||state.factions.has('Mercenary');
+        if(multi){
+          // Shift-click or multi-select mode: just toggle this faction
+          already?state.factions.delete(f):state.factions.add(f);
+        } else {
+          // Single-click exclusive: if already the only one selected, deselect; otherwise select only this
+          if(already&&state.factions.size===1){state.factions.clear();}
+          else{state.factions.clear();state.factions.add(f);}
+        }
+        render();
+      };
       w.appendChild(b);
     });
     el.appendChild(w);
@@ -477,11 +489,13 @@ function buildWindowChips(){
 
 function buildFilterPanel(groups,stateSet,stateOpen,id,filtered){
   const el=document.getElementById(id);el.innerHTML='';
-  // Count occurrences per item in the current filtered set
+  // Determine which field to count against based on panel id
+  const field=id==='scaling-filters'?'scaling':'effects';
+  // Count occurrences per item in the current filtered set, only checking the relevant field
   const counts={};
   if(filtered){
     Object.values(groups).forEach(({items})=>items.forEach(item=>{
-      counts[item]=filtered.filter(u=>(u.effects||[]).includes(item)||(u.scaling||[]).includes(item)).length;
+      counts[item]=filtered.filter(u=>(u[field]||[]).includes(item)).length;
     }));
   }
   Object.entries(groups).forEach(([group,{items}])=>{
