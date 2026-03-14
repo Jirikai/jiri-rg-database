@@ -126,6 +126,34 @@ body{display:flex;flex-direction:column}
 .panel-section-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px;font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;user-select:none}
 .panel-section-toggle:hover{color:var(--text2)}
 
+/* Ascension slider */
+.asc-slider-wrap{padding:6px 4px 10px;display:flex;flex-direction:column;gap:6px}
+.asc-slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);padding:0 2px}
+.asc-slider-labels span.active-label{color:var(--accent);font-weight:700}
+#asc-slider{width:100%;accent-color:var(--accent);cursor:pointer}
+
+/* Ascension unlock chips (right panel) */
+.asc-unlock-section{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.asc-unlock-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.asc-chip{font-size:12px;padding:4px 11px;border-radius:20px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text2);font-weight:600}
+.asc-chip.active{background:var(--bg3);color:var(--text)}
+.asc-chip:hover{background:var(--bg2)}
+
+/* Penalty filter */
+.penalty-section{margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.penalty-btn{display:flex;align-items:center;gap:7px;width:100%;padding:5px 6px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:13px;color:var(--text2);text-align:left;margin-top:4px}
+.penalty-btn:hover{background:var(--bg2);color:var(--text)}
+.penalty-btn.active{background:var(--bg3);color:var(--text);font-weight:600}
+
+/* Penalty badge on cards */
+.tag-penalty{background:#fff3cd;color:#856404;border:1px solid #ffc107;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700}
+@media(prefers-color-scheme:dark){.tag-penalty{background:#3d2e00;color:#ffc107;border-color:#856404}}
+.force-dark .tag-penalty{background:#3d2e00!important;color:#ffc107!important;border-color:#856404!important}
+.force-light .tag-penalty{background:#fff3cd!important;color:#856404!important;border-color:#ffc107!important}
+
+/* Filter counts */
+.filter-count{font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0}
+
 /* ── Mobile layout ── */
 #mobile-bar{display:none}
 
@@ -207,7 +235,21 @@ body{display:flex;flex-direction:column}
 <div id="app">
   <div class="panel">
     <div class="panel-inner">
-      <div class="panel-section-toggle" onclick="toggleLeftSection('faction')">
+      <div class="panel-section-toggle" onclick="toggleLeftSection('ascension')">
+        <span>Ascension</span><span class="arrow open" id="arrow-ascension">&#9654;</span>
+      </div>
+      <div id="ascension-section">
+        <div class="asc-slider-wrap">
+          <input type="range" id="asc-slider" min="0" max="3" step="1" value="3" oninput="onAscSlider(this.value)">
+          <div class="asc-slider-labels" id="asc-slider-labels">
+            <span id="asc-lbl-0">A0</span>
+            <span id="asc-lbl-1">A1</span>
+            <span id="asc-lbl-2">A2</span>
+            <span id="asc-lbl-3" class="active-label">All</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-section-toggle" style="margin-top:8px" onclick="toggleLeftSection('faction')">
         <span>Faction</span><span class="arrow open" id="arrow-faction">&#9654;</span>
       </div>
       <div id="faction-list"></div>
@@ -233,7 +275,20 @@ body{display:flex;flex-direction:column}
     </div>
     <hr class="panel-divider">
     <div class="panel-inner">
-      <div class="panel-title" style="margin-top:4px">Effects</div>
+      <div class="asc-unlock-section">
+        <div class="panel-title" style="margin-top:4px">Ascension Unlock</div>
+        <div class="asc-unlock-chips" id="asc-unlock-chips"></div>
+      </div>
+      <div class="penalty-section">
+        <div class="panel-title">Ascension Penalty</div>
+        <button class="penalty-btn" id="penalty-btn-affected" onclick="togglePenalty('affected')">
+          <span class="fcheck" id="penalty-check-affected"></span>A-Penalty affected only
+        </button>
+        <button class="penalty-btn" id="penalty-btn-free" onclick="togglePenalty('free')">
+          <span class="fcheck" id="penalty-check-free"></span>Penalty-free only
+        </button>
+      </div>
+      <div class="panel-title">Effects</div>
       <div id="effect-filters"></div>
       <div style="border-top:1px solid var(--border);margin:10px 0 8px"></div>
       <div class="panel-title">Scaling sources</div>
@@ -313,7 +368,7 @@ const SCALING_GROUPS={
 };
 
 let UPGRADES=[];
-let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),upgradeTypes:new Set(),pinned:[],eg:{},sg:{}};
+let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),upgradeTypes:new Set(),pinned:[],eg:{},sg:{},ascMax:3,ascUnlock:new Set(),penaltyFilter:null};
 Object.keys(EFFECT_GROUPS).forEach(g=>state.eg[g]=EFFECT_GROUPS[g].open);
 Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 
@@ -327,16 +382,23 @@ Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
   .then(arrays=>{UPGRADES=arrays.flat();render();})
   .catch(e=>{document.getElementById('cards').innerHTML='<div class="no-results">Could not load faction data.</div>';console.error(e);});
 
+const FACTION_MIN_ASC={Dragon:1,Archon:2,Djinn:2,Makers:2};
+function factionAvailable(f){
+  const min=FACTION_MIN_ASC[f]||0;
+  return state.ascMax===3||state.ascMax>=min;
+}
 function buildFactionList(){
   const el=document.getElementById('faction-list');el.innerHTML='';
   FACTIONS.forEach(({group,factions})=>{
+    const visible=factions.filter(factionAvailable);
+    if(!visible.length)return;
     const w=document.createElement('div');w.className='faction-group';
     const l=document.createElement('div');l.className='faction-group-lbl';l.textContent=group;w.appendChild(l);
-    factions.forEach(f=>{
+    visible.forEach(f=>{
       const c=FC[f]||{bg:'#888',text:'#fff'};
       const b=document.createElement('button');b.className='faction-btn'+(state.factions.has(f)?' active':'');
       const iconPart=ICONS[f]
-        ?`<img src="${ICONS[f]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${c.bg}\\'></span>'">`
+        ?`<img src="${ICONS[f]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\'faction-dot\' style=\'background:${c.bg}\'></span>'">`
         :`<span class="faction-dot" style="background:${c.bg}"></span>`;
       b.innerHTML=`${iconPart}<span>${f}</span>`;
       b.onclick=()=>{state.factions.has(f)?state.factions.delete(f):state.factions.add(f);render();};
@@ -346,12 +408,13 @@ function buildFactionList(){
   });
 }
 
-const LEFT_OPEN={faction:true,type:true};
+const LEFT_OPEN={ascension:true,faction:true,type:true};
 
 function toggleLeftSection(key){
   LEFT_OPEN[key]=!LEFT_OPEN[key];
   const arrow=document.getElementById('arrow-'+key);
   if(arrow)arrow.classList.toggle('open',LEFT_OPEN[key]);
+  if(key==='ascension'){const el=document.getElementById('ascension-section');el.style.display=LEFT_OPEN[key]?'':'none';}
   if(key==='faction'){const el=document.getElementById('faction-list');el.style.display=LEFT_OPEN[key]?'':'none';}
   if(key==='type'){const el=document.getElementById('type-list');el.style.display=LEFT_OPEN[key]?'':'none';}
 }
@@ -401,8 +464,15 @@ function buildWindowChips(){
   });
 }
 
-function buildFilterPanel(groups,stateSet,stateOpen,id){
+function buildFilterPanel(groups,stateSet,stateOpen,id,filtered){
   const el=document.getElementById(id);el.innerHTML='';
+  // Count occurrences per item in the current filtered set
+  const counts={};
+  if(filtered){
+    Object.values(groups).forEach(({items})=>items.forEach(item=>{
+      counts[item]=filtered.filter(u=>(u.effects||[]).includes(item)||(u.scaling||[]).includes(item)).length;
+    }));
+  }
   Object.entries(groups).forEach(([group,{items}])=>{
     const w=document.createElement('div');w.className='filter-section';
     const l=document.createElement('div');l.className='filter-group-lbl';
@@ -412,8 +482,9 @@ function buildFilterPanel(groups,stateSet,stateOpen,id){
       const iw=document.createElement('div');iw.className='filter-items';
       items.forEach(item=>{
         const active=stateSet.has(item);
+        const cnt=filtered!==undefined?counts[item]:null;
         const b=document.createElement('button');b.className='filter-btn'+(active?' active':'');
-        b.innerHTML=`<span class="fcheck">${active?'&#10003;':''}</span>${item}`;
+        b.innerHTML=`<span class="fcheck">${active?'&#10003;':''}</span>${item}${cnt!==null?`<span class="filter-count">(${cnt})</span>`:''}`;
         b.onclick=()=>{active?stateSet.delete(item):stateSet.add(item);render();};
         iw.appendChild(b);
       });
@@ -426,6 +497,12 @@ function buildFilterPanel(groups,stateSet,stateOpen,id){
 function buildActiveFilters(){
   const el=document.getElementById('active-filters');
   const chips=[];
+  // Ascension slider chip (only if not "All")
+  if(state.ascMax!==3)chips.push({label:'Up to A'+state.ascMax,style:'',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
+  // Ascension unlock chips
+  state.ascUnlock.forEach(a=>chips.push({label:'Unlocked: A'+a,style:'',remove:()=>state.ascUnlock.delete(a)}));
+  // Penalty filter chip
+  if(state.penaltyFilter)chips.push({label:state.penaltyFilter==='affected'?'A-Penalty affected':'Penalty-free',style:'',remove:()=>{state.penaltyFilter=null;}});
   state.factions.forEach(f=>{const c=FC[f]||{bg:'#888',text:'#fff'};chips.push({label:f,style:`background:${c.bg};color:${c.text};border-color:${c.bg}`,remove:()=>state.factions.delete(f)});});
   state.effects.forEach(e=>chips.push({label:e,style:'',remove:()=>state.effects.delete(e)}));
   state.scalings.forEach(s=>chips.push({label:'↳ '+s,style:'',remove:()=>state.scalings.delete(s)}));
@@ -448,6 +525,13 @@ function buildActiveFilters(){
 
 function getFiltered(){
   return UPGRADES.filter(u=>{
+    // Ascension slider: hide upgrades above current ascension
+    if(state.ascMax!==3&&(u.minAscension||0)>state.ascMax)return false;
+    // Ascension unlock filter: show only specific unlock tiers
+    if(state.ascUnlock.size>0&&!state.ascUnlock.has(u.minAscension||0))return false;
+    // Penalty filter
+    if(state.penaltyFilter==='affected'&&!u.ascensionPenalty)return false;
+    if(state.penaltyFilter==='free'&&u.ascensionPenalty)return false;
     const fList=Array.isArray(u.faction)?u.faction:[u.faction];
     if(state.factions.size>0&&!fList.some(f=>state.factions.has(f)||f==='All'))return false;
     if(state.upgradeTypes.size>0){
@@ -561,6 +645,14 @@ function buildCards(filtered){
         render();
       });
       tagsWrap.appendChild(t);
+    // Ascension penalty badge
+    if(u.ascensionPenalty){
+      const p=document.createElement('span');
+      p.className='tag tag-penalty';
+      p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
+      p.textContent='A-Penalty';
+      tagsWrap.appendChild(p);
+    }
     });
     el.appendChild(card);
   });
@@ -579,15 +671,66 @@ function buildPinBar(){
 
 function removePin(id){state.pinned=state.pinned.filter(p=>p!==id);render();}
 
+// ── Ascension slider ──
+function updateAscSliderLabels(val){
+  const labels=['asc-lbl-0','asc-lbl-1','asc-lbl-2','asc-lbl-3'];
+  labels.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('active-label',i===parseInt(val));
+  });
+}
+function onAscSlider(val){
+  const v=parseInt(val);
+  state.ascMax=v;
+  updateAscSliderLabels(v);
+  // Clear faction filters for factions no longer visible
+  state.factions.forEach(f=>{if(!factionAvailable(f))state.factions.delete(f);});
+  render();
+}
+
+// ── Ascension unlock chips (right panel) ──
+function buildAscUnlockChips(){
+  const el=document.getElementById('asc-unlock-chips');if(!el)return;el.innerHTML='';
+  [0,1,2].forEach(a=>{
+    const active=state.ascUnlock.has(a);
+    const b=document.createElement('button');
+    b.className='asc-chip'+(active?' active':'');
+    b.textContent='A'+a;
+    b.onclick=()=>{active?state.ascUnlock.delete(a):state.ascUnlock.add(a);render();};
+    el.appendChild(b);
+  });
+}
+
+// ── Penalty filter buttons ──
+function buildPenaltyButtons(){
+  ['affected','free'].forEach(mode=>{
+    const btn=document.getElementById('penalty-btn-'+mode);
+    const chk=document.getElementById('penalty-check-'+mode);
+    if(!btn||!chk)return;
+    const active=state.penaltyFilter===mode;
+    btn.classList.toggle('active',active);
+    chk.innerHTML=active?'&#10003;':'';
+    chk.style.background=active?'var(--text)':'';
+    chk.style.borderColor=active?'var(--text)':'';
+    chk.style.color=active?'var(--bg)':'';
+  });
+}
+function togglePenalty(mode){
+  state.penaltyFilter=state.penaltyFilter===mode?null:mode;
+  render();
+}
+
+
 document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
-function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();document.getElementById('search').value='';render();}
-function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();render();}
+function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.ascMax=3;document.getElementById('search').value='';document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);render();}
+function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();state.ascUnlock.clear();state.penaltyFilter=null;render();}
 
 function render(){
-  buildFactionList();buildTypeList();buildWindowChips();
-  buildFilterPanel(EFFECT_GROUPS,state.effects,state.eg,'effect-filters');
-  buildFilterPanel(SCALING_GROUPS,state.scalings,state.sg,'scaling-filters');
   const f=getFiltered();
+  buildFactionList();buildTypeList();buildWindowChips();
+  buildAscUnlockChips();buildPenaltyButtons();
+  buildFilterPanel(EFFECT_GROUPS,state.effects,state.eg,'effect-filters',f);
+  buildFilterPanel(SCALING_GROUPS,state.scalings,state.sg,'scaling-filters',f);
   document.getElementById('count').textContent=`${f.length} of ${UPGRADES.length} upgrades`;
   buildActiveFilters();buildCards(f);buildPinBar();
 }

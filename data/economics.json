@@ -18,7 +18,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E10",
@@ -39,7 +41,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E25",
@@ -60,7 +64,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E30",
@@ -82,7 +88,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E50",
@@ -99,7 +107,9 @@
       "Building Cost Reduction"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E80",
@@ -125,7 +135,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E135",
@@ -142,7 +154,9 @@
       "Building Cost Reduction"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E145",
@@ -159,7 +173,9 @@
       "Tax Collection"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E150",
@@ -180,7 +196,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E200",
@@ -199,7 +217,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E225",
@@ -220,7 +240,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E230",
@@ -241,7 +263,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E250",
@@ -262,7 +286,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E290",
@@ -283,7 +309,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E300",
@@ -304,7 +332,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E270",
@@ -321,7 +351,9 @@
       "Excavation Cost Reduction"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E320",
@@ -342,7 +374,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E330",
@@ -361,7 +395,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E350",
@@ -380,7 +416,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E400",
@@ -401,7 +439,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E510",
@@ -422,7 +462,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E425",
@@ -443,7 +485,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E450",
@@ -464,7 +508,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E575",
@@ -485,7 +531,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E700",
@@ -507,7 +555,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "E1225",
@@ -527,7 +577,9 @@
       "Royal Exchange Production"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "E1325",
@@ -544,7 +596,9 @@
       "Royal Exchange Cost Reduction"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "E1425",
@@ -565,7 +619,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "E3250",
@@ -586,7 +642,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "E3300",
@@ -603,6 +661,8 @@
       "Specific Buildings"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   }
 ]

@@ -1,5 +1,63 @@
 [
-  {"id":"MCG","name":"Holy Crusaders","faction":"Mercenary","tier":2,"cost":"2.5e67","effect":"[Good] Increase assistants additively and multiplicatively based on spells cast this Era.","formula":"Additive: (2 * x^0.5); Multiplicative: (2 * ln(1+x)^1.2)%; x = spells cast this Era","effects":["Assistant Amount"],"scaling":["Spells Cast"],"window":["Era"]},
-  {"id":"MCE","name":"Heresiarchs","faction":"Mercenary","tier":2,"cost":"2.5e67","effect":"[Evil] Multiplicatively increase Mana Regeneration based on combined activity time of Evil spells this Reincarnation.","formula":"(30 + 0.7 * x^0.7)%, where x = Evil spell activity time this Reincarnation","effects":["Mana Regeneration"],"scaling":["Spell Activity Time"],"window":["Reincarnation"]},
-  {"id":"MCN","name":"Trade Lords","faction":"Mercenary","tier":2,"cost":"2.5e67","effect":"[Neutral] Increase Mana Regeneration and Faction Coin find chance based on time spent offline this Reincarnation.","formula":"+(2.5 * x^0.75), where x = offline time this Reincarnation","effects":["Mana Regeneration","FC Find Chance"],"scaling":["Offline Time"],"window":["Reincarnation"]}
+  {
+    "id": "MCG",
+    "name": "Holy Crusaders",
+    "faction": "Mercenary",
+    "tier": 2,
+    "cost": "2.5e67",
+    "effect": "[Good] Increase assistants additively and multiplicatively based on spells cast this Era.",
+    "formula": "Additive: (2 * x^0.5); Multiplicative: (2 * ln(1+x)^1.2)%; x = spells cast this Era",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MCE",
+    "name": "Heresiarchs",
+    "faction": "Mercenary",
+    "tier": 2,
+    "cost": "2.5e67",
+    "effect": "[Evil] Multiplicatively increase Mana Regeneration based on combined activity time of Evil spells this Reincarnation.",
+    "formula": "(30 + 0.7 * x^0.7)%, where x = Evil spell activity time this Reincarnation",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MCN",
+    "name": "Trade Lords",
+    "faction": "Mercenary",
+    "tier": 2,
+    "cost": "2.5e67",
+    "effect": "[Neutral] Increase Mana Regeneration and Faction Coin find chance based on time spent offline this Reincarnation.",
+    "formula": "+(2.5 * x^0.75), where x = offline time this Reincarnation",
+    "effects": [
+      "Mana Regeneration",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  }
 ]

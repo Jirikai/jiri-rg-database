@@ -18,7 +18,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D10",
@@ -39,7 +41,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D25",
@@ -58,7 +62,9 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D50",
@@ -79,7 +85,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D55",
@@ -100,7 +108,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D135",
@@ -119,7 +129,9 @@
     "scaling": [
       "Gems Owned"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D150",
@@ -138,7 +150,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D175",
@@ -159,7 +173,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D200",
@@ -177,7 +193,9 @@
       "Spell Duration"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D205",
@@ -201,7 +219,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D225",
@@ -220,7 +240,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D245",
@@ -241,7 +263,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D250",
@@ -262,7 +286,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D290",
@@ -283,7 +309,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D300",
@@ -303,7 +331,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D270",
@@ -322,7 +352,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D320",
@@ -341,7 +373,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D330",
@@ -358,7 +392,9 @@
       "Spell Duration"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D350",
@@ -379,7 +415,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D400",
@@ -401,7 +439,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D525",
@@ -421,7 +461,9 @@
     "scaling": [
       "Spell Duration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D450",
@@ -442,7 +484,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D625",
@@ -465,7 +509,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D650",
@@ -484,7 +530,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "D700",
@@ -504,7 +552,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "D1175",
@@ -526,7 +576,9 @@
     "scaling": [
       "Faction Coins Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "D1275",
@@ -548,7 +600,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "D1375",
@@ -565,7 +619,9 @@
       "Misc"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "D2850",
@@ -586,7 +642,9 @@
     ],
     "window": [
       "All Time"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "D3350",
@@ -605,6 +663,8 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
   }
 ]

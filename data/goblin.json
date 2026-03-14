@@ -15,7 +15,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "GB2",
@@ -33,7 +35,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "GB3",
@@ -51,7 +55,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "GB4",
@@ -69,7 +75,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "GB5",
@@ -87,7 +95,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "GB6",
@@ -105,7 +115,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "GB7",
@@ -121,7 +133,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "GB8",
@@ -142,7 +156,9 @@
     "window": [
       "Era",
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "GB9",
@@ -160,7 +176,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "GB10",
@@ -178,7 +196,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
   },
   {
     "id": "GB11",
@@ -196,7 +216,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
   },
   {
     "id": "GB12",
@@ -215,6 +237,8 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
   }
 ]

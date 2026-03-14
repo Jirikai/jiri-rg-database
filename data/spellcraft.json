@@ -18,7 +18,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S10",
@@ -39,7 +41,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S30",
@@ -61,7 +65,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S50",
@@ -83,7 +89,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S105",
@@ -102,7 +110,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S135",
@@ -121,7 +131,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S150",
@@ -140,7 +152,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S175",
@@ -162,7 +176,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S180",
@@ -181,7 +197,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S200",
@@ -202,7 +220,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S215",
@@ -221,7 +241,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S225",
@@ -242,7 +264,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S250",
@@ -263,7 +287,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S281",
@@ -284,7 +310,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S270",
@@ -305,7 +333,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S300",
@@ -326,7 +356,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S305",
@@ -345,7 +377,9 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S330",
@@ -364,7 +398,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S375",
@@ -383,7 +419,9 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S400",
@@ -405,7 +443,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S525",
@@ -428,7 +468,9 @@
     "window": [
       "Reincarnation",
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S425",
@@ -449,7 +491,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S475",
@@ -469,7 +513,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "S550",
@@ -490,7 +536,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S700",
@@ -510,7 +558,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S1275",
@@ -527,7 +577,9 @@
       "Spell Cost Reduction"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "S1450",
@@ -549,7 +601,9 @@
     "scaling": [
       "Spell Duration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "S1500",
@@ -571,7 +625,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "S2900",
@@ -592,7 +648,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "S3200",
@@ -612,6 +670,8 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   }
 ]

@@ -18,7 +18,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C10",
@@ -39,7 +41,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C25",
@@ -60,7 +64,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C50",
@@ -81,7 +87,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C80",
@@ -102,7 +110,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C105",
@@ -123,7 +133,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C120",
@@ -144,7 +156,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C135",
@@ -165,7 +179,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C150",
@@ -184,7 +200,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C175",
@@ -205,7 +223,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C200",
@@ -226,7 +246,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C225",
@@ -247,7 +269,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C250",
@@ -268,7 +292,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C281",
@@ -289,7 +315,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C300",
@@ -308,7 +336,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C305",
@@ -329,7 +359,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C330",
@@ -348,7 +380,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C340",
@@ -367,7 +401,9 @@
     "scaling": [
       "Misc"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C375",
@@ -384,7 +420,9 @@
       "Specific Buildings"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C400",
@@ -405,7 +443,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C501",
@@ -426,7 +466,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C425",
@@ -447,7 +489,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C475",
@@ -466,7 +510,9 @@
     "scaling": [
       "Excavations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C600",
@@ -485,7 +531,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C700",
@@ -506,7 +554,9 @@
     "scaling": [
       "Faction Coins Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "C1300",
@@ -529,7 +579,9 @@
       "Max Mana",
       "Gems Owned"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "C1325",
@@ -550,7 +602,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "C1500",
@@ -572,7 +626,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "C3000",
@@ -591,7 +647,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "C3100",
@@ -612,6 +670,8 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   }
 ]

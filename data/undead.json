@@ -15,7 +15,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "UD2",
@@ -33,7 +35,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "UD3",
@@ -51,7 +55,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "UD4",
@@ -69,7 +75,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "UD5",
@@ -87,7 +95,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "UD6",
@@ -105,7 +115,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "UD7",
@@ -119,7 +131,9 @@
       "Misc"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "UD8",
@@ -135,7 +149,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "UD9",
@@ -156,7 +172,9 @@
     "window": [
       "Era",
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "UD10",
@@ -174,7 +192,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
   },
   {
     "id": "UD11",
@@ -192,7 +212,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
   },
   {
     "id": "UD12",
@@ -208,6 +230,8 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": true
   }
 ]

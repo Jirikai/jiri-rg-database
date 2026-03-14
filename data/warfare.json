@@ -18,7 +18,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W10",
@@ -39,7 +41,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W25",
@@ -60,7 +64,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W50",
@@ -81,7 +87,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W120",
@@ -102,7 +110,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W135",
@@ -121,7 +131,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W150",
@@ -142,7 +154,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W175",
@@ -163,7 +177,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W180",
@@ -180,7 +196,9 @@
       "All Buildings"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W200",
@@ -199,7 +217,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W205",
@@ -223,7 +243,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W225",
@@ -244,7 +266,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W250",
@@ -263,7 +287,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W290",
@@ -284,7 +310,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W300",
@@ -305,7 +333,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W270",
@@ -324,7 +354,9 @@
     "scaling": [
       "Excavations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W320",
@@ -343,7 +375,9 @@
     "scaling": [
       "Excavations"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W330",
@@ -362,7 +396,9 @@
     "scaling": [
       "Trophies"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W350",
@@ -383,7 +419,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W400",
@@ -400,7 +438,9 @@
       "Specific Buildings"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W501",
@@ -419,7 +459,9 @@
     "scaling": [
       "Offline Time"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W600",
@@ -440,7 +482,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W625",
@@ -463,7 +507,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "W650",
@@ -484,7 +530,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W700",
@@ -506,7 +554,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "W1275",
@@ -527,7 +577,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "W1375",
@@ -548,7 +600,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "W1400",
@@ -569,7 +623,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
   },
   {
     "id": "W3050",
@@ -590,7 +646,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
   },
   {
     "id": "W3150",
@@ -611,6 +669,8 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
   }
 ]

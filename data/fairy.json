@@ -12,7 +12,9 @@
       "Building Cost Reduction"
     ],
     "scaling": [],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR2",
@@ -30,7 +32,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "FR3",
@@ -48,7 +52,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR4",
@@ -64,7 +70,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": []
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR5",
@@ -83,7 +91,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR6",
@@ -101,7 +111,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR7",
@@ -119,7 +131,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR8",
@@ -137,7 +151,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "FR9",
@@ -155,7 +171,9 @@
     ],
     "window": [
       "Era"
-    ]
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
   },
   {
     "id": "FR10",
@@ -173,7 +191,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
   },
   {
     "id": "FR11",
@@ -191,7 +211,9 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
   },
   {
     "id": "FR12",
@@ -209,6 +231,8 @@
     ],
     "window": [
       "Reincarnation"
-    ]
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
   }
 ]
