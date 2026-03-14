@@ -13,6 +13,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="avatar.png">
 <title>Jiri's RG Database</title>
+<!-- Open Graph / Discord embed -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jirikai.github.io/jiri-rg-database/">
+<meta property="og:title" content="Jiri's Realm Grinder Database">
+<meta property="og:description" content="A updated searchable, filterable reference for Realm Grinder upgrades. Faction upgrades and research across A0 to A2.">
+<meta property="og:image" content="https://jirikai.github.io/jiri-rg-database/avatar.png">
+<meta name="theme-color" content="#3a7bd5">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -922,7 +929,10 @@ window.addEventListener('load',()=>{
 <!-- Onboarding modal -->
 <div id="onboard-overlay" style="display:none">
   <div id="onboard-modal">
-    <h2>Jiri's Realm Grinder Database</h2>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      <img src="avatar.png" alt="Jiri" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0">
+      <h2 style="margin-bottom:0">Jiri's Realm Grinder Database</h2>
+    </div>
     <p>This database currently covers upgrades across A0 to A2. Set your <strong>current Ascension</strong> below to hide irrelevant upgrades. You can always change it with the slider on the left panel. If you see any errors/mistakes, let me know with a mention on discord or comment on the reddit post.</p>
     <div class="onboard-slider-wrap">
       <input type="range" id="onboard-slider" min="0" max="3" step="1" value="3" oninput="onOnboardSlider(this.value)">
