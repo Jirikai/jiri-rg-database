@@ -24,12 +24,16 @@
   --tag-scale-bg:#2e2e2e;--tag-scale-text:#bbb;
   --accent:#5b9bd5;
 }}
+.force-light{--bg:#ffffff!important;--bg2:#f5f5f5!important;--bg3:#ebebeb!important;--text:#1a1a1a!important;--text2:#555!important;--text3:#888!important;--border:#e0e0e0!important;--border2:#ccc!important;--tag-effect-bg:#d4edda!important;--tag-effect-text:#1a5c2a!important;--tag-scale-bg:#f0f0f0!important;--tag-scale-text:#444!important;--accent:#3a7bd5!important}
+.force-dark{--bg:#1e1e1e!important;--bg2:#252525!important;--bg3:#2e2e2e!important;--text:#e8e8e8!important;--text2:#aaa!important;--text3:#666!important;--border:#383838!important;--border2:#4a4a4a!important;--tag-effect-bg:#1a3d22!important;--tag-effect-text:#6dbb80!important;--tag-scale-bg:#2e2e2e!important;--tag-scale-text:#bbb!important;--accent:#5b9bd5!important}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:var(--bg);display:flex;flex-direction:column}
 #site-header{display:flex;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
 #header-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border2);flex-shrink:0}
 #header-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.2}
 #header-sub{font-size:11px;color:var(--text3);margin-top:1px}
+#theme-toggle{margin-left:auto;background:none;border:1px solid var(--border2);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:16px;color:var(--text);flex-shrink:0;transition:background .15s}
+#theme-toggle:hover{background:var(--bg3)}
 body{display:flex;flex-direction:column}
 #app{display:grid;grid-template-columns:250px 1fr 310px;flex:1;min-height:0}
 .panel{border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;background:var(--bg)}
@@ -125,6 +129,7 @@ body{display:flex;flex-direction:column}
     <div id="header-title">Jiri's RG Database</div>
     <div id="header-sub">Realm Grinder Upgrade Reference · 4.3</div>
   </div>
+  <button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
 </header>
 <div id="app">
   <div class="panel">
@@ -462,6 +467,30 @@ function render(){
 }
 
 document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
+
+(function(){
+  const saved=localStorage.getItem('rg-theme');
+  if(saved==='light')document.documentElement.classList.add('force-light');
+  else if(saved==='dark')document.documentElement.classList.add('force-dark');
+  updateToggleIcon();
+})();
+
+function updateToggleIcon(){
+  const btn=document.getElementById('theme-toggle');
+  if(!btn)return;
+  const isDark=document.documentElement.classList.contains('force-dark')||
+    (!document.documentElement.classList.contains('force-light')&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  btn.textContent=isDark?'☀️':'🌙';
+}
+
+function toggleTheme(){
+  const el=document.documentElement;
+  const isDark=el.classList.contains('force-dark')||
+    (!el.classList.contains('force-light')&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  if(isDark){el.classList.remove('force-dark');el.classList.add('force-light');localStorage.setItem('rg-theme','light');}
+  else{el.classList.remove('force-light');el.classList.add('force-dark');localStorage.setItem('rg-theme','dark');}
+  updateToggleIcon();
+}
 </script>
 </body>
 </html>
