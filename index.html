@@ -71,8 +71,11 @@ body{display:flex;flex-direction:column}
 .faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
 .faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-req{font-size:11px;color:var(--text3);margin-bottom:4px;font-style:italic}
-.card-faction-line{font-size:11px;color:var(--text3);margin-top:1px}
+.card-icon-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
+.card-faction-tags{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;max-width:36px}
+.card-faction-tag{font-size:9px;padding:1px 4px;border-radius:3px;background:var(--bg3);color:var(--text3);white-space:nowrap}
+.card-req{font-size:11px;color:var(--text3);margin-top:5px;text-align:right;font-style:italic}
+.req-label{font-weight:600}
 .card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
 .card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
@@ -124,6 +127,9 @@ body{display:flex;flex-direction:column}
     <div class="panel-inner">
       <div class="panel-title">Faction</div>
       <div id="faction-list"></div>
+      <div style="border-top:1px solid var(--border);margin:10px 0 8px"></div>
+      <div class="panel-title">Upgrade Type</div>
+      <div id="type-list"></div>
     </div>
   </div>
   <div class="center">
@@ -196,7 +202,16 @@ const FC={
   Mercenary:{bg:'#2e2e2e',text:'#eee'},Archon:{bg:'#5b9bd5',text:'#fff'},Djinn:{bg:'#a67fc4',text:'#fff'},
   Makers:{bg:'#b0b8c8',text:'#2a2a3a'},
 };
+const RESEARCH_COLORS={
+  Spellcraft:{bg:'#e8609a',text:'#fff'},
+  Craftsmanship:{bg:'#5aad4e',text:'#fff'},
+  Divine:{bg:'#7ecfea',text:'#1a4a55'},
+  Economics:{bg:'#7a9e3b',text:'#fff'},
+  Alchemy:{bg:'#4a4a8a',text:'#fff'},
+  Warfare:{bg:'#c93022',text:'#fff'},
+};
 const WINDOWS=['Era','Reincarnation','All Time'];
+const UPGRADE_TYPES=['Faction Upgrades','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
   'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking Reward','Click Count','Gems Bonus','Building Cost Reduction','Royal Exchange Cost Reduction','Assistant Amount','Assistant Production','Offline Production']},
   'Mana & Spells':{open:true,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection']},
@@ -211,7 +226,7 @@ const SCALING_GROUPS={
 };
 
 let UPGRADES=[];
-let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),pinned:[],eg:{},sg:{}};
+let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),upgradeTypes:new Set(),pinned:[],eg:{},sg:{}};
 Object.keys(EFFECT_GROUPS).forEach(g=>state.eg[g]=EFFECT_GROUPS[g].open);
 Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 
@@ -241,6 +256,22 @@ function buildFactionList(){
       w.appendChild(b);
     });
     el.appendChild(w);
+  });
+}
+
+function buildTypeList(){
+  const el=document.getElementById('type-list');el.innerHTML='';
+  UPGRADE_TYPES.forEach(t=>{
+    const rc=RESEARCH_COLORS[t];
+    const dotBg=rc?rc.bg:'#888';
+    const b=document.createElement('button');
+    b.className='faction-btn'+(state.upgradeTypes.has(t)?' active':'');
+    const iconPart=ICONS[t]
+      ?`<img src="${ICONS[t]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${dotBg}\\'></span>'">`
+      :`<span class="faction-dot" style="background:${dotBg}"></span>`;
+    b.innerHTML=`${iconPart}<span>${t}</span>`;
+    b.onclick=()=>{state.upgradeTypes.has(t)?state.upgradeTypes.delete(t):state.upgradeTypes.add(t);render();};
+    el.appendChild(b);
   });
 }
 
@@ -281,6 +312,7 @@ function buildActiveFilters(){
   state.factions.forEach(f=>{const c=FC[f]||{bg:'#888',text:'#fff'};chips.push({label:f,style:`background:${c.bg};color:${c.text};border-color:${c.bg}`,remove:()=>state.factions.delete(f)});});
   state.effects.forEach(e=>chips.push({label:e,style:'',remove:()=>state.effects.delete(e)}));
   state.scalings.forEach(s=>chips.push({label:'↳ '+s,style:'',remove:()=>state.scalings.delete(s)}));
+  state.upgradeTypes.forEach(t=>{const rc=RESEARCH_COLORS[t];const st=rc?`background:${rc.bg};color:${rc.text};border-color:${rc.bg}`:'';chips.push({label:t,style:st,remove:()=>state.upgradeTypes.delete(t)});});
   state.windows.forEach(w=>chips.push({label:'⏱ '+w,style:'',remove:()=>state.windows.delete(w)}));
   if(!chips.length&&!state.search){el.innerHTML='<span class="af-label">No filters active</span>';return;}
   el.innerHTML='';
@@ -301,6 +333,10 @@ function getFiltered(){
   return UPGRADES.filter(u=>{
     const fList=Array.isArray(u.faction)?u.faction:[u.faction];
     if(state.factions.size>0&&!fList.some(f=>state.factions.has(f)||f==='All'))return false;
+    if(state.upgradeTypes.size>0){
+      const uType=u.category||'Faction Upgrades';
+      if(!state.upgradeTypes.has(uType))return false;
+    }
     const q=state.search.toLowerCase();
     if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     if(state.effects.size>0&&![...state.effects].every(e=>(u.effects||[]).includes(e)))return false;
@@ -323,44 +359,46 @@ function buildCards(filtered){
       const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
       return`<span class="tag tag-scale">&#8627; ${s}${win}</span>`;
     }).join('');
-    // For research, use category icon; for faction upgrades use faction icon
-    const iconKey=u.category||u.faction;
-    const displayFaction=Array.isArray(u.faction)
-      ?(u.faction.length===1?u.faction[0]:(u.faction.includes('All')?'All':u.faction.join('/')))
-      :u.faction;
-    const iconSrc=ICONS[u.category]||ICONS[u.faction];
+    // Icon: use category icon for research, faction icon for upgrades
+    const isResearch=!!u.category;
+    const rc=isResearch?RESEARCH_COLORS[u.category]:null;
+    const badgeBg=rc?rc.bg:c.bg;
+    const badgeText=rc?rc.text:c.text;
+    const iconSrc=isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
-      ?`<img src="${iconSrc}" class="card-icon" alt="${iconKey}" onerror="this.style.display='none'">`
-      :`<span class="card-icon-fb" style="background:${c.bg}"></span>`;
+      ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
+      :`<span class="card-icon-fb" style="background:${badgeBg}"></span>`;
+    const badgeLabel=u.category||u.faction;
     const badgeIconHtml=iconSrc
       ?`<img src="${iconSrc}" width="14" height="14" style="object-fit:contain;image-rendering:pixelated" alt="" onerror="this.style.display='none'">`
       :'';
-    // For research show category badge; for faction upgrades show faction badge
-    const badgeLabel=u.category||displayFaction;
-    const badgeBg=u.category?'#555':c.bg;
-    const badgeText=u.category?'#eee':c.text;
-    // requirement line
-    const reqHtml=u.requirement?`<div class="card-req">Req: ${u.requirement}</div>`:'';
+    // For research: show faction restriction tags below icon
+    const factionTagsHtml=isResearch
+      ?`<div class="card-faction-tags">${(Array.isArray(u.faction)?u.faction:[u.faction]).map(f=>`<span class="card-faction-tag">${f}</span>`).join('')}</div>`
+      :'';
+    // Requirement at bottom right
+    const reqHtml=u.requirement?`<div class="card-req"><span class="req-label">Req:</span> ${u.requirement}</div>`:'';
     card.innerHTML=`
       <div class="card-header">
-        ${iconHtml}
+        <div class="card-icon-wrap">
+          ${iconHtml}
+          ${factionTagsHtml}
+        </div>
         <div class="card-title-block">
           <div class="card-id-name">
-            <span class="card-id-part" style="background:${c.bg};color:${c.text}">${u.id}</span>
+            <span class="card-id-part" style="background:${badgeBg};color:${badgeText}">${u.id}</span>
             <span class="card-name-text">${u.name}</span>
-            ${u.cost?`<span class="card-cost">${u.cost}</span>`:''}
           </div>
-          ${u.category?`<div class="card-faction-line">${Array.isArray(u.faction)?u.faction.join(', '):u.faction}</div>`:''}
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>
-      ${reqHtml}
       <div class="card-effect">${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
       <div class="card-tags">
         ${(u.effects||[]).map(e=>`<span class="tag tag-effect">${e}</span>`).join('')}
         ${scalingTags}
-      </div>`;
+      </div>
+      ${reqHtml}`;
     el.appendChild(card);
   });
 }
@@ -377,11 +415,11 @@ function buildPinBar(){
 }
 
 function removePin(id){state.pinned=state.pinned.filter(p=>p!==id);render();}
-function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();document.getElementById('search').value='';render();}
+function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();document.getElementById('search').value='';render();}
 function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();render();}
 
 function render(){
-  buildFactionList();buildWindowChips();
+  buildFactionList();buildTypeList();buildWindowChips();
   buildFilterPanel(EFFECT_GROUPS,state.effects,state.eg,'effect-filters');
   buildFilterPanel(SCALING_GROUPS,state.scalings,state.sg,'scaling-filters');
   const f=getFiltered();
