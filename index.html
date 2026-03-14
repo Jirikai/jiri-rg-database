@@ -402,6 +402,73 @@ const RESEARCH_COLORS={
   Alchemy:{bg:'#4a4a8a',text:'#fff'},
   Warfare:{bg:'#c93022',text:'#fff'},
 };
+const SPELL_COLORS={
+  'Tax-Collection':     {bg:'#e8d88a',text:'#5a4a00'},
+  'Coin-Pillage':       {bg:'#e8d88a',text:'#5a4a00'},
+  'Call-to-Arms':       {bg:'#8a9aaa',text:'#fff'},
+  'Spiritual-Surge':    {bg:'#c8962a',text:'#fff'},
+  'Holy-Light':         {bg:'#7eaadc',text:'#fff'},
+  'God\'s-Rest':        {bg:'#7eaadc',text:'#fff'},
+  'Blood-Frenzy':       {bg:'#c93022',text:'#fff'},
+  'Gem-Grinder':        {bg:'#9b85c4',text:'#fff'},
+  'Temporal-Flux':      {bg:'#5b9bd5',text:'#fff'},
+  'Maelstrom':          {bg:'#a67fc4',text:'#fff'},
+  'All-Creation':       {bg:'#b0b8c8',text:'#2a2a3a'},
+  'Share-Benefits':     {bg:'#2e2e2e',text:'#eee'},
+  'Reap-Interests':     {bg:'#2e2e2e',text:'#eee'},
+  'Appraisal-Vantage':  {bg:'#2e2e2e',text:'#eee'},
+  'Precognition':       {bg:'#5b9bd5',text:'#fff'},
+  'Chrono-Loading':     {bg:'#5b9bd5',text:'#fff'},
+  'Limited-Wish':       {bg:'#a67fc4',text:'#fff'},
+  'Persistent-Entropy': {bg:'#a67fc4',text:'#fff'},
+  'Infinite-Spiral':    {bg:'#b0b8c8',text:'#2a2a3a'},
+  'Reality-Crater':     {bg:'#b0b8c8',text:'#2a2a3a'},
+  'Catalyst':           {bg:'#a67fc4',text:'#fff'},
+};
+const SPELL_ICONS={
+  'Tax-Collection':     'RG icons/CoinPillageSpellUpgrade.png',
+  'Coin-Pillage':       'RG icons/CoinPillageSpellUpgrade.png',
+  'Call-to-Arms':       'RG icons/CalltoArmsTier2.png',
+  'Spiritual-Surge':    'RG icons/SpiritualSurgeTier2.png',
+  'Holy-Light':         'RG icons/HolyLightTier2.png',
+  'God\'s-Rest':        'RG icons/GodsRestSpellUpgrade.png',
+  'Blood-Frenzy':       'RG icons/BloodfrenzyTier2.png',
+  'Gem-Grinder':        'RG icons/GemGrinderTier2.png',
+  'Fairy-Chanting':     'RG icons/FairyChantingTier2.png',
+  'Fairy-Choir':        'RG icons/FairyChoirSpellUpgrade.png',
+  'Moon-Blessing':      'RG icons/MoonBlessingTier2.png',
+  'Sun-Blessing':       'RG icons/SunBlessingSpellUpgrade.png',
+  'God\'s-Hand':        'RG icons/God\'sHandTier2.png',
+  'Diamond-Pickaxe':    'RG icons/DiamondPickaxeTier2.png',
+  'Goblin\'s-Greed':    'RG icons/Goblin\'sGreedTier2.png',
+  'Greed-Drive':        'RG icons/GreedDriveSpellUpgrade.png',
+  'Night-Time':         'RG icons/NightTimeTier2.png',
+  'True-Night':         'RG icons/TrueNightSpellUpgrade.png',
+  'Hellfire-Blast':     'RG icons/HellfireBlastTier2.png',
+  'Hell-Rush':          'RG icons/HellRushSpellUpgrade.png',
+  'Combo-Strike':       'RG icons/ComboStrikeTier2.png',
+  'Perfect-Combo':      'RG icons/PerfectComboSpellUpgrade.png',
+  'Lightning-Strike':   'RG icons/LightningStrikeTier2.png',
+  'Lightning-Storm':    'RG icons/LightningStormSpellUpgrade.png',
+  'Brainwave':          'RG icons/BrainwaveTier2.png',
+  'Faceless-Overmind':  'RG icons/FacelessOvermindSpellUpgrade.png',
+  'Grand-Balance':      'RG icons/GrandBalanceTier2.png',
+  'Halls-of-Balance':   'RG icons/HallsofBalanceSpellUpgrade.png',
+  'Dragon\'s-Breath':   'RG icons/DragonsBreathTier2.png',
+  'Dragon\'s-Roar':     'RG icons/DragonsRoarSpellUpgrade.png',
+  'Temporal-Flux':      'RG icons/TemporalFluxTier2.png',
+  'Maelstrom':          'RG icons/MaelstromSpellTier2.png',
+  'All-Creation':       'RG icons/AllCreationSpellTier2.png',
+  'Precognition':       'RG icons/ChronoLoadingSpellUpgrade.png',
+  'Chrono-Loading':     'RG icons/ChronoLoadingSpellUpgrade.png',
+  'Limited-Wish':       'RG icons/PersistentEntropySpellUpgrade.png',
+  'Persistent-Entropy': 'RG icons/PersistentEntropySpellUpgrade.png',
+  'Infinite-Spiral':    'RG icons/RealityCraterSpellUpgrade.png',
+  'Reality-Crater':     'RG icons/RealityCraterSpellUpgrade.png',
+  'Share-Benefits':     'RG icons/CoinPillageSpellUpgrade.png',
+  'Reap-Interests':     'RG icons/CoinPillageSpellUpgrade.png',
+  'Appraisal-Vantage':  'RG icons/CoinPillageSpellUpgrade.png',
+};
 const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Spells','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
@@ -661,11 +728,13 @@ function buildCards(filtered){
     const card=document.createElement('div');card.className='card'+(pinned?' pinned':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
-    const isResearch=!!u.category;
+    const isResearch=!!u.category&&u.category!=='Spells';
+    const isSpell=u.category==='Spells';
     const rc=isResearch?RESEARCH_COLORS[u.category]:null;
-    const badgeBg=rc?rc.bg:c.bg;
-    const badgeText=rc?rc.text:c.text;
-    const iconSrc=isResearch?ICONS[u.category]:ICONS[u.faction];
+    const sc=isSpell?(SPELL_COLORS[u.id]||FC[u.faction]||{bg:'#7a6aaa',text:'#fff'}):null;
+    const badgeBg=sc?sc.bg:rc?rc.bg:c.bg;
+    const badgeText=sc?sc.text:rc?rc.text:c.text;
+    const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
       ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
       :`<span class="card-icon-fb" style="background:${badgeBg}"></span>`;
@@ -681,6 +750,9 @@ function buildCards(filtered){
     const reqFull=u.requirement||'';
     const reqShort=reqFull.replace(/[A-Za-z][\w'\s]+\(([A-Z][A-Z0-9]+)\)/g,'$1');
     const reqHtml=reqFull?`<div class="card-req"><span class="req-label">Req:</span> <span class="req-full">${reqFull}</span><span class="req-short">${reqShort}</span></div>`:'';
+    // Spell cards: show cost in place of id badge; suppress id badge entirely for spells
+    const costHtml=isSpell&&u.cost?`<span class="card-cost">${u.cost}</span>`:'';
+    const idBadgeHtml=isSpell?'':`<span class="card-id-part" style="background:${badgeBg};color:${badgeText}">${u.id}</span>`;
     card.innerHTML=`
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -688,8 +760,9 @@ function buildCards(filtered){
         </div>
         <div class="card-title-block">
           <div class="card-id-name">
-            <span class="card-id-part" style="background:${badgeBg};color:${badgeText}">${u.id}</span>
+            ${idBadgeHtml}
             <span class="card-name-text">${u.name}</span>
+            ${costHtml}
           </div>
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
