@@ -476,7 +476,7 @@
     "cost": "7.314e212",
     "requirement": "12,000 Unique Buildings as Dwarf",
     "effect": "Increase production bonus from Gems based on Spider Sanctuaries owned.",
-    "formula": "+(0.06 * x^0.8)%, where x = Spider Sanctuaries owned",
+    "formula": "+(4 * x^0.8), where x = Spider Sanctuaries owned",
     "effects": [
       "Gems Bonus"
     ],
@@ -497,10 +497,10 @@
     "category": "Economics",
     "cost": "3.916e229",
     "requirement": "200 Drow Exchanges as Droblin, Research Automatons (C225) & Undercutting (E480)",
-    "effect": "Gain assistants based on Non-Unique buildings owned.",
-    "formula": "+(0.1 * x^0.8), where x = Non-Unique Buildings owned",
+    "effect": "Multiplicatively increase assistant production based on Non-Unique buildings owned.",
+    "formula": "(0.4 * x^0.8)%, where x = Non-Unique Buildings owned",
     "effects": [
-      "Assistant Amount"
+      "Assistant Production"
     ],
     "scaling": [
       "Buildings Owned"
@@ -521,7 +521,7 @@
     "category": "Economics",
     "cost": "1.602e68",
     "requirement": "1e12 Faction Coins found (This Game)",
-    "effect": "Removes 1 Ascension penalty for Royal Exchanges.",
+    "effect": "Increase the Ascension multiplier for Royal Market bonus by 0.7.",
     "formula": "",
     "effects": [
       "Royal Exchange Production"
@@ -576,13 +576,13 @@
     "category": "Economics",
     "cost": "6.616e188",
     "requirement": "Research Intimidation (E1325) & Scholarship (S2875)",
-    "effect": "Gain assistants based on coins owned.",
-    "formula": "+(1.5 * ln(1+x)^1.5), where x = coins owned",
+    "effect": "Gain assistants based on Faction Coins found this Era.",
+    "formula": "+(5 * ln(x)^2.5), where x = FC found this Era",
     "effects": [
       "Assistant Amount"
     ],
     "scaling": [
-      "Coins Owned"
+      "Faction Coins Found"
     ],
     "window": [
       "Era"

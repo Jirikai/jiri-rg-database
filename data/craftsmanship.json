@@ -1,32 +1,617 @@
 [
-  {"id":"C1","name":"Dummy Targets","faction":["Elven"],"category":"Craftsmanship","cost":"7.5e125","requirement":"None","effect":"Increase the production of Elven Training Grounds based on Faction Coins found this game.","formula":"(3 * ln(1+x)^3)%, where x = FC found this game","effects":["Specific Buildings"],"scaling":["Faction Coins Found"],"window":["Era"]},
-  {"id":"C10","name":"Cultivation","faction":["Fairy"],"category":"Craftsmanship","cost":"2.883e127","requirement":"2,500 Enchanted Fields","effect":"Increase the production of Inns and Blacksmiths by 70% per Enchanted Field built.","formula":"×70% per Enchanted Field built","effects":["Specific Buildings"],"scaling":["Specific Building Count"],"window":["Era"]},
-  {"id":"C25","name":"Light Condenser","faction":["Angel"],"category":"Craftsmanship","cost":"1.263e130","requirement":"12,000 Spells cast (This R)","effect":"Increase Mana Regeneration based on spells cast this Era.","formula":"+(20 * ln(1+x)^2), where x = spells cast this Era","effects":["Mana Regeneration"],"scaling":["Spells Cast"],"window":["Era"]},
-  {"id":"C50","name":"Refining","faction":["Demon"],"category":"Craftsmanship","cost":"3.188e134","requirement":"1e9 Faction Coins as Elf","effect":"Increase the production of Infernal Realms based on Demon Coins found this game.","formula":"(0.3 * ln(1+x)^3)%, where x = Demon Coins found this game","effects":["Specific Buildings"],"scaling":["Faction Coins Found"],"window":["Era"]},
-  {"id":"C80","name":"Apprenticeship","faction":["All"],"category":"Craftsmanship","cost":"6.113e139","requirement":"16,000 Good and Evil buildings","effect":"Increase production of all buildings based on Faction Coins found this Era. Best bonus to lowest tiers.","formula":"((7 * ln(1+x)^1.4) * (1.4^(12-T)))%, where x = FC found this Era, T = building tier","effects":["All Buildings"],"scaling":["Faction Coins Found"],"window":["Era"]},
-  {"id":"C105","name":"Woodcraft","faction":["All"],"category":"Craftsmanship","cost":"1.544e144","requirement":"25,000 clicks (This Game)","effect":"Multiplicatively increase Faction Coin find chance based on Unique Buildings built.","formula":"(x^0.5)%, where x = Unique Buildings built","effects":["FC Find Chance"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"C120","name":"Socketing","faction":["All"],"category":"Craftsmanship","cost":"6.76e146","requirement":"100,000 clicks (This Reincarnation)","effect":"Increase clicking reward based on Gems owned.","formula":"(5 * ln(1+x)^1.5)%, where x = Gems owned","effects":["Clicking Reward"],"scaling":["Gems Owned"],"window":["Era"]},
-  {"id":"C135","name":"Reinforcing","faction":["All"],"category":"Craftsmanship","cost":"2.96e149","requirement":"100 Elven Lucks triggered (This Era)","effect":"Increase production of Non-Unique Buildings based on clicks made this Reincarnation.","formula":"(40 * x^0.4)%, where x = clicks this Reincarnation","effects":["All Buildings"],"scaling":["Clicks"],"window":["Reincarnation"]},
-  {"id":"C150","name":"Tinkering","faction":["All"],"category":"Craftsmanship","cost":"1.296e152","requirement":"Research Recycling (E10) & Reinforcing (C135)","effect":"Increase production of all buildings based on Research Points.","formula":"(18 * x^0.6)%, where x = Research Points","effects":["All Buildings"],"scaling":["Reincarnations"],"window":[]},
-  {"id":"C175","name":"Gemcutting","faction":["Goblin"],"category":"Craftsmanship","cost":"3.273e156","requirement":"Research Refining (C50) & Socketing (C120)","effect":"Increase production bonus from Gems based on buildings built.","formula":"(0.25 * x^0.5)%, where x = buildings built","effects":["Gems Bonus"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"C200","name":"Journeymen","faction":["All"],"category":"Craftsmanship","cost":"8.265e160","requirement":"Research Apprenticeship (C80) & Bartering (E50)","effect":"Increase production of Unique Buildings based on time spent as that building's alignment this Reincarnation.","formula":"(25 + 1.25 * x^0.75)%, where x = sum of time as building's alignment(s) this Reincarnation","effects":["Specific Buildings"],"scaling":["Alignment Time"],"window":["Reincarnation"]},
-  {"id":"C225","name":"Automatons","faction":["Elven"],"category":"Craftsmanship","cost":"2.087e165","requirement":"Research Dummy Targets (C1) & Vivification (A120)","effect":"Each Elven Training Ground counts as more buildings for Call to Arms based on assistants owned.","formula":"×(20 * ln(1+x)^2), where x = assistants owned","effects":["Assistant Amount"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"C250","name":"Magnetism","faction":["All"],"category":"Craftsmanship","cost":"5.27e169","requirement":"Research Tinkering (C150) & Critical Strike (W225)","effect":"Increase Faction Coin find chance additively based on offline time this Reincarnation. Also increase FC chance by 50% multiplicatively.","formula":"+(9 * x^0.9), where x = offline time this Reincarnation","effects":["FC Find Chance"],"scaling":["Offline Time"],"window":["Reincarnation"]},
-  {"id":"C251","name":"Architecture","faction":["Titan"],"category":"Craftsmanship","cost":"7.905e169","requirement":"Secrets of the Ancients as Titan","effect":"Increase the production of Hall of Legends based on buildings built.","formula":"(80 * x^0.8)%, where x = buildings built","effects":["Specific Buildings"],"scaling":["Buildings Owned"],"window":["Era"]},
-  {"id":"C300","name":"Weighting","faction":["Druid"],"category":"Craftsmanship","cost":"3.36e178","requirement":"650 Lightning Strikes (This R)","effect":"While Grand Balance hits Stone Pillars, increase their production by 2000%. Also increase production of every Grand Balance target based on Maximum Mana.","formula":"25 * (ln(1+x)^(2.5*y))%, where x = Max Mana, y = Grand Balance tier","effects":["Specific Buildings"],"scaling":["Max Mana"],"window":[]},
-  {"id":"C305","name":"Golemcraft","faction":["All"],"category":"Craftsmanship","cost":"2.552e179","requirement":"2 days as Titans (All Time)","effect":"Multiplicatively increase assistants based on time spent offline this Reincarnation.","formula":"(0.7 * x^0.7)%, where x = offline time this Reincarnation","effects":["Assistant Amount"],"scaling":["Offline Time"],"window":["Reincarnation"]},
-  {"id":"C330","name":"Overload","faction":["All"],"category":"Craftsmanship","cost":"6.443e183","requirement":"Research Aeromancy (S250) & Critical Strike (W225)","effect":"Increase Maximum Mana based on Research Points.","formula":"+(15 * x^0.75), where x = Research Points","effects":["Max Mana"],"scaling":["Reincarnations"],"window":[]},
-  {"id":"C340","name":"Gem Duster","faction":["All"],"category":"Craftsmanship","cost":"3.715e185","requirement":"200 Gem Grinders (This R), Research Sifting (E260) & Surveyorship (E290)","effect":"Increase production bonus from Gems based on Rubies collected (Multiplicative).","formula":"floor(10 * x)%, where x = Rubies Gained (All Time)","effects":["Gems Bonus"],"scaling":["Misc"],"window":[]},
-  {"id":"C375","name":"Lightning Rod","faction":["Titan"],"category":"Craftsmanship","cost":"5.41e191","requirement":"Research Chain Lightning (S300) & Overload (C330)","effect":"Olympian Halls are always hit by Lightning Strike in addition to the primary target. Olympian Halls can no longer be a primary target.","formula":"","effects":["Specific Buildings"],"scaling":[],"window":[]},
-  {"id":"C400","name":"Gravitation","faction":["All"],"category":"Craftsmanship","cost":"1.366e196","requirement":"Research Magnetism (C250) & Weighting (C300)","effect":"Increase FC find chance additively based on FC found this game. Also increase FC chance by 100% multiplicatively.","formula":"+(3.5 * ln(x+1)^3)%, where x = FC found this game","effects":["FC Find Chance"],"scaling":["Faction Coins Found"],"window":["Era"]},
-  {"id":"C405","name":"Metallurgy","faction":["Dwarven"],"category":"Craftsmanship","cost":"1.037e197","requirement":"Secrets of the Underworld as Dwarf","effect":"Increase the production of Blacksmiths based on Blacksmiths built.","formula":"(60 * x^0.8)%, where x = Blacksmiths built","effects":["Specific Buildings"],"scaling":["Specific Building Count"],"window":["Era"]},
-  {"id":"C460","name":"Distribution","faction":["All"],"category":"Craftsmanship","cost":"5.023e206","requirement":"500,000 clicks (All Time)","effect":"Multiplicatively increase production bonus from Gems based on time spent as other alignments this Reincarnation.","formula":"(0.4 * x^0.6)%, where x = sum of time as other alignments this Reincarnation","effects":["Gems Bonus"],"scaling":["Alignment Time"],"window":["Reincarnation"]},
-  {"id":"C500","name":"Minecrafting","faction":["All"],"category":"Craftsmanship","cost":"5.554e213","requirement":"3,250 excavations as Dwarf","effect":"Increase production bonus from Gems based on excavations made.","formula":"(3 * x^0.35)%, where x = excavations made","effects":["Gems Bonus"],"scaling":["Excavations"],"window":[]},
-  {"id":"C520","name":"Blacksmithing","faction":["Dwarven"],"category":"Craftsmanship","cost":"1.847e217","requirement":"Research Reinforcing (C135) & Metallurgy (C405)","effect":"Increase the production of Unique Buildings based on Artifacts found.","formula":"(x^2)%, where x = Artifacts found","effects":["Specific Buildings"],"scaling":["Artifacts Found"],"window":[]},
-  {"id":"C590","name":"Alloys","faction":["Elven","Dwarven"],"category":"Craftsmanship","cost":"3.916e229","requirement":"200 Dwarf Exchanges as Dwelf, Research Fusion (A105) & Blacksmithing (C520)","effect":"Increase clicking reward based on FC find chance. Also autoclicks 10 times per second (offline too).","formula":"(x^0.9)%, where x = FC find chance","effects":["Clicking Reward","Autoclick"],"scaling":["Faction Coins Found"],"window":[]},
-  {"id":"C1300","name":"Scintillation","faction":["Titan","Druid","Faceless","Dragon"],"category":"Craftsmanship","cost":"4.698e72","requirement":"30,000 Max Mana as any Neutral or Dragon (This Game)","effect":"Increase production of all buildings based on Maximum Mana and production bonus from Gems.","formula":"(1.5 * ln(1+x)^(0.8 * ln(1+y)^0.5))%, where x = Max Mana, y = Gems bonus","effects":["All Buildings"],"scaling":["Max Mana","Gems Owned"],"window":[]},
-  {"id":"C1325","name":"Plasmation","faction":["All"],"category":"Craftsmanship","cost":"1.449e74","requirement":"5e7 Mana Produced (This Game)","effect":"Multiplicatively increase assistants based on Mana produced this Era.","formula":"(1.75 * ln(1+x)^1.75)%, where x = mana produced this Era","effects":["Assistant Amount"],"scaling":["Mana Produced"],"window":["Era"]},
-  {"id":"C1500","name":"Gargantuaness","faction":["Titan","Dragon"],"category":"Craftsmanship","cost":"3.843e84","requirement":"2,500 Royal Exchanges, Research E460 & D1275, as Titan or Dragon","effect":"Increase production of all buildings based on time spent as Neutral this Reincarnation.","formula":"(0.75 * x^0.75)%, where x = Neutral time this Reincarnation","effects":["All Buildings"],"scaling":["Alignment Time"],"window":["Reincarnation"]},
-  {"id":"C3000","name":"Customizing","faction":["Mercenary"],"category":"Craftsmanship","cost":"8.507e173","requirement":"9,000 Excavations as Mercenary","effect":"Increase production of all buildings based on artifacts owned.","formula":"(2 * x^2)%, where x = artifacts owned","effects":["All Buildings"],"scaling":["Artifacts Found"],"window":[]},
-  {"id":"C3100","name":"Engineering","faction":["All"],"category":"Craftsmanship","cost":"7.693e179","requirement":"3 days as Mercenary (All Time)","effect":"Multiplicatively increase Maximum Mana based on clicks made this Reincarnation.","formula":"(1.5 * x^0.35)%, where x = clicks this Reincarnation","effects":["Max Mana"],"scaling":["Clicks"],"window":["Reincarnation"]}
+  {
+    "id": "C1",
+    "name": "Dummy Targets",
+    "faction": [
+      "Elven"
+    ],
+    "category": "Craftsmanship",
+    "cost": "7.5e125",
+    "requirement": "None",
+    "effect": "Increase the production of Elven Training Grounds based on Faction Coins found this game.",
+    "formula": "(3 * ln(1+x)^3)%, where x = FC found this game",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C10",
+    "name": "Cultivation",
+    "faction": [
+      "Fairy"
+    ],
+    "category": "Craftsmanship",
+    "cost": "2.883e127",
+    "requirement": "2,500 Enchanted Fields",
+    "effect": "Increase the production of Inns and Blacksmiths by 70% per Enchanted Field built.",
+    "formula": "\u00d770% per Enchanted Field built",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C25",
+    "name": "Light Condenser",
+    "faction": [
+      "Angel"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.263e130",
+    "requirement": "12,000 Spells cast (This R)",
+    "effect": "Increase Mana Regeneration based on spells cast this Era.",
+    "formula": "+(20 * ln(1+x)^2), where x = spells cast this Era",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C50",
+    "name": "Refining",
+    "faction": [
+      "Demon"
+    ],
+    "category": "Craftsmanship",
+    "cost": "3.188e134",
+    "requirement": "1e9 Faction Coins as Elf",
+    "effect": "Increase the production of Infernal Realms based on Demon Coins found this game.",
+    "formula": "(0.3 * ln(1+x)^3)%, where x = Demon Coins found this game",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C80",
+    "name": "Apprenticeship",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "6.113e139",
+    "requirement": "16,000 Good and Evil buildings",
+    "effect": "Increase production of all buildings based on Faction Coins found this Era. Best bonus to lowest tiers.",
+    "formula": "((7 * ln(1+x)^1.4) * (1.4^(12-T)))%, where x = FC found this Era, T = building tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C105",
+    "name": "Woodcraft",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.544e144",
+    "requirement": "25,000 clicks (This Game)",
+    "effect": "Multiplicatively increase Faction Coin find chance based on Unique Buildings built.",
+    "formula": "(x^0.5)%, where x = Unique Buildings built",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C120",
+    "name": "Socketing",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "6.76e146",
+    "requirement": "100,000 clicks (This Reincarnation)",
+    "effect": "Increase clicking reward based on Gems owned.",
+    "formula": "(5 * ln(1+x)^1.5)%, where x = Gems owned",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C135",
+    "name": "Reinforcing",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "2.96e149",
+    "requirement": "100 Elven Lucks triggered (This Era)",
+    "effect": "Increase production of Non-Unique Buildings based on clicks made this Reincarnation.",
+    "formula": "(40 * x^0.4)%, where x = clicks this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "C150",
+    "name": "Tinkering",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.296e152",
+    "requirement": "Research Recycling (E10) & Reinforcing (C135)",
+    "effect": "Increase production of all buildings based on Research Points.",
+    "formula": "(18 * x^0.6)%, where x = Research Points",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "C175",
+    "name": "Gemcutting",
+    "faction": [
+      "Goblin"
+    ],
+    "category": "Craftsmanship",
+    "cost": "3.273e156",
+    "requirement": "Research Refining (C50) & Socketing (C120)",
+    "effect": "Increase production bonus from Gems based on buildings built.",
+    "formula": "(0.25 * x^0.5)%, where x = buildings built",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C200",
+    "name": "Journeymen",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "8.265e160",
+    "requirement": "Research Apprenticeship (C80) & Bartering (E50)",
+    "effect": "Increase production of Unique Buildings based on time spent as that building's alignment this Reincarnation.",
+    "formula": "(25 + 1.25 * x^0.75)%, where x = sum of time as building's alignment(s) this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "C225",
+    "name": "Automatons",
+    "faction": [
+      "Elven"
+    ],
+    "category": "Craftsmanship",
+    "cost": "2.087e165",
+    "requirement": "Research Dummy Targets (C1) & Vivification (A120)",
+    "effect": "Each Elven Training Ground counts as more buildings for Call to Arms based on assistants owned.",
+    "formula": "\u00d7(20 * ln(1+x)^2), where x = assistants owned",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C250",
+    "name": "Magnetism",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "5.27e169",
+    "requirement": "Research Tinkering (C150) & Critical Strike (W225)",
+    "effect": "Increase Faction Coin find chance additively based on offline time this Reincarnation. Also increase FC chance by 50% multiplicatively.",
+    "formula": "+(9 * x^0.9), where x = offline time this Reincarnation",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "C251",
+    "name": "Architecture",
+    "faction": [
+      "Titan"
+    ],
+    "category": "Craftsmanship",
+    "cost": "7.905e169",
+    "requirement": "Secrets of the Ancients as Titan",
+    "effect": "Increase the production of Hall of Legends based on buildings built.",
+    "formula": "(80 * x^0.8)%, where x = buildings built",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C300",
+    "name": "Weighting",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Craftsmanship",
+    "cost": "3.36e178",
+    "requirement": "650 Lightning Strikes (This R)",
+    "effect": "While Grand Balance hits Stone Pillars, increase their production by 2000%. Also increase production of every Grand Balance target based on Maximum Mana.",
+    "formula": "25 * (ln(1+x)^(2.5*y))%, where x = Max Mana, y = Grand Balance tier",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": []
+  },
+  {
+    "id": "C305",
+    "name": "Golemcraft",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "2.552e179",
+    "requirement": "2 days as Titans (All Time)",
+    "effect": "Multiplicatively increase assistants based on time spent offline this Reincarnation.",
+    "formula": "(0.7 * x^0.7)%, where x = offline time this Reincarnation",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "C330",
+    "name": "Overload",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "6.443e183",
+    "requirement": "Research Aeromancy (S250) & Critical Strike (W225)",
+    "effect": "Increase Maximum Mana based on Research Points.",
+    "formula": "+(15 * x^0.75), where x = Research Points",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "C340",
+    "name": "Gem Duster",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "3.715e185",
+    "requirement": "200 Gem Grinders (This R), Research Sifting (E260) & Surveyorship (E290)",
+    "effect": "Increase production bonus from Gems based on Rubies collected (Multiplicative).",
+    "formula": "floor(10 * x)%, where x = Rubies Gained (All Time)",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Misc"
+    ],
+    "window": []
+  },
+  {
+    "id": "C375",
+    "name": "Lightning Rod",
+    "faction": [
+      "Titan"
+    ],
+    "category": "Craftsmanship",
+    "cost": "5.41e191",
+    "requirement": "Research Chain Lightning (S300) & Overload (C330)",
+    "effect": "Olympian Halls are always hit by Lightning Strike in addition to the primary target. Olympian Halls can no longer be a primary target.",
+    "formula": "",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "C400",
+    "name": "Gravitation",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.366e196",
+    "requirement": "Research Magnetism (C250) & Weighting (C300)",
+    "effect": "Increase FC find chance additively based on FC found this game. Also increase FC chance by 100% multiplicatively.",
+    "formula": "+(3.5 * ln(x+1)^3)%, where x = FC found this game",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C405",
+    "name": "Metallurgy",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.037e197",
+    "requirement": "Secrets of the Underworld as Dwarf",
+    "effect": "Increase the production of Blacksmiths based on Blacksmiths built.",
+    "formula": "(60 * x^0.8)%, where x = Blacksmiths built",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C460",
+    "name": "Distribution",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "5.023e206",
+    "requirement": "500,000 clicks (All Time)",
+    "effect": "Multiplicatively increase production bonus from Gems based on time spent as other alignments this Reincarnation.",
+    "formula": "(0.4 * x^0.6)%, where x = sum of time as other alignments this Reincarnation",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "C500",
+    "name": "Minecrafting",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "5.554e213",
+    "requirement": "3,250 excavations as Dwarf",
+    "effect": "Increase production bonus from Gems based on excavations made.",
+    "formula": "(3 * x^0.35)%, where x = excavations made",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": []
+  },
+  {
+    "id": "C520",
+    "name": "Blacksmithing",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.847e217",
+    "requirement": "Research Reinforcing (C135) & Metallurgy (C405)",
+    "effect": "Increase the production of Unique Buildings based on Artifacts found.",
+    "formula": "(x^2)%, where x = Artifacts found",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": []
+  },
+  {
+    "id": "C590",
+    "name": "Alloys",
+    "faction": [
+      "Elven",
+      "Dwarven"
+    ],
+    "category": "Craftsmanship",
+    "cost": "3.916e229",
+    "requirement": "200 Dwarf Exchanges as Dwelf, Research Fusion (A105) & Blacksmithing (C520)",
+    "effect": "Increase clicking reward based on FC find chance. Also autoclicks 10 times per second (offline too).",
+    "formula": "(x^0.9)%, where x = FC find chance",
+    "effects": [
+      "Clicking Reward",
+      "Autoclick"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": []
+  },
+  {
+    "id": "C1300",
+    "name": "Scintillation",
+    "faction": [
+      "Titan",
+      "Druid",
+      "Faceless",
+      "Dragon"
+    ],
+    "category": "Craftsmanship",
+    "cost": "4.698e72",
+    "requirement": "30,000 Max Mana as any Neutral or Dragon (This Game)",
+    "effect": "Increase production of all buildings based on Maximum Mana and production bonus from Gems.",
+    "formula": "(1.5 * ln(1+x)^(0.8 * ln(1+y)^0.5))%, where x = Max Mana, y = Gems bonus",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Max Mana",
+      "Gems Owned"
+    ],
+    "window": []
+  },
+  {
+    "id": "C1325",
+    "name": "Plasmation",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.449e74",
+    "requirement": "5e7 Mana Produced (This Game)",
+    "effect": "Multiplicatively increase assistants based on Mana produced this Era.",
+    "formula": "(1.75 * ln(1+x)^1.75)%, where x = mana produced this Era",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "C1500",
+    "name": "Gargantuaness",
+    "faction": [
+      "Titan",
+      "Dragon"
+    ],
+    "category": "Craftsmanship",
+    "cost": "3.843e84",
+    "requirement": "2,500 Royal Exchanges, Research E460 & D1275, as Titan or Dragon",
+    "effect": "Increase production of all buildings based on time spent as Neutral this Reincarnation.",
+    "formula": "(0.75 * x^0.75)%, where x = Neutral time this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "C3000",
+    "name": "Customizing",
+    "faction": [
+      "Mercenary"
+    ],
+    "category": "Craftsmanship",
+    "cost": "8.507e173",
+    "requirement": "9,000 Excavations as Mercenary",
+    "effect": "Increase production of all buildings based on artifacts owned.",
+    "formula": "(2 * x^2)%, where x = artifacts owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": []
+  },
+  {
+    "id": "C3100",
+    "name": "Engineering",
+    "faction": [
+      "All"
+    ],
+    "category": "Craftsmanship",
+    "cost": "7.693e179",
+    "requirement": "3 days as Mercenary (All Time)",
+    "effect": "Multiplicatively increase Maximum Mana based on clicks made this Reincarnation.",
+    "formula": "(1.5 * x^0.35)%, where x = clicks this Reincarnation",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  }
 ]

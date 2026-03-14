@@ -270,8 +270,8 @@
     "category": "Alchemy",
     "cost": "7.905e169",
     "requirement": "Secrets of the Ancients as Druid",
-    "effect": "Increase production of Stonehenge Circles based on Mana produced this game.",
-    "formula": "round(0.75 * x^0.6)%, where x = Mana produced this game",
+    "effect": "Increase production of Stonehenge Circles based on mana produced this Reincarnation.",
+    "formula": "(0.75 * x^0.75)%, where x = mana produced this Reincarnation",
     "effects": [
       "Specific Buildings"
     ],
@@ -279,7 +279,7 @@
       "Mana Produced"
     ],
     "window": [
-      "Era"
+      "Reincarnation"
     ]
   },
   {
@@ -291,17 +291,15 @@
     "category": "Alchemy",
     "cost": "1.752e173",
     "requirement": "Research Deflagration (A25) & Delayed Reaction (A30)",
-    "effect": "When you cast a spell, increase production of your most productive building based on mana produced this game for 20 seconds.",
-    "formula": "round(0.7 * x^0.6)%, where x = Mana Produced (Total)",
+    "effect": "Increase production of the building tier with the most spell effects based on Excavation depth. All tied buildings receive the bonus.",
+    "formula": "(60 + 60 * x^0.6)%, where x = Excavation depth",
     "effects": [
       "Specific Buildings"
     ],
     "scaling": [
-      "Mana Produced"
+      "Excavations"
     ],
-    "window": [
-      "Era"
-    ]
+    "window": []
   },
   {
     "id": "A300",
@@ -312,8 +310,8 @@
     "category": "Alchemy",
     "cost": "3.36e178",
     "requirement": "5M mana produced (This Game) as Druid",
-    "effect": "Increase Mana Regeneration based on mana produced this game.",
-    "formula": "floor(30 * ln(1+x)^1.2) / 10, where x = Mana Produced (This Game)",
+    "effect": "Multiplicatively increase Mana Regeneration based on mana produced this Reincarnation.",
+    "formula": "(3.5 * ln(1+x)^1.5)%, where x = mana produced this Reincarnation",
     "effects": [
       "Mana Regeneration"
     ],
@@ -321,7 +319,7 @@
       "Mana Produced"
     ],
     "window": [
-      "Era"
+      "Reincarnation"
     ]
   },
   {
@@ -375,8 +373,8 @@
     "category": "Alchemy",
     "cost": "5.41e191",
     "requirement": "Research Infusion (A251) & Engraving (A305)",
-    "effect": "Gain assistants based on mana produced this game.",
-    "formula": "floor(4.5 * ln(1+x)), where x = Mana Produced (This Game)",
+    "effect": "Gain 300 assistants. Multiplicatively increase assistants based on mana produced this Era.",
+    "formula": "+(300); (3 * ln(1+x)^1.5)%, where x = mana produced this Era",
     "effects": [
       "Assistant Amount"
     ],
@@ -427,8 +425,8 @@
     "category": "Alchemy",
     "cost": "7.877e197",
     "requirement": "4,000 Spider Sanctuaries",
-    "effect": "Increase production of all other buildings by 95% per Spider Sanctuary owned.",
-    "formula": "\u00d795% per Spider Sanctuary owned",
+    "effect": "Increase production of all other buildings by 120% per Spider Sanctuary built.",
+    "formula": "\u00d7120% per Spider Sanctuary built",
     "effects": [
       "All Buildings"
     ],
@@ -467,13 +465,13 @@
     "category": "Alchemy",
     "cost": "7.314e212",
     "requirement": "500 Base Assistants as Drow",
-    "effect": "Increase assistant production based on Research Points.",
-    "formula": "(40 * x^0.4)%, where x = Researches made",
+    "effect": "Multiplicatively increase Maximum Mana based on Research Points.",
+    "formula": "(4.5 * x^0.45)%, where x = Research Points",
     "effects": [
-      "Assistant Production"
+      "Max Mana"
     ],
     "scaling": [
-      "Reincarnations"
+      "Research Points"
     ],
     "window": []
   },
@@ -486,15 +484,17 @@
     "category": "Alchemy",
     "cost": "4.663e221",
     "requirement": "700 Trophies",
-    "effect": "Increase Mana Regeneration based on Gems owned.",
-    "formula": "(log10(x) / 2), where x = Gems owned",
+    "effect": "Increase production of Non-Unique Buildings based on spells cast this Reincarnation.",
+    "formula": "(0.7 * x^0.7)%, where x = spells cast this Reincarnation",
     "effects": [
-      "Mana Regeneration"
+      "Non-Unique Buildings"
     ],
     "scaling": [
-      "Gems Owned"
+      "Spells Cast"
     ],
-    "window": []
+    "window": [
+      "Reincarnation"
+    ]
   },
   {
     "id": "A590",
@@ -506,14 +506,13 @@
     "category": "Alchemy",
     "cost": "3.916e229",
     "requirement": "200 Drow Exchanges as Drodead, Research Cursing (D25) & Poisons (A410)",
-    "effect": "Increase production of all buildings based on mana produced and percentage of offline time this game.",
-    "formula": "(0.045 * x^0.45 * p)%, where x = Mana Produced (This Game), p = % offline time",
+    "effect": "Increase production of all buildings based on mana produced this Era.",
+    "formula": "(5 * x^0.55)%, where x = mana produced this Era",
     "effects": [
       "All Buildings"
     ],
     "scaling": [
-      "Mana Produced",
-      "Offline Time"
+      "Mana Produced"
     ],
     "window": [
       "Era"
@@ -531,8 +530,8 @@
     "category": "Alchemy",
     "cost": "5.195e66",
     "requirement": "5,000 Iron Strongholds, any Neutral or Dragon",
-    "effect": "Increase production of all other buildings per Iron Stronghold owned by 0.35%.",
-    "formula": "(0.35 * x)%, where x = Iron Strongholds owned",
+    "effect": "Increase production of all other buildings by 135% per Wyrm's Den built.",
+    "formula": "\u00d7(135 * x)%, where x = Wyrm's Den owned",
     "effects": [
       "All Buildings"
     ],
@@ -553,7 +552,7 @@
     "cost": "1.449e74",
     "requirement": "4,500 Excavations (This R)",
     "effect": "Increase Mana Regeneration based on excavations made.",
-    "formula": "floor(0.02 * x), where x = current excavations",
+    "formula": "+(0.15 * x^1.15), where x = Excavation depth",
     "effects": [
       "Mana Regeneration"
     ],
@@ -571,11 +570,11 @@
     ],
     "category": "Alchemy",
     "cost": "3.843e84",
-    "requirement": "6 hours Grand Balance activity time (This Game), Research D590 & A1325, as Druid or Dragon",
-    "effect": "Increase FC find chance based on Unique Buildings owned. Also increase FC chance by 250% multiplicatively.",
-    "formula": "(40 * x * 0.8), where x = Unique Buildings owned",
+    "requirement": "1 hour Grand Balance activity time (This Game), Research D590 & A1325, as Druid or Dragon",
+    "effect": "Multiplicatively increase Mana Regeneration based on Unique Buildings built.",
+    "formula": "(0.8 * x^0.8)%, where x = Unique Buildings built",
     "effects": [
-      "FC Find Chance"
+      "Mana Regeneration"
     ],
     "scaling": [
       "Buildings Owned"

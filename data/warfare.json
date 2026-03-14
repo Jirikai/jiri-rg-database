@@ -1,32 +1,616 @@
 [
-  {"id":"W1","name":"Assault","faction":["Demon"],"category":"Warfare","cost":"7.5e125","requirement":"None","effect":"Increase the production of Infernal Realms based on Hellfire Blast casts this Era.","formula":"(160 + 80 * x^0.8)%, where x = Hellfire Blast casts this Era","effects":["Specific Buildings"],"scaling":["Spells Cast"],"window":["Era"]},
-  {"id":"W10","name":"Dueling","faction":["Elven"],"category":"Warfare","cost":"2.883e127","requirement":"2,000 Warrior Barracks","effect":"Increase production of all other buildings by 130% per Elven Training Ground built.","formula":"×130% per Training Ground built","effects":["All Buildings"],"scaling":["Specific Building Count"],"window":["Era"]},
-  {"id":"W25","name":"War Funds","faction":["Goblin"],"category":"Warfare","cost":"1.263e130","requirement":"1e132 Coins Gained (This Game)","effect":"Increase production of all buildings based on Tax Collection casts this Era.","formula":"(10 * x^0.4)%, where x = Tax Collection casts this Era","effects":["All Buildings"],"scaling":["Spells Cast"],"window":["Era"]},
-  {"id":"W50","name":"Exertion","faction":["Undead"],"category":"Warfare","cost":"3.188e134","requirement":"1 hour as Evil (This R) — unlock as Demon","effect":"Increase FC find chance based on Undercities built.","formula":"+(2 * x^1.2), where x = Undercities built","effects":["FC Find Chance"],"scaling":["Specific Building Count"],"window":["Era"]},
-  {"id":"W120","name":"Betrayal","faction":["All"],"category":"Warfare","cost":"6.76e146","requirement":"250 base assistants","effect":"Increase production of Non-Unique buildings based on assistants owned.","formula":"(9 * x^0.9)%, where x = assistants owned","effects":["All Buildings"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"W135","name":"Rampage","faction":["All"],"category":"Warfare","cost":"2.96e149","requirement":"580 Trophies as Demon","effect":"Increase Maximum Mana based on trophies unlocked.","formula":"floor(1.3 * x^1.1), where x = trophies unlocked","effects":["Max Mana"],"scaling":["Trophies"],"window":[]},
-  {"id":"W150","name":"Invasion","faction":["All"],"category":"Warfare","cost":"1.296e152","requirement":"Research War Funds (W25) & Rampage (W135)","effect":"Increase production of all buildings based on assistants owned.","formula":"(15 * x^0.5)%, where x = assistants owned","effects":["All Buildings"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"W175","name":"Overwhelm","faction":["Demon"],"category":"Warfare","cost":"3.273e156","requirement":"Research Assault (W1) & Invasion (W150)","effect":"Gain assistants based on Evil spells cast this Reincarnation.","formula":"+(9 + 0.9 * x^0.9), where x = Evil spells cast this Reincarnation","effects":["Assistant Amount"],"scaling":["Spells Cast"],"window":["Reincarnation"]},
-  {"id":"W180","name":"Formation","faction":["All"],"category":"Warfare","cost":"2.485e157","requirement":"150 Call to Arms (This R), Research Dueling (W10) & Exertion (W50)","effect":"Each building counts 15 times for Call to Arms purposes.","formula":"","effects":["All Buildings"],"scaling":[],"window":[]},
-  {"id":"W200","name":"Crusade","faction":["All"],"category":"Warfare","cost":"8.265e160","requirement":"Research Hallowing (D50) & Formation (W180)","effect":"Multiplicatively increase Royal Exchange bonus based on Research Points.","formula":"(2 * x^0.6)%, where x = Research Points","effects":["Royal Exchange Production"],"scaling":["Reincarnations"],"window":[]},
-  {"id":"W205","name":"Berserking","faction":["Goblin","Undead","Demon"],"category":"Warfare","cost":"6.276e161","requirement":"200 Blood Frenzy (This R), Research Rampage (W135) & Retribution (D150)","effect":"While Blood Frenzy is active, increase Mana Regeneration based on assistants owned. Also increases offline spell cast amount by 300% multiplicatively.","formula":"+(3 * x^0.45), where x = assistants owned","effects":["Mana Regeneration","Offline Production"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"W225","name":"Critical Strike","faction":["Angel"],"category":"Warfare","cost":"2.087e165","requirement":"Research Dueling (W10) & Transfixion (D55)","effect":"Holy Light empowers Heaven's Domains based on Holy Light activity time this Reincarnation.","formula":"(5 * x^0.65)%, where x = Holy Light activity time this Reincarnation","effects":["Specific Buildings"],"scaling":["Spell Activity Time"],"window":["Reincarnation"]},
-  {"id":"W250","name":"Swarming","faction":["All"],"category":"Warfare","cost":"5.27e169","requirement":"Research Overwhelm (W175) & Berserking (W205)","effect":"Gain assistants based on trophies unlocked. Also multiplicatively increase assistants by 10%.","formula":"+(x^1.05), where x = trophies unlocked","effects":["Assistant Amount"],"scaling":["Trophies"],"window":[]},
-  {"id":"W260","name":"Athletics","faction":["Titan"],"category":"Warfare","cost":"3.039e171","requirement":"3,000 Olympian Halls","effect":"Increase production of all other buildings by 100% per Olympian Hall owned.","formula":"×100% per Olympian Hall owned","effects":["All Buildings"],"scaling":["Specific Building Count"],"window":["Era"]},
-  {"id":"W275","name":"Domination","faction":["Faceless"],"category":"Warfare","cost":"1.331e174","requirement":"300 Base Assistants as Faceless","effect":"Increase FC find chance based on highest assistants in a single game (This R). Also increase FC chance by 50% multiplicatively.","formula":"(200 * x^0.55), where x = Assistants (Max) stat this Reincarnation","effects":["FC Find Chance"],"scaling":["Assistants Owned"],"window":["Reincarnation"]},
-  {"id":"W290","name":"Entrench","faction":["All"],"category":"Warfare","cost":"5.827e176","requirement":"2,000 Excavations","effect":"Increase production of Unique buildings based on excavations made.","formula":"round(15 * x^0.8)%, where x = excavations made","effects":["Specific Buildings"],"scaling":["Excavations"],"window":[]},
-  {"id":"W320","name":"Shattering","faction":["All"],"category":"Warfare","cost":"1.117e180","requirement":"2,650 Excavations","effect":"Increase clicking reward based on excavations made.","formula":"round(10 * x^0.75)%, where x = excavations made","effects":["Clicking Reward"],"scaling":["Excavations"],"window":[]},
-  {"id":"W330","name":"Heroism","faction":["All"],"category":"Warfare","cost":"6.443e183","requirement":"Research Crusade (W200) & Athletics (W260)","effect":"Increase clicking reward based on trophies unlocked.","formula":"round(2.5 * x)%, where x = trophies unlocked","effects":["Clicking Reward"],"scaling":["Trophies"],"window":[]},
-  {"id":"W350","name":"Survival","faction":["Druid"],"category":"Warfare","cost":"2.142e187","requirement":"Research Creeping (A300) & Synthesis (A150)","effect":"Increase production of all other buildings based on Stonehenge Circles' production.","formula":"(75 * log10(1+x)^1.3)%, where x = Stonehenge Circles production","effects":["All Buildings"],"scaling":["Specific Building Count"],"window":["Era"]},
-  {"id":"W400","name":"Siege","faction":["All"],"category":"Warfare","cost":"1.366e196","requirement":"Research Architecture (C251) & Entrench (W290)","effect":"Each building in the three highest tiers counts as 2 buildings for all purposes.","formula":"","effects":["Specific Buildings"],"scaling":[],"window":[]},
-  {"id":"W405","name":"Ambush","faction":["Drow"],"category":"Warfare","cost":"1.037e197","requirement":"Secrets of the Underworld as Drow","effect":"Increase production of Spider Sanctuaries based on Offline Bonus.","formula":"(3.25 * log10(1+x)^3.25)%, where x = offline production bonus multiplier","effects":["Specific Buildings"],"scaling":["Offline Time"],"window":[]},
-  {"id":"W520","name":"Stalking","faction":["Drow"],"category":"Warfare","cost":"1.847e217","requirement":"Research Exertion (W50) & Ambush (W405)","effect":"Gain 1 assistant for every 100 seconds of Combo Strike activity time (This Game).","formula":"+(Combo Strike time / 100)","effects":["Assistant Amount"],"scaling":["Spell Activity Time"],"window":["Era"]},
-  {"id":"W525","name":"Bloodlust","faction":["Goblin","Undead","Demon"],"category":"Warfare","cost":"1.402e218","requirement":"1d12h as Evil (This R), Research Berserking (W205) & Focus (S460)","effect":"Increase Blood Frenzy multiplier based on faction spells cast this game.","formula":"(300 * floor(x^0.3))%, where x = Faction Spells cast this game","effects":["Specific Buildings"],"scaling":["Spells Cast"],"window":["Era"]},
-  {"id":"W560","name":"Resilience","faction":["Dwarven"],"category":"Warfare","cost":"2.042e224","requirement":"Research Eternity (D330) & Mercy (D480)","effect":"Increase clicking reward based on clicks made this game.","formula":"(4 * x^0.4)%, where x = Treasure Clicks (This Game)","effects":["Clicking Reward"],"scaling":["Clicks"],"window":["Era"]},
-  {"id":"W590","name":"Torture","faction":["Demon","Drow"],"category":"Warfare","cost":"3.916e229","requirement":"200 Drow Exchanges as Dromon, Research Soulrending (D245) & Stalking (W520)","effect":"Increase assistant production based on total time spent as Evil (This R).","formula":"(8 * x^0.8)%, where x = Evil time this Reincarnation","effects":["Assistant Production"],"scaling":["Alignment Time"],"window":["Reincarnation"]},
-  {"id":"W1275","name":"Authority","faction":["All"],"category":"Warfare","cost":"1.524e71","requirement":"12 hours Call to Arms activity time (This Game)","effect":"Increase duration of all spells based on Call to Arms activity time this Reincarnation.","formula":"(x^0.5)%, where x = Call to Arms activity time this Reincarnation","effects":["Spell Duration"],"scaling":["Spell Activity Time"],"window":["Reincarnation"]},
-  {"id":"W1375","name":"Scavenging","faction":["All"],"category":"Warfare","cost":"1.378e77","requirement":"7 days as Evil (All Time)","effect":"Increase FC find chance by 200% multiplicatively. Also increase FC chance based on assistants owned.","formula":"(100 * x^0.5), where x = assistants owned","effects":["FC Find Chance"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"W1400","name":"Cataclysm","faction":["Dragon"],"category":"Warfare","cost":"4.249e78","requirement":"Research W400 & A1200, affiliated Dragon","effect":"Increase Maximum Mana based on clicks made this game.","formula":"+(650 * x^0.35), where x = clicks made this game","effects":["Max Mana"],"scaling":["Clicks"],"window":["Era"]},
-  {"id":"W3050","name":"Flanking","faction":["Mercenary"],"category":"Warfare","cost":"8.09e176","requirement":"50,000 Base Assistants, Research Authority (W1275) & Intimidation (E1325)","effect":"Increase production of buildings one tier above or below Unique Buildings based on assistants owned.","formula":"(2 * x^0.8)%, where x = assistants owned","effects":["Specific Buildings"],"scaling":["Assistants Owned"],"window":["Era"]},
-  {"id":"W3150","name":"Upheaval","faction":["All"],"category":"Warfare","cost":"7.316e182","requirement":"60,000 Farms, Inns and Blacksmiths","effect":"Increase production of all buildings based on their tier, giving the highest bonus to the lowest.","formula":"(150 * (12-T)^2.15)%, where T = building tier","effects":["All Buildings"],"scaling":[],"window":[]}
+  {
+    "id": "W1",
+    "name": "Assault",
+    "faction": [
+      "Demon"
+    ],
+    "category": "Warfare",
+    "cost": "7.5e125",
+    "requirement": "None",
+    "effect": "Increase the production of Infernal Realms based on Hellfire Blast casts this Era.",
+    "formula": "(160 + 80 * x^0.8)%, where x = Hellfire Blast casts this Era",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W10",
+    "name": "Dueling",
+    "faction": [
+      "Elven"
+    ],
+    "category": "Warfare",
+    "cost": "2.883e127",
+    "requirement": "2,000 Warrior Barracks",
+    "effect": "Increase production of all other buildings by 130% per Elven Training Ground built.",
+    "formula": "\u00d7130% per Training Ground built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W25",
+    "name": "War Funds",
+    "faction": [
+      "Goblin"
+    ],
+    "category": "Warfare",
+    "cost": "1.263e130",
+    "requirement": "1e132 Coins Gained (This Game)",
+    "effect": "Increase production of all buildings based on Tax Collection casts this Era.",
+    "formula": "(10 * x^0.4)%, where x = Tax Collection casts this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W50",
+    "name": "Exertion",
+    "faction": [
+      "Undead"
+    ],
+    "category": "Warfare",
+    "cost": "3.188e134",
+    "requirement": "1 hour as Evil (This R) \u2014 unlock as Demon",
+    "effect": "Increase FC find chance based on Undercities built.",
+    "formula": "+(2 * x^1.2), where x = Undercities built",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W120",
+    "name": "Betrayal",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "6.76e146",
+    "requirement": "250 base assistants",
+    "effect": "Increase production of Non-Unique buildings based on assistants owned.",
+    "formula": "(9 * x^0.9)%, where x = assistants owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W135",
+    "name": "Rampage",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "2.96e149",
+    "requirement": "580 Trophies as Demon",
+    "effect": "Increase Maximum Mana based on trophies unlocked.",
+    "formula": "floor(1.3 * x^1.1), where x = trophies unlocked",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": []
+  },
+  {
+    "id": "W150",
+    "name": "Invasion",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "1.296e152",
+    "requirement": "Research War Funds (W25) & Rampage (W135)",
+    "effect": "Increase production of all buildings based on assistants owned.",
+    "formula": "(15 * x^0.5)%, where x = assistants owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W175",
+    "name": "Overwhelm",
+    "faction": [
+      "Demon"
+    ],
+    "category": "Warfare",
+    "cost": "3.273e156",
+    "requirement": "Research Assault (W1) & Invasion (W150)",
+    "effect": "Gain assistants based on Evil spells cast this Reincarnation.",
+    "formula": "+(9 + 0.9 * x^0.9), where x = Evil spells cast this Reincarnation",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "W180",
+    "name": "Formation",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "2.485e157",
+    "requirement": "150 Call to Arms (This R), Research Dueling (W10) & Exertion (W50)",
+    "effect": "Each building counts 15 times for Call to Arms purposes.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "W200",
+    "name": "Crusade",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "8.265e160",
+    "requirement": "Research Hallowing (D50) & Formation (W180)",
+    "effect": "Multiplicatively increase Royal Exchange bonus based on Research Points.",
+    "formula": "(2 * x^0.6)%, where x = Research Points",
+    "effects": [
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": []
+  },
+  {
+    "id": "W205",
+    "name": "Berserking",
+    "faction": [
+      "Goblin",
+      "Undead",
+      "Demon"
+    ],
+    "category": "Warfare",
+    "cost": "6.276e161",
+    "requirement": "200 Blood Frenzy (This R), Research Rampage (W135) & Retribution (D150)",
+    "effect": "While Blood Frenzy is active, increase Mana Regeneration based on assistants owned. Also increases offline spell cast amount by 300% multiplicatively.",
+    "formula": "+(3 * x^0.45), where x = assistants owned",
+    "effects": [
+      "Mana Regeneration",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W225",
+    "name": "Critical Strike",
+    "faction": [
+      "Angel"
+    ],
+    "category": "Warfare",
+    "cost": "2.087e165",
+    "requirement": "Research Dueling (W10) & Transfixion (D55)",
+    "effect": "Holy Light empowers Heaven's Domains based on Holy Light activity time this Reincarnation.",
+    "formula": "(5 * x^0.65)%, where x = Holy Light activity time this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "W250",
+    "name": "Swarming",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "5.27e169",
+    "requirement": "Research Overwhelm (W175) & Berserking (W205)",
+    "effect": "Gain assistants based on trophies unlocked. Also multiplicatively increase assistants by 10%.",
+    "formula": "+(x^1.05), where x = trophies unlocked",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": []
+  },
+  {
+    "id": "W260",
+    "name": "Athletics",
+    "faction": [
+      "Titan"
+    ],
+    "category": "Warfare",
+    "cost": "3.039e171",
+    "requirement": "3,000 Olympian Halls",
+    "effect": "Increase production of all other buildings by 200% per Olympian Hall built.",
+    "formula": "\u00d7200% per Olympian Hall built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W275",
+    "name": "Domination",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Warfare",
+    "cost": "1.331e174",
+    "requirement": "300 Base Assistants as Faceless",
+    "effect": "Increase FC find chance based on highest assistants in a single game (This R). Also increase FC chance by 50% multiplicatively.",
+    "formula": "+(100 * x^0.5), where x = highest assistants this Reincarnation; also mult FC +100%",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "W290",
+    "name": "Entrench",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "5.827e176",
+    "requirement": "2,000 Excavations",
+    "effect": "Increase production of Unique buildings based on excavations made.",
+    "formula": "round(15 * x^0.8)%, where x = excavations made",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": []
+  },
+  {
+    "id": "W320",
+    "name": "Shattering",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "1.117e180",
+    "requirement": "2,600 Excavation depth",
+    "effect": "Increase offline production based on Excavation depth.",
+    "formula": "(10 * x^0.9)%, where x = Excavation depth",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": []
+  },
+  {
+    "id": "W330",
+    "name": "Heroism",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "6.443e183",
+    "requirement": "Research Crusade (W200) & Athletics (W260)",
+    "effect": "Increase clicking reward based on trophies unlocked.",
+    "formula": "round(2.5 * x)%, where x = trophies unlocked",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": []
+  },
+  {
+    "id": "W350",
+    "name": "Survival",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Warfare",
+    "cost": "2.142e187",
+    "requirement": "Research Creeping (A300) & Synthesis (A150)",
+    "effect": "Increase production of all other buildings based on Stonehenge Circles' production.",
+    "formula": "(8 * (ln(1+x))^1.8)%, where x = Stonehenge Circles production",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W400",
+    "name": "Siege",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "1.366e196",
+    "requirement": "Research Architecture (C251) & Entrench (W290)",
+    "effect": "Each building in the three highest tiers counts as 2 buildings for all purposes.",
+    "formula": "",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [],
+    "window": []
+  },
+  {
+    "id": "W405",
+    "name": "Ambush",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Warfare",
+    "cost": "1.037e197",
+    "requirement": "Secrets of the Underworld as Drow",
+    "effect": "Increase production of Spider Sanctuaries based on Offline Bonus.",
+    "formula": "(3.5 * ln(1+x)^3.5)%, where x = offline production bonus multiplier",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": []
+  },
+  {
+    "id": "W520",
+    "name": "Stalking",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Warfare",
+    "cost": "1.847e217",
+    "requirement": "Research Exertion (W50) & Ambush (W405)",
+    "effect": "Multiplicatively increase assistants based on Combo Strike activity time this Reincarnation.",
+    "formula": "(x^0.6)%, where x = Combo Strike activity time this Reincarnation",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "W525",
+    "name": "Bloodlust",
+    "faction": [
+      "Goblin",
+      "Undead",
+      "Demon"
+    ],
+    "category": "Warfare",
+    "cost": "1.402e218",
+    "requirement": "1.5 hours as Evil (This R), Research Berserking (W205) & Focus (S460)",
+    "effect": "While Blood Frenzy is active, increase production of all buildings based on Faction spells cast this Era.",
+    "formula": "(15 * x^0.75)%, where x = Faction spells cast this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W560",
+    "name": "Resilience",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Warfare",
+    "cost": "2.042e224",
+    "requirement": "Research Eternity (D330) & Mercy (D480)",
+    "effect": "Multiplicatively increase assistants based on clicks made this Era.",
+    "formula": "(3.5 * x^0.35)%, where x = clicks this Era",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W590",
+    "name": "Torture",
+    "faction": [
+      "Demon",
+      "Drow"
+    ],
+    "category": "Warfare",
+    "cost": "3.916e229",
+    "requirement": "200 Drow Exchanges as Dromon, Research Soulrending (D245) & Stalking (W520)",
+    "effect": "Increase assistant production based on total time spent as Evil (This R).",
+    "formula": "(8 * x^0.8)%, where x = Evil time this Reincarnation",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "W1275",
+    "name": "Authority",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "1.524e71",
+    "requirement": "2 hours Call to Arms activity time (This Game)",
+    "effect": "Increase duration of all spells based on Call to Arms activity time this Reincarnation.",
+    "formula": "(x^0.5)%, where x = Call to Arms activity time this Reincarnation",
+    "effects": [
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  },
+  {
+    "id": "W1375",
+    "name": "Scavenging",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "1.378e77",
+    "requirement": "12 hours as Evil (All Time)",
+    "effect": "Increase FC find chance based on assistants owned. Also multiplicatively increase FC chance by 160%.",
+    "formula": "+(40 * x^0.4), where x = assistants owned; also mult FC +160%",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W1400",
+    "name": "Cataclysm",
+    "faction": [
+      "Dragon"
+    ],
+    "category": "Warfare",
+    "cost": "4.249e78",
+    "requirement": "Research W400 & A1200, affiliated Dragon",
+    "effect": "Multiplicatively increase Maximum Mana based on clicks made this Era.",
+    "formula": "(25 + 0.5 * x^0.5)%, where x = clicks this Era",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W3050",
+    "name": "Flanking",
+    "faction": [
+      "Mercenary"
+    ],
+    "category": "Warfare",
+    "cost": "8.09e176",
+    "requirement": "50,000 Base Assistants, Research Authority (W1275) & Intimidation (E1325)",
+    "effect": "Increase production of buildings one tier above or below Unique Buildings based on assistants owned.",
+    "formula": "(2 * x^0.8)%, where x = assistants owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ]
+  },
+  {
+    "id": "W3150",
+    "name": "Upheaval",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "7.316e182",
+    "requirement": "60,000 Farms, Inns and Blacksmiths",
+    "effect": "Increase production of all buildings based on time spent as your least used alignment this Reincarnation. Highest bonus to lowest building tier.",
+    "formula": "(0.5 * (60+x)^0.75 * (12-T)^2.15)%, where x = least used alignment time this R, T = building tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ]
+  }
 ]

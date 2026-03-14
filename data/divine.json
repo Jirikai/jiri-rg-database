@@ -252,8 +252,8 @@
     "category": "Divine",
     "cost": "5.27e169",
     "requirement": "Research Transcendence (D200) & Pyromancy (S150)",
-    "effect": "Gain assistants based on Faction Coins found this game.",
-    "formula": "floor(ln(1+x)^1.5), where x = FC found this game",
+    "effect": "Multiplicatively increase assistants based on Faction Coins found this Era.",
+    "formula": "(ln(1+x)^1.5)%, where x = FC found this Era",
     "effects": [
       "Assistant Amount"
     ],
@@ -274,7 +274,7 @@
     "cost": "3.039e171",
     "requirement": "3,000 Sunken Cities",
     "effect": "Increase the production of all other buildings by 95% per Sunken City owned.",
-    "formula": "\u00d795% per Sunken City owned",
+    "formula": "\u00d7160% per Sunken City built",
     "effects": [
       "All Buildings"
     ],
@@ -369,8 +369,8 @@
     "category": "Divine",
     "cost": "2.142e187",
     "requirement": "Research Swarming (W250) & Heroism (W330)",
-    "effect": "Gain assistants based on Olympian Halls owned.",
-    "formula": "floor(x^0.5), where x = Olympian Halls owned",
+    "effect": "Multiplicatively increase assistants based on Olympian Halls built.",
+    "formula": "(0.2 * x^0.8)%, where x = Olympian Halls built",
     "effects": [
       "Assistant Amount"
     ],
@@ -390,14 +390,18 @@
     "category": "Divine",
     "cost": "1.366e196",
     "requirement": "Research Communion (D205) & Transubstantiation (D290)",
-    "effect": "Increase production of a random building by \u00d7250. Target changes every 2 minutes. Offline: all buildings \u00d775.",
-    "formula": "",
+    "effect": "Increase production of a random building based on mana produced this Era. Target changes every 2 minutes. Offline: all buildings +12,000%.",
+    "formula": "(2.75 * ln(1+x)^2.75)%, where x = mana produced this Era",
     "effects": [
-      "All Buildings",
+      "Specific Buildings",
       "Offline Production"
     ],
-    "scaling": [],
-    "window": []
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ]
   },
   {
     "id": "D435",
@@ -407,18 +411,17 @@
     ],
     "category": "Divine",
     "cost": "1.989e202",
-    "requirement": "4 hours Diamond Pickaxe activity time (This Game)",
-    "effect": "Increase production of Good buildings based on spells cast this game.",
-    "formula": "(1.5 * x^0.85)%, where x = spells cast this game",
+    "requirement": "1 hour Diamond Pickaxe activity time (This Game)",
+    "effect": "Reduce Holy Light cost by 50%. Multiplicatively increase production bonus from Gems based on Holy Light duration.",
+    "formula": "(6 + 0.6 * x^0.6)%, where x = Holy Light duration",
     "effects": [
-      "Specific Buildings"
+      "Spell Cost Reduction",
+      "Gems Bonus"
     ],
     "scaling": [
-      "Spells Cast"
+      "Spell Duration"
     ],
-    "window": [
-      "Era"
-    ]
+    "window": []
   },
   {
     "id": "D480",
@@ -428,11 +431,11 @@
     ],
     "category": "Divine",
     "cost": "1.67e210",
-    "requirement": "12h as each Good, Evil and Neutral alignment (This R)",
-    "effect": "Increase production of all buildings based on the difference in time between alignments. Smaller difference = higher bonus.",
-    "formula": "(100000 * (tmin/tmax)^1.5)%, where tmin/tmax are shortest/longest alignment times",
+    "requirement": "30 minutes as each Good, Evil and Neutral alignment (This R)",
+    "effect": "Increase production of Non-Unique Buildings based on time spent as your least used alignment this Reincarnation.",
+    "formula": "(80 + 40 * x^0.8)%, where x = least used alignment time this Reincarnation",
     "effects": [
-      "All Buildings"
+      "Non-Unique Buildings"
     ],
     "scaling": [
       "Alignment Time"
@@ -451,11 +454,11 @@
     ],
     "category": "Divine",
     "cost": "1.402e218",
-    "requirement": "1d12h as Good (This R), Research Communion (D205) & Devotion (D435)",
-    "effect": "Increase Holy Light multiplier based on faction spells cast this game.",
-    "formula": "(300 * x^0.3)%, where x = faction spells cast this game",
+    "requirement": "1.5 hours as Good (This R), Research Communion (D205) & Devotion (D435)",
+    "effect": "While Holy Light is active, increase production of all buildings based on Faction spells cast this Era.",
+    "formula": "(15 * x^0.75)%, where x = Faction spells cast this Era",
     "effects": [
-      "Specific Buildings"
+      "All Buildings"
     ],
     "scaling": [
       "Spells Cast"
@@ -474,7 +477,7 @@
     "cost": "2.042e224",
     "requirement": "Research Necromancy (S225) & Heirlooms (S500) as Drow",
     "effect": "Increase Mana Regeneration based on trophies unlocked.",
-    "formula": "(floor(0.6 * x) / 10), where x = trophies unlocked",
+    "formula": "+(1.5 * x^0.85), where x = trophies unlocked",
     "effects": [
       "Mana Regeneration"
     ],
@@ -493,10 +496,10 @@
     "category": "Divine",
     "cost": "3.916e229",
     "requirement": "200 Dwarf Exchanges as Dwangel, Research Shattering (W320) & Waste (A480)",
-    "effect": "Increase the production of Unique Buildings based on Mana Regeneration.",
-    "formula": "(5 * x^0.95)%, where x = Mana Regeneration",
+    "effect": "Multiplicatively increase Royal Exchange bonus based on Mana Regeneration.",
+    "formula": "(2 * ln(1+x)^2)%, where x = Mana Regeneration",
     "effects": [
-      "Specific Buildings"
+      "Royal Exchange Production"
     ],
     "scaling": [
       "Mana Regeneration"
@@ -516,7 +519,7 @@
     "cost": "1.772e62",
     "requirement": "Any Neutral, build Dragon's Unique Building",
     "effect": "Increase the production of Wyrm's Den based on FC find chance.",
-    "formula": "(1.55 * x^0.55)%, where x = FC find chance",
+    "formula": "(1.6 * x^0.6)%, where x = FC find chance",
     "effects": [
       "Specific Buildings"
     ],
@@ -534,10 +537,11 @@
     "category": "Divine",
     "cost": "1.524e71",
     "requirement": "80,000 Total Buildings",
-    "effect": "Increase production of each building by +0.3% per building of the same type.",
+    "effect": "Increase production of Unique Buildings by +0.3% and Non-Unique Buildings by +3% per building of the same tier.",
     "formula": "+(0.3 * x)%, where x = buildings of same type",
     "effects": [
-      "All Buildings"
+      "Unique Buildings",
+      "Non-Unique Buildings"
     ],
     "scaling": [
       "Buildings Owned"
@@ -554,8 +558,8 @@
     ],
     "category": "Divine",
     "cost": "1.378e77",
-    "requirement": "7 days as Good (All Time)",
-    "effect": "Ascensions count 50% more for Spiritual Surge.",
+    "requirement": "12 hours as Good (All Time)",
+    "effect": "Reincarnations count 50% more.",
     "formula": "",
     "effects": [
       "Misc"
@@ -573,7 +577,7 @@
     "cost": "3.373e160",
     "requirement": "Secrets of the Warriors",
     "effect": "Increase production of Unique Buildings based on time spent with Mercenaries (All Time).",
-    "formula": "(10 * x^0.7)%, where x = Mercenary time (All Time)",
+    "formula": "(80 + 2 * x^0.8)%, where x = Mercenary time (All Time)",
     "effects": [
       "Specific Buildings"
     ],
@@ -594,7 +598,7 @@
     "cost": "5.983e194",
     "requirement": "1e26% offline bonus, Research Intervention (D2775) & Upheaval (W3150)",
     "effect": "Increase assistants additively and multiplicatively based on Offline Bonus.",
-    "formula": "Additive: +(3.25 * log10(1+x)^2.25); Mult: (0.05 * log10(1+x)^2)%; x = Offline Bonus",
+    "formula": "Additive: +(2.5 * ln(1+x)^2.5); Mult: (0.2 * ln(1+x)^2)%; x = Offline Bonus",
     "effects": [
       "Assistant Amount"
     ],
