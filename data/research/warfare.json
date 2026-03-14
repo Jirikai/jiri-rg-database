@@ -195,13 +195,12 @@
     "effect": "Each building counts 15 times for Call to Arms purposes.",
     "formula": "",
     "effects": [
-      "All Buildings",
       "Building Count"
     ],
     "scaling": [],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "W200",
@@ -299,6 +298,29 @@
     "ascensionPenalty": false
   },
   {
+    "id": "W270",
+    "name": "Entrench",
+    "faction": [
+      "All"
+    ],
+    "category": "Warfare",
+    "cost": "5.827e176",
+    "requirement": "2,000 Excavations",
+    "effect": "Increase production of Unique buildings based on excavations made.",
+    "formula": "round(15 * x^0.8)%, where x = excavations made",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
     "id": "W290",
     "name": "Athletics",
     "faction": [
@@ -343,29 +365,6 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
-  },
-  {
-    "id": "W270",
-    "name": "Entrench",
-    "faction": [
-      "All"
-    ],
-    "category": "Warfare",
-    "cost": "5.827e176",
-    "requirement": "2,000 Excavations",
-    "effect": "Increase production of Unique buildings based on excavations made.",
-    "formula": "round(15 * x^0.8)%, where x = excavations made",
-    "effects": [
-      "Specific Buildings"
-    ],
-    "scaling": [
-      "Excavations"
-    ],
-    "window": [
-      ""
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
   },
   {
     "id": "W320",
@@ -448,13 +447,12 @@
     "effect": "Each building in the three highest tiers counts as 2 buildings for all purposes.",
     "formula": "",
     "effects": [
-      "Specific Buildings",
       "Building Count"
     ],
     "scaling": [],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "W501",

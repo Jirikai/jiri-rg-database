@@ -431,7 +431,7 @@
     "scaling": [],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "C400",
@@ -455,29 +455,6 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
-  },
-  {
-    "id": "C501",
-    "name": "Metallurgy",
-    "faction": [
-      "Dwarven"
-    ],
-    "category": "Craftsmanship",
-    "cost": "1.037e197",
-    "requirement": "Secrets of the Underworld as Dwarf",
-    "effect": "Increase the production of Blacksmiths based on Blacksmiths built.",
-    "formula": "(60 * x^0.8)%, where x = Blacksmiths built",
-    "effects": [
-      "Specific Buildings"
-    ],
-    "scaling": [
-      "Specific Building Count"
-    ],
-    "window": [
-      "Era"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
   },
   {
     "id": "C425",
@@ -524,6 +501,29 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
+  },
+  {
+    "id": "C501",
+    "name": "Metallurgy",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Craftsmanship",
+    "cost": "1.037e197",
+    "requirement": "Secrets of the Underworld as Dwarf",
+    "effect": "Increase the production of Blacksmiths based on Blacksmiths built.",
+    "formula": "(60 * x^0.8)%, where x = Blacksmiths built",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "C600",

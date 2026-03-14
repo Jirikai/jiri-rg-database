@@ -299,6 +299,29 @@
     "ascensionPenalty": false
   },
   {
+    "id": "D270",
+    "name": "Transubstantiation",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "5.827e176",
+    "requirement": "1 Rough Stone Artifact",
+    "effect": "Each artifact found increases Maximum Mana additively and multiplicatively.",
+    "formula": "Additive: +(50 * x^1.1); Mult: (x^0.95)%; x = artifacts found",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
     "id": "D290",
     "name": "Mutation",
     "faction": [
@@ -334,33 +357,10 @@
     "formula": "(0.35 * x^0.35 + 0.035 * log(x)^3.5), where x = Max Mana",
     "effects": [
       "Mana Regeneration",
-      "Offline Production"
+      "Offline Spell Casts"
     ],
     "scaling": [
       "Max Mana"
-    ],
-    "window": [
-      ""
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
-  },
-  {
-    "id": "D270",
-    "name": "Transubstantiation",
-    "faction": [
-      "All"
-    ],
-    "category": "Divine",
-    "cost": "5.827e176",
-    "requirement": "1 Rough Stone Artifact",
-    "effect": "Each artifact found increases Maximum Mana additively and multiplicatively.",
-    "formula": "Additive: +(50 * x^1.1); Mult: (x^0.95)%; x = artifacts found",
-    "effects": [
-      "Max Mana"
-    ],
-    "scaling": [
-      "Artifacts Found"
     ],
     "window": [
       ""
@@ -458,6 +458,29 @@
     "ascensionPenalty": true
   },
   {
+    "id": "D450",
+    "name": "Mercy",
+    "faction": [
+      "All"
+    ],
+    "category": "Divine",
+    "cost": "1.67e210",
+    "requirement": "30 minutes as each Good, Evil and Neutral alignment (This R)",
+    "effect": "Increase production of Non-Unique Buildings based on time spent as your least used alignment this Reincarnation.",
+    "formula": "(80 + 40 * x^0.8)%, where x = least used alignment time this Reincarnation",
+    "effects": [
+      "Non-Unique Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
     "id": "D525",
     "name": "Devotion",
     "faction": [
@@ -480,29 +503,6 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
-  },
-  {
-    "id": "D450",
-    "name": "Mercy",
-    "faction": [
-      "All"
-    ],
-    "category": "Divine",
-    "cost": "1.67e210",
-    "requirement": "30 minutes as each Good, Evil and Neutral alignment (This R)",
-    "effect": "Increase production of Non-Unique Buildings based on time spent as your least used alignment this Reincarnation.",
-    "formula": "(80 + 40 * x^0.8)%, where x = least used alignment time this Reincarnation",
-    "effects": [
-      "Non-Unique Buildings"
-    ],
-    "scaling": [
-      "Alignment Time"
-    ],
-    "window": [
-      "Reincarnation"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
   },
   {
     "id": "D625",

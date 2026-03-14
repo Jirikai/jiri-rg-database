@@ -293,6 +293,25 @@
     "ascensionPenalty": false
   },
   {
+    "id": "E270",
+    "name": "Surveyorship",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "5.827e176",
+    "requirement": "7 Artifacts",
+    "effect": "Reduce Excavation cost multiplier by 0.02 (becomes 1.18).",
+    "formula": "",
+    "effects": [
+      "Excavation Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
     "id": "E290",
     "name": "Sifting",
     "faction": [
@@ -335,25 +354,6 @@
     "window": [
       "Era"
     ],
-    "minAscension": 0,
-    "ascensionPenalty": false
-  },
-  {
-    "id": "E270",
-    "name": "Surveyorship",
-    "faction": [
-      "All"
-    ],
-    "category": "Economics",
-    "cost": "5.827e176",
-    "requirement": "7 Artifacts",
-    "effect": "Reduce Excavation cost multiplier by 0.02 (becomes 1.18).",
-    "formula": "",
-    "effects": [
-      "Excavation Cost Reduction"
-    ],
-    "scaling": [],
-    "window": [],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -452,29 +452,6 @@
     "ascensionPenalty": false
   },
   {
-    "id": "E510",
-    "name": "Marketing",
-    "faction": [
-      "Dwarven"
-    ],
-    "category": "Economics",
-    "cost": "7.877e197",
-    "requirement": "5,000 Blacksmiths",
-    "effect": "Increase production of all other buildings by 75% per Dwarven Forge owned.",
-    "formula": "\u00d775% per Dwarven Forge owned",
-    "effects": [
-      "All Buildings"
-    ],
-    "scaling": [
-      "Specific Building Count"
-    ],
-    "window": [
-      "Era"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
-  },
-  {
     "id": "E425",
     "name": "Inflation",
     "faction": [
@@ -519,6 +496,29 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
+  },
+  {
+    "id": "E510",
+    "name": "Marketing",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Economics",
+    "cost": "7.877e197",
+    "requirement": "5,000 Blacksmiths",
+    "effect": "Increase production of all other buildings by 75% per Dwarven Forge owned.",
+    "formula": "\u00d775% per Dwarven Forge owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "E575",
@@ -668,11 +668,11 @@
     "effect": "Gain all Unique Buildings of your alignment. A3: gain all Unique Buildings matching your alignments.",
     "formula": "",
     "effects": [
-      "Specific Buildings"
+      "Misc"
     ],
     "scaling": [],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   }
 ]

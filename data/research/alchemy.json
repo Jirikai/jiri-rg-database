@@ -58,7 +58,8 @@
     "formula": "",
     "effects": [
       "Spell Duration",
-      "Spell Cost Reduction"
+      "Spell Cost Reduction",
+      "Spell Potency"
     ],
     "scaling": [],
     "window": [],
@@ -299,29 +300,6 @@
     "ascensionPenalty": false
   },
   {
-    "id": "A281",
-    "name": "Infusion",
-    "faction": [
-      "Druid"
-    ],
-    "category": "Alchemy",
-    "cost": "7.905e169",
-    "requirement": "Secrets of the Ancients as Druid",
-    "effect": "Increase production of Stonehenge Circles based on mana produced this Reincarnation.",
-    "formula": "(0.75 * x^0.75)%, where x = mana produced this Reincarnation",
-    "effects": [
-      "Specific Buildings"
-    ],
-    "scaling": [
-      "Mana Produced"
-    ],
-    "window": [
-      "Reincarnation"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
-  },
-  {
     "id": "A270",
     "name": "Explosives",
     "faction": [
@@ -340,6 +318,29 @@
     ],
     "window": [
       ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "A281",
+    "name": "Infusion",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Alchemy",
+    "cost": "7.905e169",
+    "requirement": "Secrets of the Ancients as Druid",
+    "effect": "Increase production of Stonehenge Circles based on mana produced this Reincarnation.",
+    "formula": "(0.75 * x^0.75)%, where x = mana produced this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Reincarnation"
     ],
     "minAscension": 0,
     "ascensionPenalty": true
@@ -470,6 +471,29 @@
     "ascensionPenalty": false
   },
   {
+    "id": "A450",
+    "name": "Waste",
+    "faction": [
+      "All"
+    ],
+    "category": "Alchemy",
+    "cost": "1.67e210",
+    "requirement": "2,000 Royal Exchanges",
+    "effect": "Increase offline production based on Royal Exchanges purchased.",
+    "formula": "120 * x^0.85, where x = Royal Exchanges made",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
     "id": "A510",
     "name": "Poisons",
     "faction": [
@@ -493,24 +517,24 @@
     "ascensionPenalty": true
   },
   {
-    "id": "A450",
-    "name": "Waste",
+    "id": "A550",
+    "name": "Mineralogy",
     "faction": [
       "All"
     ],
     "category": "Alchemy",
-    "cost": "1.67e210",
-    "requirement": "2,000 Royal Exchanges",
-    "effect": "Increase offline production based on Royal Exchanges purchased.",
-    "formula": "120 * x^0.85, where x = Royal Exchanges made",
+    "cost": "4.663e221",
+    "requirement": "700 Trophies",
+    "effect": "Increase production of Non-Unique Buildings based on spells cast this Reincarnation.",
+    "formula": "(0.7 * x^0.7)%, where x = spells cast this Reincarnation",
     "effects": [
-      "Offline Production"
+      "Non-Unique Buildings"
     ],
     "scaling": [
-      "Royal Exchange Count"
+      "Spells Cast"
     ],
     "window": [
-      ""
+      "Reincarnation"
     ],
     "minAscension": 0,
     "ascensionPenalty": true
@@ -537,29 +561,6 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
-  },
-  {
-    "id": "A550",
-    "name": "Mineralogy",
-    "faction": [
-      "All"
-    ],
-    "category": "Alchemy",
-    "cost": "4.663e221",
-    "requirement": "700 Trophies",
-    "effect": "Increase production of Non-Unique Buildings based on spells cast this Reincarnation.",
-    "formula": "(0.7 * x^0.7)%, where x = spells cast this Reincarnation",
-    "effects": [
-      "Non-Unique Buildings"
-    ],
-    "scaling": [
-      "Spells Cast"
-    ],
-    "window": [
-      "Reincarnation"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
   },
   {
     "id": "A700",
@@ -667,7 +668,7 @@
     "category": "Alchemy",
     "cost": "2.59e173",
     "requirement": "All Lineages at Level 15",
-    "effect": "Select an additional bloodline and gain the base effect of its Lineage. Combination Bloodline effects R60/R115 power.",
+    "effect": "Select an additional bloodline and gain the base effect of its Lineage.",
     "formula": "",
     "effects": [
       "Misc"

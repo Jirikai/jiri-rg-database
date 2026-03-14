@@ -82,7 +82,7 @@
     "formula": "floor((x / 600)^0.9), where x = Goblin Banks owned",
     "effects": [
       "Tax Collection",
-      "Offline Production"
+      "Offline Spell Casts"
     ],
     "scaling": [
       "Specific Building Count"
@@ -91,7 +91,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "S105",
@@ -302,29 +302,6 @@
     "ascensionPenalty": true
   },
   {
-    "id": "S281",
-    "name": "Assimilation",
-    "faction": [
-      "Faceless"
-    ],
-    "category": "Spellcraft",
-    "cost": "7.905e169",
-    "requirement": "Secrets of the Ancients as Faceless",
-    "effect": "Increase the production of Sunken Cities (Labyrinths) based on time spent as non-Faceless factions this Reincarnation.",
-    "formula": "(80 + 0.8 * x^0.8)%, where x = non-Faceless time this Reincarnation",
-    "effects": [
-      "Specific Buildings"
-    ],
-    "scaling": [
-      "Alignment Time"
-    ],
-    "window": [
-      "Reincarnation"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
-  },
-  {
     "id": "S270",
     "name": "Runecarving",
     "faction": [
@@ -343,6 +320,29 @@
     ],
     "window": [
       "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S281",
+    "name": "Assimilation",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Spellcraft",
+    "cost": "7.905e169",
+    "requirement": "Secrets of the Ancients as Faceless",
+    "effect": "Increase the production of Sunken Cities (Labyrinths) based on time spent as non-Faceless factions this Reincarnation.",
+    "formula": "(80 + 0.8 * x^0.8)%, where x = non-Faceless time this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
     ],
     "minAscension": 0,
     "ascensionPenalty": true
@@ -465,31 +465,6 @@
     "ascensionPenalty": false
   },
   {
-    "id": "S525",
-    "name": "Spellbinding",
-    "faction": [
-      "Drow"
-    ],
-    "category": "Spellcraft",
-    "cost": "1.989e202",
-    "requirement": "1 hour Combo Strike activity time (This Game)",
-    "effect": "Call to Arms counts more buildings based on offline time this Reincarnation. Also increase offline production based on Combo Strike activity time this Reincarnation.",
-    "formula": "CtA: (100 + 3*x^0.9)%; Offline: (1.2*x^0.8)%; x = offline/Combo Strike time this R",
-    "effects": [
-      "Offline Production"
-    ],
-    "scaling": [
-      "Offline Time",
-      "Spell Activity Time"
-    ],
-    "window": [
-      "Reincarnation",
-      "Reincarnation"
-    ],
-    "minAscension": 0,
-    "ascensionPenalty": true
-  },
-  {
     "id": "S425",
     "name": "Focus",
     "faction": [
@@ -535,6 +510,31 @@
     ],
     "minAscension": 0,
     "ascensionPenalty": false
+  },
+  {
+    "id": "S525",
+    "name": "Spellbinding",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.989e202",
+    "requirement": "1 hour Combo Strike activity time (This Game)",
+    "effect": "Call to Arms counts more buildings based on offline time this Reincarnation. Also increase offline production based on Combo Strike activity time this Reincarnation.",
+    "formula": "CtA: (100 + 3*x^0.9)%; Offline: (1.2*x^0.8)%; x = offline/Combo Strike time this R",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Offline Time",
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation",
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
   },
   {
     "id": "S550",
