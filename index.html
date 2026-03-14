@@ -90,6 +90,8 @@ body{display:flex;flex-direction:column}
 .card-bottom-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:5px}
 .card-tags-wrap{display:flex;flex-wrap:wrap;gap:3px;flex:1}
 .card-req{font-size:11px;color:var(--text3);font-style:italic;white-space:nowrap;flex-shrink:0;text-align:right}
+.req-short{display:none}
+@media(max-width:640px){.req-full{display:none}.req-short{display:inline}}
 .req-label{font-weight:600}
 .card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
 .card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
@@ -324,14 +326,20 @@ body{display:flex;flex-direction:column}
           </button>
         </div>
       </div>
-      <div class="panel-title">Effects</div>
-      <div id="effect-filters"></div>
+      <div class="filter-group-lbl" onclick="toggleRightSection('effects')" style="margin-top:4px">
+        Effects<span class="arrow open" id="arrow-reffects">&#9654;</span>
+      </div>
+      <div id="reffects-section"><div id="effect-filters"></div></div>
       <div style="border-top:1px solid var(--border);margin:10px 0 8px"></div>
-      <div class="panel-title">Scaling sources</div>
-      <div id="scaling-filters"></div>
-      <div class="window-section">
-        <div class="window-lbl">Time window</div>
-        <div class="window-chips" id="window-chips"></div>
+      <div class="filter-group-lbl" onclick="toggleRightSection('scaling')">
+        Scaling sources<span class="arrow open" id="arrow-rscaling">&#9654;</span>
+      </div>
+      <div id="rscaling-section">
+        <div id="scaling-filters"></div>
+        <div class="window-section">
+          <div class="window-lbl">Time window</div>
+          <div class="window-chips" id="window-chips"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -393,7 +401,7 @@ const EFFECT_GROUPS={
   'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production']},
   'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts']},
   'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction']},
-  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Ascension Multiplier','Misc']},
+  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Misc']},
 };
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
@@ -457,12 +465,14 @@ function buildFactionList(){
 }
 
 const LEFT_OPEN={ascension:true,faction:true,type:true};
-const RIGHT_OPEN={ascension:true};
+const RIGHT_OPEN={ascension:true,effects:true,scaling:true};
 function toggleRightSection(key){
   RIGHT_OPEN[key]=!RIGHT_OPEN[key];
   const arrow=document.getElementById('arrow-r'+key);
   if(arrow)arrow.classList.toggle('open',RIGHT_OPEN[key]);
-  if(key==='ascension'){const el=document.getElementById('rasc-section');if(el)el.style.display=RIGHT_OPEN[key]?'':'none';}
+  const sections={ascension:'rasc-section',effects:'reffects-section',scaling:'rscaling-section'};
+  const el=document.getElementById(sections[key]);
+  if(el)el.style.display=RIGHT_OPEN[key]?'':'none';
 }
 
 function toggleLeftSection(key){
@@ -647,7 +657,9 @@ function buildCards(filtered){
       ?`<div class="card-faction-tags">${(Array.isArray(u.faction)?u.faction:[u.faction]).map(f=>{const fc=FC[f]||{bg:'var(--bg3)',text:'var(--text3)'};return`<span class="card-faction-tag" style="background:${fc.bg};color:${fc.text}">${f}</span>`;}).join('')}</div>`
       :'';
     // Requirement at bottom right
-    const reqHtml=u.requirement?`<div class="card-req"><span class="req-label">Req:</span> ${u.requirement}</div>`:'';
+    const reqFull=u.requirement||'';
+    const reqShort=reqFull.replace(/[A-Za-z][\w'\s]+\(([A-Z][A-Z0-9]+)\)/g,'$1');
+    const reqHtml=reqFull?`<div class="card-req"><span class="req-label">Req:</span> <span class="req-full">${reqFull}</span><span class="req-short">${reqShort}</span></div>`:'';
     card.innerHTML=`
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -799,7 +811,9 @@ document.getElementById('search').addEventListener('input',e=>{state.search=e.ta
 function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.ascMax=3;state.effectsMode='AND';state.scalingsMode='AND';document.getElementById('search').value='';document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);render();}
 function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.effectsMode='AND';state.scalingsMode='AND';render();}
 
+let _renderJustFired=false;
 function render(){
+  _renderJustFired=true;
   const f=getFiltered();
   buildFactionList();buildTypeList();buildWindowChips();
   buildAscUnlockChips();buildPenaltyButtons();
@@ -840,6 +854,8 @@ function toggleMobPanel(side){
   // Close mobile drawers on outside-card tap in cards area
   document.addEventListener('click',e=>{
     if(window.innerWidth>640)return;
+    // If render() just fired, a filter inside a panel was clicked — don't close
+    if(_renderJustFired){_renderJustFired=false;return;}
     const inPanel=e.target.closest('.panel');
     const inMobBar=e.target.closest('#mobile-bar');
     if(!inPanel&&!inMobBar){
