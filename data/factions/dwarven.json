@@ -1,0 +1,237 @@
+[
+  {
+    "id": "DN1",
+    "name": "Dwarven Ale",
+    "faction": "Dwarven",
+    "tier": 1,
+    "cost": "5e45",
+    "effect": "Increase Faction Coin find chance additively based on Blacksmiths owned.",
+    "formula": "+(2 * x^0.5)%, where x = Blacksmiths owned",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DN2",
+    "name": "Expert Masonry",
+    "faction": "Dwarven",
+    "tier": 1,
+    "cost": "5e46",
+    "effect": "Reduce all building cost multipliers by 0.01 (becomes 1.14).",
+    "formula": "",
+    "effects": [
+      "Building Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DN3",
+    "name": "Mining Prodigies",
+    "faction": "Dwarven",
+    "tier": 1,
+    "cost": "5e47",
+    "effect": "Increase production of all buildings based on Excavation depth.",
+    "formula": "(25 * x^0.5)%, where x = Excavation depth",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "DN4",
+    "name": "Underground Citadels",
+    "faction": "Dwarven",
+    "tier": 2,
+    "cost": "5e49",
+    "effect": "Multiplicatively increase Mana Regeneration based on Gems owned.",
+    "formula": "(1.5 * log10(1+x)^1.5)%, where x = Gems owned",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DN5",
+    "name": "Indestructible Treasure",
+    "faction": "Dwarven",
+    "tier": 2,
+    "cost": "5e50",
+    "effect": "Increase clicking reward based on buildings owned.",
+    "formula": "(0.5 * x^0.65)%, where x = buildings owned",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "DN6",
+    "name": "Bearded Assistants",
+    "faction": "Dwarven",
+    "tier": 2,
+    "cost": "5e51",
+    "effect": "Increase production of assistants based on time this Era.",
+    "formula": "(x^0.7)%, where x = time this Era",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "DN7",
+    "name": "Battlehammers",
+    "faction": "Dwarven",
+    "tier": 3,
+    "cost": "5e53",
+    "effect": "Increase production of all buildings based on Dwarven Coins found this Era.",
+    "formula": "(2.5 * ln(1+x)^2.5)%, where x = Dwarven Coins found this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "DN8",
+    "name": "Magic Resistance",
+    "faction": "Dwarven",
+    "tier": 3,
+    "cost": "5e54",
+    "effect": "Reduce Excavation cost multiplier by 0.02 (becomes 1.18).",
+    "formula": "",
+    "effects": [
+      "Building Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DN9",
+    "name": "Overwatch",
+    "faction": "Dwarven",
+    "tier": 3,
+    "cost": "5e55",
+    "effect": "Increase Maximum Mana based on duration of your longest spell.",
+    "formula": "+(50 + 35 * x^0.7), where x = longest spell duration",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DN10",
+    "name": "Solidity",
+    "faction": "Dwarven",
+    "tier": 4,
+    "cost": "1e100",
+    "effect": "Multiplicatively increase production bonus from Gems based on highest High Bastions built this Reincarnation.",
+    "formula": "(1.2 * x^0.8)%, where x = highest High Bastions this Reincarnation",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DN11",
+    "name": "Stonetalking",
+    "faction": "Dwarven",
+    "tier": 4,
+    "cost": "1e110",
+    "effect": "Increase production of all buildings based on the higher of Maximum Mana or Mana Regeneration.",
+    "formula": "(3 * ln(1 + max(x,y))^3)%, where x = Max Mana, y = Mana Regen",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Max Mana",
+      "Mana Regeneration"
+    ],
+    "window": [
+      "",
+      ""
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "DN12",
+    "name": "Refined Minerals",
+    "faction": "Dwarven",
+    "tier": 4,
+    "cost": "1e120",
+    "effect": "Multiplicatively increase Mana Regeneration and Max Mana based on highest time as Order, Balance, or Chaos this Reincarnation.",
+    "formula": "(2.5 * x^0.5)%, where x = highest alignment time this Reincarnation",
+    "effects": [
+      "Mana Regeneration",
+      "Max Mana"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  }
+]

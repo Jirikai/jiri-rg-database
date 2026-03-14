@@ -1,0 +1,241 @@
+[
+  {
+    "id": "UD1",
+    "name": "The Walking Dead",
+    "faction": "Undead",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "Increase Faction Coin find chance based on assistants owned.",
+    "formula": "+(5 + 2.5 * ln(1+x)^1.75)%, where x = assistants owned",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UD2",
+    "name": "Deadened Muscles",
+    "faction": "Undead",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "Increase production of all buildings based on highest Necropolises built this Reincarnation.",
+    "formula": "(40 + 4 * x^0.8)%, where x = highest Necropolises this Reincarnation",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "UD3",
+    "name": "Death Temples",
+    "faction": "Undead",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Increase Mana Regeneration based on highest Necropolises built this Reincarnation.",
+    "formula": "+(6 + 1.5 * x^0.5), where x = highest Necropolises this Reincarnation",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UD4",
+    "name": "Undead Resilience",
+    "faction": "Undead",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Increase Night Time Duration based on Undead Coins found this Era.",
+    "formula": "(5 + 1.5 * ln(1+x)^1.5)%, where x = Undead FC found this Era",
+    "effects": [
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UD5",
+    "name": "Corpse Supply",
+    "faction": "Undead",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "Gain assistants based on time spent this Era.",
+    "formula": "+(5 + 0.5 * x^0.7), where x = time this Era",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UD6",
+    "name": "Plagued Buildings",
+    "faction": "Undead",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Increase production of all buildings based on most used spell's activity time this Era. Offline time this Era is also added to Night Time activity time.",
+    "formula": "(25 + 2.5 * x^0.75)%, where x = most used spell activity time this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "UD7",
+    "name": "Dead Fields",
+    "faction": "Undead",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Buildings and spell activity times count 75% more.",
+    "formula": "",
+    "effects": [
+      "Building Count"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UD8",
+    "name": "Tireless Workers",
+    "faction": "Undead",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Increase production of assistants based on Mana Regeneration.",
+    "formula": "(85 * (1.5 * ln(1+x))^1.15)%, where x = Mana Regeneration",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "UD9",
+    "name": "Unholy Rituals",
+    "faction": "Undead",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Increase offline production based on time spent offline this Reincarnation. Also increase production of all buildings based on offline time this Era.",
+    "formula": "Offline: (50 + 9.5 * x^0.95)%; All Buildings: (50 + 7.5 * x^0.75)%; x = offline time",
+    "effects": [
+      "Offline Production",
+      "All Buildings"
+    ],
+    "scaling": [
+      "Offline Time",
+      "Offline Time"
+    ],
+    "window": [
+      "Era",
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "UD10",
+    "name": "Flesh Servants",
+    "faction": "Undead",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Multiplicatively increase assistants based on highest Flesh Workshops built this Reincarnation.",
+    "formula": "(0.7 * x^0.7)%, where x = highest Flesh Workshops this Reincarnation",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UD11",
+    "name": "Eternal Servitude",
+    "faction": "Undead",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Increase Unique building production based on time spent this Era.",
+    "formula": "(0.7 * x^0.7)%, where x = time this Era",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "UD12",
+    "name": "Zombie Apocalypse",
+    "faction": "Undead",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Increase Offline Production based on duration of your longest spell.",
+    "formula": "(7 * x^0.7)%, where x = longest spell duration",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  }
+]

@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKCM43CSC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CKCM43CSC4');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="avatar.png">
 <title>Jiri's RG Database</title>
+<!-- Open Graph / Discord embed -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jirikai.github.io/jiri-rg-database/">
+<meta property="og:title" content="Jiri's Realm Grinder Database">
+<meta property="og:description" content="An updated searchable, filterable reference for Realm Grinder upgrades. Faction upgrades, Spells and Research across A0 to A2.">
+<meta property="og:image" content="https://jirikai.github.io/jiri-rg-database/avatar.png">
+<meta name="theme-color" content="#3a7bd5">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -25,7 +40,7 @@
   --accent:#5b9bd5;
 }}
 .force-light{--bg:#ffffff!important;--bg2:#f5f5f5!important;--bg3:#ebebeb!important;--text:#1a1a1a!important;--text2:#555!important;--text3:#888!important;--border:#e0e0e0!important;--border2:#ccc!important;--tag-effect-bg:#d4edda!important;--tag-effect-text:#1a5c2a!important;--tag-scale-bg:#f0f0f0!important;--tag-scale-text:#444!important;--accent:#3a7bd5!important}
-.force-dark{--bg:#1e1e1e!important;--bg2:#252525!important;--bg3:#2e2e2e!important;--text:#e8e8e8!important;--text2:#aaa!important;--text3:#666!important;--border:#383838!important;--border2:#4a4a4a!important;--tag-effect-bg:#1a3d22!important;--tag-effect-text:#6dbb80!important;--tag-scale-bg:#2e2e2e!important;--tag-scale-text:#bbb!important;--accent:#5b9bd5!important}
+.force-dark{--bg:#1e1e1e!important;--bg2:#252525!important;--bg3:#2e2e2e!important;--text:#e8e8e8!important;--text2:#bbb!important;--text3:#888!important;--border:#383838!important;--border2:#4a4a4a!important;--tag-effect-bg:#1a3d22!important;--tag-effect-text:#7dd494!important;--tag-scale-bg:#303030!important;--tag-scale-text:#ccc!important;--accent:#5b9bd5!important}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:var(--bg);display:flex;flex-direction:column}
 #site-header{display:flex;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
@@ -50,6 +65,7 @@ body{display:flex;flex-direction:column}
 .active-filters{flex-shrink:0;padding:7px 14px;border-bottom:1px solid var(--border);min-height:38px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
 .af-label{font-size:11px;color:var(--text3);flex-shrink:0}
 .af-chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:3px 8px;border-radius:20px;background:var(--bg3);color:var(--text2);border:1px solid var(--border2);cursor:pointer;white-space:nowrap}
+.af-chip-sq{border-radius:4px!important}
 .af-chip:hover{background:var(--border2);color:var(--text)}
 .af-chip-x{font-size:13px;line-height:1;opacity:.6}
 .clear-all-btn{font-size:11px;color:var(--text3);background:none;border:1px solid var(--border2);border-radius:20px;padding:3px 9px;cursor:pointer;white-space:nowrap;margin-left:auto;flex-shrink:0}
@@ -61,6 +77,7 @@ body{display:flex;flex-direction:column}
 .pin-chip:hover{opacity:.75}
 .cards{flex:1;overflow-y:auto;padding:10px 14px;display:flex;flex-direction:column;gap:8px;min-height:0}
 .card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:13px 16px;cursor:pointer;transition:border-color .12s;flex-shrink:0}
+.card.spell-upgrade-card{background:var(--bg2);margin-left:16px;border-left:2px solid #7a6aaa33}
 .card:hover{border-color:var(--border2)}
 .card.pinned{border-left-width:3px}
 .card-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -72,19 +89,37 @@ body{display:flex;flex-direction:column}
 .card-meta{display:none}
 .card-cost{font-size:11px;color:var(--text3);margin-left:auto;white-space:nowrap;flex-shrink:0}
 .card-cat{font-size:10px;color:var(--text3)}
+.spell-upgrade-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+.spell-upgrade-card{background:var(--bg2);margin-left:16px;border-left:2px solid var(--border2)}
 .faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
 .faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
-.card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
+.card-icon-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
+.card-faction-tags{display:inline-flex;flex-wrap:wrap;gap:3px;margin-right:6px;vertical-align:middle}
+.card-faction-tag{font-size:9px;padding:1px 5px;border-radius:3px;white-space:nowrap;font-weight:600}
+.card-bottom-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:5px}
+.card-tags-wrap{display:flex;flex-wrap:wrap;gap:3px;flex:1}
+.card-req{font-size:11px;color:var(--text3);font-style:italic;white-space:nowrap;flex-shrink:0;text-align:right}
+.req-short{display:none}
+@media(max-width:640px){.req-full{display:none}.req-short{display:inline}}
+.req-label{font-weight:600}
+.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px;white-space:pre-line}
+.card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word;white-space:pre-line}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
 .tag{font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap}
 .tag-effect{background:var(--tag-effect-bg);color:var(--tag-effect-text)}
 .tag-scale{background:var(--tag-scale-bg);color:var(--tag-scale-text);border:1px solid var(--border)}
+.tag-clickable{cursor:pointer;transition:opacity .12s,outline .12s}
+.tag-clickable:hover{opacity:.75}
+.tag-clickable.tag-active{outline:2px solid currentColor;outline-offset:1px}
+.faction-badge{cursor:pointer;transition:opacity .12s}
+.faction-badge:hover{opacity:.8}
 .no-results{text-align:center;color:var(--text3);font-size:13px;padding:48px 20px;line-height:1.8}
 .faction-group{margin-bottom:8px}
 .faction-group-lbl{font-size:11px;font-weight:700;color:var(--text3);padding:4px 4px 2px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
 .faction-btn{display:flex;align-items:center;gap:10px;width:100%;padding:5px 8px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:14px;color:var(--text);text-align:left}
+.faction-btn.sub-btn{margin-left:14px;width:calc(100% - 14px);font-size:13px;background:var(--bg2)}
+.faction-btn.sub-btn:hover{background:var(--bg3)}
 .faction-btn:hover{background:var(--bg2)}
 .faction-btn.active{background:var(--bg3);font-weight:600}
 .faction-btn-icon{width:28px;height:28px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
@@ -111,6 +146,124 @@ body{display:flex;flex-direction:column}
 .panel-clear-btn{font-size:11px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:20px;padding:2px 8px;cursor:pointer}
 .panel-clear-btn:hover{color:var(--text);border-color:var(--border2)}
 .panel-divider{border:none;border-top:1px solid var(--border);margin:8px 10px 0}
+.panel-section-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px;font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;user-select:none}
+.panel-section-toggle:hover{color:var(--text2)}
+
+/* Ascension slider */
+.asc-slider-wrap{padding:6px 4px 10px;display:flex;flex-direction:column;gap:6px}
+.asc-slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);padding:0 2px}
+.asc-slider-labels span.active-label{color:var(--accent);font-weight:700}
+#asc-slider{width:100%;accent-color:var(--accent);cursor:pointer}
+
+/* Ascension unlock chips (right panel) */
+.asc-unlock-section{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.asc-unlock-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.asc-chip{font-size:12px;padding:4px 11px;border-radius:20px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text2);font-weight:600}
+.asc-chip.active{background:var(--bg3);color:var(--text)}
+.asc-chip:hover{background:var(--bg2)}
+
+/* Penalty filter */
+.penalty-section{margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.penalty-btn{display:flex;align-items:center;gap:7px;width:100%;padding:5px 6px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:13px;color:var(--text2);text-align:left;margin-top:4px}
+.penalty-btn:hover{background:var(--bg2);color:var(--text)}
+.penalty-btn.active{background:var(--bg3);color:var(--text);font-weight:600}
+
+/* Penalty badge on cards */
+.tag-penalty{background:#fde8e8;color:#9b2020;border:1px solid #e89090;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700}
+@media(prefers-color-scheme:dark){.tag-penalty{background:#3a1a1a;color:#e88080;border-color:#7a3030}}
+.force-dark .tag-penalty{background:#3a1a1a!important;color:#e88080!important;border-color:#7a3030!important}
+.force-light .tag-penalty{background:#fde8e8!important;color:#9b2020!important;border-color:#e89090!important}
+
+/* Filter counts */
+.filter-count{font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0}
+
+/* AND/OR mode toggle */
+.mode-toggle{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text3);margin-left:6px;flex-shrink:0;letter-spacing:.04em}
+.mode-toggle:hover{color:var(--text2);border-color:var(--text3)}
+.mode-toggle.or-active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* AND/OR mode toggle */
+.mode-toggle{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text3);margin-left:6px;flex-shrink:0;letter-spacing:.04em}
+.mode-toggle:hover{color:var(--text2);border-color:var(--text3)}
+.mode-toggle.or-active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ── Mobile layout ── */
+#mobile-bar{display:none}
+
+@media(max-width:640px){
+  html,body{overflow:hidden}
+
+  /* Header: tighten up */
+  #site-header{padding:6px 12px;gap:8px}
+  #header-avatar{width:34px;height:34px}
+  #header-title{font-size:14px}
+  #header-sub{font-size:10px}
+  #theme-toggle{padding:4px 9px;font-size:14px}
+
+  /* Mobile panel-toggle bar */
+  #mobile-bar{
+    display:flex;gap:6px;padding:7px 12px;
+    border-bottom:1px solid var(--border);
+    background:var(--bg);flex-shrink:0;
+  }
+  .mob-btn{
+    flex:1;padding:7px 10px;border-radius:var(--radius);
+    border:1px solid var(--border2);background:var(--bg2);
+    color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:5px;
+    transition:background .12s;
+  }
+  .mob-btn:hover,.mob-btn.active{background:var(--bg3);color:var(--text)}
+
+  /* App becomes single column */
+  #app{
+    display:flex;flex-direction:column;
+    overflow:hidden;          /* children manage their own scroll */
+  }
+
+  /* Both side panels: hidden by default, shown as stacked drawers */
+  .panel{
+    border-right:none;border-left:none;
+    border-bottom:1px solid var(--border);
+    max-height:0;overflow:hidden;
+    transition:max-height .25s ease;
+    flex-shrink:0;
+  }
+  .panel.mob-open{max-height:60vh}
+  .panel.right{border-left:none}
+
+  /* Center column fills remaining space */
+  .center{flex:1;min-height:0;display:flex;flex-direction:column}
+
+  /* Cards area scrolls inside the center column */
+  .cards{flex:1;overflow-y:auto;min-height:0}
+
+  /* Bigger touch targets for filter/faction buttons */
+  .filter-btn{padding:8px 8px;font-size:13px}
+  .faction-btn{padding:7px 8px}
+  .w-chip{padding:7px 14px}
+
+  /* Card name: allow wrapping on narrow screens */
+  .card-name-text{white-space:normal;word-break:break-word}
+
+  /* Pin/active-filter bars: limit height, scroll if overflowing */
+  .pin-bar{max-height:60px;overflow-y:auto}
+  .active-filters{max-height:60px;overflow-y:auto}
+}
+
+/* ── Onboarding modal ── */
+#onboard-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+#onboard-modal{background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:28px 28px 22px;max-width:400px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+#onboard-modal h2{font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px}
+#onboard-modal p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.onboard-slider-wrap{margin-bottom:20px}
+.onboard-slider-wrap input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer;margin-bottom:6px}
+.onboard-slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3)}
+.onboard-slider-labels span.active-label{color:var(--accent);font-weight:700}
+#onboard-confirm{width:100%;padding:9px;border:none;border-radius:var(--radius);background:var(--accent);color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+#onboard-confirm:hover{opacity:.9}
+#onboard-skip{display:block;text-align:center;margin-top:10px;font-size:11px;color:var(--text3);cursor:pointer;background:none;border:none;width:100%}
+#onboard-skip:hover{color:var(--text2)}
 </style>
 </head>
 <body>
@@ -118,15 +271,39 @@ body{display:flex;flex-direction:column}
   <img src="avatar.png" alt="Jiri" id="header-avatar">
   <div id="header-text">
     <div id="header-title">Jiri's RG Database</div>
-    <div id="header-sub">Realm Grinder Upgrade Reference · 4.3</div>
+    <div id="header-sub">Realm Grinder Upgrade Reference · 4.3.9</div>
   </div>
   <button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
 </header>
+<div id="mobile-bar">
+  <button class="mob-btn" id="mob-left-btn" onclick="toggleMobPanel('left')">☰ Faction / Type</button>
+  <button class="mob-btn" id="mob-right-btn" onclick="toggleMobPanel('right')">⚙ Filters</button>
+</div>
 <div id="app">
   <div class="panel">
     <div class="panel-inner">
-      <div class="panel-title">Faction</div>
+      <div class="panel-section-toggle" onclick="toggleLeftSection('ascension')">
+        <span>Ascension</span><span class="arrow open" id="arrow-ascension">&#9654;</span>
+      </div>
+      <div id="ascension-section">
+        <div class="asc-slider-wrap">
+          <input type="range" id="asc-slider" min="0" max="3" step="1" value="3" oninput="onAscSlider(this.value)">
+          <div class="asc-slider-labels" id="asc-slider-labels">
+            <span id="asc-lbl-0">A0</span>
+            <span id="asc-lbl-1">A1</span>
+            <span id="asc-lbl-2">A2</span>
+            <span id="asc-lbl-3" class="active-label">All</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-section-toggle" style="margin-top:8px" onclick="toggleLeftSection('faction')">
+        <span>Faction</span><span class="arrow open" id="arrow-faction">&#9654;</span>
+      </div>
       <div id="faction-list"></div>
+      <div class="panel-section-toggle" style="margin-top:8px" onclick="toggleLeftSection('type')">
+        <span>Upgrade Type</span><span class="arrow open" id="arrow-type">&#9654;</span>
+      </div>
+      <div id="type-list"></div>
     </div>
   </div>
   <div class="center">
@@ -145,14 +322,36 @@ body{display:flex;flex-direction:column}
     </div>
     <hr class="panel-divider">
     <div class="panel-inner">
-      <div class="panel-title" style="margin-top:4px">Effects</div>
-      <div id="effect-filters"></div>
+      <div class="filter-section" style="margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+        <div class="filter-group-lbl" style="margin-top:4px" onclick="toggleRightSection('ascension')">
+          Ascension<span class="arrow open" id="arrow-rasc">&#9654;</span>
+        </div>
+        <div id="rasc-section">
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;font-weight:700;padding:4px 2px 2px">Unlock Tier</div>
+          <div class="asc-unlock-chips" id="asc-unlock-chips"></div>
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;font-weight:700;padding:8px 2px 2px">Penalty</div>
+          <button class="penalty-btn" id="penalty-btn-affected" onclick="togglePenalty('affected')">
+            <span class="fcheck" id="penalty-check-affected"></span>A-Penalty affected only
+          </button>
+          <button class="penalty-btn" id="penalty-btn-free" onclick="togglePenalty('free')">
+            <span class="fcheck" id="penalty-check-free"></span>A-Penalty-free only
+          </button>
+        </div>
+      </div>
+      <div class="filter-group-lbl" onclick="toggleRightSection('effects')" style="margin-top:4px">
+        Effects<span class="arrow open" id="arrow-reffects">&#9654;</span>
+      </div>
+      <div id="reffects-section"><div id="effect-filters"></div></div>
       <div style="border-top:1px solid var(--border);margin:10px 0 8px"></div>
-      <div class="panel-title">Scaling sources</div>
-      <div id="scaling-filters"></div>
-      <div class="window-section">
-        <div class="window-lbl">Time window</div>
-        <div class="window-chips" id="window-chips"></div>
+      <div class="filter-group-lbl" onclick="toggleRightSection('scaling')">
+        Scaling sources<span class="arrow open" id="arrow-rscaling">&#9654;</span>
+      </div>
+      <div id="rscaling-section">
+        <div id="scaling-filters"></div>
+        <div class="window-section">
+          <div class="window-lbl">Time window</div>
+          <div class="window-chips" id="window-chips"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -169,6 +368,12 @@ const FACTIONS=[
 ];
 const ICONS={
   Fairy:'RG icons/FairyTradeTreaty.png',
+  Spellcraft:'RG icons/Spellcraft.png',
+  Craftsmanship:'RG icons/Craftsmanship.png',
+  Divine:'RG icons/Divine.png',
+  Economics:'RG icons/Economics.png',
+  Alchemy:'RG icons/Alchemy.png',
+  Warfare:'RG icons/Warfare.png',
   Elven:'RG icons/ElvenTradeTreaty.png',
   Angel:'RG icons/AngelTradeTreaty.png',
   Goblin:'RG icons/GoblinTradeTreaty.png',
@@ -184,6 +389,12 @@ const ICONS={
   Archon:'RG icons/ArchonTradeTreaty.png',
   Djinn:'RG icons/DjinnTradeTreaty.png',
   Makers:'RG icons/MakersTradeTreaty.png',
+  'FactionUpgrades':'RG icons/MercenaryFirstContract.png',
+  'Spells:All':'RG icons/FullWishChallengeReward.png',
+  'Spells:Faction':'RG icons/ElvenTradeTreaty.png',
+  'Spells:Common':'RG icons/CoinPillageSpellUpgrade.png',
+  'Spells:Alignment':'RG icons/TemporalFluxTier2.png',
+  'Research:All':'RG icons/Alchemy.png',
 };
 const FC={
   Fairy:{bg:'#e8609a',text:'#fff'},Elven:{bg:'#5aad4e',text:'#fff'},Angel:{bg:'#7ecfea',text:'#1a4a55'},
@@ -193,51 +404,296 @@ const FC={
   Mercenary:{bg:'#2e2e2e',text:'#eee'},Archon:{bg:'#5b9bd5',text:'#fff'},Djinn:{bg:'#a67fc4',text:'#fff'},
   Makers:{bg:'#b0b8c8',text:'#2a2a3a'},
 };
+const PROOF_FACTIONS={
+  Good:    ['Fairy','Elven','Angel','Dwarven','Mercenary','Archon','Djinn','Makers'],
+  Evil:    ['Goblin','Undead','Demon','Drow','Mercenary','Archon','Djinn','Makers'],
+  Neutral: ['Titan','Druid','Faceless','Dragon','Mercenary','Archon','Djinn','Makers'],
+  Order:   ['Angel','Undead','Titan','Dwarven','Drow','Dragon','Mercenary','Archon'],
+  Chaos:   ['Fairy','Demon','Faceless','Dwarven','Drow','Dragon','Mercenary','Djinn'],
+  Balance: ['Elven','Goblin','Druid','Dwarven','Drow','Dragon','Mercenary','Makers'],
+};
+const RESEARCH_COLORS={
+  Spells:{bg:'#7a6aaa',text:'#fff'},
+  Spellcraft:{bg:'#e8609a',text:'#fff'},
+  Craftsmanship:{bg:'#5aad4e',text:'#fff'},
+  Divine:{bg:'#7ecfea',text:'#1a4a55'},
+  Economics:{bg:'#7a9e3b',text:'#fff'},
+  Alchemy:{bg:'#4a4a8a',text:'#fff'},
+  Warfare:{bg:'#c93022',text:'#fff'},
+};
+const SPELL_PARENT_MAP={
+  'Coin-Pillage':'Tax-Collection',
+  'Fairy-Choir':'Fairy-Chanting',
+  'Sun-Blessing':'Moon-Blessing',
+  'God\'s-Rest':'God\'s-Hand',
+  'Greed-Drive':'Goblin\'s-Greed',
+  'True-Night':'Night-Time',
+  'Hell-Rush':'Hellfire-Blast',
+  'Perfect-Combo':'Combo-Strike',
+  'Lightning-Storm':'Lightning-Strike',
+  'Faceless-Overmind':'Brainwave',
+  'Halls-of-Balance':'Grand-Balance',
+  'Dragon\'s-Roar':'Dragon\'s-Breath',
+  'Chrono-Loading':'Precognition',
+  'Persistent-Entropy':'Limited-Wish',
+  'Reality-Crater':'Infinite-Spiral',
+};
+const SPELL_ICONS={
+  'Tax-Collection':     'RG icons/CoinPillageSpellUpgrade.png',
+  'Coin-Pillage':       'RG icons/CoinPillageSpellUpgrade.png',
+  'Call-to-Arms':       'RG icons/CalltoArmsTier2.png',
+  'Spiritual-Surge':    'RG icons/SpiritualSurgeTier2.png',
+  'Holy-Light':         'RG icons/HolyLightTier2.png',
+  'God\'s-Rest':        'RG icons/GodsRestSpellUpgrade.png',
+  'Blood-Frenzy':       'RG icons/BloodfrenzyTier2.png',
+  'Gem-Grinder':        'RG icons/GemGrinderTier2.png',
+  'Fairy-Chanting':     'RG icons/FairyChantingTier2.png',
+  'Fairy-Choir':        'RG icons/FairyChoirSpellUpgrade.png',
+  'Moon-Blessing':      'RG icons/MoonBlessingTier2.png',
+  'Sun-Blessing':       'RG icons/SunBlessingSpellUpgrade.png',
+  'God\'s-Hand':        'RG icons/God\'sHandTier2.png',
+  'Diamond-Pickaxe':    'RG icons/DiamondPickaxeTier2.png',
+  'Minedwarf':          'RG icons/MinedwarfSpellUpgrade.png',
+  'Goblin\'s-Greed':    'RG icons/Goblin\'sGreedTier2.png',
+  'Greed-Drive':        'RG icons/GreedDriveSpellUpgrade.png',
+  'Night-Time':         'RG icons/NightTimeTier2.png',
+  'True-Night':         'RG icons/TrueNightSpellUpgrade.png',
+  'Hellfire-Blast':     'RG icons/HellfireBlastTier2.png',
+  'Hell-Rush':          'RG icons/HellRushSpellUpgrade.png',
+  'Combo-Strike':       'RG icons/ComboStrikeTier2.png',
+  'Perfect-Combo':      'RG icons/PerfectComboSpellUpgrade.png',
+  'Lightning-Strike':   'RG icons/LightningStrikeTier2.png',
+  'Lightning-Storm':    'RG icons/LightningStormSpellUpgrade.png',
+  'Brainwave':          'RG icons/BrainwaveTier2.png',
+  'Faceless-Overmind':  'RG icons/FacelessOvermindSpellUpgrade.png',
+  'Grand-Balance':      'RG icons/GrandBalanceTier2.png',
+  'Halls-of-Balance':   'RG icons/HallsofBalanceSpellUpgrade.png',
+  'Dragon\'s-Breath':   'RG icons/DragonsBreathTier2.png',
+  'Dragon\'s-Roar':     'RG icons/DragonsRoarSpellUpgrade.png',
+  'Temporal-Flux':      'RG icons/TemporalFluxTier2.png',
+  'Maelstrom':          'RG icons/MaelstromSpellTier2.png',
+  'All-Creation':       'RG icons/AllCreationSpellTier2.png',
+  'Precognition':       'RG icons/ChronoLoadingSpellUpgrade.png',
+  'Chrono-Loading':     'RG icons/ChronoLoadingSpellUpgrade.png',
+  'Limited-Wish':       'RG icons/PersistentEntropySpellUpgrade.png',
+  'Persistent-Entropy': 'RG icons/PersistentEntropySpellUpgrade.png',
+  'Infinite-Spiral':    'RG icons/RealityCraterSpellUpgrade.png',
+  'Reality-Crater':     'RG icons/RealityCraterSpellUpgrade.png',
+  'Share-Benefits':     'RG icons/CoinPillageSpellUpgrade.png',
+  'Reap-Interests':     'RG icons/CoinPillageSpellUpgrade.png',
+  'Appraisal-Vantage':  'RG icons/CoinPillageSpellUpgrade.png',
+};
 const WINDOWS=['Era','Reincarnation','All Time'];
+const UPGRADE_TYPES=['Faction Upgrades','Spells','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
-  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking Reward','Autoclick','Click Count','Gems Bonus','Building Cost Reduction','Excavation Cost Reduction','Royal Exchange Cost Reduction','Assistant Amount','Assistant Production','Offline Production']},
-  'Mana & Spells':{open:true,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection']},
-  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production']},
+  'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction','Building Count']},
+  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production','Assistant Count']},
+  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Spell Potency','Tax Collection','Offline Spell Casts','Spell Cast Count']},
+  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction','Royal Exchange Count']},
+  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Reincarnation Count','Research Points Count','Misc']},
 };
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
-  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Mana Produced','Spells Cast','Active Spells','Spell Activity Time','Spell Duration']},
+  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time','Tax Collection']},
   'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
-  'Misc':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations']},
+  'Other':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Misc']},
 };
 
 let UPGRADES=[];
-let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),pinned:[],eg:{},sg:{}};
+let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),upgradeTypes:new Set(),pinned:[],eg:{},sg:{},ascMax:3,ascUnlock:new Set(),penaltyFilter:null,effectsMode:'AND',scalingsMode:'AND'};
 Object.keys(EFFECT_GROUPS).forEach(g=>state.eg[g]=EFFECT_GROUPS[g].open);
 Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 
 const FACTION_FILES=[
-  'fairy','elven','angel','goblin','undead','demon',
-  'titan','druid','faceless','dwarven','drow','dragon',
-  'mercenary','archon','djinn','makers'
+  'factions/fairy','factions/elven','factions/angel',
+  'factions/goblin','factions/undead','factions/demon',
+  'factions/titan','factions/druid','factions/faceless',
+  'factions/dwarven','factions/drow','factions/dragon',
+  'factions/mercenary','factions/archon','factions/djinn','factions/makers',
+  'spells/spells',
+  'research/spellcraft','research/craftsmanship','research/divine',
+  'research/economics','research/alchemy','research/warfare'
 ];
 Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
   .then(arrays=>{UPGRADES=arrays.flat();render();})
   .catch(e=>{document.getElementById('cards').innerHTML='<div class="no-results">Could not load faction data.</div>';console.error(e);});
 
+const FACTION_MIN_ASC={Dragon:1,Archon:2,Djinn:2,Makers:2};
+function factionAvailable(f){
+  const min=FACTION_MIN_ASC[f]||0;
+  return state.ascMax===3||state.ascMax>=min;
+}
 function buildFactionList(){
   const el=document.getElementById('faction-list');el.innerHTML='';
   FACTIONS.forEach(({group,factions})=>{
+    const visible=factions.filter(factionAvailable);
+    if(!visible.length)return;
     const w=document.createElement('div');w.className='faction-group';
     const l=document.createElement('div');l.className='faction-group-lbl';l.textContent=group;w.appendChild(l);
-    factions.forEach(f=>{
+    visible.forEach(f=>{
       const c=FC[f]||{bg:'#888',text:'#fff'};
       const b=document.createElement('button');b.className='faction-btn'+(state.factions.has(f)?' active':'');
       const iconPart=ICONS[f]
-        ?`<img src="${ICONS[f]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${c.bg}\\'></span>'">`
+        ?`<img src="${ICONS[f]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\'faction-dot\' style=\'background:${c.bg}\'></span>'">`
         :`<span class="faction-dot" style="background:${c.bg}"></span>`;
       b.innerHTML=`${iconPart}<span>${f}</span>`;
-      b.onclick=()=>{state.factions.has(f)?state.factions.delete(f):state.factions.add(f);render();};
+      b.onclick=(e)=>{
+        const already=state.factions.has(f);
+        const multi=e.shiftKey||state.factions.size>1||state.factions.has('Mercenary');
+        if(multi){
+          // Shift-click or multi-select mode: just toggle this faction
+          already?state.factions.delete(f):state.factions.add(f);
+        } else {
+          // Single-click exclusive: if already the only one selected, deselect; otherwise select only this
+          if(already&&state.factions.size===1){state.factions.clear();}
+          else{state.factions.clear();state.factions.add(f);}
+        }
+        render();
+      };
       w.appendChild(b);
     });
     el.appendChild(w);
   });
+}
+
+const LEFT_OPEN={ascension:true,faction:true,type:true};
+const RIGHT_OPEN={ascension:true,effects:true,scaling:true};
+function toggleRightSection(key){
+  RIGHT_OPEN[key]=!RIGHT_OPEN[key];
+  const arrow=document.getElementById('arrow-r'+key);
+  if(arrow)arrow.classList.toggle('open',RIGHT_OPEN[key]);
+  const sections={ascension:'rasc-section',effects:'reffects-section',scaling:'rscaling-section'};
+  const el=document.getElementById(sections[key]);
+  if(el)el.style.display=RIGHT_OPEN[key]?'':'none';
+}
+
+function toggleLeftSection(key){
+  LEFT_OPEN[key]=!LEFT_OPEN[key];
+  const arrow=document.getElementById('arrow-'+key);
+  if(arrow)arrow.classList.toggle('open',LEFT_OPEN[key]);
+  if(key==='ascension'){const el=document.getElementById('ascension-section');el.style.display=LEFT_OPEN[key]?'':'none';}
+  if(key==='faction'){const el=document.getElementById('faction-list');el.style.display=LEFT_OPEN[key]?'':'none';}
+  if(key==='type'){const el=document.getElementById('type-list');el.style.display=LEFT_OPEN[key]?'':'none';}
+}
+
+function buildTypeList(){
+  const el=document.getElementById('type-list');el.innerHTML='';
+
+  const SPELL_SUBS=['Spells:Faction','Spells:Common','Spells:Alignment'];
+  const RESEARCH_SUBS=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+
+  function makeBtn(key,label,iconKey,color,onclick){
+    const active=state.upgradeTypes.has(key);
+    const b=document.createElement('button');
+    b.className='faction-btn'+(active?' active':'');
+    const icon=ICONS[iconKey];
+    const iconPart=icon
+      ?`<img src="${icon}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\'faction-dot\' style=\'background:${color}\'></span>'">`
+      :`<span class="faction-dot" style="background:${color}"></span>`;
+    b.innerHTML=`${iconPart}<span>${label}</span>`;
+    b.onclick=onclick||(()=>{state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);render();});
+    return b;
+  }
+
+  function spellClick(key,shift){
+    if(key==='Spells'){
+      // All: always exclusive — clear subs, toggle All
+      SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+      state.upgradeTypes.has('Spells')?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');
+    } else {
+      // Always deselect All when picking a sub
+      state.upgradeTypes.delete('Spells');
+      if(shift){
+        // Shift = exclusive: clear others, select only this
+        const wasActive=state.upgradeTypes.has(key);
+        SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+        if(!wasActive)state.upgradeTypes.add(key);
+      } else {
+        // Normal = additive toggle
+        state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);
+        // If all 3 subs selected, collapse to All
+        if(SPELL_SUBS.every(s=>state.upgradeTypes.has(s))){
+          SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+          state.upgradeTypes.add('Spells');
+        }
+      }
+    }
+    render();
+  }
+
+  function researchClick(key,shift){
+    if(key==='Research:All'){
+      // All: always exclusive — clear subs, toggle All
+      RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+      state.upgradeTypes.has('Research:All')?state.upgradeTypes.delete('Research:All'):state.upgradeTypes.add('Research:All');
+    } else {
+      // Always deselect All when picking a sub
+      state.upgradeTypes.delete('Research:All');
+      if(shift){
+        // Shift = exclusive: clear others, select only this
+        const wasActive=state.upgradeTypes.has(key);
+        RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+        if(!wasActive)state.upgradeTypes.add(key);
+      } else {
+        // Normal = additive toggle
+        state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);
+        if(RESEARCH_SUBS.every(s=>state.upgradeTypes.has(s))){
+          RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+          state.upgradeTypes.add('Research:All');
+        }
+      }
+    }
+    render();
+  }
+
+  // Faction Upgrades
+  el.appendChild(makeBtn('Faction Upgrades','Faction Upgrades','FactionUpgrades','#888'));
+
+  // Spells collapsible group
+  const spellsGroup=document.createElement('div');spellsGroup.className='faction-group';
+  const spellsOpen=state._spellsOpen!==false;
+  const spellsAnyActive=['Spells',...SPELL_SUBS].some(t=>state.upgradeTypes.has(t));
+  const spellsLbl=document.createElement('div');spellsLbl.className='faction-group-lbl';
+  spellsLbl.style.cursor='pointer';
+  spellsLbl.innerHTML=`<span style="color:${spellsAnyActive?'var(--accent)':'inherit'}">Spells</span><span class="arrow${spellsOpen?' open':''}" style="float:right">&#9654;</span>`;
+  spellsLbl.onclick=()=>{state._spellsOpen=!spellsOpen;render();};
+  spellsGroup.appendChild(spellsLbl);
+  if(spellsOpen){
+    [
+      ['Spells',          'All',       'Spells:All',       '#7a6aaa', false],
+      ['Spells:Faction',  'Faction',   'Spells:Faction',   '#7a6aaa', true],
+      ['Spells:Common',   'Common',    'Spells:Common',    '#9a9a9a', true],
+      ['Spells:Alignment','Alignment', 'Spells:Alignment', '#5b9bd5', true],
+    ].forEach(([key,label,iconKey,color,sub])=>{
+      const b=makeBtn(key,label,iconKey,color,()=>{});
+      if(sub)b.classList.add('sub-btn');
+      b.onclick=(e)=>spellClick(key,e.shiftKey);
+      spellsGroup.appendChild(b);
+    });
+  }
+  el.appendChild(spellsGroup);
+
+  // Research collapsible group
+  const researchGroup=document.createElement('div');researchGroup.className='faction-group';
+  const researchOpen=state._researchOpen!==false;
+  const researchAnyActive=['Research:All',...RESEARCH_SUBS].some(t=>state.upgradeTypes.has(t));
+  const researchLbl=document.createElement('div');researchLbl.className='faction-group-lbl';
+  researchLbl.style.cursor='pointer';
+  researchLbl.innerHTML=`<span style="color:${researchAnyActive?'var(--accent)':'inherit'}">Research</span><span class="arrow${researchOpen?' open':''}" style="float:right">&#9654;</span>`;
+  researchLbl.onclick=()=>{state._researchOpen=!researchOpen;render();};
+  researchGroup.appendChild(researchLbl);
+  if(researchOpen){
+    [['Research:All','All Research','Research:All','#4a4a8a',false],
+     ...RESEARCH_SUBS.map(t=>[t,t,t,RESEARCH_COLORS[t].bg,true])
+    ].forEach(([key,label,iconKey,color,sub])=>{
+      const b=makeBtn(key,label,iconKey,color,()=>{});
+      if(sub)b.classList.add('sub-btn');
+      b.onclick=(e)=>researchClick(key,e.shiftKey);
+      researchGroup.appendChild(b);
+    });
+  }
+  el.appendChild(researchGroup);
 }
 
 function buildWindowChips(){
@@ -249,8 +705,33 @@ function buildWindowChips(){
   });
 }
 
-function buildFilterPanel(groups,stateSet,stateOpen,id){
+function buildFilterPanel(groups,stateSet,stateOpen,id,filtered){
   const el=document.getElementById(id);el.innerHTML='';
+  // AND/OR toggle row at top of panel
+  const isScaling=id==='scaling-filters';
+  const mode=isScaling?state.scalingsMode:state.effectsMode;
+  const modeRow=document.createElement('div');
+  modeRow.style.cssText='display:flex;align-items:center;justify-content:flex-end;margin-bottom:4px;';
+  const modeBtn=document.createElement('button');
+  modeBtn.className='mode-toggle'+(mode==='OR'?' or-active':'');
+  modeBtn.textContent=mode==='OR'?'OR — click to AND':'AND — click to OR';
+  modeBtn.title=mode==='OR'?'Currently OR: showing upgrades with ANY selected filter':'Currently AND: showing upgrades with ALL selected filters';
+  modeBtn.onclick=()=>{
+    if(isScaling)state.scalingsMode=state.scalingsMode==='AND'?'OR':'AND';
+    else state.effectsMode=state.effectsMode==='AND'?'OR':'AND';
+    render();
+  };
+  modeRow.appendChild(modeBtn);
+  el.appendChild(modeRow);
+  // Determine which field to count against based on panel id
+  const field=isScaling?'scaling':'effects';
+  // Count occurrences per item in the current filtered set, only checking the relevant field
+  const counts={};
+  if(filtered){
+    Object.values(groups).forEach(({items})=>items.forEach(item=>{
+      counts[item]=filtered.filter(u=>(u[field]||[]).includes(item)).length;
+    }));
+  }
   Object.entries(groups).forEach(([group,{items}])=>{
     const w=document.createElement('div');w.className='filter-section';
     const l=document.createElement('div');l.className='filter-group-lbl';
@@ -260,8 +741,9 @@ function buildFilterPanel(groups,stateSet,stateOpen,id){
       const iw=document.createElement('div');iw.className='filter-items';
       items.forEach(item=>{
         const active=stateSet.has(item);
+        const cnt=filtered!==undefined?counts[item]:null;
         const b=document.createElement('button');b.className='filter-btn'+(active?' active':'');
-        b.innerHTML=`<span class="fcheck">${active?'&#10003;':''}</span>${item}`;
+        b.innerHTML=`<span class="fcheck">${active?'&#10003;':''}</span>${item}${cnt!==null?`<span class="filter-count">(${cnt})</span>`:''}`;
         b.onclick=()=>{active?stateSet.delete(item):stateSet.add(item);render();};
         iw.appendChild(b);
       });
@@ -274,14 +756,22 @@ function buildFilterPanel(groups,stateSet,stateOpen,id){
 function buildActiveFilters(){
   const el=document.getElementById('active-filters');
   const chips=[];
+  // Ascension slider chip (only if not "All")
+  if(state.ascMax!==3)chips.push({label:'Up to A'+state.ascMax,style:'background:var(--accent);color:#fff;border-color:var(--accent)',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
+  // Ascension unlock chips
+  state.ascUnlock.forEach(a=>chips.push({label:'Unlocked: A'+a,style:'',remove:()=>state.ascUnlock.delete(a)}));
+  // Penalty filter chip
+  if(state.penaltyFilter)chips.push({label:state.penaltyFilter==='affected'?'A-Penalty affected':'Penalty-free',style:'',remove:()=>{state.penaltyFilter=null;}});
   state.factions.forEach(f=>{const c=FC[f]||{bg:'#888',text:'#fff'};chips.push({label:f,style:`background:${c.bg};color:${c.text};border-color:${c.bg}`,remove:()=>state.factions.delete(f)});});
+  state.upgradeTypes.forEach(t=>{const rc=RESEARCH_COLORS[t];const st=rc?`background:${rc.bg};color:${rc.text};border-color:${rc.bg}`:'';chips.push({label:t,style:st,remove:()=>state.upgradeTypes.delete(t)});});
   state.effects.forEach(e=>chips.push({label:e,style:'',remove:()=>state.effects.delete(e)}));
   state.scalings.forEach(s=>chips.push({label:'↳ '+s,style:'',remove:()=>state.scalings.delete(s)}));
   state.windows.forEach(w=>chips.push({label:'⏱ '+w,style:'',remove:()=>state.windows.delete(w)}));
   if(!chips.length&&!state.search){el.innerHTML='<span class="af-label">No filters active</span>';return;}
   el.innerHTML='';
   chips.forEach(({label,style,remove})=>{
-    const chip=document.createElement('span');chip.className='af-chip';
+    const chip=document.createElement('span');
+    chip.className='af-chip'+(label.startsWith('[')?' af-chip-sq':'');
     if(style)chip.setAttribute('style',style);
     chip.innerHTML=`${label}<span class="af-chip-x">&times;</span>`;
     chip.onclick=()=>{remove();render();};el.appendChild(chip);
@@ -294,55 +784,209 @@ function buildActiveFilters(){
 }
 
 function getFiltered(){
-  return UPGRADES.filter(u=>{
-    if(state.factions.size>0&&!state.factions.has(u.faction))return false;
+  const byId=Object.fromEntries(UPGRADES.map(u=>[u.id,u]));
+  const matched=new Set();
+  const forcedParents=new Set();
+  UPGRADES.forEach(u=>{
+    if(passesFilter(u)){
+      matched.add(u.id);
+      // If this is a spell upgrade, always include its parent
+      const parentId=SPELL_PARENT_MAP[u.id];
+      if(parentId)forcedParents.add(parentId);
+    }
+  });
+  // Also add forced parents that didn't match on their own
+  forcedParents.forEach(id=>{if(!matched.has(id))matched.add(id);});
+  return UPGRADES.filter(u=>matched.has(u.id));
+}
+function passesFilter(u){
+    // Ascension slider: hide upgrades above current ascension
+    if(state.ascMax!==3&&(u.minAscension||0)>state.ascMax)return false;
+    // Ascension unlock filter: show only specific unlock tiers
+    if(state.ascUnlock.size>0&&!state.ascUnlock.has(u.minAscension||0))return false;
+    // Penalty filter
+    if(state.penaltyFilter==='affected'&&!u.ascensionPenalty)return false;
+    if(state.penaltyFilter==='free'&&u.ascensionPenalty)return false;
+    const fList=Array.isArray(u.faction)?u.faction:[u.faction];
+    if(state.factions.size>0){
+      // For proof-gated spells, derive eligible factions from proof requirements
+      const proofs=u.proof||[];
+      if(proofs.length>0){
+        // Intersect all proof faction lists — spell needs ALL proofs
+        let eligible=proofs.reduce((acc,p)=>{
+          const pf=PROOF_FACTIONS[p]||[];
+          return acc===null?pf:acc.filter(f=>pf.includes(f));
+        },null)||[];
+        if(!eligible.some(f=>state.factions.has(f)))return false;
+      } else {
+        if(!fList.some(f=>state.factions.has(f)||f==='All'))return false;
+      }
+    }
+    if(state.upgradeTypes.size>0){
+      const uType=u.category||'Faction Upgrades';
+      if(uType==='Spells'){
+        const hasSpellFilter=['Spells','Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+        if(!hasSpellFilter)return false;
+        const subActive=['Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+        if(subActive){
+          const cls=u.spellClass||'Faction';
+          if(state.upgradeTypes.has('Spells:Faction')&&cls==='Faction')return true;
+          if(state.upgradeTypes.has('Spells:Common')&&cls==='Common')return true;
+          if(state.upgradeTypes.has('Spells:Alignment')&&cls==='Alignment')return true;
+          if(!state.upgradeTypes.has('Spells'))return false;
+        }
+      } else {
+        const isResearchType=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'].includes(uType);
+        if(isResearchType&&state.upgradeTypes.has('Research:All'))return true;
+        if(!state.upgradeTypes.has(uType))return false;
+      }
+    }
     const q=state.search.toLowerCase();
     if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
-    if(state.effects.size>0&&![...state.effects].every(e=>(u.effects||[]).includes(e)))return false;
-    if(state.scalings.size>0&&![...state.scalings].every(s=>(u.scaling||[]).includes(s)))return false;
+    if(state.effects.size>0){const ef=u.effects||[];if(state.effectsMode==='AND'?![...state.effects].every(e=>ef.includes(e)):[...state.effects].every(e=>!ef.includes(e)))return false;}
+    if(state.scalings.size>0){const sc=u.scaling||[];if(state.scalingsMode==='AND'?![...state.scalings].every(s=>sc.includes(s)):[...state.scalings].every(s=>!sc.includes(s)))return false;}
     if(state.windows.size>0){if(!u.window||!u.window.length)return false;if(![...state.windows].some(w=>u.window.includes(w)))return false;}
     return true;
-  });
 }
 
 function buildCards(filtered){
   const el=document.getElementById('cards');el.innerHTML='';
   if(!filtered.length){el.innerHTML='<div class="no-results">No upgrades match the current filters.</div>';return;}
+  // Always sort spells: Faction first, then Common, then Alignment; upgrades follow parent
+  const spellClassOrder={Faction:0,Common:1,Alignment:2};
+  const byId=Object.fromEntries(UPGRADES.map(u=>[u.id,u]));
+  filtered=filtered.slice().sort((a,b)=>{
+    if(a.category==='Spells'&&b.category==='Spells'){
+      const aParentId=SPELL_PARENT_MAP[a.id]||a.id;
+      const bParentId=SPELL_PARENT_MAP[b.id]||b.id;
+      const aBase=byId[aParentId]||a;
+      const bBase=byId[bParentId]||b;
+      const classA=spellClassOrder[aBase.spellClass||'Faction']??0;
+      const classB=spellClassOrder[bBase.spellClass||'Faction']??0;
+      if(classA!==classB)return classA-classB;
+      // Within same class keep original JSON order; upgrade always after parent
+      const aOrder=UPGRADES.indexOf(aBase)*2+(a.spellUpgrade?1:0);
+      const bOrder=UPGRADES.indexOf(bBase)*2+(b.spellUpgrade?1:0);
+      return aOrder-bOrder;
+    }
+    return 0;
+  });
   filtered.forEach(u=>{
     const pinned=state.pinned.includes(u.id);
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
-    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'');
+    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
-    const scalingTags=(u.scaling||[]).map((s,i)=>{
-      const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
-      return`<span class="tag tag-scale">&#8627; ${s}${win}</span>`;
-    }).join('');
-    const iconSrc=ICONS[u.faction];
+    const isResearch=!!u.category&&u.category!=='Spells';
+    const isSpell=u.category==='Spells';
+    const rc=isResearch?RESEARCH_COLORS[u.category]:null;
+    const spellBadge={bg:'#7a6aaa',text:'#fff'};
+    const badgeBg=isSpell?spellBadge.bg:rc?rc.bg:c.bg;
+    const badgeText=isSpell?spellBadge.text:rc?rc.text:c.text;
+    const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
-      ?`<img src="${iconSrc}" class="card-icon" alt="${u.faction}" onerror="this.style.display='none;this.nextSibling.style.display=\\'inline-block\\''">` 
-      :`<span class="card-icon-fb" style="background:${c.bg}"></span>`;
-    const badgeIconHtml=iconSrc
+      ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
+      :`<span class="card-icon-fb" style="background:${badgeBg}"></span>`;
+    const badgeLabel=u.category||u.faction;
+    const badgeIconHtml=(!isSpell&&iconSrc)
       ?`<img src="${iconSrc}" width="14" height="14" style="object-fit:contain;image-rendering:pixelated" alt="" onerror="this.style.display='none'">`
       :'';
+    // For research: faction restriction tags with their faction colour, shown inline near description
+    const factionTagsHtml=isResearch
+      ?`<div class="card-faction-tags">${(Array.isArray(u.faction)?u.faction:[u.faction]).map(f=>{const fc=FC[f]||{bg:'var(--bg3)',text:'var(--text3)'};return`<span class="card-faction-tag" style="background:${fc.bg};color:${fc.text}">${f}</span>`;}).join('')}</div>`
+      :'';
+    // Requirement at bottom right
+    const reqFull=u.requirement||'';
+    const reqShort=reqFull.replace(/[A-Za-z][\w'\s]+\(([A-Z][A-Z0-9]+)\)/g,'$1');
+    const reqHtml=reqFull?`<div class="card-req"><span class="req-label">Req:</span> <span class="req-full">${reqFull}</span><span class="req-short">${reqShort}</span></div>`:'';
+    // Spell cards: show cost in place of id badge; suppress id badge entirely for spells
+    const costHtml=isSpell&&u.cost?`<span class="card-cost">${u.cost}</span>`:'';
+    const idBadgeHtml=isSpell?'':`<span class="card-id-part" style="background:${badgeBg};color:${badgeText}">${u.id}</span>`;
+    const spellUpgradeLabelHtml=u.spellUpgrade?`<div class="spell-upgrade-label">Spell Upgrade</div>`:'';
     card.innerHTML=`
       <div class="card-header">
-        ${iconHtml}
+        <div class="card-icon-wrap">
+          ${iconHtml}
+        </div>
         <div class="card-title-block">
           <div class="card-id-name">
-            <span class="card-id-part" style="background:${c.bg};color:${c.text}">${u.id}</span>
+            ${idBadgeHtml}
             <span class="card-name-text">${u.name}</span>
-            ${u.cost?`<span class="card-cost">${u.cost}</span>`:''}
+            ${costHtml}
           </div>
+          ${spellUpgradeLabelHtml}
         </div>
-        <span class="faction-badge" style="background:${c.bg};color:${c.text}">${badgeIconHtml}${u.faction}</span>
+        <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>
-      <div class="card-effect">${u.effect||''}</div>
+      <div class="card-effect">${factionTagsHtml}${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
-      <div class="card-tags">
-        ${(u.effects||[]).map(e=>`<span class="tag tag-effect">${e}</span>`).join('')}
-        ${scalingTags}
+      <div class="card-bottom-row">
+        <div class="card-tags-wrap"></div>
+        ${reqHtml}
       </div>`;
+
+    // Faction badge click → filter by faction (or category for research)
+    const badge=card.querySelector('.faction-badge');
+    if(badge){
+      badge.addEventListener('click',e=>{
+        e.stopPropagation();
+        if(isSpell){
+          state.upgradeTypes.has('Spells')?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');
+        } else if(isResearch){
+          state.upgradeTypes.has(u.category)?state.upgradeTypes.delete(u.category):state.upgradeTypes.add(u.category);
+        } else {
+          const f=Array.isArray(u.faction)?u.faction[0]:u.faction;
+          state.factions.has(f)?state.factions.delete(f):state.factions.add(f);
+        }
+        render();
+      });
+    }
+
+    // Research faction restriction tags → filter by faction
+    card.querySelectorAll('.card-faction-tag').forEach(el=>{
+      const f=el.textContent.trim();
+      el.classList.add('tag-clickable');
+      el.style.cursor='pointer';
+      el.addEventListener('click',e=>{
+        e.stopPropagation();
+        state.factions.has(f)?state.factions.delete(f):state.factions.add(f);
+        render();
+      });
+    });
+
+    // Effect & scaling tags — build as DOM nodes so we can attach handlers
+    const tagsWrap=card.querySelector('.card-tags-wrap');
+    (u.effects||[]).forEach(eff=>{
+      const t=document.createElement('span');
+      t.className='tag tag-effect tag-clickable'+(state.effects.has(eff)?' tag-active':'');
+      t.textContent=eff;
+      t.addEventListener('click',e=>{
+        e.stopPropagation();
+        state.effects.has(eff)?state.effects.delete(eff):state.effects.add(eff);
+        render();
+      });
+      tagsWrap.appendChild(t);
+    });
+     (u.scaling||[]).forEach((s,i)=>{
+       const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
+       const t=document.createElement('span');
+       t.className='tag tag-scale tag-clickable'+(state.scalings.has(s)?' tag-active':'');
+       t.textContent='\u21b3 '+s+win;
+       t.addEventListener('click',e=>{
+         e.stopPropagation();
+         state.scalings.has(s)?state.scalings.delete(s):state.scalings.add(s);
+         render();
+       });
+       tagsWrap.appendChild(t);
+     });
+     // Ascension penalty badge — only relevant above A0
+     if(u.ascensionPenalty&&(state.ascMax===3||state.ascMax>0)){
+       const p=document.createElement('span');
+       p.className='tag tag-penalty';
+       p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
+       p.textContent='A-Penalty';
+       tagsWrap.appendChild(p);
+     }
     el.appendChild(card);
   });
 }
@@ -359,25 +1003,120 @@ function buildPinBar(){
 }
 
 function removePin(id){state.pinned=state.pinned.filter(p=>p!==id);render();}
-function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();document.getElementById('search').value='';render();}
-function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();render();}
 
+// ── Ascension slider ──
+function updateAscSliderLabels(val){
+  const labels=['asc-lbl-0','asc-lbl-1','asc-lbl-2','asc-lbl-3'];
+  labels.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('active-label',i===parseInt(val));
+  });
+}
+function onAscSlider(val){
+  const v=parseInt(val);
+  state.ascMax=v;
+  updateAscSliderLabels(v);
+  // Clear faction filters for factions no longer visible
+  state.factions.forEach(f=>{if(!factionAvailable(f))state.factions.delete(f);});
+  render();
+}
+
+// ── Ascension unlock chips (right panel) ──
+function buildAscUnlockChips(){
+  const el=document.getElementById('asc-unlock-chips');if(!el)return;el.innerHTML='';
+  [0,1,2].forEach(a=>{
+    const active=state.ascUnlock.has(a);
+    const b=document.createElement('button');
+    b.className='asc-chip'+(active?' active':'');
+    b.textContent='A'+a;
+    b.onclick=()=>{active?state.ascUnlock.delete(a):state.ascUnlock.add(a);render();};
+    el.appendChild(b);
+  });
+}
+
+// ── Penalty filter buttons ──
+function buildPenaltyButtons(){
+  ['affected','free'].forEach(mode=>{
+    const btn=document.getElementById('penalty-btn-'+mode);
+    const chk=document.getElementById('penalty-check-'+mode);
+    if(!btn||!chk)return;
+    const active=state.penaltyFilter===mode;
+    btn.classList.toggle('active',active);
+    chk.innerHTML=active?'&#10003;':'';
+    chk.style.background=active?'var(--text)':'';
+    chk.style.borderColor=active?'var(--text)':'';
+    chk.style.color=active?'var(--bg)':'';
+  });
+}
+function togglePenalty(mode){
+  state.penaltyFilter=state.penaltyFilter===mode?null:mode;
+  render();
+}
+
+
+document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
+function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.ascMax=3;state.effectsMode='AND';state.scalingsMode='AND';document.getElementById('search').value='';document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);render();}
+function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.effectsMode='AND';state.scalingsMode='AND';render();}
+
+let _renderJustFired=false;
 function render(){
-  buildFactionList();buildWindowChips();
-  buildFilterPanel(EFFECT_GROUPS,state.effects,state.eg,'effect-filters');
-  buildFilterPanel(SCALING_GROUPS,state.scalings,state.sg,'scaling-filters');
+  _renderJustFired=true;
   const f=getFiltered();
+  buildFactionList();buildTypeList();buildWindowChips();
+  buildAscUnlockChips();buildPenaltyButtons();
+  buildFilterPanel(EFFECT_GROUPS,state.effects,state.eg,'effect-filters',f);
+  buildFilterPanel(SCALING_GROUPS,state.scalings,state.sg,'scaling-filters',f);
   document.getElementById('count').textContent=`${f.length} of ${UPGRADES.length} upgrades`;
   buildActiveFilters();buildCards(f);buildPinBar();
 }
 
-document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
+function toggleMobPanel(side){
+  const isMob=window.innerWidth<=640;
+  if(!isMob)return;
+  const leftPanel=document.querySelector('#app .panel:not(.right)');
+  const rightPanel=document.querySelector('#app .panel.right');
+  const leftBtn=document.getElementById('mob-left-btn');
+  const rightBtn=document.getElementById('mob-right-btn');
+  if(side==='left'){
+    const opening=!leftPanel.classList.contains('mob-open');
+    leftPanel.classList.toggle('mob-open',opening);
+    rightPanel.classList.remove('mob-open');
+    leftBtn.classList.toggle('active',opening);
+    rightBtn.classList.remove('active');
+  } else {
+    const opening=!rightPanel.classList.contains('mob-open');
+    rightPanel.classList.toggle('mob-open',opening);
+    leftPanel.classList.remove('mob-open');
+    rightBtn.classList.toggle('active',opening);
+    leftBtn.classList.remove('active');
+  }
+}
 
-// Theme toggle
+// Close panels when a filter/faction is tapped on mobile
+(function(){
+  const orig=window.render;
+  if(typeof orig==='function'){
+    // render is defined later; patch after load
+  }
+  // Close mobile drawers on outside-card tap in cards area
+  document.addEventListener('click',e=>{
+    if(window.innerWidth>640)return;
+    // If render() just fired, a filter inside a panel was clicked — don't close
+    if(_renderJustFired){_renderJustFired=false;return;}
+    const inPanel=e.target.closest('.panel');
+    const inMobBar=e.target.closest('#mobile-bar');
+    if(!inPanel&&!inMobBar){
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('mob-open'));
+      document.querySelectorAll('.mob-btn').forEach(b=>b.classList.remove('active'));
+    }
+  });
+})();
+
+
 (function(){
   const saved=localStorage.getItem('rg-theme');
-  if(saved==='light'){document.documentElement.classList.add('force-light');}
-  else if(saved==='dark'){document.documentElement.classList.add('force-dark');}
+  if(saved==='light')document.documentElement.classList.add('force-light');
+  else if(saved==='dark')document.documentElement.classList.add('force-dark');
   updateToggleIcon();
 })();
 
@@ -393,15 +1132,60 @@ function toggleTheme(){
   const el=document.documentElement;
   const isDark=el.classList.contains('force-dark')||
     (!el.classList.contains('force-light')&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  if(isDark){
-    el.classList.remove('force-dark');el.classList.add('force-light');
-    localStorage.setItem('rg-theme','light');
-  } else {
-    el.classList.remove('force-light');el.classList.add('force-dark');
-    localStorage.setItem('rg-theme','dark');
-  }
+  if(isDark){el.classList.remove('force-dark');el.classList.add('force-light');localStorage.setItem('rg-theme','light');}
+  else{el.classList.remove('force-light');el.classList.add('force-dark');localStorage.setItem('rg-theme','dark');}
   updateToggleIcon();
 }
+
+// ── Onboarding modal ──
+function onOnboardSlider(val){
+  const v=parseInt(val);
+  const labels=['ob-lbl-0','ob-lbl-1','ob-lbl-2','ob-lbl-3'];
+  labels.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('active-label',i===v);
+  });
+}
+
+function dismissOnboard(){
+  const val=parseInt(document.getElementById('onboard-slider').value);
+  state.ascMax=val;
+  const mainSlider=document.getElementById('asc-slider');
+  if(mainSlider)mainSlider.value=val;
+  updateAscSliderLabels(val);
+  localStorage.setItem('rg-onboarded','1');
+  document.getElementById('onboard-overlay').style.display='none';
+  render();
+}
+
+// Show modal on first visit — deferred so DOM is ready
+window.addEventListener('load',()=>{
+  if(!localStorage.getItem('rg-onboarded')){
+    document.getElementById('onboard-overlay').style.display='flex';
+  }
+});
 </script>
+
+<!-- Onboarding modal -->
+<div id="onboard-overlay" style="display:none">
+  <div id="onboard-modal">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      <img src="avatar.png" alt="Jiri" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0">
+      <h2 style="margin-bottom:0">Jiri's Realm Grinder Database</h2>
+    </div>
+    <p>This database currently covers upgrades across A0 to A2. Set your <strong>current Ascension</strong> below to hide irrelevant upgrades. You can always change it with the slider on the left panel. If you see any errors/mistakes, let me know with a mention on discord or comment on the reddit post.</p>
+    <div class="onboard-slider-wrap">
+      <input type="range" id="onboard-slider" min="0" max="3" step="1" value="3" oninput="onOnboardSlider(this.value)">
+      <div class="onboard-slider-labels" id="onboard-slider-labels">
+        <span id="ob-lbl-0">A0</span>
+        <span id="ob-lbl-1">A1</span>
+        <span id="ob-lbl-2">A2</span>
+        <span id="ob-lbl-3" class="active-label">All</span>
+      </div>
+    </div>
+    <button id="onboard-confirm" onclick="dismissOnboard()">Confirm</button>
+    <button id="onboard-skip" onclick="dismissOnboard()">Skip, show everything</button>
+  </div>
+</div>
 </body>
 </html>

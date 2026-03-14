@@ -1,0 +1,863 @@
+[
+  {
+    "id": "Tax-Collection",
+    "name": "Tax Collection",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "200 mana (1000 mana in A4)",
+    "effect": "Instantly gain 30 seconds worth of coin production from buildings and assistants. Tier bonus: N/A (no tiers).",
+    "formula": "",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Coin-Pillage",
+    "name": "Coin Pillage",
+    "faction": "All",
+    "category": "Spells",
+    "requirement": "Cast Tax Collection 120 times in less than 5 seconds",
+    "effect": "Tax Collection also finds 30 seconds worth of Faction Coins.",
+    "formula": "",
+    "effects": [
+      "FC Amount"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Call-to-Arms",
+    "name": "Call to Arms",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "400 mana",
+    "effect": "Increase the production of all buildings based on buildings owned. Tier bonus: Buildings count 5% more per tier.",
+    "formula": "((25 + 0.3 * x) ^ 0.975)%, where x = Buildings Owned (This Era)",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Spiritual-Surge",
+    "name": "Spiritual Surge",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "2500 mana",
+    "effect": "Increase the production of all buildings based on Reincarnations made. Tier bonus: Reincarnations count 5% more per tier.",
+    "formula": "(2500 * (R^0.9))%, where R = Reincarnations made",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": [
+      "All Time"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Holy-Light",
+    "name": "Holy Light",
+    "faction": "Angel",
+    "category": "Spells",
+    "cost": "900 mana",
+    "effect": "Increase clicking reward by 1750%. Tier bonus: Multiplicatively increase Mana Regeneration by 10% per tier.",
+    "formula": "",
+    "effects": [
+      "Clicking Reward",
+      "Mana Regeneration"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "God's-Rest",
+    "name": "God's Rest",
+    "faction": "Angel",
+    "category": "Spells",
+    "requirement": "Cast God's Hand while having at least 1500 Maximum Mana and 75 Mana Regeneration",
+    "effect": "Gives random Faction Coins based on Faction Coin find chance for each other spell cast while God's Hand is active.",
+    "formula": "+(floor(x^1.1)), where x = Faction Coin find chance",
+    "effects": [
+      "FC Amount"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Fairy-Chanting",
+    "name": "Fairy Chanting",
+    "faction": "Fairy",
+    "category": "Spells",
+    "cost": "800 mana",
+    "effect": "Increase the production of Farms, Inns, and Blacksmiths based on Farms, Inns, and Blacksmiths built. Tier bonus: Multiplicatively increase Fairy Chanting duration by 10% per tier.",
+    "formula": "(20000^(1 + 0.02 * x^0.2))%, where x = Farms+Inns+Blacksmiths built",
+    "effects": [
+      "Specific Buildings",
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Fairy-Choir",
+    "name": "Fairy Choir",
+    "faction": "Fairy",
+    "category": "Spells",
+    "requirement": "Cast Fairy Chanting while having at least 50 assistants",
+    "effect": "Triples your assistants while Fairy Chanting is active.",
+    "formula": "",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Moon-Blessing",
+    "name": "Moon Blessing",
+    "faction": "Elven",
+    "category": "Spells",
+    "cost": "700 mana",
+    "effect": "Increase the production of all buildings based on clicks made this Reincarnation. Tier bonus: Autoclick 2 additional times per second per tier.",
+    "formula": "(1.3 * x^0.7)%, where x = clicks made this Reincarnation",
+    "effects": [
+      "All Buildings",
+      "Autoclick"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Sun-Blessing",
+    "name": "Sun Blessing",
+    "faction": "Elven",
+    "category": "Spells",
+    "requirement": "Cast Moon Blessing while having at least 5 Elven Luck triggers this Era",
+    "effect": "Autoclicks 15 times per second while Moon Blessing is active.",
+    "formula": "",
+    "effects": [
+      "Autoclick"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "God's-Hand",
+    "name": "God's Hand",
+    "faction": "Angel",
+    "category": "Spells",
+    "cost": "900 mana",
+    "effect": "Increase the production of all buildings based on Mana Regeneration. Duration increases with time spent as Good this Reincarnation. Tier bonus: Increase duration bonus coefficient by 0.05 per tier.",
+    "formula": "(10 * ln(1 + x)^4)%, where x = Mana Regeneration. Duration bonus: +(0.5 * x^0.5), where x = time spent as Good this Reincarnation",
+    "effects": [
+      "All Buildings",
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Mana Regeneration",
+      "Alignment Time"
+    ],
+    "window": [
+      "",
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Diamond-Pickaxe",
+    "name": "Diamond Pickaxe",
+    "faction": "Dwarven",
+    "category": "Spells",
+    "cost": "1000 mana",
+    "effect": "Increase clicking reward based on Excavation depth. Also increase Faction Coin find chance by 200%. Tier bonus: Multiplicatively increase Faction Coin find chance by 10% per tier.",
+    "formula": "(30 * x)%, where x = Excavation depth",
+    "effects": [
+      "Clicking Reward",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Blood-Frenzy",
+    "name": "Blood Frenzy",
+    "faction": "Demon",
+    "category": "Spells",
+    "cost": "600 mana",
+    "effect": "Increases the production of all Evil buildings by 1500%. Tier bonus: Increase the production of Non-Unique Buildings by 500% per tier.",
+    "formula": "",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Gem-Grinder",
+    "name": "Gem Grinder",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "1000 mana",
+    "effect": "Multiplicatively increase production bonus from Gems based on Reincarnations made. Tier bonus: Multiplicatively increase Royal Exchange bonus by 10% per tier.",
+    "formula": "(2500 * (1 + 0.005 * R))%, where R = Reincarnations made",
+    "effects": [
+      "Gems Bonus",
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": [
+      "All Time"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Goblin's-Greed",
+    "name": "Goblin's Greed",
+    "faction": "Goblin",
+    "category": "Spells",
+    "cost": "400 mana",
+    "effect": "Instantly produce Faction Coins based on Gems owned. Also increase the production of all buildings based on Faction Coins found this Era. Tier bonus: Increase triggered Tax Collections by +1 per tier.",
+    "formula": "FC: +(80 + 2.25 * ln(10 + x)^2.25), where x = Gems owned. Production: (30 + 3 * ln(1 + x)^3)%, where x = Faction Coins found this Era",
+    "effects": [
+      "FC Amount",
+      "All Buildings",
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Gems Owned",
+      "Faction Coins Found"
+    ],
+    "window": [
+      "",
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Greed-Drive",
+    "name": "Greed Drive",
+    "faction": "Goblin",
+    "category": "Spells",
+    "requirement": "Cast Goblin's Greed while having at least 100 Royal Exchanges purchased",
+    "effect": "While Goblin's Greed is active, Tax Collection costs 10% less mana.",
+    "formula": "",
+    "effects": [
+      "Spell Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Night-Time",
+    "name": "Night Time",
+    "faction": "Undead",
+    "category": "Spells",
+    "cost": "800 mana",
+    "effect": "Increase the production of assistants based on Necropolises built. Tier bonus: Multiplicatively increase assistants by 5% per tier.",
+    "formula": "(50 + 50 * x)%, where x = Necropolises built",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "True-Night",
+    "name": "True Night",
+    "faction": "Undead",
+    "category": "Spells",
+    "requirement": "Cast Night Time while having at least 20,000% offline production",
+    "effect": "Increase Night Time bonus to assistant production based on Night Time activity time this Reincarnation. Time spent offline counts 50% more.",
+    "formula": "(0.4 * x^0.6)%, where x = Night Time activity time this Reincarnation",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Hellfire-Blast",
+    "name": "Hellfire Blast",
+    "faction": "Demon",
+    "category": "Spells",
+    "cost": "900 mana",
+    "effect": "Increase the production of Evil Fortresses and Hell Portals based on Trophies unlocked. Tier bonus: Evil spells cast count 50% more per tier.",
+    "formula": "(120 * x^0.8)%, where x = Trophies unlocked",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Hell-Rush",
+    "name": "Hell Rush",
+    "faction": "Demon",
+    "category": "Spells",
+    "requirement": "Cast Hellfire Blast in the first 60 seconds of a new Era",
+    "effect": "Hellfire Blast also boosts Halls of Legends (in addition to Evil Fortresses and Hell Portals).",
+    "formula": "",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Combo-Strike",
+    "name": "Combo Strike",
+    "faction": "Drow",
+    "category": "Spells",
+    "cost": "800 mana",
+    "effect": "Increase the production of all buildings by a progressively higher value as you continue casting this spell this Era. Duration is fixed to 16 seconds. Tier bonus: Combo Strike casts increase the counter by T^2 instead per tier.",
+    "formula": "(100 * x^0.9)%, where x = Combo Strike counter this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Perfect-Combo",
+    "name": "Perfect Combo",
+    "faction": "Drow",
+    "category": "Spells",
+    "requirement": "Cast Combo Strike 50 times in a row without casting other spells",
+    "effect": "Increase Combo Strike counter based on your longest Era this Reincarnation.",
+    "formula": "+(2.5 * x^0.5), where x = longest Era this Reincarnation",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Lightning-Strike",
+    "name": "Lightning Strike",
+    "faction": "Titan",
+    "category": "Spells",
+    "cost": "250 mana",
+    "effect": "The production of a random building is multiplied by 900% per Iron Stronghold built. Also multiplicatively increase Faction Coin find chance based on Gems owned. Tier bonus: Lightning Strike counts 75% more Iron Strongholds per tier.",
+    "formula": "FC: (50 + 2 * ln(1 + x)^1.5)%, where x = Gems owned",
+    "effects": [
+      "Specific Buildings",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Specific Building Count",
+      "Gems Owned"
+    ],
+    "window": [
+      "Era",
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Lightning-Storm",
+    "name": "Lightning Storm",
+    "faction": "Titan",
+    "category": "Spells",
+    "requirement": "Cast Lightning Strike 100 times in a single Era",
+    "effect": "Increase Lightning Strike multiplier by 50%.",
+    "formula": "",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Brainwave",
+    "name": "Brainwave",
+    "faction": "Faceless",
+    "category": "Spells",
+    "cost": "600 mana",
+    "effect": "Increase the production of all buildings by a cumulative 20% per second for 10 minutes. Tier bonus: Give Brainwave a 10 minutes headstart per tier.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Faceless-Overmind",
+    "name": "Faceless Overmind",
+    "faction": "Faceless",
+    "category": "Spells",
+    "requirement": "Affiliate with Faceless 5 times in a row",
+    "effect": "Increase Brainwave multiplier by 50%.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Grand-Balance",
+    "name": "Grand Balance",
+    "faction": "Druid",
+    "category": "Spells",
+    "cost": "1000 mana",
+    "effect": "Increase the production of your least productive building based on the amount of the three most built ones. Tier bonus: Multiplicatively increase Maximum Mana by 5% per tier.",
+    "formula": "(25 * (x * y * z / (A + 3)^6)^0.9)%, where x/y/z = three most-built building counts, A = Ascension",
+    "effects": [
+      "Specific Buildings",
+      "Max Mana"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Halls-of-Balance",
+    "name": "Halls of Balance",
+    "faction": "Druid",
+    "category": "Spells",
+    "requirement": "Have Grand Balance affect Hall of Legends",
+    "effect": "Increases Grand Balance duration to 24 seconds and reduces its cost by 200 mana.",
+    "formula": "",
+    "effects": [
+      "Spell Duration",
+      "Spell Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Dragon's-Breath",
+    "name": "Dragon's Breath",
+    "faction": "Dragon",
+    "category": "Spells",
+    "cost": "1500 mana",
+    "effect": "Activates one random breath effect. Red: Increase Unique Building production based on Faction Coins found this Era. Green: Increase all building production based on spells cast this Reincarnation (higher bonus for lower tiers). White: Gain assistants based on time spent as Neutral this Reincarnation. Black: Increase all building production based on Dragon's Breath activity time this Era. Yellow (A2+): Multiplicatively increase production bonus from Gems based on assistants owned. Tier bonus: None.",
+    "formula": "Red: (1.75 * ln(1 + x)^1.75)%, x = FC found this Era. Green: (0.000001 * ln(1 + x)^6 * (11-T)^5)%, x = spells cast this Reincarnation. White: +(30 * x^0.7), x = Neutral time this Reincarnation. Black: (30 + 0.85 * x^0.85)%, x = Dragon's Breath activity time this Era. Yellow: (1.75 * ln(x)^1.75)%, x = assistants owned",
+    "effects": [
+      "Unique Buildings",
+      "All Buildings",
+      "Assistant Amount",
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Faction Coins Found",
+      "Spells Cast",
+      "Alignment Time",
+      "Spell Activity Time",
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era",
+      "Reincarnation",
+      "Reincarnation",
+      "Era",
+      ""
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Dragon's-Roar",
+    "name": "Dragon's Roar",
+    "faction": "Dragon",
+    "category": "Spells",
+    "requirement": "Cast Dragon's Breath while having at least 5 other active spells",
+    "effect": "Dragon's Breath multiplicatively increases Faction Coin find chance based on its duration.",
+    "formula": "(6 * x^0.6)%, where x = Dragon's Breath duration",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Share-Benefits",
+    "name": "Share Benefits",
+    "faction": "Mercenary",
+    "category": "Spells",
+    "cost": "200 mana (Self-Tier scaling)",
+    "effect": "Duration fixed to 20 seconds. Increase production of all buildings and multiplicatively increase Faction Coin find chance based on Share Benefits Tier. Also produce Tax Collection casts per second based on Maximum Mana, Tax Collection worth and triggered Tax Collections. While active, increases mana produced stat based on Mana Regeneration and Maximum Mana. Requires Round Table.",
+    "formula": "A1 production: (100 * (80 + 1.6 * ln(1 + x)^1.6)^((0.5*(T+1))^0.9))%, x = TC worth, T = tier. A3 production: ((80 + 1.6 * ln(1 + x)^1.6)^((0.5*(T+1))^0.9))%. FC: (100 * (3 + 0.1 * ln(1 + tTC))^T)%, tTC = triggered TC. TC/s: +(0.00001 * tTC * T * MM * TCw^0.5)",
+    "effects": [
+      "All Buildings",
+      "FC Find Chance",
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Tax Collection",
+      "Max Mana"
+    ],
+    "window": [
+      "Era",
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Reap-Interests",
+    "name": "Reap Interests",
+    "faction": "Mercenary",
+    "category": "Spells",
+    "cost": "200 mana",
+    "effect": "Additional casts multiply Reap Interests worth. Requires Dark Covenant. Upgrades that cast free Tax Collection are treated as Reap Interests casts.",
+    "formula": "*(ln(1 + x)^4), where x = Reap Interests casts this Era",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Appraisal-Vantage",
+    "name": "Appraisal Vantage",
+    "faction": "Mercenary",
+    "category": "Spells",
+    "cost": "200 mana",
+    "effect": "Generates additional Faction Coins based on assistants owned, Tax Collection worth and Faction Coin find chance. Requires Secret Exchange. Upgrades that cast free Tax Collection are treated as Appraisal Vantage casts.",
+    "formula": "+(x * y * z^1.25), where x = assistants owned, y = Tax Collection worth, z = Faction Coin find chance",
+    "effects": [
+      "FC Amount"
+    ],
+    "scaling": [
+      "Assistants Owned",
+      "Tax Collection",
+      "Faction Coins Found"
+    ],
+    "window": [
+      "",
+      "",
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Temporal-Flux",
+    "name": "Temporal Flux",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "950 mana",
+    "effect": "Increase the production of Unique Buildings based on time spent this Era. Also multiplicatively increase Mana Regeneration based on time spent this Era. Tier bonus: Mana produced this Era counts 10% more per tier.",
+    "formula": "(x^0.825)%, where x = time spent this Era in seconds",
+    "effects": [
+      "Unique Buildings",
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Maelstrom",
+    "name": "Maelstrom",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "700 mana",
+    "effect": "Increase the production of two random buildings based on one of these stats, chosen at random: mana produced, trophies unlocked, Faction Coins found, or assistants owned. Tier bonus: Affect 1 more random building per tier.",
+    "formula": "Mana: (0.1 * ln(1+x)^5)%, x = mana produced this Era. Trophies: (5 * x^0.9)%, x = trophies unlocked. FC: (0.01 * ln(1+x)^4)%, x = FC found this Era. Assistants: (0.1 * ln(1+x)^5)%, x = assistants owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana Produced",
+      "Trophies",
+      "Faction Coins Found",
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era",
+      "",
+      "Era",
+      ""
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "All-Creation",
+    "name": "All Creation",
+    "faction": "All",
+    "category": "Spells",
+    "cost": "1100 mana",
+    "effect": "Increase production of all buildings based on Mana Regeneration. Tier bonus: Multiplicatively increase production bonus from Gems by 10% per tier.",
+    "formula": "(0.5 * ln(1 + x)^3 + x^0.5)%, where x = Mana Regeneration",
+    "effects": [
+      "All Buildings",
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Precognition",
+    "name": "Precognition",
+    "faction": "Archon",
+    "category": "Spells",
+    "cost": "950 mana",
+    "effect": "Buildings, Assistants, Royal Exchanges, Spells cast and Clicks count more based on Mana produced this Era. Improved formula with AR2 purchased. Tier bonus: Research Points and Budget count 10% more per tier.",
+    "formula": "(0.65 * ln(1 + x)^1.15)%, where x = mana produced this Era. With AR2: (1.3 * ln(1 + x)^1.25)%",
+    "effects": [
+      "All Buildings",
+      "Assistant Amount",
+      "Royal Exchange Production",
+      "Misc"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Chrono-Loading",
+    "name": "Chrono Loading",
+    "faction": "Archon",
+    "category": "Spells",
+    "requirement": "Cast Precognition with at least 1e17 Mana Regeneration",
+    "effect": "A fraction of Precognition duration is added to time spent this Era.",
+    "formula": "(150 * ln(1 + x/60)^2), where x = Precognition duration",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Limited-Wish",
+    "name": "Limited Wish",
+    "faction": "Djinn",
+    "category": "Spells",
+    "cost": "800,000 mana (decreases 1% per minute, resets every 60 min)",
+    "effect": "Duration fixed to 6 seconds. Multiplicatively increase a random stat based on Limited Wish activity time and casts this Era. Production effect is separate from other effects. Tier bonus: Limited Wish casts count (10 * T^2)% more per tier.",
+    "formula": "Production: (50 + 5 * ln(1 + x)^1.75 * y)%, x = activity time this Era, y = random 1 to casts this Era. Other effects: (25 + 2.5 * ln(1 + x)^1.75 * y^0.5)%",
+    "effects": [
+      "All Buildings",
+      "Assistant Amount",
+      "Mana Regeneration",
+      "FC Find Chance",
+      "Max Mana",
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Spell Activity Time",
+      "Spells Cast"
+    ],
+    "window": [
+      "Era",
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Persistent-Entropy",
+    "name": "Persistent Entropy",
+    "faction": "Djinn",
+    "category": "Spells",
+    "requirement": "Cast Limited Wish 100 times within 30 minutes of a new Era",
+    "effect": "Give Limited Wish a headstart of 500 casts.",
+    "formula": "",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Infinite-Spiral",
+    "name": "Infinite Spiral",
+    "faction": "Makers",
+    "category": "Spells",
+    "cost": "505,000 mana",
+    "effect": "Multiplicatively increase assistants based on Maximum Mana. Multiplicatively increase Maximum Mana based on Faction Coin find chance. Multiplicatively increase Faction Coin find chance based on Excavation depth. Tier bonus: Multiplicatively increase offline bonus by 10% per tier.",
+    "formula": "Assistants: (10 * ln(1+x)^1.25)%, x = Max Mana. Max Mana: (1.5 * ln(1+x)^1.5)%, x = FC find chance. FC find chance: (10 + 0.1 * x^0.75)%, x = Excavation depth",
+    "effects": [
+      "Assistant Amount",
+      "Max Mana",
+      "FC Find Chance",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Max Mana",
+      "Faction Coins Found",
+      "Excavations"
+    ],
+    "window": [
+      "",
+      "",
+      ""
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "Reality-Crater",
+    "name": "Reality Crater",
+    "faction": "Makers",
+    "category": "Spells",
+    "requirement": "Cast Infinite Spiral with at least 3 Excavation Resets this Era",
+    "effect": "Infinite Spiral also reduces excavation cost multiplier based on assistants owned.",
+    "formula": "-(0.001 * log(1 + x)), where x = assistants owned",
+    "effects": [
+      "Excavation Cost Reduction"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "Catalyst",
+    "name": "Catalyst",
+    "faction": "Djinn",
+    "category": "Spells",
+    "cost": "500,000 mana",
+    "effect": "Activates two random vanilla or 1st alignment spells at one tier below the Ascension maximum. Requires Djinn Bloodline. Djinn Perk 6: Catalyst doubles the Spell Tier bonus effect of its activated spells.",
+    "formula": "",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  }
+]

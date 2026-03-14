@@ -1,0 +1,702 @@
+[
+  {
+    "id": "S1",
+    "name": "Enchanting",
+    "faction": [
+      "Fairy"
+    ],
+    "category": "Spellcraft",
+    "cost": "7.5e125",
+    "requirement": "None",
+    "effect": "Increase the production of Enchanted Fields (Farms) based on mana produced this Era.",
+    "formula": "(1.2 * x^0.8)%, where x = mana produced this Era",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S10",
+    "name": "Channeling",
+    "faction": [
+      "Angel"
+    ],
+    "category": "Spellcraft",
+    "cost": "2.883e127",
+    "requirement": "2,000 Heaven's Gate (This Game)",
+    "effect": "Increase the production of all other buildings by 160% per Heaven's Domain built.",
+    "formula": "\u00d7160% per Heaven's Domain built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S30",
+    "name": "Vacuumancy",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "9.588e130",
+    "requirement": "4,000 Mana (This Game)",
+    "effect": "Increase Maximum Mana and Mana Regeneration based on time spent this Era.",
+    "formula": "Max Mana: +(7 * x^0.7); Mana Regen: +(0.4 * x^0.6); x = time this Era",
+    "effects": [
+      "Max Mana",
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S50",
+    "name": "Conjuration",
+    "faction": [
+      "Goblin"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.188e134",
+    "requirement": "6,000 Mana as Fairy (This Game)",
+    "effect": "Each spell cast also casts free Tax Collections based on Goblin Banks owned. Also increases offline spell cast amount multiplicatively by 150%.",
+    "formula": "floor((x / 600)^0.9), where x = Goblin Banks owned",
+    "effects": [
+      "Tax Collection",
+      "Offline Spell Casts"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S105",
+    "name": "Mysticism",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.544e144",
+    "requirement": "600 Research Points (Total)",
+    "effect": "Increase Mana Regeneration based on Research Points.",
+    "formula": "+(2.5 * x^0.5), where x = Research Points",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Research Points"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S135",
+    "name": "Augmentation",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "2.96e149",
+    "requirement": "3,000 Unique Buildings as Fairy (This Game)",
+    "effect": "Increase the production of Unique Buildings based on Maximum Mana.",
+    "formula": "round(2 * x^0.8)%, where x = Maximum Mana",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S150",
+    "name": "Pyromancy",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.296e152",
+    "requirement": "Research Inflame (D10) & Fusion (A105)",
+    "effect": "Increase the production of the two highest building tiers based on Mana Regeneration.",
+    "formula": "(10 * x^0.6)%, where x = Mana Regeneration",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S175",
+    "name": "Empowered Luck",
+    "faction": [
+      "Elven"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.273e156",
+    "requirement": "Research Blessing (D1) & Augmentation (S135)",
+    "effect": "Each time Elven Luck triggers, increase production of all buildings based on clicks this Era for 20 seconds. Increase Elven Luck autoclick chance by +24% (+1% manual).",
+    "formula": "(5000 * x^0.25)%, where x = clicks this Era",
+    "effects": [
+      "All Buildings",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S180",
+    "name": "Incantation",
+    "faction": [
+      "Fairy"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.273e156",
+    "requirement": "Research Enchanting (S1) & Mysticism (S105)",
+    "effect": "Increase production of all buildings based on Mana Regeneration.",
+    "formula": "(50 + 3 * x^0.7)%, where x = Mana Regeneration",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S200",
+    "name": "Cryomancy",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "8.265e160",
+    "requirement": "Research Conjuration (S50) & Refraction (A55)",
+    "effect": "Increase Spell Duration based on mana produced this Era.",
+    "formula": "(5 * ln(1+x)^1.5)%, where x = mana produced this Era",
+    "effects": [
+      "Spell Duration"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S215",
+    "name": "Projection",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.616e163",
+    "requirement": "200 Spiritual Surge (Total this R), Research Channeling (S10) & Incantation (S180)",
+    "effect": "While Spiritual Surge is active, increase production of all buildings based on active spells.",
+    "formula": "(100 * (10 * x)^y)%, where x = active spells, y = Spiritual Surge tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S225",
+    "name": "Necromancy",
+    "faction": [
+      "Undead"
+    ],
+    "category": "Spellcraft",
+    "cost": "2.087e165",
+    "requirement": "Research Resurrection (D175) & Cryomancy (S200)",
+    "effect": "Increase the production of assistants based on Necropolises owned.",
+    "formula": "round(5 * x^0.75)%, where x = Necropolises owned",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S250",
+    "name": "Aeromancy",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "5.27e169",
+    "requirement": "Research Weather Control (D225) & Explosives (A150)",
+    "effect": "Increase the production of Unique Buildings based on mana produced this Era.",
+    "formula": "round(0.5 * x^0.58)%, where x = mana produced this Era",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S270",
+    "name": "Runecarving",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.752e173",
+    "requirement": "20,000 clicks (This Game)",
+    "effect": "Increase the production of all buildings based on Gems owned.",
+    "formula": "(1.25 * log10(1+x)^1.25)%, where x = Gems owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S281",
+    "name": "Assimilation",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Spellcraft",
+    "cost": "7.905e169",
+    "requirement": "Secrets of the Ancients as Faceless",
+    "effect": "Increase the production of Sunken Cities (Labyrinths) based on time spent as non-Faceless factions this Reincarnation.",
+    "formula": "(80 + 0.8 * x^0.8)%, where x = non-Faceless time this Reincarnation",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S300",
+    "name": "Chain Lightning",
+    "faction": [
+      "Titan"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.36e178",
+    "requirement": "8 Brainwaves as Faceless (This R)",
+    "effect": "While Lightning Strike is active, increase production of all non-target buildings based on Lightning Strike activity time this Era.",
+    "formula": "(25 * x^0.9)%, where x = Lightning Strike activity time this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S305",
+    "name": "Mesmerization",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "2.252e179",
+    "requirement": "2 days as Faceless (All Time)",
+    "effect": "Increase production of all buildings by a fraction of your Offline Production Bonus.",
+    "formula": "(ln(1+x)^2.5)%, where x = offline production bonus multiplier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S330",
+    "name": "Reverberation",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "6.443e183",
+    "requirement": "Research Cryomancy (S200) & Weather Control (D225)",
+    "effect": "Increase production of all buildings based on active spells (minimum 3 active spells required).",
+    "formula": "(3000 * 2^(x-3))%, where x = active spells (capped at 300)",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S375",
+    "name": "Illusion",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Spellcraft",
+    "cost": "5.41e191",
+    "requirement": "Research Reverberation (S330) & Mesmerization (S305)",
+    "effect": "Brainwave progressively grants more assistants over its duration.",
+    "formula": "+(1 + 0.25 * (x+y)^1.5), where x = brainwave runtime (min), y = headstart (min)",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S400",
+    "name": "Capacity",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.366e196",
+    "requirement": "Research Projection (S215) & Domination (W275)",
+    "effect": "Artifacts and trophies count more based on the highest amount of spells cast this Reincarnation.",
+    "formula": "(ln(1+x)^1.5)%, where x = highest spells cast this Reincarnation",
+    "effects": [
+      "Artifact Count",
+      "Trophy Count",
+      "Spell Cast Count"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S425",
+    "name": "Focus",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "5.023e206",
+    "requirement": "25,000 spells cast (This Game)",
+    "effect": "Increase production bonus from Gems based on Faction spells activity time this Era.",
+    "formula": "+(1.2 * x^0.6), where x = total Faction spells activity time this Era",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S475",
+    "name": "Heirlooms",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "5.554e213",
+    "requirement": "30 Artifacts as Drow",
+    "effect": "Increase Maximum Mana and Mana Regeneration based on artifacts owned.",
+    "formula": "Max Mana: +(75 * x^1.1); Mana Regen: +(5 * x^1.05); x = artifacts found",
+    "effects": [
+      "Max Mana",
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S525",
+    "name": "Spellbinding",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.989e202",
+    "requirement": "1 hour Combo Strike activity time (This Game)",
+    "effect": "Call to Arms counts more buildings based on offline time this Reincarnation. Also increase offline production based on Combo Strike activity time this Reincarnation.",
+    "formula": "CtA: (100 + 3*x^0.9)%; Offline: (1.2*x^0.8)%; x = offline/Combo Strike time this R",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Offline Time",
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation",
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S550",
+    "name": "Hierarchy",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "4.663e221",
+    "requirement": "1e7 mana produced (This Game)",
+    "effect": "Increase production of buildings based on mana produced this Era. Better bonuses for lower tiers.",
+    "formula": "(0.1 * x^0.45 * (12-T)^2)%, where x = mana produced this Era, T = building tier",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S700",
+    "name": "Trickery",
+    "faction": [
+      "Fairy",
+      "Dwarven"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.916e229",
+    "requirement": "200 Dwarf Exchanges as Dwairy (This Game), Research Mysticism (S105) & Illusion (S375)",
+    "effect": "Increase production of Neutral buildings based on Maximum Mana.",
+    "formula": "(0.5 * x^0.9)%, where x = Maximum Mana",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S1275",
+    "name": "Sequence",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "1.524e71",
+    "requirement": "60,000 spells cast (This Game)",
+    "effect": "Reduce spell cost scaling for higher spell tiers. Reduces cost multiplier by 0.1 for Normal Spells, 0.5 for Extraordinary Spells.",
+    "formula": "",
+    "effects": [
+      "Spell Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S1450",
+    "name": "Spellstorm",
+    "faction": [
+      "Titan",
+      "Druid",
+      "Faceless",
+      "Dragon"
+    ],
+    "category": "Spellcraft",
+    "cost": "4.041e81",
+    "requirement": "Research S435, C1325, any Neutral or Dragon",
+    "effect": "Increase production of Unique buildings based on duration of your longest spell.",
+    "formula": "(2.5 * x^0.85)%, where x = longest spell duration",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spell Duration"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S1500",
+    "name": "Psionics",
+    "faction": [
+      "Faceless",
+      "Dragon"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.843e84",
+    "requirement": "5,000 Base Assistants, Research S545 & E1325, as Faceless or Dragon",
+    "effect": "Increase triggered Tax Collections based on assistants owned.",
+    "formula": "+(1 + 0.25 * ln(1+x)^1.25), where x = assistants owned",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "S2900",
+    "name": "Scholarship",
+    "faction": [
+      "Mercenary"
+    ],
+    "category": "Spellcraft",
+    "cost": "3.05e166",
+    "requirement": "11,000 Mercenary Unique Buildings",
+    "effect": "Increase production of Non-Unique buildings based on Unique buildings built.",
+    "formula": "(10 * x^1.05)%, where x = Unique Buildings built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "S3200",
+    "name": "Manipulation",
+    "faction": [
+      "All"
+    ],
+    "category": "Spellcraft",
+    "cost": "6.957e185",
+    "requirement": "1e9 Tax Collections (This R), Research Calefaction (A1325) & Psionics (S1500)",
+    "effect": "Multiplicatively increase Mana Regeneration by 12% per active spell. Also increases offline spell cast amount multiplicatively by 1200%.",
+    "formula": "(12 * x)%, where x = active spells",
+    "effects": [
+      "Mana Regeneration",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": true
+  }
+]

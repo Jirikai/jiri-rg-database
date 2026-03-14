@@ -1,0 +1,239 @@
+[
+  {
+    "id": "AN1",
+    "name": "Holy Bells",
+    "faction": "Angel",
+    "tier": 1,
+    "cost": "5e7",
+    "effect": "Increase Mana Regeneration based on buildings built.",
+    "formula": "+(x^0.5), where x = buildings built",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN2",
+    "name": "Angelic Determination",
+    "faction": "Angel",
+    "tier": 1,
+    "cost": "5e8",
+    "effect": "Increase production of all buildings based on spells cast this Era.",
+    "formula": "(2 * ln(1+x)^3)%, where x = spells cast this Era",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "AN3",
+    "name": "Angel Feathers",
+    "faction": "Angel",
+    "tier": 1,
+    "cost": "5e9",
+    "effect": "Increase Faction Coin find chance based on active spells.",
+    "formula": "+(4 + 4*x), where x = active spells",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN4",
+    "name": "Guardian Angels",
+    "faction": "Angel",
+    "tier": 2,
+    "cost": "5e11",
+    "effect": "Increase base production of Cathedrals/Dark Temples/Monasteries (by alignment) by +98,000 and increase their production based on their quantity.",
+    "formula": "(40 + 40 * x^0.4)%, where x = Cathedrals/Dark Temples/Monasteries built",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "AN5",
+    "name": "Angelic Wisdom",
+    "faction": "Angel",
+    "tier": 2,
+    "cost": "5e12",
+    "effect": "Increase spell durations and multiplicatively increase Mana Regeneration by 50%.",
+    "formula": "",
+    "effects": [
+      "Spell Duration",
+      "Mana Regeneration"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN6",
+    "name": "Archangel Feathers",
+    "faction": "Angel",
+    "tier": 2,
+    "cost": "5e13",
+    "effect": "Increase production of all buildings based on Mana Regeneration.",
+    "formula": "(1.5 * ln(1+x)^3)%, where x = Mana Regeneration",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "AN7",
+    "name": "Magical Gates",
+    "faction": "Angel",
+    "tier": 3,
+    "cost": "5e15",
+    "effect": "Increase Maximum Mana based on time spent as Good this Reincarnation.",
+    "formula": "+(15 + x^0.7), where x = Good time this Reincarnation",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN8",
+    "name": "Angelic Domination",
+    "faction": "Angel",
+    "tier": 3,
+    "cost": "5e16",
+    "effect": "Increase production bonus from Gems based on God's Hand activity time this Era. Also reduce the cost of all spells by 50%.",
+    "formula": "+(0.3 * x^0.7)%, where x = God's Hand activity time this Era",
+    "effects": [
+      "Gems Bonus",
+      "Spell Cost Reduction"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN9",
+    "name": "Wings of Liberty",
+    "faction": "Angel",
+    "tier": 3,
+    "cost": "5e17",
+    "effect": "Increase production of all buildings based on duration of your longest spell.",
+    "formula": "(6 * x^0.6)%, where x = longest spell duration",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "AN10",
+    "name": "Heaven's Brilliance",
+    "faction": "Angel",
+    "tier": 4,
+    "cost": "1e60",
+    "effect": "Multiplicatively increase Maximum Mana based on the highest amount of Holy Sites built this Reincarnation.",
+    "formula": "(1.5 * x^0.5)%, where x = highest Holy Sites this Reincarnation",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN11",
+    "name": "Angelic Fortitude",
+    "faction": "Angel",
+    "tier": 4,
+    "cost": "1e80",
+    "effect": "Multiplicatively increase Faction Coin find chance based on the sum of all your spells' activity time.",
+    "formula": "(x^0.7)%, where x = sum of all spells' activity time this Reincarnation",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "AN12",
+    "name": "Seraphim Wings",
+    "faction": "Angel",
+    "tier": 4,
+    "cost": "1e95",
+    "effect": "Multiplicatively increase Maximum Mana, Mana Regeneration, Faction Coin find chance and assistants by 200%.",
+    "formula": "",
+    "effects": [
+      "Max Mana",
+      "Mana Regeneration",
+      "FC Find Chance",
+      "Assistant Amount"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  }
+]

@@ -1,0 +1,678 @@
+[
+  {
+    "id": "E1",
+    "name": "Coinage",
+    "faction": [
+      "Goblin"
+    ],
+    "category": "Economics",
+    "cost": "7.5e125",
+    "requirement": "None",
+    "effect": "Increase the production of Goblin Banks based on buildings built.",
+    "formula": "(2 * x^0.8)%, where x = buildings built",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E10",
+    "name": "Recycling",
+    "faction": [
+      "Undead"
+    ],
+    "category": "Economics",
+    "cost": "2.883e127",
+    "requirement": "2,000 Undercities",
+    "effect": "Increase production of all other buildings by 140% per Undercity built this Era.",
+    "formula": "\u00d7140% per Undercity built",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E25",
+    "name": "Commerce",
+    "faction": [
+      "Elven"
+    ],
+    "category": "Economics",
+    "cost": "1.263e130",
+    "requirement": "1e8 Faction Coins found (This Game)",
+    "effect": "Gain assistants based on Royal Exchanges purchased.",
+    "formula": "+(4 * x^0.7), where x = Royal Exchanges purchased",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E30",
+    "name": "Diplomacy",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "9.588e130",
+    "requirement": "1,000 Exchanges (This Game)",
+    "effect": "Increase FC find chance and Royal Exchange bonus based on time spent this Era.",
+    "formula": "FC: +(3 * x^0.7)%; RE: +(0.3 * x^0.7)%; x = time this Era",
+    "effects": [
+      "FC Find Chance",
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E50",
+    "name": "Bartering",
+    "faction": [
+      "Fairy"
+    ],
+    "category": "Economics",
+    "cost": "3.188e134",
+    "requirement": "1,000 Exchanges as Goblin",
+    "effect": "Reduce Enchanted Field cost multiplier by 0.02 (becomes 1.13).",
+    "formula": "",
+    "effects": [
+      "Building Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E80",
+    "name": "Common Business",
+    "faction": [
+      "Fairy",
+      "Elven",
+      "Angel",
+      "Goblin",
+      "Undead",
+      "Demon"
+    ],
+    "category": "Economics",
+    "cost": "6.113e139",
+    "requirement": "9,000 Neutral buildings",
+    "effect": "Increase production of Good and Evil buildings based on Neutral buildings owned.",
+    "formula": "round((1.75 * x)^0.8)%, where x = Neutral buildings owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E135",
+    "name": "Bribing",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "2.96e149",
+    "requirement": "24,000 Total Buildings as Goblin",
+    "effect": "Reduce Unique Building cost multiplier by 0.01 (becomes 1.14).",
+    "formula": "",
+    "effects": [
+      "Building Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E145",
+    "name": "Royal Demand",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "1.707e151",
+    "requirement": "50,000 Tax Collections (This R), Research Cultivation (C10) & Woodcraft (C105)",
+    "effect": "Increase Tax Collection reward by 30 seconds of production.",
+    "formula": "",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E150",
+    "name": "Conversion",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "1.296e152",
+    "requirement": "Research Bribing (E135) & Commerce (E25)",
+    "effect": "Increase production bonus from Gems based on Royal Exchange bonus.",
+    "formula": "+(2.5 * x^0.5), where x = Royal Exchange bonus",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E200",
+    "name": "Acquisition",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "8.265e160",
+    "requirement": "Research Investment (E400) & Common Business (E80)",
+    "effect": "Increase production of all buildings based on percentage of trophies unlocked.",
+    "formula": "round(0.0003 * (100 * x)^3.35)%, where x = trophies/max trophies",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E225",
+    "name": "Forgery",
+    "faction": [
+      "Goblin"
+    ],
+    "category": "Economics",
+    "cost": "2.087e165",
+    "requirement": "Research Coinage (E1) & Gilding (A50)",
+    "effect": "Increase production of Evil Buildings based on Goblin Banks owned.",
+    "formula": "(1.5 * x^0.85)%, where x = Goblin Banks owned",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E230",
+    "name": "Coercion",
+    "faction": [
+      "Demon"
+    ],
+    "category": "Economics",
+    "cost": "2.087e165",
+    "requirement": "Research Exertion (W50) & Diplomacy (E30)",
+    "effect": "Trophies count more based on time spent as Evil this Reincarnation.",
+    "formula": "(25 + 0.25 * x^0.5)%, where x = Evil time this Reincarnation",
+    "effects": [
+      "Trophy Count"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E250",
+    "name": "Trade Routes",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "5.27e169",
+    "requirement": "Research Forgery (E225) & Royal Demand (E145)",
+    "effect": "Increase Mana Regeneration based on Royal Exchanges purchased.",
+    "formula": "+(floor(10 * x^0.55) / 10), where x = Royal Exchanges purchased",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E270",
+    "name": "Surveyorship",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "5.827e176",
+    "requirement": "7 Artifacts",
+    "effect": "Reduce Excavation cost multiplier by 0.02 (becomes 1.18).",
+    "formula": "",
+    "effects": [
+      "Excavation Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E290",
+    "name": "Sifting",
+    "faction": [
+      "Druid"
+    ],
+    "category": "Economics",
+    "cost": "3.039e171",
+    "requirement": "3,000 Stonehenge Circles",
+    "effect": "Increase production of all other buildings by 200% per Stone Pillar owned.",
+    "formula": "\u00d7200% per Stone Pillar owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E300",
+    "name": "Offering",
+    "faction": [
+      "Titan"
+    ],
+    "category": "Economics",
+    "cost": "1.752e173",
+    "requirement": "1,250 Royal Exchanges as Titan",
+    "effect": "Increase Mana Regeneration based on Royal Exchange bonus.",
+    "formula": "+(7 * x^0.7), where x = Royal Exchange bonus",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E320",
+    "name": "Smuggling",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "1.117e180",
+    "requirement": "Twice as many Gems in Abdication Treasury",
+    "effect": "Increase FC find chance based on Unique Buildings owned. Also increase FC chance by 100% multiplicatively.",
+    "formula": "+(5 * x^0.9)%, where x = Unique Buildings owned",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E330",
+    "name": "Collection",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "6.443e183",
+    "requirement": "Research Acquisition (E200) & Forgery (E225)",
+    "effect": "Increase production of all buildings based on artifacts found.",
+    "formula": "round(50 * x^1.1)%, where x = artifacts found",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E350",
+    "name": "Repurpose",
+    "faction": [
+      "Faceless"
+    ],
+    "category": "Economics",
+    "cost": "2.142e187",
+    "requirement": "Research Journeymen (C200) & Adaptation (A330) as Faceless",
+    "effect": "Increase production of all buildings based on Reincarnations made.",
+    "formula": "round(2.5 * x^2.25)%, where x = Reincarnations made",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Reincarnations"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E400",
+    "name": "Investment",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "1.366e196",
+    "requirement": "Research Philosopher's Stone (A250) & Repurpose (E350)",
+    "effect": "Research points count more based on clicks made this Era.",
+    "formula": "(35 + x^0.35)%, where x = clicks this Era",
+    "effects": [
+      "Research Points",
+      "Click Count",
+      "Research Points Count"
+    ],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E425",
+    "name": "Inflation",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "5.023e206",
+    "requirement": "1e11 Faction Coins found (This Game)",
+    "effect": "Increase Royal Exchange bonus based on Faction Coins found this Era.",
+    "formula": "+(2 * ln(1+x)^2), where x = FC found this Era",
+    "effects": [
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E450",
+    "name": "Undercutting",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "1.67e210",
+    "requirement": "15,000 Max Mana",
+    "effect": "Multiplicatively increase Mana Regeneration based on Gems owned.",
+    "formula": "(0.5 * ln(1+x)^1.35)%, where x = Gems owned",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E510",
+    "name": "Marketing",
+    "faction": [
+      "Dwarven"
+    ],
+    "category": "Economics",
+    "cost": "7.877e197",
+    "requirement": "5,000 Blacksmiths",
+    "effect": "Increase production of all other buildings by 75% per Dwarven Forge owned.",
+    "formula": "\u00d775% per Dwarven Forge owned",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E575",
+    "name": "Jewellery",
+    "faction": [
+      "Drow"
+    ],
+    "category": "Economics",
+    "cost": "7.314e212",
+    "requirement": "12,000 Unique Buildings as Dwarf",
+    "effect": "Increase production bonus from Gems based on Spider Sanctuaries owned.",
+    "formula": "+(4 * x^0.8), where x = Spider Sanctuaries owned",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E700",
+    "name": "Slavery",
+    "faction": [
+      "Goblin",
+      "Drow"
+    ],
+    "category": "Economics",
+    "cost": "3.916e229",
+    "requirement": "200 Drow Exchanges as Droblin, Research Automatons (C225) & Undercutting (E480)",
+    "effect": "Multiplicatively increase assistant production based on Non-Unique buildings owned.",
+    "formula": "(0.4 * x^0.8)%, where x = Non-Unique Buildings owned",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": true
+  },
+  {
+    "id": "E1225",
+    "name": "Hoarding",
+    "faction": [
+      "Titan",
+      "Druid",
+      "Faceless",
+      "Dragon"
+    ],
+    "category": "Economics",
+    "cost": "1.602e68",
+    "requirement": "1e12 Faction Coins found (This Game)",
+    "effect": "Increase the Ascension multiplier for Royal Market bonus by 0.7.",
+    "formula": "",
+    "effects": [
+      "Ascension Multiplier"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E1325",
+    "name": "Intimidation",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "1.449e74",
+    "requirement": "18,000 Unique Buildings",
+    "effect": "Reduce Royal Exchange cost multiplier by 0.025 (becomes 1.075).",
+    "formula": "",
+    "effects": [
+      "Royal Exchange Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E1425",
+    "name": "Rarity",
+    "faction": [
+      "Titan",
+      "Druid",
+      "Faceless"
+    ],
+    "category": "Economics",
+    "cost": "1.31e80",
+    "requirement": "5 days each as Titan, Druid and Faceless + Research A545 & C1300",
+    "effect": "Increase Gem Grinder bonus based on artifacts found.",
+    "formula": "(1.25 * x^1.25)%, where x = artifacts found",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": [
+      ""
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E3250",
+    "name": "Hirelings",
+    "faction": [
+      "All"
+    ],
+    "category": "Economics",
+    "cost": "6.616e188",
+    "requirement": "Research Intimidation (E1325) & Scholarship (S2875)",
+    "effect": "Gain assistants based on Faction Coins found this Era.",
+    "formula": "+(5 * ln(x)^2.5), where x = FC found this Era",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "E3300",
+    "name": "Estates",
+    "faction": [
+      "Mercenary"
+    ],
+    "category": "Economics",
+    "cost": "6.292e191",
+    "requirement": "45,000 Unique buildings, Research Hoarding (E1225) & Combination (A2950)",
+    "effect": "Gain all Unique Buildings of your alignment. A3: gain all Unique Buildings matching your alignments.",
+    "formula": "",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  }
+]
