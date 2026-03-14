@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKCM43CSC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CKCM43CSC4');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="avatar.png">
@@ -228,6 +236,20 @@ body{display:flex;flex-direction:column}
   .pin-bar{max-height:60px;overflow-y:auto}
   .active-filters{max-height:60px;overflow-y:auto}
 }
+
+/* ── Onboarding modal ── */
+#onboard-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+#onboard-modal{background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:28px 28px 22px;max-width:400px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+#onboard-modal h2{font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px}
+#onboard-modal p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.onboard-slider-wrap{margin-bottom:20px}
+.onboard-slider-wrap input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer;margin-bottom:6px}
+.onboard-slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3)}
+.onboard-slider-labels span.active-label{color:var(--accent);font-weight:700}
+#onboard-confirm{width:100%;padding:9px;border:none;border-radius:var(--radius);background:var(--accent);color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+#onboard-confirm:hover{opacity:.9}
+#onboard-skip{display:block;text-align:center;margin-top:10px;font-size:11px;color:var(--text3);cursor:pointer;background:none;border:none;width:100%}
+#onboard-skip:hover{color:var(--text2)}
 </style>
 </head>
 <body>
@@ -549,7 +571,7 @@ function buildActiveFilters(){
   const el=document.getElementById('active-filters');
   const chips=[];
   // Ascension slider chip (only if not "All")
-  if(state.ascMax!==3)chips.push({label:'[Up to A'+state.ascMax+']',style:'background:var(--accent);color:#fff;border-color:var(--accent)',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
+  if(state.ascMax!==3)chips.push({label:'Up to A'+state.ascMax,style:'background:var(--accent);color:#fff;border-color:var(--accent)',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
   // Ascension unlock chips
   state.ascUnlock.forEach(a=>chips.push({label:'Unlocked: A'+a,style:'',remove:()=>state.ascUnlock.delete(a)}));
   // Penalty filter chip
@@ -851,6 +873,53 @@ function toggleTheme(){
   else{el.classList.remove('force-light');el.classList.add('force-dark');localStorage.setItem('rg-theme','dark');}
   updateToggleIcon();
 }
+
+// ── Onboarding modal ──
+function onOnboardSlider(val){
+  const v=parseInt(val);
+  const labels=['ob-lbl-0','ob-lbl-1','ob-lbl-2','ob-lbl-3'];
+  labels.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('active-label',i===v);
+  });
+}
+
+function dismissOnboard(){
+  const val=parseInt(document.getElementById('onboard-slider').value);
+  state.ascMax=val;
+  const mainSlider=document.getElementById('asc-slider');
+  if(mainSlider)mainSlider.value=val;
+  updateAscSliderLabels(val);
+  localStorage.setItem('rg-onboarded','1');
+  document.getElementById('onboard-overlay').style.display='none';
+  render();
+}
+
+// Show modal on first visit — deferred so DOM is ready
+window.addEventListener('load',()=>{
+  if(!localStorage.getItem('rg-onboarded')){
+    document.getElementById('onboard-overlay').style.display='flex';
+  }
+});
 </script>
+
+<!-- Onboarding modal -->
+<div id="onboard-overlay" style="display:none">
+  <div id="onboard-modal">
+    <h2>Jiri's Realm Grinder Database</h2>
+    <p>This database currently covers upgrades across A0 to A2. Set your <strong>current Ascension</strong> below to hide irrelevant upgrades. You can always change it with the slider on the left panel. If you see any errors/mistakes, let me know with a mention on discord or comment on the reddit post.</p>
+    <div class="onboard-slider-wrap">
+      <input type="range" id="onboard-slider" min="0" max="3" step="1" value="3" oninput="onOnboardSlider(this.value)">
+      <div class="onboard-slider-labels" id="onboard-slider-labels">
+        <span id="ob-lbl-0">A0</span>
+        <span id="ob-lbl-1">A1</span>
+        <span id="ob-lbl-2">A2</span>
+        <span id="ob-lbl-3" class="active-label">All</span>
+      </div>
+    </div>
+    <button id="onboard-confirm" onclick="dismissOnboard()">Confirm</button>
+    <button id="onboard-skip" onclick="dismissOnboard()">Skip, show everything</button>
+  </div>
+</div>
 </body>
 </html>
