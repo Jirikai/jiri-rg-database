@@ -73,8 +73,10 @@ body{display:flex;flex-direction:column}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card-icon-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
 .card-faction-tags{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;max-width:36px}
-.card-faction-tag{font-size:9px;padding:1px 4px;border-radius:3px;background:var(--bg3);color:var(--text3);white-space:nowrap}
-.card-req{font-size:11px;color:var(--text3);margin-top:5px;text-align:right;font-style:italic}
+.card-faction-tag{font-size:9px;padding:1px 4px;border-radius:3px;white-space:nowrap;font-weight:600}
+.card-bottom-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:5px}
+.card-tags-wrap{display:flex;flex-wrap:wrap;gap:3px;flex:1}
+.card-req{font-size:11px;color:var(--text3);font-style:italic;white-space:nowrap;flex-shrink:0;text-align:right}
 .req-label{font-weight:600}
 .card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
 .card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
@@ -112,6 +114,8 @@ body{display:flex;flex-direction:column}
 .panel-clear-btn{font-size:11px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:20px;padding:2px 8px;cursor:pointer}
 .panel-clear-btn:hover{color:var(--text);border-color:var(--border2)}
 .panel-divider{border:none;border-top:1px solid var(--border);margin:8px 10px 0}
+.panel-section-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px;font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;user-select:none}
+.panel-section-toggle:hover{color:var(--text2)}
 </style>
 </head>
 <body>
@@ -125,10 +129,13 @@ body{display:flex;flex-direction:column}
 <div id="app">
   <div class="panel">
     <div class="panel-inner">
-      <div class="panel-title">Faction</div>
+      <div class="panel-section-toggle" onclick="toggleLeftSection('faction')">
+        <span>Faction</span><span class="arrow open" id="arrow-faction">&#9654;</span>
+      </div>
       <div id="faction-list"></div>
-      <div style="border-top:1px solid var(--border);margin:10px 0 8px"></div>
-      <div class="panel-title">Upgrade Type</div>
+      <div class="panel-section-toggle" style="margin-top:8px" onclick="toggleLeftSection('type')">
+        <span>Upgrade Type</span><span class="arrow open" id="arrow-type">&#9654;</span>
+      </div>
       <div id="type-list"></div>
     </div>
   </div>
@@ -259,20 +266,45 @@ function buildFactionList(){
   });
 }
 
+const LEFT_OPEN={faction:true,type:true};
+
+function toggleLeftSection(key){
+  LEFT_OPEN[key]=!LEFT_OPEN[key];
+  const arrow=document.getElementById('arrow-'+key);
+  if(arrow)arrow.classList.toggle('open',LEFT_OPEN[key]);
+  if(key==='faction'){const el=document.getElementById('faction-list');el.style.display=LEFT_OPEN[key]?'':'none';}
+  if(key==='type'){const el=document.getElementById('type-list');el.style.display=LEFT_OPEN[key]?'':'none';}
+}
+
 function buildTypeList(){
   const el=document.getElementById('type-list');el.innerHTML='';
-  UPGRADE_TYPES.forEach(t=>{
+
+  // Faction Upgrades entry
+  const fuActive=state.upgradeTypes.has('Faction Upgrades');
+  const fu=document.createElement('button');
+  fu.className='faction-btn'+(fuActive?' active':'');
+  fu.innerHTML=`<span class="faction-dot" style="background:#888"></span><span>Faction Upgrades</span>`;
+  fu.onclick=()=>{fuActive?state.upgradeTypes.delete('Faction Upgrades'):state.upgradeTypes.add('Faction Upgrades');render();};
+  el.appendChild(fu);
+
+  // Research collapsible group
+  const researchGroup=document.createElement('div');researchGroup.className='faction-group';
+  const researchLbl=document.createElement('div');researchLbl.className='faction-group-lbl';
+  researchLbl.textContent='Research';researchGroup.appendChild(researchLbl);
+  const RESEARCH_TYPES=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+  RESEARCH_TYPES.forEach(t=>{
     const rc=RESEARCH_COLORS[t];
-    const dotBg=rc?rc.bg:'#888';
+    const active=state.upgradeTypes.has(t);
     const b=document.createElement('button');
-    b.className='faction-btn'+(state.upgradeTypes.has(t)?' active':'');
+    b.className='faction-btn'+(active?' active':'');
     const iconPart=ICONS[t]
-      ?`<img src="${ICONS[t]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${dotBg}\\'></span>'">`
-      :`<span class="faction-dot" style="background:${dotBg}"></span>`;
+      ?`<img src="${ICONS[t]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${rc.bg}\\'></span>'">`
+      :`<span class="faction-dot" style="background:${rc.bg}"></span>`;
     b.innerHTML=`${iconPart}<span>${t}</span>`;
-    b.onclick=()=>{state.upgradeTypes.has(t)?state.upgradeTypes.delete(t):state.upgradeTypes.add(t);render();};
-    el.appendChild(b);
+    b.onclick=()=>{active?state.upgradeTypes.delete(t):state.upgradeTypes.add(t);render();};
+    researchGroup.appendChild(b);
   });
+  el.appendChild(researchGroup);
 }
 
 function buildWindowChips(){
@@ -372,9 +404,9 @@ function buildCards(filtered){
     const badgeIconHtml=iconSrc
       ?`<img src="${iconSrc}" width="14" height="14" style="object-fit:contain;image-rendering:pixelated" alt="" onerror="this.style.display='none'">`
       :'';
-    // For research: show faction restriction tags below icon
+    // For research: faction restriction tags with their faction colour, shown inline near description
     const factionTagsHtml=isResearch
-      ?`<div class="card-faction-tags">${(Array.isArray(u.faction)?u.faction:[u.faction]).map(f=>`<span class="card-faction-tag">${f}</span>`).join('')}</div>`
+      ?`<div class="card-faction-tags">${(Array.isArray(u.faction)?u.faction:[u.faction]).map(f=>{const fc=FC[f]||{bg:'var(--bg3)',text:'var(--text3)'};return`<span class="card-faction-tag" style="background:${fc.bg};color:${fc.text}">${f}</span>`;}).join('')}</div>`
       :'';
     // Requirement at bottom right
     const reqHtml=u.requirement?`<div class="card-req"><span class="req-label">Req:</span> ${u.requirement}</div>`:'';
@@ -382,7 +414,6 @@ function buildCards(filtered){
       <div class="card-header">
         <div class="card-icon-wrap">
           ${iconHtml}
-          ${factionTagsHtml}
         </div>
         <div class="card-title-block">
           <div class="card-id-name">
@@ -392,13 +423,16 @@ function buildCards(filtered){
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>
+      ${factionTagsHtml}
       <div class="card-effect">${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
-      <div class="card-tags">
-        ${(u.effects||[]).map(e=>`<span class="tag tag-effect">${e}</span>`).join('')}
-        ${scalingTags}
-      </div>
-      ${reqHtml}`;
+      <div class="card-bottom-row">
+        <div class="card-tags-wrap">
+          ${(u.effects||[]).map(e=>`<span class="tag tag-effect">${e}</span>`).join('')}
+          ${scalingTags}
+        </div>
+        ${reqHtml}
+      </div>`;
     el.appendChild(card);
   });
 }
