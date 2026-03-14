@@ -128,7 +128,7 @@
     "effect": "Buildings and spell activity times count 75% more.",
     "formula": "",
     "effects": [
-      "Building Count"
+      "Misc"
     ],
     "scaling": [],
     "window": [],

@@ -32,7 +32,7 @@
     "cost": "2.883e127",
     "requirement": "2,500 Enchanted Fields",
     "effect": "Increase the production of Inns and Blacksmiths by 70% per Enchanted Field built.",
-    "formula": "\u00d770% per Enchanted Field built",
+    "formula": "×70% per Enchanted Field built",
     "effects": [
       "Specific Buildings"
     ],
@@ -260,10 +260,9 @@
     "cost": "2.087e165",
     "requirement": "Research Dummy Targets (C1) & Vivification (A120)",
     "effect": "Each Elven Training Ground counts as more buildings for Call to Arms based on assistants owned.",
-    "formula": "\u00d7(20 * ln(1+x)^2), where x = assistants owned",
+    "formula": "×(20 * ln(1+x)^2), where x = assistants owned",
     "effects": [
-      "Assistant Amount",
-      "Building Count"
+      "Assistant Amount"
     ],
     "scaling": [
       "Assistants Owned"

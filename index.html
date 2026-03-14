@@ -88,7 +88,6 @@ body{display:flex;flex-direction:column}
 .card-meta{display:none}
 .card-cost{font-size:11px;color:var(--text3);margin-left:auto;white-space:nowrap;flex-shrink:0}
 .card-cat{font-size:10px;color:var(--text3)}
-.spell-upgrade-label{font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
 .faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
 .faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -101,7 +100,7 @@ body{display:flex;flex-direction:column}
 .req-short{display:none}
 @media(max-width:640px){.req-full{display:none}.req-short{display:inline}}
 .req-label{font-weight:600}
-.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px;white-space:pre-line}
+.card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
 .card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
 .tag{font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap}
@@ -403,6 +402,29 @@ const RESEARCH_COLORS={
   Alchemy:{bg:'#4a4a8a',text:'#fff'},
   Warfare:{bg:'#c93022',text:'#fff'},
 };
+const SPELL_COLORS={
+  'Tax-Collection':     {bg:'#e8d88a',text:'#5a4a00'},
+  'Coin-Pillage':       {bg:'#e8d88a',text:'#5a4a00'},
+  'Call-to-Arms':       {bg:'#8a9aaa',text:'#fff'},
+  'Spiritual-Surge':    {bg:'#c8962a',text:'#fff'},
+  'Holy-Light':         {bg:'#7eaadc',text:'#fff'},
+  'God\'s-Rest':        {bg:'#7eaadc',text:'#fff'},
+  'Blood-Frenzy':       {bg:'#c93022',text:'#fff'},
+  'Gem-Grinder':        {bg:'#9b85c4',text:'#fff'},
+  'Temporal-Flux':      {bg:'#5b9bd5',text:'#fff'},
+  'Maelstrom':          {bg:'#a67fc4',text:'#fff'},
+  'All-Creation':       {bg:'#b0b8c8',text:'#2a2a3a'},
+  'Share-Benefits':     {bg:'#2e2e2e',text:'#eee'},
+  'Reap-Interests':     {bg:'#2e2e2e',text:'#eee'},
+  'Appraisal-Vantage':  {bg:'#2e2e2e',text:'#eee'},
+  'Precognition':       {bg:'#5b9bd5',text:'#fff'},
+  'Chrono-Loading':     {bg:'#5b9bd5',text:'#fff'},
+  'Limited-Wish':       {bg:'#a67fc4',text:'#fff'},
+  'Persistent-Entropy': {bg:'#a67fc4',text:'#fff'},
+  'Infinite-Spiral':    {bg:'#b0b8c8',text:'#2a2a3a'},
+  'Reality-Crater':     {bg:'#b0b8c8',text:'#2a2a3a'},
+  'Catalyst':           {bg:'#a67fc4',text:'#fff'},
+};
 const SPELL_ICONS={
   'Tax-Collection':     'RG icons/CoinPillageSpellUpgrade.png',
   'Coin-Pillage':       'RG icons/CoinPillageSpellUpgrade.png',
@@ -450,11 +472,11 @@ const SPELL_ICONS={
 const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Spells','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
-  'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction','Building Count']},
-  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production','Assistant Count']},
-  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts','Spell Cast Count']},
-  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction','Royal Exchange Count']},
-  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Reincarnation Count','Research Points Count','Misc']},
+  'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction']},
+  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production']},
+  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts']},
+  'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction']},
+  'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Misc']},
 };
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
@@ -709,9 +731,9 @@ function buildCards(filtered){
     const isResearch=!!u.category&&u.category!=='Spells';
     const isSpell=u.category==='Spells';
     const rc=isResearch?RESEARCH_COLORS[u.category]:null;
-    const spellBadge={bg:'#7a6aaa',text:'#fff'};
-    const badgeBg=isSpell?spellBadge.bg:rc?rc.bg:c.bg;
-    const badgeText=isSpell?spellBadge.text:rc?rc.text:c.text;
+    const sc=isSpell?(SPELL_COLORS[u.id]||FC[u.faction]||{bg:'#7a6aaa',text:'#fff'}):null;
+    const badgeBg=sc?sc.bg:rc?rc.bg:c.bg;
+    const badgeText=sc?sc.text:rc?rc.text:c.text;
     const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
       ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
@@ -731,7 +753,6 @@ function buildCards(filtered){
     // Spell cards: show cost in place of id badge; suppress id badge entirely for spells
     const costHtml=isSpell&&u.cost?`<span class="card-cost">${u.cost}</span>`:'';
     const idBadgeHtml=isSpell?'':`<span class="card-id-part" style="background:${badgeBg};color:${badgeText}">${u.id}</span>`;
-    const spellUpgradeLabelHtml=u.spellUpgrade?`<div class="spell-upgrade-label">Spell Upgrade</div>`:'';
     card.innerHTML=`
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -743,7 +764,6 @@ function buildCards(filtered){
             <span class="card-name-text">${u.name}</span>
             ${costHtml}
           </div>
-          ${spellUpgradeLabelHtml}
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>

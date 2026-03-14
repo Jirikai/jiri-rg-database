@@ -125,8 +125,7 @@
     "formula": "(30 + 1.3 * x^0.7)%, where x = Titans time this Reincarnation",
     "effects": [
       "Assistant Amount",
-      "Assistant Production",
-      "Assistant Count"
+      "Assistant Production"
     ],
     "scaling": [
       "Alignment Time"
@@ -184,8 +183,7 @@
     "effect": "Royal Exchanges count more based on highest Mountain Palaces built this Reincarnation.",
     "formula": "(x^0.7)%, where x = highest Mountain Palaces this Reincarnation",
     "effects": [
-      "Royal Exchange Production",
-      "Royal Exchange Count"
+      "Royal Exchange Production"
     ],
     "scaling": [
       "Specific Building Count"

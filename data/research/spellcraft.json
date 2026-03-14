@@ -32,7 +32,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Heaven's Gate (This Game)",
     "effect": "Increase the production of all other buildings by 160% per Heaven's Domain built.",
-    "formula": "\u00d7160% per Heaven's Domain built",
+    "formula": "×160% per Heaven's Domain built",
     "effects": [
       "All Buildings"
     ],
@@ -436,8 +436,7 @@
     "formula": "(ln(1+x)^1.5)%, where x = highest spells cast this Reincarnation",
     "effects": [
       "Artifact Count",
-      "Trophy Count",
-      "Spell Cast Count"
+      "Trophy Count"
     ],
     "scaling": [
       "Spells Cast"
