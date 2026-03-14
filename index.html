@@ -24,16 +24,12 @@
   --tag-scale-bg:#2e2e2e;--tag-scale-text:#bbb;
   --accent:#5b9bd5;
 }}
-.force-light{--bg:#ffffff!important;--bg2:#f5f5f5!important;--bg3:#ebebeb!important;--text:#1a1a1a!important;--text2:#555!important;--text3:#888!important;--border:#e0e0e0!important;--border2:#ccc!important;--tag-effect-bg:#d4edda!important;--tag-effect-text:#1a5c2a!important;--tag-scale-bg:#f0f0f0!important;--tag-scale-text:#444!important;--accent:#3a7bd5!important}
-.force-dark{--bg:#1e1e1e!important;--bg2:#252525!important;--bg3:#2e2e2e!important;--text:#e8e8e8!important;--text2:#aaa!important;--text3:#666!important;--border:#383838!important;--border2:#4a4a4a!important;--tag-effect-bg:#1a3d22!important;--tag-effect-text:#6dbb80!important;--tag-scale-bg:#2e2e2e!important;--tag-scale-text:#bbb!important;--accent:#5b9bd5!important}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:var(--bg);display:flex;flex-direction:column}
 #site-header{display:flex;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
 #header-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border2);flex-shrink:0}
 #header-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.2}
 #header-sub{font-size:11px;color:var(--text3);margin-top:1px}
-#theme-toggle{margin-left:auto;background:none;border:1px solid var(--border2);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:16px;color:var(--text);flex-shrink:0;transition:background .15s}
-#theme-toggle:hover{background:var(--bg3)}
 body{display:flex;flex-direction:column}
 #app{display:grid;grid-template-columns:250px 1fr 310px;flex:1;min-height:0}
 .panel{border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;background:var(--bg)}
@@ -75,6 +71,8 @@ body{display:flex;flex-direction:column}
 .faction-badge{font-size:10px;padding:2px 7px 2px 5px;border-radius:20px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:4px}
 .faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-req{font-size:11px;color:var(--text3);margin-bottom:4px;font-style:italic}
+.card-faction-line{font-size:11px;color:var(--text3);margin-top:1px}
 .card-effect{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:5px}
 .card-formula{font-size:12px;color:var(--text3);font-family:'SF Mono',Consolas,monospace;margin-bottom:7px;word-break:break-word}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px}
@@ -120,7 +118,6 @@ body{display:flex;flex-direction:column}
     <div id="header-title">Jiri's RG Database</div>
     <div id="header-sub">Realm Grinder Upgrade Reference · 4.3</div>
   </div>
-  <button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
 </header>
 <div id="app">
   <div class="panel">
@@ -169,6 +166,12 @@ const FACTIONS=[
 ];
 const ICONS={
   Fairy:'RG icons/FairyTradeTreaty.png',
+  Spellcraft:'RG icons/Spellcraft.png',
+  Craftsmanship:'RG icons/Craftsmanship.png',
+  Divine:'RG icons/Divine.png',
+  Economics:'RG icons/Economics.png',
+  Alchemy:'RG icons/Alchemy.png',
+  Warfare:'RG icons/Warfare.png',
   Elven:'RG icons/ElvenTradeTreaty.png',
   Angel:'RG icons/AngelTradeTreaty.png',
   Goblin:'RG icons/GoblinTradeTreaty.png',
@@ -195,14 +198,14 @@ const FC={
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
 const EFFECT_GROUPS={
-  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking Reward','Autoclick','Click Count','Gems Bonus','Building Cost Reduction','Excavation Cost Reduction','Royal Exchange Cost Reduction','Assistant Amount','Assistant Production','Offline Production']},
+  'Production':{open:true,items:['All Buildings','Specific Buildings','Clicking Reward','Click Count','Gems Bonus','Building Cost Reduction','Royal Exchange Cost Reduction','Assistant Amount','Assistant Production','Offline Production']},
   'Mana & Spells':{open:true,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection']},
   'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production']},
 };
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
-  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Mana Produced','Spells Cast','Active Spells','Spell Activity Time','Spell Duration']},
+  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time']},
   'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
   'Misc':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations']},
 };
@@ -215,7 +218,8 @@ Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 const FACTION_FILES=[
   'fairy','elven','angel','goblin','undead','demon',
   'titan','druid','faceless','dwarven','drow','dragon',
-  'mercenary','archon','djinn','makers'
+  'mercenary','archon','djinn','makers',
+  'spellcraft'
 ];
 Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
   .then(arrays=>{UPGRADES=arrays.flat();render();})
@@ -295,7 +299,8 @@ function buildActiveFilters(){
 
 function getFiltered(){
   return UPGRADES.filter(u=>{
-    if(state.factions.size>0&&!state.factions.has(u.faction))return false;
+    const fList=Array.isArray(u.faction)?u.faction:[u.faction];
+    if(state.factions.size>0&&!fList.some(f=>state.factions.has(f)||f==='All'))return false;
     const q=state.search.toLowerCase();
     if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
     if(state.effects.size>0&&![...state.effects].every(e=>(u.effects||[]).includes(e)))return false;
@@ -318,13 +323,24 @@ function buildCards(filtered){
       const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
       return`<span class="tag tag-scale">&#8627; ${s}${win}</span>`;
     }).join('');
-    const iconSrc=ICONS[u.faction];
+    // For research, use category icon; for faction upgrades use faction icon
+    const iconKey=u.category||u.faction;
+    const displayFaction=Array.isArray(u.faction)
+      ?(u.faction.length===1?u.faction[0]:(u.faction.includes('All')?'All':u.faction.join('/')))
+      :u.faction;
+    const iconSrc=ICONS[u.category]||ICONS[u.faction];
     const iconHtml=iconSrc
-      ?`<img src="${iconSrc}" class="card-icon" alt="${u.faction}" onerror="this.style.display='none;this.nextSibling.style.display=\\'inline-block\\''">` 
+      ?`<img src="${iconSrc}" class="card-icon" alt="${iconKey}" onerror="this.style.display='none'">`
       :`<span class="card-icon-fb" style="background:${c.bg}"></span>`;
     const badgeIconHtml=iconSrc
       ?`<img src="${iconSrc}" width="14" height="14" style="object-fit:contain;image-rendering:pixelated" alt="" onerror="this.style.display='none'">`
       :'';
+    // For research show category badge; for faction upgrades show faction badge
+    const badgeLabel=u.category||displayFaction;
+    const badgeBg=u.category?'#555':c.bg;
+    const badgeText=u.category?'#eee':c.text;
+    // requirement line
+    const reqHtml=u.requirement?`<div class="card-req">Req: ${u.requirement}</div>`:'';
     card.innerHTML=`
       <div class="card-header">
         ${iconHtml}
@@ -334,9 +350,11 @@ function buildCards(filtered){
             <span class="card-name-text">${u.name}</span>
             ${u.cost?`<span class="card-cost">${u.cost}</span>`:''}
           </div>
+          ${u.category?`<div class="card-faction-line">${Array.isArray(u.faction)?u.faction.join(', '):u.faction}</div>`:''}
         </div>
-        <span class="faction-badge" style="background:${c.bg};color:${c.text}">${badgeIconHtml}${u.faction}</span>
+        <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>
+      ${reqHtml}
       <div class="card-effect">${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
       <div class="card-tags">
@@ -372,36 +390,6 @@ function render(){
 }
 
 document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
-
-// Theme toggle
-(function(){
-  const saved=localStorage.getItem('rg-theme');
-  if(saved==='light'){document.documentElement.classList.add('force-light');}
-  else if(saved==='dark'){document.documentElement.classList.add('force-dark');}
-  updateToggleIcon();
-})();
-
-function updateToggleIcon(){
-  const btn=document.getElementById('theme-toggle');
-  if(!btn)return;
-  const isDark=document.documentElement.classList.contains('force-dark')||
-    (!document.documentElement.classList.contains('force-light')&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  btn.textContent=isDark?'☀️':'🌙';
-}
-
-function toggleTheme(){
-  const el=document.documentElement;
-  const isDark=el.classList.contains('force-dark')||
-    (!el.classList.contains('force-light')&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  if(isDark){
-    el.classList.remove('force-dark');el.classList.add('force-light');
-    localStorage.setItem('rg-theme','light');
-  } else {
-    el.classList.remove('force-light');el.classList.add('force-dark');
-    localStorage.setItem('rg-theme','dark');
-  }
-  updateToggleIcon();
-}
 </script>
 </body>
 </html>
