@@ -76,8 +76,8 @@ body{display:flex;flex-direction:column}
 .faction-badge img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}
 .card-name-text{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card-icon-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
-.card-faction-tags{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;max-width:36px}
-.card-faction-tag{font-size:9px;padding:1px 4px;border-radius:3px;white-space:nowrap;font-weight:600}
+.card-faction-tags{display:inline-flex;flex-wrap:wrap;gap:3px;margin-right:6px;vertical-align:middle}
+.card-faction-tag{font-size:9px;padding:1px 5px;border-radius:3px;white-space:nowrap;font-weight:600}
 .card-bottom-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:5px}
 .card-tags-wrap{display:flex;flex-wrap:wrap;gap:3px;flex:1}
 .card-req{font-size:11px;color:var(--text3);font-style:italic;white-space:nowrap;flex-shrink:0;text-align:right}
@@ -294,8 +294,13 @@ function buildTypeList(){
 
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
+  const researchOpen=state._researchOpen!==false;
   const researchLbl=document.createElement('div');researchLbl.className='faction-group-lbl';
-  researchLbl.textContent='Research';researchGroup.appendChild(researchLbl);
+  researchLbl.style.cursor='pointer';
+  researchLbl.innerHTML=`Research <span class="arrow${researchOpen?' open':''}" style="float:right">&#9654;</span>`;
+  researchLbl.onclick=()=>{state._researchOpen=!researchOpen;render();};
+  researchGroup.appendChild(researchLbl);
+  if(!researchOpen){el.appendChild(researchGroup);return;}
   const RESEARCH_TYPES=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
   RESEARCH_TYPES.forEach(t=>{
     const rc=RESEARCH_COLORS[t];
@@ -428,8 +433,7 @@ function buildCards(filtered){
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeIconHtml}${badgeLabel}</span>
       </div>
-      ${factionTagsHtml}
-      <div class="card-effect">${u.effect||''}</div>
+      <div class="card-effect">${factionTagsHtml}${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
       <div class="card-bottom-row">
         <div class="card-tags-wrap">
