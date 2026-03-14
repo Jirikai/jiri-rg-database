@@ -264,7 +264,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "A250",

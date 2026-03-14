@@ -9,7 +9,7 @@
     "formula": "",
     "effects": [
       "FC Find Chance",
-      "Clicking Reward"
+      "Autoclick"
     ],
     "scaling": [],
     "window": [],
@@ -25,7 +25,7 @@
     "effect": "50% of your total building production is added to base clicking reward.",
     "formula": "",
     "effects": [
-      "Clicking Reward"
+      "Building → Click Conversion"
     ],
     "scaling": [
       "Buildings Owned"
@@ -75,7 +75,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "EL5",
@@ -150,11 +150,15 @@
       "FC Amount"
     ],
     "scaling": [
-      "Reincarnations"
+      "Reincarnations",
+      "Misc"
     ],
-    "window": [],
+    "window": [
+      "",
+      ""
+    ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "EL9",
@@ -193,7 +197,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "EL11",

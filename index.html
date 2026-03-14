@@ -155,6 +155,16 @@ body{display:flex;flex-direction:column}
 /* Filter counts */
 .filter-count{font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0}
 
+/* AND/OR mode toggle */
+.mode-toggle{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text3);margin-left:6px;flex-shrink:0;letter-spacing:.04em}
+.mode-toggle:hover{color:var(--text2);border-color:var(--text3)}
+.mode-toggle.or-active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* AND/OR mode toggle */
+.mode-toggle{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text3);margin-left:6px;flex-shrink:0;letter-spacing:.04em}
+.mode-toggle:hover{color:var(--text2);border-color:var(--text3)}
+.mode-toggle.or-active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
 /* ── Mobile layout ── */
 #mobile-bar{display:none}
 
@@ -358,7 +368,7 @@ const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
   'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction']},
-  'Clicking & Assistants':{open:true,items:['Clicking Reward','Autoclick','Click Count','Assistant Amount','Assistant Production']},
+  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production']},
   'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Tax Collection','Offline Spell Casts']},
   'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction']},
   'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Misc']},
@@ -366,13 +376,13 @@ const EFFECT_GROUPS={
 const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
-  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time']},
+  'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Spells Cast','Active Spells','Spell Activity Time','Tax Collection']},
   'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
-  'Other':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Tax Collection','Misc']},
+  'Other':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Misc']},
 };
 
 let UPGRADES=[];
-let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),upgradeTypes:new Set(),pinned:[],eg:{},sg:{},ascMax:3,ascUnlock:new Set(),penaltyFilter:null};
+let state={search:'',factions:new Set(),effects:new Set(),scalings:new Set(),windows:new Set(),upgradeTypes:new Set(),pinned:[],eg:{},sg:{},ascMax:3,ascUnlock:new Set(),penaltyFilter:null,effectsMode:'AND',scalingsMode:'AND'};
 Object.keys(EFFECT_GROUPS).forEach(g=>state.eg[g]=EFFECT_GROUPS[g].open);
 Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 
@@ -489,8 +499,24 @@ function buildWindowChips(){
 
 function buildFilterPanel(groups,stateSet,stateOpen,id,filtered){
   const el=document.getElementById(id);el.innerHTML='';
+  // AND/OR toggle row at top of panel
+  const isScaling=id==='scaling-filters';
+  const mode=isScaling?state.scalingsMode:state.effectsMode;
+  const modeRow=document.createElement('div');
+  modeRow.style.cssText='display:flex;align-items:center;justify-content:flex-end;margin-bottom:4px;';
+  const modeBtn=document.createElement('button');
+  modeBtn.className='mode-toggle'+(mode==='OR'?' or-active':'');
+  modeBtn.textContent=mode==='OR'?'OR — click to AND':'AND — click to OR';
+  modeBtn.title=mode==='OR'?'Currently OR: showing upgrades with ANY selected filter':'Currently AND: showing upgrades with ALL selected filters';
+  modeBtn.onclick=()=>{
+    if(isScaling)state.scalingsMode=state.scalingsMode==='AND'?'OR':'AND';
+    else state.effectsMode=state.effectsMode==='AND'?'OR':'AND';
+    render();
+  };
+  modeRow.appendChild(modeBtn);
+  el.appendChild(modeRow);
   // Determine which field to count against based on panel id
-  const field=id==='scaling-filters'?'scaling':'effects';
+  const field=isScaling?'scaling':'effects';
   // Count occurrences per item in the current filtered set, only checking the relevant field
   const counts={};
   if(filtered){
@@ -523,7 +549,7 @@ function buildActiveFilters(){
   const el=document.getElementById('active-filters');
   const chips=[];
   // Ascension slider chip (only if not "All")
-  if(state.ascMax!==3)chips.push({label:'Up to A'+state.ascMax,style:'background:var(--accent);color:#fff;border-color:var(--accent)',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
+  if(state.ascMax!==3)chips.push({label:'[Up to A'+state.ascMax+']',style:'background:var(--accent);color:#fff;border-color:var(--accent)',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
   // Ascension unlock chips
   state.ascUnlock.forEach(a=>chips.push({label:'Unlocked: A'+a,style:'',remove:()=>state.ascUnlock.delete(a)}));
   // Penalty filter chip
@@ -566,8 +592,8 @@ function getFiltered(){
     }
     const q=state.search.toLowerCase();
     if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
-    if(state.effects.size>0&&![...state.effects].every(e=>(u.effects||[]).includes(e)))return false;
-    if(state.scalings.size>0&&![...state.scalings].every(s=>(u.scaling||[]).includes(s)))return false;
+    if(state.effects.size>0){const ef=u.effects||[];if(state.effectsMode==='AND'?![...state.effects].every(e=>ef.includes(e)):[...state.effects].every(e=>!ef.includes(e)))return false;}
+    if(state.scalings.size>0){const sc=u.scaling||[];if(state.scalingsMode==='AND'?![...state.scalings].every(s=>sc.includes(s)):[...state.scalings].every(s=>!sc.includes(s)))return false;}
     if(state.windows.size>0){if(!u.window||!u.window.length)return false;if(![...state.windows].some(w=>u.window.includes(w)))return false;}
     return true;
   });
@@ -748,8 +774,8 @@ function togglePenalty(mode){
 
 
 document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
-function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.ascMax=3;document.getElementById('search').value='';document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);render();}
-function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();state.ascUnlock.clear();state.penaltyFilter=null;render();}
+function clearAll(){state.search='';state.factions.clear();state.effects.clear();state.scalings.clear();state.windows.clear();state.upgradeTypes.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.ascMax=3;state.effectsMode='AND';state.scalingsMode='AND';document.getElementById('search').value='';document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);render();}
+function clearRightPanel(){state.effects.clear();state.scalings.clear();state.windows.clear();state.ascUnlock.clear();state.penaltyFilter=null;state.effectsMode='AND';state.scalingsMode='AND';render();}
 
 function render(){
   const f=getFiltered();

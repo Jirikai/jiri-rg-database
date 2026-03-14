@@ -158,7 +158,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "C135",
@@ -556,7 +556,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "C1300",

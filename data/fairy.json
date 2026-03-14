@@ -65,7 +65,7 @@
     "effect": "Autoclick based on active spells.",
     "formula": "+(x) autoclicks, where x = active spells",
     "effects": [
-      "Clicking Reward"
+      "Autoclick"
     ],
     "scaling": [
       "Active Spells"
@@ -83,7 +83,7 @@
     "effect": "100% of the production of Farms, Inns and Blacksmiths is added to base clicking reward. Also increase Faction Coin find chance by +20%.",
     "formula": "",
     "effects": [
-      "Clicking Reward",
+      "Building → Click Conversion",
       "FC Find Chance"
     ],
     "scaling": [
