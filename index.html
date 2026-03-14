@@ -25,7 +25,7 @@
   --accent:#5b9bd5;
 }}
 .force-light{--bg:#ffffff!important;--bg2:#f5f5f5!important;--bg3:#ebebeb!important;--text:#1a1a1a!important;--text2:#555!important;--text3:#888!important;--border:#e0e0e0!important;--border2:#ccc!important;--tag-effect-bg:#d4edda!important;--tag-effect-text:#1a5c2a!important;--tag-scale-bg:#f0f0f0!important;--tag-scale-text:#444!important;--accent:#3a7bd5!important}
-.force-dark{--bg:#1e1e1e!important;--bg2:#252525!important;--bg3:#2e2e2e!important;--text:#e8e8e8!important;--text2:#aaa!important;--text3:#666!important;--border:#383838!important;--border2:#4a4a4a!important;--tag-effect-bg:#1a3d22!important;--tag-effect-text:#6dbb80!important;--tag-scale-bg:#2e2e2e!important;--tag-scale-text:#bbb!important;--accent:#5b9bd5!important}
+.force-dark{--bg:#1e1e1e!important;--bg2:#252525!important;--bg3:#2e2e2e!important;--text:#e8e8e8!important;--text2:#bbb!important;--text3:#888!important;--border:#383838!important;--border2:#4a4a4a!important;--tag-effect-bg:#1a3d22!important;--tag-effect-text:#7dd494!important;--tag-scale-bg:#303030!important;--tag-scale-text:#ccc!important;--accent:#5b9bd5!important}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:var(--bg);display:flex;flex-direction:column}
 #site-header{display:flex;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
@@ -50,6 +50,7 @@ body{display:flex;flex-direction:column}
 .active-filters{flex-shrink:0;padding:7px 14px;border-bottom:1px solid var(--border);min-height:38px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
 .af-label{font-size:11px;color:var(--text3);flex-shrink:0}
 .af-chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:3px 8px;border-radius:20px;background:var(--bg3);color:var(--text2);border:1px solid var(--border2);cursor:pointer;white-space:nowrap}
+.af-chip-sq{border-radius:4px!important}
 .af-chip:hover{background:var(--border2);color:var(--text)}
 .af-chip-x{font-size:13px;line-height:1;opacity:.6}
 .clear-all-btn{font-size:11px;color:var(--text3);background:none;border:1px solid var(--border2);border-radius:20px;padding:3px 9px;cursor:pointer;white-space:nowrap;margin-left:auto;flex-shrink:0}
@@ -146,10 +147,10 @@ body{display:flex;flex-direction:column}
 .penalty-btn.active{background:var(--bg3);color:var(--text);font-weight:600}
 
 /* Penalty badge on cards */
-.tag-penalty{background:#fff3cd;color:#856404;border:1px solid #ffc107;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700}
-@media(prefers-color-scheme:dark){.tag-penalty{background:#3d2e00;color:#ffc107;border-color:#856404}}
-.force-dark .tag-penalty{background:#3d2e00!important;color:#ffc107!important;border-color:#856404!important}
-.force-light .tag-penalty{background:#fff3cd!important;color:#856404!important;border-color:#ffc107!important}
+.tag-penalty{background:#fde8e8;color:#9b2020;border:1px solid #e89090;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700}
+@media(prefers-color-scheme:dark){.tag-penalty{background:#3a1a1a;color:#e88080;border-color:#7a3030}}
+.force-dark .tag-penalty{background:#3a1a1a!important;color:#e88080!important;border-color:#7a3030!important}
+.force-light .tag-penalty{background:#fde8e8!important;color:#9b2020!important;border-color:#e89090!important}
 
 /* Filter counts */
 .filter-count{font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0}
@@ -275,18 +276,21 @@ body{display:flex;flex-direction:column}
     </div>
     <hr class="panel-divider">
     <div class="panel-inner">
-      <div class="asc-unlock-section">
-        <div class="panel-title" style="margin-top:4px">Ascension Unlock</div>
-        <div class="asc-unlock-chips" id="asc-unlock-chips"></div>
-      </div>
-      <div class="penalty-section">
-        <div class="panel-title">Ascension Penalty</div>
-        <button class="penalty-btn" id="penalty-btn-affected" onclick="togglePenalty('affected')">
-          <span class="fcheck" id="penalty-check-affected"></span>A-Penalty affected only
-        </button>
-        <button class="penalty-btn" id="penalty-btn-free" onclick="togglePenalty('free')">
-          <span class="fcheck" id="penalty-check-free"></span>Penalty-free only
-        </button>
+      <div class="filter-section" style="margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+        <div class="filter-group-lbl" style="margin-top:4px" onclick="toggleRightSection('ascension')">
+          Ascension<span class="arrow open" id="arrow-rasc">&#9654;</span>
+        </div>
+        <div id="rasc-section">
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;font-weight:700;padding:4px 2px 2px">Unlock Tier</div>
+          <div class="asc-unlock-chips" id="asc-unlock-chips"></div>
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;font-weight:700;padding:8px 2px 2px">Penalty</div>
+          <button class="penalty-btn" id="penalty-btn-affected" onclick="togglePenalty('affected')">
+            <span class="fcheck" id="penalty-check-affected"></span>A-Penalty affected only
+          </button>
+          <button class="penalty-btn" id="penalty-btn-free" onclick="togglePenalty('free')">
+            <span class="fcheck" id="penalty-check-free"></span>Penalty-free only
+          </button>
+        </div>
       </div>
       <div class="panel-title">Effects</div>
       <div id="effect-filters"></div>
@@ -409,6 +413,13 @@ function buildFactionList(){
 }
 
 const LEFT_OPEN={ascension:true,faction:true,type:true};
+const RIGHT_OPEN={ascension:true};
+function toggleRightSection(key){
+  RIGHT_OPEN[key]=!RIGHT_OPEN[key];
+  const arrow=document.getElementById('arrow-r'+key);
+  if(arrow)arrow.classList.toggle('open',RIGHT_OPEN[key]);
+  if(key==='ascension'){const el=document.getElementById('rasc-section');if(el)el.style.display=RIGHT_OPEN[key]?'':'none';}
+}
 
 function toggleLeftSection(key){
   LEFT_OPEN[key]=!LEFT_OPEN[key];
@@ -498,20 +509,21 @@ function buildActiveFilters(){
   const el=document.getElementById('active-filters');
   const chips=[];
   // Ascension slider chip (only if not "All")
-  if(state.ascMax!==3)chips.push({label:'Up to A'+state.ascMax,style:'',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
+  if(state.ascMax!==3)chips.push({label:'Up to A'+state.ascMax,style:'background:var(--accent);color:#fff;border-color:var(--accent)',remove:()=>{state.ascMax=3;document.getElementById('asc-slider').value=3;updateAscSliderLabels(3);}});
   // Ascension unlock chips
   state.ascUnlock.forEach(a=>chips.push({label:'Unlocked: A'+a,style:'',remove:()=>state.ascUnlock.delete(a)}));
   // Penalty filter chip
   if(state.penaltyFilter)chips.push({label:state.penaltyFilter==='affected'?'A-Penalty affected':'Penalty-free',style:'',remove:()=>{state.penaltyFilter=null;}});
   state.factions.forEach(f=>{const c=FC[f]||{bg:'#888',text:'#fff'};chips.push({label:f,style:`background:${c.bg};color:${c.text};border-color:${c.bg}`,remove:()=>state.factions.delete(f)});});
+  state.upgradeTypes.forEach(t=>{const rc=RESEARCH_COLORS[t];const st=rc?`background:${rc.bg};color:${rc.text};border-color:${rc.bg}`:'';chips.push({label:t,style:st,remove:()=>state.upgradeTypes.delete(t)});});
   state.effects.forEach(e=>chips.push({label:e,style:'',remove:()=>state.effects.delete(e)}));
   state.scalings.forEach(s=>chips.push({label:'↳ '+s,style:'',remove:()=>state.scalings.delete(s)}));
-  state.upgradeTypes.forEach(t=>{const rc=RESEARCH_COLORS[t];const st=rc?`background:${rc.bg};color:${rc.text};border-color:${rc.bg}`:'';chips.push({label:t,style:st,remove:()=>state.upgradeTypes.delete(t)});});
   state.windows.forEach(w=>chips.push({label:'⏱ '+w,style:'',remove:()=>state.windows.delete(w)}));
   if(!chips.length&&!state.search){el.innerHTML='<span class="af-label">No filters active</span>';return;}
   el.innerHTML='';
   chips.forEach(({label,style,remove})=>{
-    const chip=document.createElement('span');chip.className='af-chip';
+    const chip=document.createElement('span');
+    chip.className='af-chip'+(label.startsWith('[')?' af-chip-sq':'');
     if(style)chip.setAttribute('style',style);
     chip.innerHTML=`${label}<span class="af-chip-x">&times;</span>`;
     chip.onclick=()=>{remove();render();};el.appendChild(chip);
@@ -645,8 +657,8 @@ function buildCards(filtered){
         render();
       });
       tagsWrap.appendChild(t);
-    // Ascension penalty badge
-    if(u.ascensionPenalty){
+    // Ascension penalty badge — only relevant above A0
+    if(u.ascensionPenalty&&(state.ascMax===3||state.ascMax>0)){
       const p=document.createElement('span');
       p.className='tag tag-penalty';
       p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
