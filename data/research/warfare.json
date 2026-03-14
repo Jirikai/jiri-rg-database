@@ -32,7 +32,7 @@
     "cost": "2.883e127",
     "requirement": "2,000 Warrior Barracks",
     "effect": "Increase production of all other buildings by 130% per Elven Training Ground built.",
-    "formula": "×130% per Training Ground built",
+    "formula": "\u00d7130% per Training Ground built",
     "effects": [
       "All Buildings"
     ],
@@ -76,7 +76,7 @@
     ],
     "category": "Warfare",
     "cost": "3.188e134",
-    "requirement": "1 hour as Evil (This R) — unlock as Demon",
+    "requirement": "1 hour as Evil (This R) \u2014 unlock as Demon",
     "effect": "Increase FC find chance based on Undercities built.",
     "formula": "+(2 * x^1.2), where x = Undercities built",
     "effects": [
@@ -193,7 +193,8 @@
     "effect": "Each building counts 15 times for Call to Arms purposes.",
     "formula": "",
     "effects": [
-      "All Buildings"
+      "All Buildings",
+      "Building Count"
     ],
     "scaling": [],
     "window": [],
@@ -301,7 +302,7 @@
     "cost": "3.039e171",
     "requirement": "3,000 Olympian Halls",
     "effect": "Increase production of all other buildings by 200% per Olympian Hall built.",
-    "formula": "×200% per Olympian Hall built",
+    "formula": "\u00d7200% per Olympian Hall built",
     "effects": [
       "All Buildings"
     ],
@@ -435,7 +436,8 @@
     "effect": "Each building in the three highest tiers counts as 2 buildings for all purposes.",
     "formula": "",
     "effects": [
-      "Specific Buildings"
+      "Specific Buildings",
+      "Building Count"
     ],
     "scaling": [],
     "window": [],
