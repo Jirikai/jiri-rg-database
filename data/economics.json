@@ -90,7 +90,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "E50",
@@ -487,7 +487,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "E450",
@@ -579,7 +579,7 @@
     "scaling": [],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "E1325",

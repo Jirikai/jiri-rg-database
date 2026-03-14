@@ -191,7 +191,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "DW11",

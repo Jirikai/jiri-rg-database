@@ -117,7 +117,7 @@
       "Era"
     ],
     "minAscension": 1,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "DG7",
@@ -218,7 +218,7 @@
       "Reincarnation"
     ],
     "minAscension": 1,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "DG12",

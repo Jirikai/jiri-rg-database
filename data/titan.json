@@ -151,7 +151,7 @@
     "scaling": [],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "TT9",
@@ -192,7 +192,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "TT11",

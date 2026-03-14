@@ -115,7 +115,7 @@
       "Era"
     ],
     "minAscension": 2,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "MK7",
