@@ -394,6 +394,7 @@ const FC={
   Makers:{bg:'#b0b8c8',text:'#2a2a3a'},
 };
 const RESEARCH_COLORS={
+  Spells:{bg:'#7a6aaa',text:'#fff'},
   Spellcraft:{bg:'#e8609a',text:'#fff'},
   Craftsmanship:{bg:'#5aad4e',text:'#fff'},
   Divine:{bg:'#7ecfea',text:'#1a4a55'},
@@ -402,7 +403,7 @@ const RESEARCH_COLORS={
   Warfare:{bg:'#c93022',text:'#fff'},
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
-const UPGRADE_TYPES=['Faction Upgrades','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+const UPGRADE_TYPES=['Faction Upgrades','Spells','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
   'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction']},
   'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production']},
@@ -424,10 +425,14 @@ Object.keys(EFFECT_GROUPS).forEach(g=>state.eg[g]=EFFECT_GROUPS[g].open);
 Object.keys(SCALING_GROUPS).forEach(g=>state.sg[g]=SCALING_GROUPS[g].open);
 
 const FACTION_FILES=[
-  'fairy','elven','angel','goblin','undead','demon',
-  'titan','druid','faceless','dwarven','drow','dragon',
-  'mercenary','archon','djinn','makers',
-  'spellcraft','craftsmanship','divine','economics','alchemy','warfare'
+  'factions/fairy','factions/elven','factions/angel',
+  'factions/goblin','factions/undead','factions/demon',
+  'factions/titan','factions/druid','factions/faceless',
+  'factions/dwarven','factions/drow','factions/dragon',
+  'factions/mercenary','factions/archon','factions/djinn','factions/makers',
+  'spells/spells',
+  'research/spellcraft','research/craftsmanship','research/divine',
+  'research/economics','research/alchemy','research/warfare'
 ];
 Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
   .then(arrays=>{UPGRADES=arrays.flat();render();})
@@ -501,6 +506,15 @@ function buildTypeList(){
   fu.innerHTML=`<span class="faction-dot" style="background:#888"></span><span>Faction Upgrades</span>`;
   fu.onclick=()=>{fuActive?state.upgradeTypes.delete('Faction Upgrades'):state.upgradeTypes.add('Faction Upgrades');render();};
   el.appendChild(fu);
+
+  // Spells entry
+  const spActive=state.upgradeTypes.has('Spells');
+  const sprc=RESEARCH_COLORS['Spells'];
+  const sp=document.createElement('button');
+  sp.className='faction-btn'+(spActive?' active':'');
+  sp.innerHTML=`<span class="faction-dot" style="background:${sprc.bg}"></span><span>Spells</span>`;
+  sp.onclick=()=>{spActive?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');render();};
+  el.appendChild(sp);
 
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
