@@ -118,6 +118,8 @@ body{display:flex;flex-direction:column}
 .faction-group{margin-bottom:8px}
 .faction-group-lbl{font-size:11px;font-weight:700;color:var(--text3);padding:4px 4px 2px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
 .faction-btn{display:flex;align-items:center;gap:10px;width:100%;padding:5px 8px;border-radius:var(--radius);border:none;background:transparent;cursor:pointer;font-size:14px;color:var(--text);text-align:left}
+.faction-btn.sub-btn{margin-left:14px;width:calc(100% - 14px);font-size:13px;background:var(--bg2)}
+.faction-btn.sub-btn:hover{background:var(--bg3)}
 .faction-btn:hover{background:var(--bg2)}
 .faction-btn.active{background:var(--bg3);font-weight:600}
 .faction-btn-icon{width:28px;height:28px;object-fit:contain;flex-shrink:0;image-rendering:pixelated}
@@ -387,6 +389,12 @@ const ICONS={
   Archon:'RG icons/ArchonTradeTreaty.png',
   Djinn:'RG icons/DjinnTradeTreaty.png',
   Makers:'RG icons/MakersTradeTreaty.png',
+  'FactionUpgrades':'RG icons/MercenaryFirstContract.png',
+  'Spells:All':'RG icons/FullWishChallengeReward.png',
+  'Spells:Faction':'RG icons/ElvenTradeTreaty.png',
+  'Spells:Common':'RG icons/CoinPillageSpellUpgrade.png',
+  'Spells:Alignment':'RG icons/TemporalFluxTier2.png',
+  'Research:All':'RG icons/Alchemy.png',
 };
 const FC={
   Fairy:{bg:'#e8609a',text:'#fff'},Elven:{bg:'#5aad4e',text:'#fff'},Angel:{bg:'#7ecfea',text:'#1a4a55'},
@@ -571,31 +579,95 @@ function toggleLeftSection(key){
 function buildTypeList(){
   const el=document.getElementById('type-list');el.innerHTML='';
 
-  // Faction Upgrades entry
-  const fuActive=state.upgradeTypes.has('Faction Upgrades');
-  const fu=document.createElement('button');
-  fu.className='faction-btn'+(fuActive?' active':'');
-  fu.innerHTML=`<span class="faction-dot" style="background:#888"></span><span>Faction Upgrades</span>`;
-  fu.onclick=()=>{fuActive?state.upgradeTypes.delete('Faction Upgrades'):state.upgradeTypes.add('Faction Upgrades');render();};
-  el.appendChild(fu);
+  const SPELL_SUBS=['Spells:Faction','Spells:Common','Spells:Alignment'];
+  const RESEARCH_SUBS=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+
+  function makeBtn(key,label,iconKey,color,onclick){
+    const active=state.upgradeTypes.has(key);
+    const b=document.createElement('button');
+    b.className='faction-btn'+(active?' active':'');
+    const icon=ICONS[iconKey];
+    const iconPart=icon
+      ?`<img src="${icon}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\'faction-dot\' style=\'background:${color}\'></span>'">`
+      :`<span class="faction-dot" style="background:${color}"></span>`;
+    b.innerHTML=`${iconPart}<span>${label}</span>`;
+    b.onclick=onclick||(()=>{state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);render();});
+    return b;
+  }
+
+  function spellClick(key,shift){
+    if(key==='Spells'){
+      // All: always exclusive — clear subs, toggle All
+      SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+      state.upgradeTypes.has('Spells')?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');
+    } else {
+      // Always deselect All when picking a sub
+      state.upgradeTypes.delete('Spells');
+      if(shift){
+        // Shift = exclusive: clear others, select only this
+        const wasActive=state.upgradeTypes.has(key);
+        SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+        if(!wasActive)state.upgradeTypes.add(key);
+      } else {
+        // Normal = additive toggle
+        state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);
+        // If all 3 subs selected, collapse to All
+        if(SPELL_SUBS.every(s=>state.upgradeTypes.has(s))){
+          SPELL_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+          state.upgradeTypes.add('Spells');
+        }
+      }
+    }
+    render();
+  }
+
+  function researchClick(key,shift){
+    if(key==='Research:All'){
+      // All: always exclusive — clear subs, toggle All
+      RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+      state.upgradeTypes.has('Research:All')?state.upgradeTypes.delete('Research:All'):state.upgradeTypes.add('Research:All');
+    } else {
+      // Always deselect All when picking a sub
+      state.upgradeTypes.delete('Research:All');
+      if(shift){
+        // Shift = exclusive: clear others, select only this
+        const wasActive=state.upgradeTypes.has(key);
+        RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+        if(!wasActive)state.upgradeTypes.add(key);
+      } else {
+        // Normal = additive toggle
+        state.upgradeTypes.has(key)?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);
+        if(RESEARCH_SUBS.every(s=>state.upgradeTypes.has(s))){
+          RESEARCH_SUBS.forEach(s=>state.upgradeTypes.delete(s));
+          state.upgradeTypes.add('Research:All');
+        }
+      }
+    }
+    render();
+  }
+
+  // Faction Upgrades
+  el.appendChild(makeBtn('Faction Upgrades','Faction Upgrades','FactionUpgrades','#888'));
 
   // Spells collapsible group
   const spellsGroup=document.createElement('div');spellsGroup.className='faction-group';
   const spellsOpen=state._spellsOpen!==false;
+  const spellsAnyActive=['Spells',...SPELL_SUBS].some(t=>state.upgradeTypes.has(t));
   const spellsLbl=document.createElement('div');spellsLbl.className='faction-group-lbl';
   spellsLbl.style.cursor='pointer';
-  const spellsAnyActive=['Spells','Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
   spellsLbl.innerHTML=`<span style="color:${spellsAnyActive?'var(--accent)':'inherit'}">Spells</span><span class="arrow${spellsOpen?' open':''}" style="float:right">&#9654;</span>`;
   spellsLbl.onclick=()=>{state._spellsOpen=!spellsOpen;render();};
   spellsGroup.appendChild(spellsLbl);
   if(spellsOpen){
-    const spellClasses=[['Spells','All','#7a6aaa'],['Spells:Faction','Faction','#7a6aaa'],['Spells:Common','Common','#9a9a9a'],['Spells:Alignment','Alignment','#5b9bd5']];
-    spellClasses.forEach(([key,label,color])=>{
-      const active=state.upgradeTypes.has(key);
-      const b=document.createElement('button');
-      b.className='faction-btn'+(active?' active':'');
-      b.innerHTML=`<span class="faction-dot" style="background:${color}"></span><span>${label}</span>`;
-      b.onclick=()=>{active?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);render();};
+    [
+      ['Spells',          'All',       'Spells:All',       '#7a6aaa', false],
+      ['Spells:Faction',  'Faction',   'Spells:Faction',   '#7a6aaa', true],
+      ['Spells:Common',   'Common',    'Spells:Common',    '#9a9a9a', true],
+      ['Spells:Alignment','Alignment', 'Spells:Alignment', '#5b9bd5', true],
+    ].forEach(([key,label,iconKey,color,sub])=>{
+      const b=makeBtn(key,label,iconKey,color,()=>{});
+      if(sub)b.classList.add('sub-btn');
+      b.onclick=(e)=>spellClick(key,e.shiftKey);
       spellsGroup.appendChild(b);
     });
   }
@@ -604,25 +676,22 @@ function buildTypeList(){
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
   const researchOpen=state._researchOpen!==false;
+  const researchAnyActive=['Research:All',...RESEARCH_SUBS].some(t=>state.upgradeTypes.has(t));
   const researchLbl=document.createElement('div');researchLbl.className='faction-group-lbl';
   researchLbl.style.cursor='pointer';
-  researchLbl.innerHTML=`Research <span class="arrow${researchOpen?' open':''}" style="float:right">&#9654;</span>`;
+  researchLbl.innerHTML=`<span style="color:${researchAnyActive?'var(--accent)':'inherit'}">Research</span><span class="arrow${researchOpen?' open':''}" style="float:right">&#9654;</span>`;
   researchLbl.onclick=()=>{state._researchOpen=!researchOpen;render();};
   researchGroup.appendChild(researchLbl);
-  if(!researchOpen){el.appendChild(researchGroup);return;}
-  const RESEARCH_TYPES=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
-  RESEARCH_TYPES.forEach(t=>{
-    const rc=RESEARCH_COLORS[t];
-    const active=state.upgradeTypes.has(t);
-    const b=document.createElement('button');
-    b.className='faction-btn'+(active?' active':'');
-    const iconPart=ICONS[t]
-      ?`<img src="${ICONS[t]}" class="faction-btn-icon" alt="" onerror="this.outerHTML='<span class=\\'faction-dot\\' style=\\'background:${rc.bg}\\'></span>'">`
-      :`<span class="faction-dot" style="background:${rc.bg}"></span>`;
-    b.innerHTML=`${iconPart}<span>${t}</span>`;
-    b.onclick=()=>{active?state.upgradeTypes.delete(t):state.upgradeTypes.add(t);render();};
-    researchGroup.appendChild(b);
-  });
+  if(researchOpen){
+    [['Research:All','All Research','Research:All','#4a4a8a',false],
+     ...RESEARCH_SUBS.map(t=>[t,t,t,RESEARCH_COLORS[t].bg,true])
+    ].forEach(([key,label,iconKey,color,sub])=>{
+      const b=makeBtn(key,label,iconKey,color,()=>{});
+      if(sub)b.classList.add('sub-btn');
+      b.onclick=(e)=>researchClick(key,e.shiftKey);
+      researchGroup.appendChild(b);
+    });
+  }
   el.appendChild(researchGroup);
 }
 
@@ -755,10 +824,8 @@ function passesFilter(u){
     if(state.upgradeTypes.size>0){
       const uType=u.category||'Faction Upgrades';
       if(uType==='Spells'){
-        // Check if any spell type filter is active
         const hasSpellFilter=['Spells','Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
         if(!hasSpellFilter)return false;
-        // If specific subclass filters active, check spellClass
         const subActive=['Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
         if(subActive){
           const cls=u.spellClass||'Faction';
@@ -768,6 +835,8 @@ function passesFilter(u){
           if(!state.upgradeTypes.has('Spells'))return false;
         }
       } else {
+        const isResearchType=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'].includes(uType);
+        if(isResearchType&&state.upgradeTypes.has('Research:All'))return true;
         if(!state.upgradeTypes.has(uType))return false;
       }
     }
