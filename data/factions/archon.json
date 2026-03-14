@@ -94,7 +94,9 @@
     "scaling": [
       "Lineage Level"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": true
   },
@@ -225,7 +227,9 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": false
   }

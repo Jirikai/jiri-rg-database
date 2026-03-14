@@ -73,7 +73,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": false
   },
@@ -131,7 +133,9 @@
     "scaling": [
       "Excavations"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": true
   },
@@ -189,7 +193,9 @@
     "scaling": [
       "Artifacts Found"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": false
   },

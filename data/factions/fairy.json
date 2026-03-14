@@ -70,7 +70,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -83,7 +85,7 @@
     "effect": "100% of the production of Farms, Inns and Blacksmiths is added to base clicking reward. Also increase Faction Coin find chance by +20%.",
     "formula": "",
     "effects": [
-      "Building → Click Conversion",
+      "Building \u2192 Click Conversion",
       "FC Find Chance"
     ],
     "scaling": [

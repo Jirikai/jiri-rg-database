@@ -128,7 +128,7 @@
     "effect": "Buildings and spell activity times count 75% more.",
     "formula": "",
     "effects": [
-      "Misc"
+      "Building Count"
     ],
     "scaling": [],
     "window": [],
@@ -149,7 +149,9 @@
     "scaling": [
       "Mana Regeneration"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -230,7 +232,9 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": true
   }

@@ -32,7 +32,7 @@
     "cost": "2.883e127",
     "requirement": "2,250 Goblin Banks",
     "effect": "Increase production of all other buildings by 90% per Goblin Bank built.",
-    "formula": "×90% per Goblin Bank built",
+    "formula": "\u00d790% per Goblin Bank built",
     "effects": [
       "All Buildings"
     ],
@@ -107,7 +107,10 @@
       "Mana Regeneration",
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      "",
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -128,7 +131,9 @@
     "scaling": [
       "Spells Cast"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -172,7 +177,9 @@
     "scaling": [
       "Max Mana"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -184,7 +191,7 @@
     ],
     "category": "Alchemy",
     "cost": "2.96e149",
-    "requirement": "1 hour time spent (This Reincarnation) — unlock as Undead",
+    "requirement": "1 hour time spent (This Reincarnation) \u2014 unlock as Undead",
     "effect": "Increase production of all buildings based on time spent this Reincarnation.",
     "formula": "(0.3 * x^0.7)%, where x = time this Reincarnation",
     "effects": [
@@ -239,7 +246,9 @@
     "scaling": [
       "Reincarnations"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -281,9 +290,11 @@
       "Gems Bonus"
     ],
     "scaling": [
-      "Reincarnations"
+      "Research Points"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -327,7 +338,9 @@
     "scaling": [
       "Excavations"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -466,7 +479,7 @@
     "cost": "7.877e197",
     "requirement": "4,000 Spider Sanctuaries",
     "effect": "Increase production of all other buildings by 120% per Spider Sanctuary built.",
-    "formula": "×120% per Spider Sanctuary built",
+    "formula": "\u00d7120% per Spider Sanctuary built",
     "effects": [
       "All Buildings"
     ],
@@ -496,7 +509,9 @@
     "scaling": [
       "Royal Exchange Count"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -517,7 +532,9 @@
     "scaling": [
       "Research Points"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": false
   },
@@ -581,7 +598,7 @@
     "cost": "5.195e66",
     "requirement": "5,000 Iron Strongholds, any Neutral or Dragon",
     "effect": "Increase production of all other buildings by 135% per Wyrm's Den built.",
-    "formula": "×(135 * x)%, where x = Wyrm's Den owned",
+    "formula": "\u00d7(135 * x)%, where x = Wyrm's Den owned",
     "effects": [
       "All Buildings"
     ],
@@ -611,7 +628,9 @@
     "scaling": [
       "Excavations"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": false
   },
@@ -675,7 +694,9 @@
     "scaling": [
       "Lineage Level"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 1,
     "ascensionPenalty": false
   }

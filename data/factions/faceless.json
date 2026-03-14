@@ -153,7 +153,9 @@
     "scaling": [
       "Active Spells"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 0,
     "ascensionPenalty": true
   },
@@ -213,7 +215,9 @@
     "scaling": [
       "Spell Activity Time"
     ],
-    "window": [],
+    "window": [
+      ""
+    ],
     "minAscension": 2,
     "ascensionPenalty": true
   },
