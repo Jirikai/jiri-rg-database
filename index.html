@@ -120,6 +120,70 @@ body{display:flex;flex-direction:column}
 .panel-divider{border:none;border-top:1px solid var(--border);margin:8px 10px 0}
 .panel-section-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px;font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;user-select:none}
 .panel-section-toggle:hover{color:var(--text2)}
+
+/* ── Mobile layout ── */
+#mobile-bar{display:none}
+
+@media(max-width:640px){
+  html,body{overflow:hidden}
+
+  /* Header: tighten up */
+  #site-header{padding:6px 12px;gap:8px}
+  #header-avatar{width:34px;height:34px}
+  #header-title{font-size:14px}
+  #header-sub{font-size:10px}
+  #theme-toggle{padding:4px 9px;font-size:14px}
+
+  /* Mobile panel-toggle bar */
+  #mobile-bar{
+    display:flex;gap:6px;padding:7px 12px;
+    border-bottom:1px solid var(--border);
+    background:var(--bg);flex-shrink:0;
+  }
+  .mob-btn{
+    flex:1;padding:7px 10px;border-radius:var(--radius);
+    border:1px solid var(--border2);background:var(--bg2);
+    color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:5px;
+    transition:background .12s;
+  }
+  .mob-btn:hover,.mob-btn.active{background:var(--bg3);color:var(--text)}
+
+  /* App becomes single column */
+  #app{
+    display:flex;flex-direction:column;
+    overflow:hidden;          /* children manage their own scroll */
+  }
+
+  /* Both side panels: hidden by default, shown as stacked drawers */
+  .panel{
+    border-right:none;border-left:none;
+    border-bottom:1px solid var(--border);
+    max-height:0;overflow:hidden;
+    transition:max-height .25s ease;
+    flex-shrink:0;
+  }
+  .panel.mob-open{max-height:60vh}
+  .panel.right{border-left:none}
+
+  /* Center column fills remaining space */
+  .center{flex:1;min-height:0;display:flex;flex-direction:column}
+
+  /* Cards area scrolls inside the center column */
+  .cards{flex:1;overflow-y:auto;min-height:0}
+
+  /* Bigger touch targets for filter/faction buttons */
+  .filter-btn{padding:8px 8px;font-size:13px}
+  .faction-btn{padding:7px 8px}
+  .w-chip{padding:7px 14px}
+
+  /* Card name: allow wrapping on narrow screens */
+  .card-name-text{white-space:normal;word-break:break-word}
+
+  /* Pin/active-filter bars: limit height, scroll if overflowing */
+  .pin-bar{max-height:60px;overflow-y:auto}
+  .active-filters{max-height:60px;overflow-y:auto}
+}
 </style>
 </head>
 <body>
@@ -131,6 +195,10 @@ body{display:flex;flex-direction:column}
   </div>
   <button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
 </header>
+<div id="mobile-bar">
+  <button class="mob-btn" id="mob-left-btn" onclick="toggleMobPanel('left')">☰ Faction / Type</button>
+  <button class="mob-btn" id="mob-right-btn" onclick="toggleMobPanel('right')">⚙ Filters</button>
+</div>
 <div id="app">
   <div class="panel">
     <div class="panel-inner">
@@ -472,7 +540,46 @@ function render(){
   buildActiveFilters();buildCards(f);buildPinBar();
 }
 
-document.getElementById('search').addEventListener('input',e=>{state.search=e.target.value;render();});
+function toggleMobPanel(side){
+  const isMob=window.innerWidth<=640;
+  if(!isMob)return;
+  const leftPanel=document.querySelector('#app .panel:not(.right)');
+  const rightPanel=document.querySelector('#app .panel.right');
+  const leftBtn=document.getElementById('mob-left-btn');
+  const rightBtn=document.getElementById('mob-right-btn');
+  if(side==='left'){
+    const opening=!leftPanel.classList.contains('mob-open');
+    leftPanel.classList.toggle('mob-open',opening);
+    rightPanel.classList.remove('mob-open');
+    leftBtn.classList.toggle('active',opening);
+    rightBtn.classList.remove('active');
+  } else {
+    const opening=!rightPanel.classList.contains('mob-open');
+    rightPanel.classList.toggle('mob-open',opening);
+    leftPanel.classList.remove('mob-open');
+    rightBtn.classList.toggle('active',opening);
+    leftBtn.classList.remove('active');
+  }
+}
+
+// Close panels when a filter/faction is tapped on mobile
+(function(){
+  const orig=window.render;
+  if(typeof orig==='function'){
+    // render is defined later; patch after load
+  }
+  // Close mobile drawers on outside-card tap in cards area
+  document.addEventListener('click',e=>{
+    if(window.innerWidth>640)return;
+    const inPanel=e.target.closest('.panel');
+    const inMobBar=e.target.closest('#mobile-bar');
+    if(!inPanel&&!inMobBar){
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('mob-open'));
+      document.querySelectorAll('.mob-btn').forEach(b=>b.classList.remove('active'));
+    }
+  });
+})();
+
 
 (function(){
   const saved=localStorage.getItem('rg-theme');
