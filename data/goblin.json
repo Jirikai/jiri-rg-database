@@ -178,7 +178,7 @@
       "Reincarnation"
     ],
     "minAscension": 0,
-    "ascensionPenalty": true
+    "ascensionPenalty": false
   },
   {
     "id": "GB10",

@@ -111,7 +111,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DN7",

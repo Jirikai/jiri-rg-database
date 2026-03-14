@@ -134,7 +134,7 @@
       "Reincarnation"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "TT8",
@@ -172,7 +172,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "TT10",

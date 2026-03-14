@@ -79,7 +79,7 @@
       "All Time"
     ],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DG5",

@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jirikai.github.io/jiri-rg-database/">
 <meta property="og:title" content="Jiri's Realm Grinder Database">
-<meta property="og:description" content="A updated searchable, filterable reference for Realm Grinder upgrades. Faction upgrades and research across A0 to A2.">
+<meta property="og:description" content="An updated searchable, filterable reference for Realm Grinder upgrades. Faction upgrades and research across A0 to A2.">
 <meta property="og:image" content="https://jirikai.github.io/jiri-rg-database/avatar.png">
 <meta name="theme-color" content="#3a7bd5">
 <style>
@@ -329,7 +329,7 @@ body{display:flex;flex-direction:column}
             <span class="fcheck" id="penalty-check-affected"></span>A-Penalty affected only
           </button>
           <button class="penalty-btn" id="penalty-btn-free" onclick="togglePenalty('free')">
-            <span class="fcheck" id="penalty-check-free"></span>Penalty-free only
+            <span class="fcheck" id="penalty-check-free"></span>A-Penalty-free only
           </button>
         </div>
       </div>
@@ -727,26 +727,26 @@ function buildCards(filtered){
       });
       tagsWrap.appendChild(t);
     });
-    (u.scaling||[]).forEach((s,i)=>{
-      const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
-      const t=document.createElement('span');
-      t.className='tag tag-scale tag-clickable'+(state.scalings.has(s)?' tag-active':'');
-      t.textContent='\u21b3 '+s+win;
-      t.addEventListener('click',e=>{
-        e.stopPropagation();
-        state.scalings.has(s)?state.scalings.delete(s):state.scalings.add(s);
-        render();
-      });
-      tagsWrap.appendChild(t);
-    // Ascension penalty badge — only relevant above A0
-    if(u.ascensionPenalty&&(state.ascMax===3||state.ascMax>0)){
-      const p=document.createElement('span');
-      p.className='tag tag-penalty';
-      p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
-      p.textContent='A-Penalty';
-      tagsWrap.appendChild(p);
-    }
-    });
+     (u.scaling||[]).forEach((s,i)=>{
+       const win=(u.window&&u.window[i])?' ('+u.window[i]+')':'';
+       const t=document.createElement('span');
+       t.className='tag tag-scale tag-clickable'+(state.scalings.has(s)?' tag-active':'');
+       t.textContent='\u21b3 '+s+win;
+       t.addEventListener('click',e=>{
+         e.stopPropagation();
+         state.scalings.has(s)?state.scalings.delete(s):state.scalings.add(s);
+         render();
+       });
+       tagsWrap.appendChild(t);
+     });
+     // Ascension penalty badge — only relevant above A0
+     if(u.ascensionPenalty&&(state.ascMax===3||state.ascMax>0)){
+       const p=document.createElement('span');
+       p.className='tag tag-penalty';
+       p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
+       p.textContent='A-Penalty';
+       tagsWrap.appendChild(p);
+     }
     el.appendChild(card);
   });
 }

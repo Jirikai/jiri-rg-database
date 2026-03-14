@@ -556,7 +556,7 @@
       "Reincarnation"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "W1275",
