@@ -560,14 +560,27 @@ function buildTypeList(){
   fu.onclick=()=>{fuActive?state.upgradeTypes.delete('Faction Upgrades'):state.upgradeTypes.add('Faction Upgrades');render();};
   el.appendChild(fu);
 
-  // Spells entry
-  const spActive=state.upgradeTypes.has('Spells');
-  const sprc=RESEARCH_COLORS['Spells'];
-  const sp=document.createElement('button');
-  sp.className='faction-btn'+(spActive?' active':'');
-  sp.innerHTML=`<span class="faction-dot" style="background:${sprc.bg}"></span><span>Spells</span>`;
-  sp.onclick=()=>{spActive?state.upgradeTypes.delete('Spells'):state.upgradeTypes.add('Spells');render();};
-  el.appendChild(sp);
+  // Spells collapsible group
+  const spellsGroup=document.createElement('div');spellsGroup.className='faction-group';
+  const spellsOpen=state._spellsOpen!==false;
+  const spellsLbl=document.createElement('div');spellsLbl.className='faction-group-lbl';
+  spellsLbl.style.cursor='pointer';
+  const spellsAnyActive=['Spells','Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+  spellsLbl.innerHTML=`<span style="color:${spellsAnyActive?'var(--accent)':'inherit'}">Spells</span><span class="arrow${spellsOpen?' open':''}" style="float:right">&#9654;</span>`;
+  spellsLbl.onclick=()=>{state._spellsOpen=!spellsOpen;render();};
+  spellsGroup.appendChild(spellsLbl);
+  if(spellsOpen){
+    const spellClasses=[['Spells','All','#7a6aaa'],['Spells:Faction','Faction','#7a6aaa'],['Spells:Common','Common','#9a9a9a'],['Spells:Alignment','Alignment','#5b9bd5']];
+    spellClasses.forEach(([key,label,color])=>{
+      const active=state.upgradeTypes.has(key);
+      const b=document.createElement('button');
+      b.className='faction-btn'+(active?' active':'');
+      b.innerHTML=`<span class="faction-dot" style="background:${color}"></span><span>${label}</span>`;
+      b.onclick=()=>{active?state.upgradeTypes.delete(key):state.upgradeTypes.add(key);render();};
+      spellsGroup.appendChild(b);
+    });
+  }
+  el.appendChild(spellsGroup);
 
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
@@ -707,7 +720,22 @@ function getFiltered(){
     }
     if(state.upgradeTypes.size>0){
       const uType=u.category||'Faction Upgrades';
-      if(!state.upgradeTypes.has(uType))return false;
+      if(uType==='Spells'){
+        // Check if any spell type filter is active
+        const hasSpellFilter=['Spells','Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+        if(!hasSpellFilter)return false;
+        // If specific subclass filters active, check spellClass
+        const subActive=['Spells:Faction','Spells:Common','Spells:Alignment'].some(t=>state.upgradeTypes.has(t));
+        if(subActive){
+          const cls=u.spellClass||'Faction';
+          if(state.upgradeTypes.has('Spells:Faction')&&cls==='Faction')return true;
+          if(state.upgradeTypes.has('Spells:Common')&&cls==='Common')return true;
+          if(state.upgradeTypes.has('Spells:Alignment')&&cls==='Alignment')return true;
+          if(!state.upgradeTypes.has('Spells'))return false;
+        }
+      } else {
+        if(!state.upgradeTypes.has(uType))return false;
+      }
     }
     const q=state.search.toLowerCase();
     if(q){const hay=[u.name,u.id,u.faction,u.category||'',u.effect||'',u.formula||'',...(u.effects||[]),...(u.scaling||[])].join(' ').toLowerCase();if(!hay.includes(q))return false;}
@@ -721,6 +749,16 @@ function getFiltered(){
 function buildCards(filtered){
   const el=document.getElementById('cards');el.innerHTML='';
   if(!filtered.length){el.innerHTML='<div class="no-results">No upgrades match the current filters.</div>';return;}
+  // When faction filter active, sort spells: Faction class first, then Common, then Alignment
+  if(state.factions.size>0){
+    const spellOrder={Faction:0,Common:1,Alignment:2};
+    filtered=filtered.slice().sort((a,b)=>{
+      if(a.category==='Spells'&&b.category==='Spells'){
+        return (spellOrder[a.spellClass||'Faction']||0)-(spellOrder[b.spellClass||'Faction']||0);
+      }
+      return 0;
+    });
+  }
   filtered.forEach(u=>{
     const pinned=state.pinned.includes(u.id);
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
