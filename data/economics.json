@@ -574,7 +574,7 @@
     "effect": "Increase the Ascension multiplier for Royal Market bonus by 0.7.",
     "formula": "",
     "effects": [
-      "Royal Exchange Production"
+      "Ascension Multiplier"
     ],
     "scaling": [],
     "window": [],

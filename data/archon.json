@@ -203,7 +203,8 @@
     "effect": "All faction spells gain 1 tier.",
     "formula": "",
     "effects": [
-      "Spell Duration"
+      "Ascension Multiplier",
+      "Misc"
     ],
     "scaling": [],
     "window": [],

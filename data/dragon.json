@@ -29,7 +29,8 @@
     "effect": "Increase production of Iron Stronghold by 200% per spell affecting it. Also reduces Dragon's Breath tier cost scaling by 0.3.",
     "formula": "×200% per active spell effect on Iron Stronghold",
     "effects": [
-      "Specific Buildings"
+      "Specific Buildings",
+      "Spell Cost Reduction"
     ],
     "scaling": [
       "Active Spells"
@@ -208,7 +209,7 @@
     "effect": "Increase the Ascension multiplier for Royal Market bonus by 0.7. White Breath also multiplicatively increases Assistants based on Dragon time this Reincarnation.",
     "formula": "(1.25 * ln(1+x)^1.25)%, where x = Dragon time this Reincarnation",
     "effects": [
-      "Royal Exchange Production",
+      "Ascension Multiplier",
       "Assistant Amount"
     ],
     "scaling": [
