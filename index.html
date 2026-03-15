@@ -979,8 +979,9 @@ function buildCards(filtered){
        });
        tagsWrap.appendChild(t);
      });
-     // Ascension penalty badge — only relevant above A0
-     if(u.ascensionPenalty&&(state.ascMax===3||state.ascMax>0)){
+     // Ascension penalty badge — only show if there's a higher ascension that penalises it
+     const effectiveAscMax=state.ascMax===3?4:state.ascMax;
+     if(u.ascensionPenalty&&effectiveAscMax>(u.minAscension||0)){
        const p=document.createElement('span');
        p.className='tag tag-penalty';
        p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
