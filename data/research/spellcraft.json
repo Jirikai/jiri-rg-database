@@ -431,7 +431,7 @@
       "Assistant Amount"
     ],
     "scaling": [
-      "Spell Activity Time"
+      "Spell Duration"
     ],
     "window": [
       ""
@@ -526,11 +526,9 @@
       "Offline Production"
     ],
     "scaling": [
-      "Offline Time",
-      "Spell Activity Time"
+      "Offline Time"
     ],
     "window": [
-      "Reincarnation",
       "Reincarnation"
     ],
     "minAscension": 0,
