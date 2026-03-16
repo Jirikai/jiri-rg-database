@@ -573,7 +573,6 @@
     "effect": "Increase Lightning Strike multiplier by 50%.",
     "formula": "",
     "effects": [
-      "Specific Buildings",
       "Spell Potency"
     ],
     "scaling": [],
@@ -614,7 +613,7 @@
     "effect": "Increase Brainwave multiplier by 50%.",
     "formula": "",
     "effects": [
-      "All Buildings"
+      "Spell Potency"
     ],
     "scaling": [],
     "window": [],
