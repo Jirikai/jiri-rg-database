@@ -510,6 +510,34 @@ const SPELL_ICONS={
   'ARCR': 'RG icons/OmniscienceChallengeReward.png',
   'DJCR': 'RG icons/FullWishChallengeReward.png',
   'MKCR': 'RG icons/GaiasCradleChallengeReward.png',
+  'Fairy-H': 'RG icons/FairyHeritage.png',
+  'Elven-H': 'RG icons/ElvenHeritage.png',
+  'Angel-H': 'RG icons/AngelHeritage.png',
+  'Goblin-H': 'RG icons/GoblinHeritage.png',
+  'Undead-H': 'RG icons/UndeadHeritage.png',
+  'Demon-H': 'RG icons/DemonHeritage.png',
+  'Titan-H': 'RG icons/TitanHeritage.png',
+  'Druid-H': 'RG icons/DruidHeritage.png',
+  'Faceless-H': 'RG icons/FacelessHeritage.png',
+  'Dwarven-H': 'RG icons/DwarvenHeritage.png',
+  'Drow-H': 'RG icons/DrowHeritage.png',
+  'Mercenary-H': 'RG icons/MercenaryBadge.png',
+  'Dragon-H': 'RG icons/DragonHeritage.png',
+  'Archon-H': 'RG icons/ArchonHeritage.png',
+  'Djinn-H': 'RG icons/DjinnHeritage.png',
+  'Makers-H': 'RG icons/MakersHeritage.png',
+  'Fairy-AH': 'RG icons/AdvancedFairyHeritage.png',
+  'Elven-AH': 'RG icons/AdvancedElvenHeritage.png',
+  'Angel-AH': 'RG icons/AdvancedAngelHeritage.png',
+  'Goblin-AH': 'RG icons/AdvancedGoblinHeritage.png',
+  'Undead-AH': 'RG icons/AdvancedUndeadHeritage.png',
+  'Demon-AH': 'RG icons/AdvancedDemonHeritage.png',
+  'Titan-AH': 'RG icons/AdvancedTitanHeritage.png',
+  'Druid-AH': 'RG icons/AdvancedDruidHeritage.png',
+  'Faceless-AH': 'RG icons/AdvancedFacelessHeritage.png',
+  'Dwarven-AH': 'RG icons/AdvancedDwarvenHeritage.png',
+  'Drow-AH': 'RG icons/AdvancedDrowHeritage.png',
+  'Dragon-AH': 'RG icons/AdvancedDragonHeritage.png',
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Heritages','Advanced Heritages','Spells','Challenges','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
@@ -974,7 +1002,7 @@ function buildCards(filtered){
     const badgeText=isSpell?spellBadge.text:isChallenge?challengeBadge.text:isHeritage?(u.category==='Advanced Heritages'?advHeritageBadge.text:heritageBadge.text):rc?rc.text:c.text;
     const idBadgeBg=(isChallenge||isHeritage)?c.bg:badgeBg;
     const idBadgeText=(isChallenge||isHeritage)?c.text:badgeText;
-    const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):u.challengeReward?(SPELL_ICONS[u.id]||ICONS[u.faction]):isResearch?ICONS[u.category]:ICONS[u.faction];
+    const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):u.challengeReward?(SPELL_ICONS[u.id]||ICONS[u.faction]):isHeritage?(SPELL_ICONS[u.id]||ICONS[u.faction]):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
       ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
       :`<span class="card-icon-fb" style="background:${badgeBg}"></span>`;
