@@ -77,8 +77,8 @@ body{display:flex;flex-direction:column}
 .pin-chip:hover{opacity:.75}
 .cards{flex:1;overflow-y:auto;padding:10px 14px;display:flex;flex-direction:column;gap:8px;min-height:0}
 .card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:13px 16px;cursor:pointer;transition:border-color .12s;flex-shrink:0}
-.card.spell-upgrade-card{background:var(--bg2);margin-left:16px;border-left:2px solid #7a6aaa33}
-.card.challenge-reward-card{background:var(--bg2);margin-left:16px;border-left:2px solid #c87a3a55}
+.card.spell-upgrade-card{background:var(--bg2);margin-left:16px;border-left:2px solid var(--border2)}
+.card.challenge-reward-card{background:var(--bg2);margin-left:16px;border-left:2px solid var(--border2)}
 .card:hover{border-color:var(--border2)}
 .card.pinned{border-left-width:3px}
 .card-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -489,8 +489,8 @@ const WINDOWS=['Era','Reincarnation','All Time'];
 const UPGRADE_TYPES=['Faction Upgrades','Challenges','Spells','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
   'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction','Building Count']},
-  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Assistant Amount','Assistant Production','Assistant Count']},
-  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Spell Potency','Tax Collection','Offline Spell Casts','Spell Cast Count']},
+  'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Elven Luck','Assistant Amount','Assistant Production','Assistant Count']},
+  'Mana & Spells':{open:false,items:['Max Mana','Mana Regeneration','Spell Duration','Spell Cost Reduction','Spell Potency','Spell Headstart','Additional Spell Tier','Tax Collection','Offline Spell Casts','Spell Cast Count']},
   'Faction Coins':{open:false,items:['FC Find Chance','FC Amount','Royal Exchange Production','Royal Exchange Cost Reduction','Royal Exchange Count']},
   'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Reincarnation Count','Research Points Count','Misc']},
 };
@@ -498,8 +498,8 @@ const SCALING_GROUPS={
   'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
   'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Mana Produced','Spells Cast','Active Spells','Spell Activity Time','Spell Duration','Tax Collection']},
-  'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time']},
-  'Other':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Misc']},
+  'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time','Elven Luck']},
+  'Other':{open:false,items:['Reincarnations','Trophies','Artifacts Found','Lineage Level','Excavations','Research Points','Offline Production','Misc']},
 };
 
 let UPGRADES=[];
@@ -880,15 +880,22 @@ function buildCards(filtered){
     }
   });
 
+  // Whether unlock faction matches any selected faction filter
+  function unlockFactionSelected(u){
+    if(state.factions.size===0)return true;
+    const f=Array.isArray(u.faction)?u.faction:[u.faction];
+    return f.some(x=>state.factions.has(x));
+  }
+
   function sortKey(u){
     if(u.category==='Challenges'){
+      // Primary sort: unlock-faction-matched challenges first (0), others second (1)
+      const factionPriority=unlockFactionSelected(u)?0:1;
       if(u.challengeReward){
-        // Reward: anchor to parentSpell position, sub=3 (after spell parent=2, spell upgrade=2.5)
-        return [posIndex.get(u.parentSpell)??0, 3, posIndex.get(u.id)??0];
+        return [factionPriority, posIndex.get(u.parentSpell)??0, 3, posIndex.get(u.id)??0];
       } else {
-        // Regular challenge: anchor to same spell position as its faction's reward, sub=1
         const spellPos=rewardSpellPosByFaction.get(u.faction)??0;
-        return [spellPos, 1, posIndex.get(u.id)??0];
+        return [factionPriority, spellPos, 1, posIndex.get(u.id)??0];
       }
     }
     if(u.category==='Spells'){
@@ -896,7 +903,8 @@ function buildCards(filtered){
       const base=byId[parentId]||u;
       const classOrder=spellClassOrder[base.spellClass||'Faction']??0;
       const basePos=posIndex.get(parentId)??0;
-      return [basePos, u.spellUpgrade?2.5:2, posIndex.get(u.id)??0, classOrder];
+      const factionPriority=unlockFactionSelected(u)?0:1;
+      return [factionPriority, basePos, u.spellUpgrade?2.5:2, posIndex.get(u.id)??0, classOrder];
     }
     return [posIndex.get(u.id)??0, 0, 0, 0];
   }
@@ -914,6 +922,7 @@ function buildCards(filtered){
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
     const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'')+(u.challengeReward?' challenge-reward-card':'');
     if(pinned)card.style.borderLeftColor=c.bg;
+    else if(u.spellUpgrade||u.challengeReward)card.style.borderLeftColor=c.bg+'55';
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
     const isResearch=!!u.category&&u.category!=='Spells'&&u.category!=='Challenges';
     const isSpell=u.category==='Spells';
@@ -934,6 +943,11 @@ function buildCards(filtered){
     const factionTagsHtml=isResearch
       ?`<div class="card-faction-tags">${(Array.isArray(u.faction)?u.faction:[u.faction]).map(f=>{const fc=FC[f]||{bg:'var(--bg3)',text:'var(--text3)'};return`<span class="card-faction-tag" style="background:${fc.bg};color:${fc.text}">${f}</span>`;}).join('')}</div>`
       :'';
+    // For challenges: beneficiary faction chips
+    const beneficiaryFactions=u.beneficiaryFaction||[];
+    const challengeFactionTagsHtml=isChallenge&&!u.challengeReward&&beneficiaryFactions.length&&!beneficiaryFactions.includes('All')
+      ?`<div class="card-faction-tags">${beneficiaryFactions.map(f=>{const fc=FC[f]||{bg:'var(--bg3)',text:'var(--text3)'};return`<span class="card-faction-tag" style="background:${fc.bg};color:${fc.text}">${f}</span>`;}).join('')}</div>`
+      :'';
     // Requirement at bottom right
     const reqFull=u.requirement||'';
     const reqShort=reqFull.replace(/[A-Za-z][\w'\s]+\(([A-Z][A-Z0-9]+)\)/g,'$1');
@@ -942,7 +956,7 @@ function buildCards(filtered){
     // Spell cards: show cost in place of id badge; suppress id badge entirely for spells
     const costHtml=isSpell&&u.cost?`<span class="card-cost">${u.cost}</span>`:'';
     const idBadgeHtml=isSpell?'':`<span class="card-id-part" style="background:${idBadgeBg};color:${idBadgeText}">${u.id}</span>`;
-    const spellUpgradeLabelHtml=u.spellUpgrade?`<div class="spell-upgrade-label">Spell Upgrade</div>`:u.challengeReward?`<div class="spell-upgrade-label" style="color:#c87a3a">Challenge Reward</div>`:'';
+    const spellUpgradeLabelHtml=u.spellUpgrade?`<div class="spell-upgrade-label">Spell Upgrade</div>`:u.challengeReward?`<div class="spell-upgrade-label">Challenge Reward</div>`:'';
     card.innerHTML=`
       <div class="card-header">
         <div class="card-icon-wrap">
@@ -958,7 +972,7 @@ function buildCards(filtered){
         </div>
         <span class="faction-badge" style="background:${badgeBg};color:${badgeText}">${badgeLabel}</span>
       </div>
-      <div class="card-effect">${factionTagsHtml}${u.effect||''}</div>
+      <div class="card-effect">${factionTagsHtml}${challengeFactionTagsHtml}${u.effect||''}</div>
       ${u.formula?`<div class="card-formula">${u.formula}</div>`:''}
       <div class="card-bottom-row">
         <div class="card-tags-wrap"></div>

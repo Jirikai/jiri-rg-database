@@ -146,7 +146,7 @@
     "effect": "Each click has a 1% chance to gain coins equal to 150,000% of production, also generating Faction Coins based on Reincarnations made. Assistants trigger once per second.",
     "formula": "",
     "effects": [
-      "Clicking Reward",
+      "Elven Luck",
       "FC Amount"
     ],
     "scaling": [
@@ -189,7 +189,7 @@
     "effect": "Increase Elven Luck chance for autoclicks and increase its effects based on the highest amount of Arboreal Cities built this Reincarnation.",
     "formula": "Production: (80 * x^0.8)%, where x = highest Arboreal Cities this Reincarnation",
     "effects": [
-      "Clicking Reward",
+      "Elven Luck",
       "FC Amount"
     ],
     "scaling": [

@@ -113,7 +113,7 @@
       "Click Count"
     ],
     "scaling": [
-      "Misc"
+      "Elven Luck"
     ],
     "window": [
       "Era"
@@ -141,7 +141,7 @@
       "Mana Regeneration"
     ],
     "scaling": [
-      "Activity"
+      "Clicks"
     ],
     "window": [
       "Era"
@@ -168,7 +168,7 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Activity"
+      "Clicks"
     ],
     "window": [
       "Era"
@@ -192,10 +192,10 @@
     "effect": "While Moon Blessing is active, increase Elven Luck stat every second. Increases progressively over Moon Blessing's duration.",
     "formula": "+(1 + x ^ 0.2) per second, where x is Moon Blessing runtime.",
     "effects": [
-      "Clicking Reward"
+      "Elven Luck"
     ],
     "scaling": [
-      "Spell Activity Time"
+      "Spell Duration"
     ],
     "window": [
       "Era"
@@ -269,7 +269,7 @@
       "Unique Buildings"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Mana Regeneration"
     ],
     "window": [],
     "minAscension": 0,
@@ -295,7 +295,7 @@
       "Offline Spell Casts"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Mana Regeneration"
     ],
     "window": [],
     "minAscension": 0,
@@ -343,7 +343,7 @@
       "Gems Bonus"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Tax Collection"
     ],
     "window": [
       "Era"
@@ -393,7 +393,7 @@
       "FC Amount"
     ],
     "scaling": [
-      "Economy"
+      "Faction Coins Found"
     ],
     "window": [
       "Reincarnation"
@@ -420,7 +420,7 @@
       "Mana Regeneration"
     ],
     "scaling": [
-      "Economy"
+      "Assistants Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -492,7 +492,7 @@
       "Assistant Production"
     ],
     "scaling": [
-      "Activity"
+      "Time Played"
     ],
     "window": [
       "Reincarnation"
@@ -520,7 +520,7 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Other"
+      "Misc"
     ],
     "window": [],
     "minAscension": 0,
@@ -545,7 +545,7 @@
       "Max Mana"
     ],
     "scaling": [
-      "Buildings"
+      "Buildings Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -570,7 +570,7 @@
       "Non-Unique Buildings"
     ],
     "scaling": [
-      "Other"
+      "Trophies"
     ],
     "window": [],
     "minAscension": 0,
@@ -595,7 +595,7 @@
       "Specific Buildings"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Spells Cast"
     ],
     "window": [
       "Reincarnation"
@@ -622,7 +622,7 @@
       "Assistant Amount"
     ],
     "scaling": [
-      "Economy"
+      "Royal Exchange Count"
     ],
     "window": [],
     "minAscension": 0,
@@ -647,7 +647,7 @@
       "All Buildings"
     ],
     "scaling": [
-      "Activity"
+      "Time Played"
     ],
     "window": [
       "Reincarnation"
@@ -674,7 +674,7 @@
       "Max Mana"
     ],
     "scaling": [
-      "Economy"
+      "Faction Coins Found"
     ],
     "window": [
       "Era"
@@ -701,7 +701,7 @@
       "Royal Exchange Production"
     ],
     "scaling": [
-      "Buildings"
+      "Buildings Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -726,8 +726,8 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Economy",
-      "Buildings"
+      "Gems Owned",
+      "Buildings Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -752,7 +752,7 @@
       "Assistant Amount"
     ],
     "scaling": [
-      "Activity"
+      "Time Played"
     ],
     "window": [
       "Era"
@@ -779,7 +779,7 @@
       "Mana Regeneration"
     ],
     "scaling": [
-      "Buildings"
+      "Buildings Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -804,7 +804,7 @@
       "Max Mana"
     ],
     "scaling": [
-      "Buildings"
+      "Buildings Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -829,7 +829,7 @@
       "Non-Unique Buildings"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Spell Duration"
     ],
     "window": [],
     "minAscension": 0,
@@ -851,10 +851,10 @@
     "effect": "Grand Balance affects extra buildings based on Mana produced in this Reincarnation. When additional targets exceed 11, increase the production of all affected buildings based on the exceeding amount.",
     "formula": "+(0.00001 * x) ^ (0.4 / (A + 2)), where x is Mana produced this Reincarnation and A is current Ascension.\n(3 * (x - 10) ^ 1.5)%, where x is additional targets beyond 11.",
     "effects": [
-      "Specific Buildings"
+      "Spell Potency"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Mana Produced"
     ],
     "window": [
       "Reincarnation"
@@ -904,7 +904,7 @@
       "Max Mana"
     ],
     "scaling": [
-      "Buildings"
+      "Buildings Owned"
     ],
     "window": [
       "Reincarnation"
@@ -931,7 +931,7 @@
       "Assistant Amount"
     ],
     "scaling": [
-      "Economy"
+      "Royal Exchange Count"
     ],
     "window": [],
     "minAscension": 0,
@@ -976,10 +976,10 @@
     "effect": "Give Brainwave a 10 minutes headstart, increasing based on its activity time in this Era.",
     "formula": "+(600 + 0.4 * x ^ 0.8), where x is Brainwave activity time this Era.",
     "effects": [
-      "Specific Buildings"
+      "Spell Headstart"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Spell Activity Time"
     ],
     "window": [
       "Era"
@@ -1006,7 +1006,7 @@
       "Spell Cost Reduction"
     ],
     "scaling": [
-      "Economy"
+      "Gems Owned"
     ],
     "window": [],
     "minAscension": 0,
@@ -1056,7 +1056,7 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Active Spells"
     ],
     "window": [],
     "minAscension": 0,
@@ -1082,7 +1082,7 @@
       "All Buildings"
     ],
     "scaling": [
-      "Buildings"
+      "Specific Building Count"
     ],
     "window": [],
     "minAscension": 0,
@@ -1154,7 +1154,7 @@
       "Royal Exchange Production"
     ],
     "scaling": [
-      "Other"
+      "Trophies"
     ],
     "window": [],
     "minAscension": 0,
@@ -1180,7 +1180,7 @@
       "All Buildings"
     ],
     "scaling": [
-      "Economy"
+      "Faction Coins Found"
     ],
     "window": [
       "Era"
@@ -1209,7 +1209,7 @@
       "FC Amount"
     ],
     "scaling": [
-      "Other"
+      "Offline Production"
     ],
     "window": [],
     "minAscension": 0,
@@ -1235,7 +1235,7 @@
       "Offline Production"
     ],
     "scaling": [
-      "Activity"
+      "Time Played"
     ],
     "window": [
       "Era"
@@ -1262,7 +1262,7 @@
       "Tax Collection"
     ],
     "scaling": [
-      "Economy"
+      "Royal Exchange Count"
     ],
     "window": [],
     "minAscension": 0,
@@ -1288,7 +1288,7 @@
       "Offline Spell Casts"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Spells Cast"
     ],
     "window": [
       "Era"
@@ -1345,7 +1345,7 @@
       "Mana Regeneration"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Spell Activity Time"
     ],
     "window": [
       "Reincarnation"
@@ -1373,7 +1373,7 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Economy"
+      "Specific Building Count"
     ],
     "window": [],
     "minAscension": 1,
@@ -1400,8 +1400,8 @@
       "All Buildings"
     ],
     "scaling": [
-      "Other",
-      "Other"
+      "Artifacts Found",
+      "Excavations"
     ],
     "window": [],
     "minAscension": 1,
@@ -1426,14 +1426,16 @@
       "Tax Collection"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Active Spells"
     ],
     "window": [],
     "minAscension": 1,
     "ascensionPenalty": false,
     "parentSpell": "",
     "beneficiaryFaction": [
-      "All"
+      "Dwarven",
+      "Drow",
+      "Dragon"
     ]
   },
   {
@@ -1451,8 +1453,8 @@
       "Gems Bonus"
     ],
     "scaling": [
-      "Other",
-      "Activity"
+      "Artifacts Found",
+      "Time Played"
     ],
     "window": [
       "Era"
@@ -1476,10 +1478,10 @@
     "effect": "Reincarnations count 5% more per active Dragon's Breath tier.",
     "formula": "",
     "effects": [
-      "All Buildings"
+      "Reincarnation Count"
     ],
     "scaling": [
-      "Other"
+      "Misc"
     ],
     "window": [],
     "minAscension": 1,
@@ -1501,10 +1503,11 @@
     "effect": "Increase Mana Regeneration additively and multiplicatively based on Order buildings built. Precognition also increases Seraphim Wings (AN12) and God's Hand bonus by 3 times its bonus.",
     "formula": "+(x ^ 2), where x is Order buildings built.\n(0.5 * x ^ 0.5)%, where x is Order buildings built.",
     "effects": [
-      "Mana Regeneration"
+      "Mana Regeneration",
+      "Misc"
     ],
     "scaling": [
-      "Buildings"
+      "Buildings Owned"
     ],
     "window": [],
     "minAscension": 2,
@@ -1512,7 +1515,6 @@
     "parentSpell": "",
     "beneficiaryFaction": [
       "Angel",
-      "Dwarven",
       "Archon"
     ]
   },
@@ -1529,10 +1531,12 @@
     "formula": "(2.5 * ln(1 + x) ^ 2.5)%, where x is Offline production.",
     "effects": [
       "Assistant Amount",
-      "Offline Production"
+      "Offline Production",
+      "Misc",
+      "Additional Spell Tier"
     ],
     "scaling": [
-      "Other"
+      "Offline Production"
     ],
     "window": [],
     "minAscension": 2,
@@ -1559,7 +1563,7 @@
       "Royal Exchange Production"
     ],
     "scaling": [
-      "Economy"
+      "Royal Exchange Count"
     ],
     "window": [],
     "minAscension": 2,
@@ -1586,16 +1590,17 @@
       "Unique Buildings"
     ],
     "scaling": [
-      "Activity"
+      "Time Played"
     ],
     "window": [
-      "Era"
+      "Era",
+      "Reincarnation"
     ],
     "minAscension": 2,
     "ascensionPenalty": false,
     "parentSpell": "",
     "beneficiaryFaction": [
-      "All"
+      "Archon"
     ]
   },
   {
@@ -1663,8 +1668,8 @@
       "Spell Cast Count"
     ],
     "scaling": [
-      "Buildings",
-      "Spells & Mana"
+      "Buildings Owned",
+      "Max Mana"
     ],
     "window": [],
     "minAscension": 2,
@@ -1672,7 +1677,6 @@
     "parentSpell": "",
     "beneficiaryFaction": [
       "Fairy",
-      "Dwarven",
       "Djinn"
     ]
   },
@@ -1692,7 +1696,7 @@
       "Spell Cast Count"
     ],
     "scaling": [
-      "Other"
+      "Trophies"
     ],
     "window": [],
     "minAscension": 2,
@@ -1716,10 +1720,11 @@
     "effect": "Catalyst casts one additional spell and adds 100 casts per spell. Increase the minimum value on which Limited Wish is based.",
     "formula": "+(0.1 * x ^ 0.9), where x is Research Points spent.",
     "effects": [
-      "Spell Cast Count"
+      "Spell Cast Count",
+      "Misc"
     ],
     "scaling": [
-      "Other"
+      "Research Points"
     ],
     "window": [],
     "minAscension": 2,
@@ -1753,7 +1758,7 @@
     "ascensionPenalty": false,
     "parentSpell": "",
     "beneficiaryFaction": [
-      "All"
+      "Djinn"
     ]
   },
   {
@@ -1776,7 +1781,7 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Spells & Mana"
+      "Spells Cast"
     ],
     "window": [],
     "minAscension": 2,
@@ -1825,7 +1830,7 @@
       "FC Amount"
     ],
     "scaling": [
-      "Activity"
+      "Elven Luck"
     ],
     "window": [
       "Era"
@@ -1855,8 +1860,8 @@
       "Gems Bonus"
     ],
     "scaling": [
-      "Spells & Mana",
-      "Economy"
+      "Mana Regeneration",
+      "Tax Collection"
     ],
     "window": [
       "Era"
@@ -1883,9 +1888,13 @@
     "formula": "",
     "effects": [
       "Assistant Amount",
-      "Lineage Level"
+      "Lineage Level",
+      "Misc",
+      "Spell Potency"
     ],
-    "scaling": [],
+    "scaling": [
+      "Mana Regeneration"
+    ],
     "window": [],
     "minAscension": 2,
     "ascensionPenalty": false,
@@ -1908,7 +1917,8 @@
     "effect": "Pick an additional Artifact Set. Increase Faction Coins found matching that Set by 1000%.",
     "formula": "",
     "effects": [
-      "FC Amount"
+      "FC Amount",
+      "Misc"
     ],
     "scaling": [],
     "window": [],
@@ -1934,9 +1944,10 @@
       "Max Mana"
     ],
     "scaling": [
-      "Economy",
-      "Spells & Mana",
-      "Activity"
+      "Faction Coins Found",
+      "Mana Produced",
+      "Spells Cast",
+      "Clicks"
     ],
     "window": [
       "Era",
@@ -1961,7 +1972,7 @@
     "effect": "All Infinite Spiral effects scale 12% faster.",
     "formula": "",
     "effects": [
-      "All Buildings"
+      "Spell Potency"
     ],
     "scaling": [],
     "window": [],

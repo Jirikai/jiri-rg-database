@@ -593,7 +593,8 @@
     "effect": "Increase the production of all buildings by a cumulative 20% per second for 10 minutes.\nTier bonus: Give Brainwave a 10 minutes headstart per tier.",
     "formula": "",
     "effects": [
-      "All Buildings"
+      "All Buildings",
+      "Spell Headstart"
     ],
     "scaling": [],
     "window": [],
@@ -985,7 +986,7 @@
     "effect": "Give Limited Wish a headstart of 500 casts.",
     "formula": "",
     "effects": [
-      "Misc"
+      "Spell Headstart"
     ],
     "scaling": [],
     "window": [],
