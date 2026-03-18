@@ -175,10 +175,16 @@ body{display:flex;flex-direction:column}
 @media(prefers-color-scheme:dark){.tag-penalty{background:#3a1a1a;color:#e88080;border-color:#7a3030}}
 .force-dark .tag-penalty{background:#3a1a1a!important;color:#e88080!important;border-color:#7a3030!important}
 .force-light .tag-penalty{background:#fde8e8!important;color:#9b2020!important;border-color:#e89090!important}
-.tag-lineage{background:#eeeaf8;color:#5340a0;border:1px solid #a090d8;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700;cursor:default}
+.tag-lineage{background:#eeeaf8;color:#5340a0;border:1px solid #a090d8;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700;cursor:default;position:relative}
 @media(prefers-color-scheme:dark){.tag-lineage{background:#2a2040;color:#c0a8f0;border-color:#6050a0}}
 .force-dark .tag-lineage{background:#2a2040!important;color:#c0a8f0!important;border-color:#6050a0!important}
 .force-light .tag-lineage{background:#eeeaf8!important;color:#5340a0!important;border-color:#a090d8!important}
+.lineage-tooltip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:8px 12px;font-size:11px;color:var(--text);white-space:nowrap;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-weight:400;pointer-events:none;text-align:center;min-width:200px;white-space:normal;line-height:1.5}
+.lineage-tooltip strong{font-weight:700;color:#5340a0}
+@media(prefers-color-scheme:dark){.lineage-tooltip strong{color:#c0a8f0}}
+.force-dark .lineage-tooltip strong{color:#c0a8f0!important}
+.force-light .lineage-tooltip strong{color:#5340a0!important}
+.tag-lineage:hover .lineage-tooltip{display:block}
 
 /* Filter counts */
 .filter-count{font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0}
@@ -1085,8 +1091,7 @@ function buildCards(filtered){
      if(u.lineageScaling){
        const l=document.createElement('span');
        l.className='tag tag-lineage';
-       l.title='When using the matching Lineage, this upgrade\'s power is multiplied by *(1 + 0.2 * Lineage level)';
-       l.textContent='Lineage';
+       l.innerHTML='Adv. Heritage<span class="lineage-tooltip"><strong>Lineage Scaling</strong><br>When using the matching Lineage,<br>this power is multiplied by<br><strong>×(1 + 0.2 × Lineage level)</strong></span>';
        tagsWrap.appendChild(l);
      }
     el.appendChild(card);
