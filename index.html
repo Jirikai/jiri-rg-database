@@ -392,6 +392,7 @@ const ICONS={
   Djinn:'RG icons/DjinnTradeTreaty.png',
   Makers:'RG icons/MakersTradeTreaty.png',
   'FactionUpgrades':'RG icons/MercenaryFirstContract.png',
+  'Challenges':'RG icons/PixieMischiefChallenge.png',
   'Spells:All':'RG icons/FullWishChallengeReward.png',
   'Spells:Faction':'RG icons/ElvenTradeTreaty.png',
   'Spells:Common':'RG icons/CoinPillageSpellUpgrade.png',
@@ -484,9 +485,24 @@ const SPELL_ICONS={
   'Share-Benefits':     'RG icons/CoinPillageSpellUpgrade.png',
   'Reap-Interests':     'RG icons/CoinPillageSpellUpgrade.png',
   'Appraisal-Vantage':  'RG icons/CoinPillageSpellUpgrade.png',
+  'FRCR': 'RG icons/FairyOrchestraChallengeReward.png',
+  'ELCR': 'RG icons/StarBlessingChallengeReward.png',
+  'ANCR': 'RG icons/GodsThroneChallengeReward.png',
+  'GBCR': 'RG icons/AvariceDriveChallengeReward.png',
+  'UDCR': 'RG icons/MidnightTimeChallengeReward.png',
+  'DMCR': 'RG icons/HellfireBurstChallengeReward.png',
+  'TTCR': 'RG icons/ThunderstormChallengeReward.png',
+  'DDCR': 'RG icons/PrimalBalanceChallengeReward.png',
+  'FCCR': 'RG icons/FocusedThoughtsChallengeReward.png',
+  'DNCR': 'RG icons/IronGripChallengeReward.png',
+  'DWCR': 'RG icons/VersatileComboChallengeReward.png',
+  'DGCR': 'RG icons/PrismaticBreathChallengeReward.png',
+  'ARCR': 'RG icons/OmniscienceChallengeReward.png',
+  'DJCR': 'RG icons/FullWishChallengeReward.png',
+  'MKCR': 'RG icons/GaiasCradleChallengeReward.png',
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
-const UPGRADE_TYPES=['Faction Upgrades','Challenges','Spells','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+const UPGRADE_TYPES=['Faction Upgrades','Spells','Challenges','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
   'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction','Building Count']},
   'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Elven Luck','Assistant Amount','Assistant Production','Assistant Count']},
@@ -514,9 +530,9 @@ const FACTION_FILES=[
   'factions/dwarven','factions/drow','factions/dragon',
   'factions/mercenary','factions/archon','factions/djinn','factions/makers',
   'spells/spells',
+  'challenges/challenges',
   'research/spellcraft','research/craftsmanship','research/divine',
-  'research/economics','research/alchemy','research/warfare',
-  'challenges/challenges'
+  'research/economics','research/alchemy','research/warfare'
 ];
 Promise.all(FACTION_FILES.map(f=>fetch('data/'+f+'.json').then(r=>r.json())))
   .then(arrays=>{UPGRADES=arrays.flat();render();})
@@ -580,11 +596,12 @@ function toggleLeftSection(key){
   if(key==='type'){const el=document.getElementById('type-list');el.style.display=LEFT_OPEN[key]?'':'none';}
 }
 
+const SPELL_SUBS=['Spells:Faction','Spells:Common','Spells:Alignment'];
+const RESEARCH_SUBS=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+
 function buildTypeList(){
   const el=document.getElementById('type-list');el.innerHTML='';
 
-  const SPELL_SUBS=['Spells:Faction','Spells:Common','Spells:Alignment'];
-  const RESEARCH_SUBS=['Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 
   function makeBtn(key,label,iconKey,color,onclick){
     const active=state.upgradeTypes.has(key);
@@ -653,9 +670,6 @@ function buildTypeList(){
   // Faction Upgrades
   el.appendChild(makeBtn('Faction Upgrades','Faction Upgrades','FactionUpgrades','#888'));
 
-  // Challenges
-  el.appendChild(makeBtn('Challenges','Challenges','Challenges','#c87a3a'));
-
   // Spells collapsible group
   const spellsGroup=document.createElement('div');spellsGroup.className='faction-group';
   const spellsOpen=state._spellsOpen!==false;
@@ -679,6 +693,9 @@ function buildTypeList(){
     });
   }
   el.appendChild(spellsGroup);
+
+  // Challenges
+  el.appendChild(makeBtn('Challenges','Challenges','Challenges','#c87a3a'));
 
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
@@ -909,14 +926,19 @@ function buildCards(filtered){
     return [posIndex.get(u.id)??0, 0, 0, 0];
   }
 
-  filtered=filtered.slice().sort((a,b)=>{
-    const ka=sortKey(a), kb=sortKey(b);
-    for(let i=0;i<Math.max(ka.length,kb.length);i++){
-      const diff=(ka[i]??0)-(kb[i]??0);
-      if(diff!==0)return diff;
-    }
-    return 0;
-  });
+  const spellFilterActive=['Spells',...SPELL_SUBS].some(t=>state.upgradeTypes.has(t));
+  const challengeFilterActive=state.upgradeTypes.has('Challenges');
+  const needsGroupSort=spellFilterActive||challengeFilterActive;
+  if(needsGroupSort){
+    filtered=filtered.slice().sort((a,b)=>{
+      const ka=sortKey(a), kb=sortKey(b);
+      for(let i=0;i<Math.max(ka.length,kb.length);i++){
+        const diff=(ka[i]??0)-(kb[i]??0);
+        if(diff!==0)return diff;
+      }
+      return 0;
+    });
+  }
   filtered.forEach(u=>{
     const pinned=state.pinned.includes(u.id);
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
@@ -934,7 +956,7 @@ function buildCards(filtered){
     const badgeText=isSpell?spellBadge.text:isChallenge?challengeBadge.text:rc?rc.text:c.text;
     const idBadgeBg=isChallenge?c.bg:badgeBg;
     const idBadgeText=isChallenge?c.text:badgeText;
-    const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):isResearch?ICONS[u.category]:ICONS[u.faction];
+    const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):u.challengeReward?(SPELL_ICONS[u.id]||ICONS[u.faction]):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
       ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
       :`<span class="card-icon-fb" style="background:${badgeBg}"></span>`;
