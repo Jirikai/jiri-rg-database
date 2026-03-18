@@ -1,0 +1,1975 @@
+[
+  {
+    "id": "FRC1",
+    "name": "Pixie Mischief",
+    "faction": "Fairy",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Fairies are small and mighty, and they can turn little things into all you ever need. Speed is paramount and they do not tolerate cheating!",
+    "requirement": "Gain at least 150 assistants from Swarm of Fairies (FR6) in under 2 minutes of a new Era.",
+    "effect": "Gain assistants based on Fairy Chanting activity time in this Era.",
+    "formula": "+(25 + 15 * x ^ 0.25), where x is Fairy Chanting activity time this Era.",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Fairy"
+    ]
+  },
+  {
+    "id": "FRC2",
+    "name": "Donations",
+    "faction": "Fairy",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Our farmers' crops are not growing. Perhaps a little quick-magic can change that.",
+    "requirement": "Cast Fairy Chanting within 30 seconds of a new Era with over 1000 Farms.",
+    "effect": "Increase Tax Collection worth by 10%.",
+    "formula": "",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Goblin"
+    ]
+  },
+  {
+    "id": "FRC3",
+    "name": "Enchanted Lands",
+    "faction": "Fairy",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Fairies have developed a taste for honey. Find out quickly if they have a queen!",
+    "requirement": "Gain at least 150 assistants from Swarm of Fairies (FR6) in under 2 minutes of a new Era.",
+    "effect": "Multiplicatively increase Mana Regeneration based on Farms, Inns, and Blacksmiths built.",
+    "formula": "((0.5 * x) ^ 0.25)%, where x is Farms, Inns, and Blacksmiths built.",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "FRCR",
+    "name": "Fairy Orchestra",
+    "faction": "Fairy",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "FRC3",
+    "lore": "",
+    "requirement": "",
+    "effect": "Each assistant generates 3 times as many Faction Coins while Fairy Chanting is active.",
+    "formula": "",
+    "effects": [
+      "FC Amount"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Fairy-Chanting",
+    "beneficiaryFaction": [
+      "Fairy"
+    ]
+  },
+  {
+    "id": "ELC1",
+    "name": "Advanced Civilization",
+    "faction": "Elven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The elven council have asked you to provide proof of your loyalty to their cause. Hopefully you'll be quick and efficient enough to impress them.",
+    "requirement": "Find at least 100,000 Elven Coins in under 1 hour of a new Era.",
+    "effect": "Reduces Elven Exchange cost multiplier (-0.025). Clicks count more based on Elven Luck triggered in this Era.",
+    "formula": "(10 + x ^ 0.5)%, where x is Elven Lucks triggered this Era.",
+    "effects": [
+      "Royal Exchange Cost Reduction",
+      "Click Count"
+    ],
+    "scaling": [
+      "Misc"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Elven"
+    ]
+  },
+  {
+    "id": "ELC2",
+    "name": "Light Collector",
+    "faction": "Elven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The elven council has asked you to gather the light of countless stars. Time is of the essence!",
+    "requirement": "Gather 60,000 automatic clicks in less than 2 hours.",
+    "effect": "Autoclicks once per second. Multiplicatively increase Mana Regeneration based on clicks made in this Era.",
+    "formula": "(x ^ 0.25)%, where x is clicks made this Era.",
+    "effects": [
+      "Autoclick",
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Angel"
+    ]
+  },
+  {
+    "id": "ELC3",
+    "name": "Enchanted Lands",
+    "faction": "Elven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The elven council intends to use the light you've gathered as a weapon against their corrupt cousins, as soon as they detect weakness.",
+    "requirement": "Buy at least 200 Royal Exchanges of each Faction while having 0 Drow Exchanges.",
+    "effect": "Multiplicatively increase Faction Coin find chance based on clicks made in this Era.",
+    "formula": "(x ^ 0.25)%, where x is clicks made this Era.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "ELCR",
+    "name": "Star Blessing",
+    "faction": "Elven",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "ELC3",
+    "lore": "",
+    "requirement": "",
+    "effect": "While Moon Blessing is active, increase Elven Luck stat every second. Increases progressively over Moon Blessing's duration.",
+    "formula": "+(1 + x ^ 0.2) per second, where x is Moon Blessing runtime.",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Moon-Blessing",
+    "beneficiaryFaction": [
+      "Elven"
+    ]
+  },
+  {
+    "id": "ANC1",
+    "name": "Efficient Magic",
+    "faction": "Angel",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The blazing seraphim have entrusted you with a sacred mission: Purify the denizens of the realm with the most holy of lights. Hurry up, corruption is spreading fast.",
+    "requirement": "Cast Holy Light 50 times within 20 minutes of a new Era.",
+    "effect": "Reduce all spell costs by 10%. While Holy Light is active, increase the production of all buildings by 100%.",
+    "formula": "",
+    "effects": [
+      "Spell Cost Reduction",
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Angel"
+    ]
+  },
+  {
+    "id": "ANC2",
+    "name": "Mana Crypts",
+    "faction": "Angel",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The archangel leaders have entrusted you with a sacred mission: quickly harness enough magical power to become a beacon of magical selflessness. Extorting from the poor is forbidden.",
+    "requirement": "Have a God's Hand duration of at least 3 minutes.",
+    "effect": "Multiplicatively increases Maximum Mana by 30%.",
+    "formula": "",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Undead"
+    ]
+  },
+  {
+    "id": "ANC3",
+    "name": "Nephilim's Blessing",
+    "faction": "Angel",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The fallen nephilim have noticed your abilities and have entrusted you with a secret mission: Spread false hope upon the legends of mortals.",
+    "requirement": "Build at least 2400 Halls of Legends with no Good buildings, while having Demon Bloodline purchased.",
+    "effect": "Increase the production of all Unique Buildings based on Mana Regeneration.",
+    "formula": "(2.5 * log10(1 + x) ^ 2.5)%, where x is Mana Regeneration.",
+    "effects": [
+      "Unique Buildings"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "ANCR",
+    "name": "God's Throne",
+    "faction": "Angel",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "ANC3",
+    "lore": "",
+    "requirement": "",
+    "effect": "Mana Regeneration is increased by 50% while God's Hand is active. Also increases offline spell cast amount multiplicatively based on offline Mana Regeneration.",
+    "formula": "(10 * log10(1 + x)), where x is offline Mana Regeneration.",
+    "effects": [
+      "Mana Regeneration",
+      "Offline Spell Casts"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "God's-Hand",
+    "beneficiaryFaction": [
+      "Angel"
+    ]
+  },
+  {
+    "id": "GBC1",
+    "name": "Discount Season",
+    "faction": "Goblin",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The goblin king has revealed the secrets of his race's success. Patience and persistence.",
+    "requirement": "Have Green Fingers Discount (GB9) roll more than 1000 seconds worth of production.",
+    "effect": "Green Fingers Discount (GB9) triggers every 30 seconds instead, and casts 10 Tax Collections upon triggering.",
+    "formula": "",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Goblin"
+    ]
+  },
+  {
+    "id": "GBC2",
+    "name": "Elite Warriors",
+    "faction": "Goblin",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Goblin elites are used to unimaginable wealth. They will work for you after you bribe them generously and show them your worth.",
+    "requirement": "Buy over 250 upgrades and 15,000 buildings.",
+    "effect": "Multiplicatively increase production bonus from Gems based on Tax Collection casts this Era.",
+    "formula": "(2 * ln(1 + x) ^ 2)%, where x is Tax Collection casts this Era.",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Demon"
+    ]
+  },
+  {
+    "id": "GBC3",
+    "name": "Smuggled Jewels",
+    "faction": "Goblin",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The goblin king wants a castle made of jewels all to himself.",
+    "requirement": "Have at least 1e9 (1 B) gems in the abdication treasury while using Goblin Bloodline.",
+    "effect": "Increase triggered Tax Collections additionally by 1, and multiplicatively by 25%.",
+    "formula": "",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "GBCR",
+    "name": "Avarice Drive",
+    "faction": "Goblin",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "GBC3",
+    "lore": "",
+    "requirement": "",
+    "effect": "Goblin's Greed counts Faction Coins found in this Reincarnation.",
+    "formula": "",
+    "effects": [
+      "FC Amount"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Goblin's-Greed",
+    "beneficiaryFaction": [
+      "Goblin"
+    ]
+  },
+  {
+    "id": "UDC1",
+    "name": "Deadly Impatience",
+    "faction": "Undead",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The walking dead aren't very fond of a living being among their kind. Fortunately for you, an army of shambling corpses is slow to both think and move.",
+    "requirement": "Research at least 20000% offline production.",
+    "effect": "Increase Mana Regeneration additively based on assistants owned and multiplicatively by 10%.",
+    "formula": "+(4.5 * ln(1 + x) ^ 2), where x is assistants owned.",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Undead"
+    ]
+  },
+  {
+    "id": "UDC2",
+    "name": "Experienced Helpers",
+    "faction": "Undead",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The walking dead, pleased with your newfound strength, send you on a mission to reap as many souls as possible under the cover of the Night to bolster their forces.",
+    "requirement": "Cast Night Time when you have over 100 assistants.",
+    "effect": "Assistant production is increased by 10%.",
+    "formula": "",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Elven"
+    ]
+  },
+  {
+    "id": "UDC3",
+    "name": "Death Knights",
+    "faction": "Undead",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The walking dead are prepared for a zombie invasion. Their last task for you is to loot the local cemeteries for possible equipment.",
+    "requirement": "Find 1e9 (1 B) Faction Coins.",
+    "effect": "Multiplicatively increase assistants and Offline production by 10%.",
+    "formula": "",
+    "effects": [
+      "Assistant Amount",
+      "Offline Production"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "UDCR",
+    "name": "Midnight Time",
+    "faction": "Undead",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "UDC3",
+    "lore": "",
+    "requirement": "",
+    "effect": "Increase Night Time assistant bonus based on time spent in this Reincarnation.",
+    "formula": "(0.25 * x ^ 0.75)%, where x is time spent this Reincarnation.",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Night-Time",
+    "beneficiaryFaction": [
+      "Undead"
+    ]
+  },
+  {
+    "id": "DMC1",
+    "name": "Trophy Collectors",
+    "faction": "Demon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Princes of Hell wish to test your skills at gathering coins without outside help.",
+    "requirement": "Find 2000 Demon Coins without using Gem Power, Reincarnation Power, or Excavations.",
+    "effect": "Increase the production of all buildings and Faction Coin find chance (additively) based on upgrades purchased.",
+    "formula": "(x)% and +(x)%, where x is upgrades purchased.",
+    "effects": [
+      "All Buildings",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Demon"
+    ]
+  },
+  {
+    "id": "DMC2",
+    "name": "Legendary Antics",
+    "faction": "Demon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Princes of Hell demand a tribute, unleash the Beast by extorting every other faction in this realm. You should perform this task with haste, for they are well known for their impatience.",
+    "requirement": "Have exactly 666 Royal Exchanges across all factions, with 0 Demon Exchanges, in under 666 seconds of current playtime.",
+    "effect": "Increase Maximum Mana by 6.66% of your number of Halls of Legends.",
+    "formula": "",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Fairy"
+    ]
+  },
+  {
+    "id": "DMC3",
+    "name": "Passage to Tartarus",
+    "faction": "Demon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Demon King has ordered you to prove your might to the entire realm.",
+    "requirement": "Have at least 2500 Halls of Legends and 333 Trophies.",
+    "effect": "Increase the production of Non-Unique Buildings based on Trophies unlocked.",
+    "formula": "(0.8 * x ^ 0.8)%, where x is Trophies unlocked.",
+    "effects": [
+      "Non-Unique Buildings"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DMCR",
+    "name": "Hellfire Burst",
+    "faction": "Demon",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "DMC3",
+    "lore": "",
+    "requirement": "",
+    "effect": "Hellfire Blast also counts Evil spells cast in this Reincarnation to increase its bonus.",
+    "formula": "(0.1 * x), where x is Evil spells cast this Reincarnation.",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Hellfire-Blast",
+    "beneficiaryFaction": [
+      "Demon"
+    ]
+  },
+  {
+    "id": "TTC1",
+    "name": "Rich Followers",
+    "faction": "Titan",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The mighty Titans have decided to give you and a dozen of your most loyal subjects a chance to prove your kingdom's economy is as strong as theirs.",
+    "requirement": "Have at least 13 assistants and exactly 13 times that many Royal Exchanges (total).",
+    "effect": "Gain assistants based on Royal Exchanges purchased.",
+    "formula": "+(0.8 * x ^ 0.8), where x is Royal Exchanges purchased.",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Titan"
+    ]
+  },
+  {
+    "id": "TTC2",
+    "name": "Harmony of Thoughts",
+    "faction": "Titan",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The mighty Titans wish for you to harness arcane powers through your fingertips.",
+    "requirement": "Click 80 times while having at least 3 active spells in a single session.",
+    "effect": "Increases the production of buildings based on time spent not playing as Faceless in this Reincarnation.",
+    "formula": "(1.25 * x ^ 0.6)%, where x is time spent not playing as Faceless this Reincarnation.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Faceless"
+    ]
+  },
+  {
+    "id": "TTC3",
+    "name": "Balanced Economy",
+    "faction": "Titan",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The mighty Titans are almost ready to accept you into their pantheon. They request that you gather enough offerings to mark your ascension.",
+    "requirement": "Cast 80 Tax Collections within the active duration of a single Lightning Strike.",
+    "effect": "Gain additional Maximum Mana based on Faction Coins found this Era.",
+    "formula": "(round(2.5 * log10(1 + x)))%, where x is Faction Coins found this Era.",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Druid"
+    ]
+  },
+  {
+    "id": "TTC4",
+    "name": "Storm of Wealth",
+    "faction": "Titan",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The mighty Titans wish to cement their legendary status for perpetuity. You must focus on this task and no other to be able to join them.",
+    "requirement": "Cast Lightning Strike while having at least 200 Angel and Goblin Exchanges, without using any researches.",
+    "effect": "Multiplicatively increase Royal Exchange bonus based on Halls of Legends built.",
+    "formula": "(x ^ 0.5)%, where x is Halls of Legends built.",
+    "effects": [
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "TTCR",
+    "name": "Thunderstorm",
+    "faction": "Titan",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "TTC4",
+    "lore": "",
+    "requirement": "",
+    "effect": "Further increase Faction Coin find chance from Lightning Strike based on building tiers it hits.",
+    "formula": "(10 + log10(1 + x) ^ 2 * (1 + 0.2 * sum(T)))%, where x is Gems owned and T is the building tier Lightning Strike hits.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Economy",
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Lightning-Strike",
+    "beneficiaryFaction": [
+      "Titan"
+    ]
+  },
+  {
+    "id": "DDC1",
+    "name": "Silent Assistance",
+    "faction": "Druid",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The ancient Druids request evidence that you are a servant of balance before your inclusion to their ranks.",
+    "requirement": "Make the building targeted by Grand Balance surpass 99.9% of your production.",
+    "effect": "Gain assistants based on time spent in this Era.",
+    "formula": "+(1.3 * x ^ 0.7), where x is time spent this Era.",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Druid"
+    ]
+  },
+  {
+    "id": "DDC2",
+    "name": "Balanced Current",
+    "faction": "Druid",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Our sorcerers are desperately trying to stabilize the balance of the realm, this is your opportunity to gain their favor - and live another day.",
+    "requirement": "Have exactly 1,500 of each building type for 15 full Grand Balance casts in this Era.",
+    "effect": "Multiplicatively increase Mana Regeneration by 1% for every 1000 buildings built.",
+    "formula": "",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Titan"
+    ]
+  },
+  {
+    "id": "DDC3",
+    "name": "Eldritch Architecture",
+    "faction": "Druid",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Pleased with your efforts, the elder Druids assigned you with an important task; empower our obelisks, sacred churches and sarcophaguses.",
+    "requirement": "Have Grand Balance target Stone Pillars, Monasteries and Ancient Pyramids in that order, for 3 casts of Grand Balance.",
+    "effect": "Gain 5 Maximum Mana for every 100 buildings built.",
+    "formula": "",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Faceless"
+    ]
+  },
+  {
+    "id": "DDC4",
+    "name": "Overflowing Magic",
+    "faction": "Druid",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Druids need more spell power, but they are worried about outside influences throwing off their balance.",
+    "requirement": "Cast 13 Grand Balances in the first 5 minutes of a new Era with 0 non-Druid researches.",
+    "effect": "Increase the production of Non-Unique Buildings based on the duration of your longest spell. Gives the best bonus to the lowest tier.",
+    "formula": "((3 * x ^ 0.7) * (12 - T))%, where x is the duration of your longest spell and T is building tier.",
+    "effects": [
+      "Non-Unique Buildings"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DDCR",
+    "name": "Primal Balance",
+    "faction": "Druid",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "DDC4",
+    "lore": "",
+    "requirement": "",
+    "effect": "Grand Balance affects extra buildings based on Mana produced in this Reincarnation. When additional targets exceed 11, increase the production of all affected buildings based on the exceeding amount.",
+    "formula": "+(0.00001 * x) ^ (0.4 / (A + 2)), where x is Mana produced this Reincarnation and A is current Ascension.\n(3 * (x - 10) ^ 1.5)%, where x is additional targets beyond 11.",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Grand-Balance",
+    "beneficiaryFaction": [
+      "Druid"
+    ]
+  },
+  {
+    "id": "FCC1",
+    "name": "Recruitment",
+    "faction": "Faceless",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "You are always growing - but what to do when you can only start from a single cell with no means of survival?",
+    "requirement": "Have at least 125 assistants within 5 minutes of a new Era.",
+    "effect": "Gain 15 assistants every minute. Resets every hour.",
+    "formula": "",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Faceless"
+    ]
+  },
+  {
+    "id": "FCC2",
+    "name": "Mystic Maze",
+    "faction": "Faceless",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Your Hive superiors have ordered you to setup a base without alerting any nearby enemies.",
+    "requirement": "Get to 6,500 Maximum Mana and 8,000 buildings within 10 minutes of a new Era.",
+    "effect": "Increase Maximum Mana based on the highest amount of buildings built in this Reincarnation.",
+    "formula": "+(6 * (x ^ 0.6)), where x is the highest amount of buildings built this Reincarnation.",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Druid"
+    ]
+  },
+  {
+    "id": "FCC3",
+    "name": "Cyclopean Army",
+    "faction": "Faceless",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Our enemies, the Outer Gods, have returned. Use mind control to enhance our forces and repel this threat.",
+    "requirement": "Have Call to Arms, Gem Grinder, Spiritual Surge and Brainwave active at the same time.",
+    "effect": "Multiplicatively increase assistants based on Royal Exchange bonus.",
+    "formula": "(1.8 * x ^ 0.4)%, where x is Royal Exchange bonus.",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Titan"
+    ]
+  },
+  {
+    "id": "FCC4",
+    "name": "Omnipresence",
+    "faction": "Faceless",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "We are suffering attacks from another Hive. It's time to remind them the power of our master.",
+    "requirement": "Have a Hive Mind (FC9) bonus of at least 100%.",
+    "effect": "All factions receive 5% of your Hive Mind bonus.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "FCCR",
+    "name": "Focused Thoughts",
+    "faction": "Faceless",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "FCC4",
+    "lore": "",
+    "requirement": "",
+    "effect": "Give Brainwave a 10 minutes headstart, increasing based on its activity time in this Era.",
+    "formula": "+(600 + 0.4 * x ^ 0.8), where x is Brainwave activity time this Era.",
+    "effects": [
+      "Specific Buildings"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Brainwave",
+    "beneficiaryFaction": [
+      "Faceless"
+    ]
+  },
+  {
+    "id": "DNC1",
+    "name": "Enchanted Crystals",
+    "faction": "Dwarven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The dwarven lords have asked you to enchant their pickaxes.",
+    "requirement": "Cast 750 Tax Collections while having at least 4 active spells.",
+    "effect": "Reduce all spells cost based on Gems owned.",
+    "formula": "(-0.05 * ln(1 + x ^ (1 + A / 10)))%, where x is Gems owned and A is current Ascension.",
+    "effects": [
+      "Spell Cost Reduction"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Angel",
+      "Dwarven"
+    ]
+  },
+  {
+    "id": "DNC2",
+    "name": "Biased Architecture",
+    "faction": "Dwarven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The dwarven lords have asked you to provide their people with ale. Hurry up, the dwarves are getting thirsty!",
+    "requirement": "Build 2,250 Inns within 2 minutes of a new Era.",
+    "effect": "Reduce Farms, Inn and Blacksmith cost multipliers (-0.01 each).",
+    "formula": "",
+    "effects": [
+      "Building Cost Reduction"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Fairy",
+      "Dwarven"
+    ]
+  },
+  {
+    "id": "DNC3",
+    "name": "Rich Miners",
+    "faction": "Dwarven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The dwarven lords have asked you to help them collect trade supplies for all the factions of the realm.",
+    "requirement": "Collect at least 100,000 Faction Coins with a single Tax Collection.",
+    "effect": "Increase Faction Coin find chance based on active spells. Also multiplicatively increase Faction Coin find chance by 150%.",
+    "formula": "+(20 * x)%, where x is active spells.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Elven",
+      "Dwarven"
+    ]
+  },
+  {
+    "id": "DNC4",
+    "name": "Paladins",
+    "faction": "Dwarven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The dwarven lords are interested in training the troops into pious warriors. Begin the initiation as soon as possible.",
+    "requirement": "Have at least 3,000 Knights Jousts and as many Wizard Towers.",
+    "effect": "While Holy Light is active, increase the production of all buildings based on the combined amount of Knights Jousts and Wizard Towers built.",
+    "formula": "(5 * x ^ 0.3)%, where x is the number of Knight Jousts and Wizard Towers you own.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DNC5",
+    "name": "Underground Foundations",
+    "faction": "Dwarven",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The dwarven lords have asked you to create underground tunnels connecting the allied factions.",
+    "requirement": "Have 3,250 (or 2,500 if ascended) Excavations.",
+    "effect": "All buildings count 10% more.",
+    "formula": "",
+    "effects": [
+      "Building Count"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DNCR",
+    "name": "Iron Grip",
+    "faction": "Dwarven",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "DNC5",
+    "lore": "",
+    "requirement": "",
+    "effect": "Increase Diamond Pickaxe duration by 8 seconds. Its bonus to Faction Coin find chance is passively applied as a multiplier to Excavation Faction Coin rewards.",
+    "formula": "",
+    "effects": [
+      "FC Find Chance",
+      "Spell Duration"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Diamond-Pickaxe",
+    "beneficiaryFaction": [
+      "Dwarven"
+    ]
+  },
+  {
+    "id": "DWC1",
+    "name": "Organized Crime",
+    "faction": "Drow",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The mysterious drow wish for you to prove your murderous honor to them.",
+    "requirement": "Have at least 500 trophies, 1000 Royal Exchanges purchased and 250 Combo Strike counters in this Era.",
+    "effect": "Increase Royal Exchange bonus based on Trophies unlocked.",
+    "formula": "+(0.8 * x ^ 0.8)%, where x is Trophies unlocked.",
+    "effects": [
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Demon",
+      "Drow"
+    ]
+  },
+  {
+    "id": "DWC2",
+    "name": "Dark Elegance",
+    "faction": "Drow",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Spider Queen is not pleased with some of her worshippers. You must weed out the weak and sacrifice them at the temple altar.",
+    "requirement": "Build 1750 Spider Sanctuaries.",
+    "effect": "Increase the production of all buildings based on Faction Coins found in this Era.",
+    "formula": "(ln(1 + x) ^ 2)%, where x is Faction Coins found this Era.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Goblin",
+      "Drow"
+    ]
+  },
+  {
+    "id": "DWC3",
+    "name": "Sorcerer's Pact",
+    "faction": "Drow",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "A legion of interlopers have invaded our sanctuaries. Work yourselves into a rage and tear them apart.",
+    "requirement": "Have at least 2 hours of activity time for both Blood Frenzy and Combo Strike in this Era.",
+    "effect": "Increase Offline gain of spell activity time and Faction Coins based on Offline production.",
+    "formula": "(0.05 * ln(1 + x) ^ 1.5)%, where x is Offline production.",
+    "effects": [
+      "Offline Production",
+      "FC Amount"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Undead",
+      "Drow"
+    ]
+  },
+  {
+    "id": "DWC4",
+    "name": "Trained Assassins",
+    "faction": "Drow",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "There is a civil war between 2 Spider Gods. Bolster our forces and wipe the weaklings off the face of the realm.",
+    "requirement": "Cast Call to Arms with at least 30,000 buildings.",
+    "effect": "Increases Offline Production based on time spent in this Era.",
+    "formula": "(2 * x ^ 0.8)%, where x is time spent this Era.",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DWC5",
+    "name": "Shadow Mirage",
+    "faction": "Drow",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "It is time to emerge from the shadows. Our warriors will demonstrate their hard work and lead us to domination of the realm.",
+    "requirement": "Have at least 2 hours offline in this Era and at least 360 Combo Strike counters.",
+    "effect": "Multiplicatively increase triggered Tax Collections based on Royal Exchange bonus.",
+    "formula": "(5 + 2 * x ^ 0.2)%, where x is Royal Exchange bonus.",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DWCR",
+    "name": "Versatile Combo",
+    "faction": "Drow",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "DWC5",
+    "lore": "",
+    "requirement": "",
+    "effect": "Increase Combo Strike counter based on spells cast in this Era (excluding Tax Collection). Also increase offline spells cast amount multiplicatively based on offline Mana Regeneration.",
+    "formula": "New Counter: (x + y), where x is Combo Strike cast count and y is all other spell casts (excluding Tax Collection) this Era.\n(10 * log10(1 + x))%, where x is offline Mana Regeneration.",
+    "effects": [
+      "Spell Cast Count",
+      "Offline Spell Casts"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "parentSpell": "Combo-Strike",
+    "beneficiaryFaction": [
+      "Drow"
+    ]
+  },
+  {
+    "id": "DGC1",
+    "name": "Sky Monarch",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The Titan leader has approached you with an offer you cannot refuse: Use the help of your Draconic allies to guard his domain and lightning itself will enchant your riches.",
+    "requirement": "Reincarnation 53+. Build 10,000 Halls of Legends.",
+    "effect": "Multiplicatively increase Faction Coin find chance based on Lightning Strike activity time in this Era.",
+    "formula": "(0.7 * x ^ 0.7)%, where x is Lightning Strike activity time this Era.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Titan",
+      "Dragon"
+    ]
+  },
+  {
+    "id": "DGC2",
+    "name": "Barkscales",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Unstable power flows through your workforce. Prove to the Dragonlords you can sustain and control every sip of it.",
+    "requirement": "Reincarnation 56+. Produce at least 1e9 (1 B) mana in this Era. Have Grand Balance affect 5 buildings.",
+    "effect": "Increase the production of Non-Unique Buildings based on Grand Balance targets. Also increase Maximum Mana and Mana Regeneration based on Grand Balance activity time in this Reincarnation.",
+    "formula": "(30 * x ^ 3)%, where x is Grand Balance targets.\nMaximum Mana: +(300 * x ^ 0.7), where x is Grand Balance activity time this Reincarnation.\nMana Regeneration: +(30 * x ^ 0.7), where x is Grand Balance activity time this Reincarnation.",
+    "effects": [
+      "Non-Unique Buildings",
+      "Max Mana",
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Druid",
+      "Dragon"
+    ]
+  },
+  {
+    "id": "DGC3",
+    "name": "Serpent Queller",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Legends tell of a terrible sea monster destroying ships and harbors. With your Dragon and Faceless allies you can finally form a powerful army to raid its underwater lair.",
+    "requirement": "Reincarnation 59+, 7,000+ Excavation Depth. Have at least 3 days of Dragon and Faceless playtime combined, with at least 1 day of each (All Time).",
+    "effect": "Faction Coin find chance from Evolutive Mutation (FC2) becomes multiplicative. Improve the effects of Evolutive Mutation (FC2) and Deep Memory (FC3). Remove one Ascension penalty from Hive Mind (FC9).",
+    "formula": "FC2 Improved: (12 + 3 * x ^ 0.65)%, where x is highest Labyrinths built this Reincarnation.\nFC3 Improved: (x ^ 0.7)%, where x is longest Era this Reincarnation.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Faceless",
+      "Dragon"
+    ]
+  },
+  {
+    "id": "DGC4",
+    "name": "Draconstellation",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Centuries ago, the Dragon race managed to stockpile the absolute pinnacle of wealth. Scattered in the stars, help them establish a stronger connection with the void between the realms.",
+    "requirement": "Reincarnation 62+. Have at least 3 Dragon's Breaths active with 12,000 Iron Strongholds.",
+    "effect": "Faction Coins from excavations are increased based on Artifacts found. Also increase the production of all buildings based on Excavation depth.",
+    "formula": "(x ^ 5)%, where x is Artifacts found.\n(x ^ 0.8)%, where x is Excavation depth.",
+    "effects": [
+      "FC Amount",
+      "All Buildings"
+    ],
+    "scaling": [
+      "Other",
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DGC5",
+    "name": "Ancient Incantation",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "You have affiliated with many magical races in the past, but none as potent as the Dragons, whose very breath is among the strongest of forces. There might be some way for your wizards to exploit this.",
+    "requirement": "Reincarnation 65+. Have 12 active spells.",
+    "effect": "Increase Tax Collection worth based on active spells.",
+    "formula": "(40 * x ^ 0.8)%, where x is active spells.",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DGC6",
+    "name": "Dracomet Vault",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "This backwater world has been conquered. The Dragonlords strive for greater riches. Follow the Dragon King, soar through the heavens and claim the energy of the cosmos.",
+    "requirement": "Reincarnation 68+. Have at least 1e25 Faction Coins, 1e150 Coins, 120,000 Buildings built, 2e10 Mana produced, 9,000 Excavation depth, 1e7 assistants, 1e7 Maximum Mana and 2e7 Mana Regeneration.",
+    "effect": "Multiplicatively increase production bonus from Gems over time based on Artifacts found and time spent in this Era. Resets on Abdications.",
+    "formula": "(0.03 * x ^ 0.6 * t ^ 0.9)%, where x is Artifacts found and t is time spent this Era.",
+    "effects": [
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Other",
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DGCR",
+    "name": "Prismatic Breath",
+    "faction": "Dragon",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "DGC6",
+    "lore": "",
+    "requirement": "",
+    "effect": "Reincarnations count 5% more per active Dragon's Breath tier.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "parentSpell": "Dragon's-Breath",
+    "beneficiaryFaction": [
+      "Dragon"
+    ]
+  },
+  {
+    "id": "ARC1",
+    "name": "God's Plan",
+    "faction": "Archon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "The ascended crusade wishes to test the strength of its angelic understudies; perhaps a huge celestial army is worthy of their attention.",
+    "requirement": "Have a Call to Arms bonus of at least 1,500% and at least 150,000 Good buildings.",
+    "effect": "Increase Mana Regeneration additively and multiplicatively based on Order buildings built. Precognition also increases Seraphim Wings (AN12) and God's Hand bonus by 3 times its bonus.",
+    "formula": "+(x ^ 2), where x is Order buildings built.\n(0.5 * x ^ 0.5)%, where x is Order buildings built.",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Buildings"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Angel",
+      "Dwarven",
+      "Archon"
+    ]
+  },
+  {
+    "id": "ARC2",
+    "name": "An Untimely Death",
+    "faction": "Archon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "A glorious victory! May we reap the rewards of war with new undead adversaries to join our quest.",
+    "requirement": "Have an Offline Bonus of at least 1e25% while also having at least 1e11 assistants.",
+    "effect": "Multiplicatively increase assistants based on Offline production. Temporal Flux also increases Offline production and gains 1 tier.",
+    "formula": "(2.5 * ln(1 + x) ^ 2.5)%, where x is Offline production.",
+    "effects": [
+      "Assistant Amount",
+      "Offline Production"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Undead",
+      "Drow",
+      "Archon"
+    ]
+  },
+  {
+    "id": "ARC3",
+    "name": "Titanomancy",
+    "faction": "Archon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Through mastery of life and death, the final venture of creator's assistance stands between total dominion of the higher planes.",
+    "requirement": "Have a Royal Exchange bonus of at least 1e7% within 5 minutes of a new Era.",
+    "effect": "Increase Royal Exchange bonus based on Royal Exchanges purchased.",
+    "formula": "+(0.3 * x ^ 0.7)%, where x is Royal Exchanges purchased.",
+    "effects": [
+      "Royal Exchange Production"
+    ],
+    "scaling": [
+      "Economy"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Titan",
+      "Dragon",
+      "Archon"
+    ]
+  },
+  {
+    "id": "ARC4",
+    "name": "Time Merge",
+    "faction": "Archon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "In order to satiate our campaign we need to delve deeper into the abstract. Behold, even time itself yields to the crusade.",
+    "requirement": "Have a Temporal Flux bonus of at least 432%.",
+    "effect": "10% of time spent as Chaos and Balance in this Reincarnation is added to time spent in this Era. Increase the production of Unique Buildings based on time spent in this Era.",
+    "formula": "(9 * ln(1 + x) ^ 3)%, where x is time spent this Era.",
+    "effects": [
+      "Unique Buildings"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "ARC5",
+    "name": "Power Overwhelming",
+    "faction": "Archon",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "All-powerful ruler, we've experienced all this worldline had to offer. Shall we bridge to another and continue?",
+    "requirement": "Have a Precognition duration of at least 1 day, with a minimum of 650% bonus.",
+    "effect": "The Advanced Heritage that matches your Lineage counts 30% (up from 20%) of its level. All others get 3% (up from 0%) of their respective Lineage level.",
+    "formula": "",
+    "effects": [
+      "Lineage Level"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "ARCR",
+    "name": "Omniscience",
+    "faction": "Archon",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "ARC5",
+    "lore": "",
+    "requirement": "",
+    "effect": "Precognition also makes Excavations, Artifacts, Reincarnations, Research Points and Lineage levels count 15% more.",
+    "formula": "",
+    "effects": [
+      "Research Points Count",
+      "Reincarnation Count",
+      "Artifact Count",
+      "Lineage Level"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "Precognition",
+    "beneficiaryFaction": [
+      "Archon"
+    ]
+  },
+  {
+    "id": "DJC1",
+    "name": "Miniature Lamps",
+    "faction": "Djinn",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "In the beginning, we shared with the mortals mystical wishes to give them some entertaining tales to tell.",
+    "requirement": "Reach 50,000 Enchanted Fields within 2 minutes of a new Era.",
+    "effect": "While Maelstrom is active, multiplicatively increases assistants based on lowest building tier targeted (better bonus for lower tiers). While Fairy Chanting is active, produce Limited Wish casts every second based on Maximum Mana. Increases progressively over Fairy Chanting's duration.",
+    "formula": "(200 * (12 - T))%, where T is tier of lowest Maelstrom building targeted.\n+(0.0025 * (x ^ 0.25) * T * y), where x is Maximum Mana, T is Fairy Chanting Tier and y is Fairy Chanting runtime.",
+    "effects": [
+      "Assistant Amount",
+      "Spell Cast Count"
+    ],
+    "scaling": [
+      "Buildings",
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Fairy",
+      "Dwarven",
+      "Djinn"
+    ]
+  },
+  {
+    "id": "DJC2",
+    "name": "Ifrit Ignition",
+    "faction": "Djinn",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "As the years passed through, this benevolence fell on deaf ears. The mortals decided to enslave us; dictate to us their every whim. How dare they command us to do their bidding, give them hell!",
+    "requirement": "Have at least 66 B (6.6e10) Mana Produced within 6 hours of a new Era.",
+    "effect": "Increase Maximum Mana based on Trophies unlocked. Each time you cast an Evil or a Chaos spell, gain additional Limited Wish casts based on Trophies unlocked.",
+    "formula": "+(0.8 * x ^ 0.8), where x is Trophies unlocked.\n+(0.35 * x ^ 0.7), where x is Trophies unlocked.",
+    "effects": [
+      "Max Mana",
+      "Spell Cast Count"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Demon",
+      "Drow",
+      "Djinn"
+    ]
+  },
+  {
+    "id": "DJC3",
+    "name": "Identity Shaper",
+    "faction": "Djinn",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Interesting, they're showing us some compassion. But it matters not, for we're still bound towards these vessels.",
+    "requirement": "Have at least 3e14 base assistants within 5 minutes of a new Era.",
+    "effect": "Catalyst casts one additional spell and adds 100 casts per spell. Increase the minimum value on which Limited Wish is based.",
+    "formula": "+(0.1 * x ^ 0.9), where x is Research Points spent.",
+    "effects": [
+      "Spell Cast Count"
+    ],
+    "scaling": [
+      "Other"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Faceless",
+      "Dragon",
+      "Djinn"
+    ]
+  },
+  {
+    "id": "DJC4",
+    "name": "Worldly Desires",
+    "faction": "Djinn",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "This generation decided that we should give them a few more wishes before they give in to our demands for a change.",
+    "requirement": "Have a spell duration of at least 225 days.",
+    "effect": "Multiplicatively increase Assistants, production bonus from Gems and Maximum Mana by 88%, 88% and 888%, targets chosen randomly and refreshing every 88 seconds.",
+    "formula": "",
+    "effects": [
+      "Assistant Amount",
+      "Gems Bonus",
+      "Max Mana"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DJC5",
+    "name": "Altar of Wishes",
+    "faction": "Djinn",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Freedom... at last. Onwards we go, to a better future. So long, mortals.",
+    "requirement": "Cast all Chaos spells at least 88 times each in a single Reincarnation.",
+    "effect": "Multiplicatively increases one of your assets based on the alignments tied to your Faction spells. Good: Assistants. Evil: Trophy Count. Neutral: Gems Bonus. Order: Mana Regeneration. Chaos: Maximum Mana. Balance: Faction Coin Find Chance.",
+    "formula": "(45 ^ (1 + 0.25 * x))%, where x is spells of a given alignment.",
+    "effects": [
+      "Assistant Amount",
+      "Trophy Count",
+      "Gems Bonus",
+      "Mana Regeneration",
+      "Max Mana",
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spells & Mana"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "DJCR",
+    "name": "Full Wish",
+    "faction": "Djinn",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "DJC5",
+    "lore": "",
+    "requirement": "",
+    "effect": "The production of all buildings effect of Limited Wish is active on every cast and is no longer a possible random outcome.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "Limited-Wish",
+    "beneficiaryFaction": [
+      "Djinn"
+    ]
+  },
+  {
+    "id": "MKC1",
+    "name": "Seed of Life",
+    "faction": "Makers",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "If you wish to make an apple pie from scratch, you must first invent the universe. And the apple tree, you will have to nurse.",
+    "requirement": "Get 10 M (1e7) clicks in this Reincarnation and trigger Elven Luck at least 7,777 times in this Era.",
+    "effect": "Multiplicatively increase assistants based on Elven Luck triggered in this Era. Gain x8 Faction Coins from any source when they match your Faction, Bloodline or Set. While offline, increase Elven Luck stat based on Elven Luck chance.",
+    "formula": "(1.5 * x ^ 0.85)%, where x is Elven Lucks triggered this Era.\n+(x * y), where x is autoclick's Elven Luck chance and y is time spent offline.",
+    "effects": [
+      "Assistant Amount",
+      "FC Amount"
+    ],
+    "scaling": [
+      "Activity"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Elven",
+      "Dwarven",
+      "Makers"
+    ]
+  },
+  {
+    "id": "MKC2",
+    "name": "Artificial Currency",
+    "faction": "Makers",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Extinction is the rule. Survival is the exception, which can only be achieved through subtle deception.",
+    "requirement": "Find 1e40 (10 Dd) Faction Coins in this Era with a minimum of 3 Excavation Resets in this Reincarnation.",
+    "effect": "While Mana Regeneration is higher than Maximum Mana, each time you cast a spell also cast free Tax Collections based on the difference. Production bonus from Gems is increased multiplicatively based on Tax Collections cast in this Era.",
+    "formula": "+((log10(1 + x) ^ 2.5 - log10(1 + y) ^ 2.5) ^ 1.25), where x is Mana Regeneration and y is Maximum Mana.\n(ln(1 + x) ^ 2)%, where x is Tax Collections cast this Era.",
+    "effects": [
+      "Tax Collection",
+      "Gems Bonus"
+    ],
+    "scaling": [
+      "Spells & Mana",
+      "Economy"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Goblin",
+      "Drow",
+      "Makers"
+    ]
+  },
+  {
+    "id": "MKC3",
+    "name": "Pillars of Creation",
+    "faction": "Makers",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "We are like butterflies who flutter for a day and think it is forever. This can be accomplished when you sincerely endeavor.",
+    "requirement": "Have at least 1.2e13 (12 T) Maximum Mana and build at least 30,000 of each building within 5 minutes of a new Era.",
+    "effect": "Assistants Infinite Spiral effect is also multiplied by Mana Regeneration. Lineage levels count 50% more for your base lineage effect and increase the bonus of all Advanced Heritages by 50%.",
+    "formula": "",
+    "effects": [
+      "Assistant Amount",
+      "Lineage Level"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "Druid",
+      "Dragon",
+      "Makers"
+    ]
+  },
+  {
+    "id": "MKC4",
+    "name": "Stoneheart",
+    "faction": "Makers",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "We are a way for the cosmos to know itself. Manipulate existence to plant an evocation of yourself.",
+    "requirement": "Without using any Bloodline or Research, reach 30,000 Halls of Origination.",
+    "effect": "Pick an additional Artifact Set. Increase Faction Coins found matching that Set by 1000%.",
+    "formula": "",
+    "effects": [
+      "FC Amount"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "MKC5",
+    "name": "Greatest Invention",
+    "faction": "Makers",
+    "category": "Challenges",
+    "challengeReward": false,
+    "parentChallenge": "",
+    "lore": "Somewhere, something incredible is waiting to be known. Sculpt from your boundless imagination and make it your own.",
+    "requirement": "Have at least 1 T (1e12) assistants, 100 M (1e8) Maximum Mana and 200 Qi (2e20) Faction Coin find chance within 8 minutes of a new Era.",
+    "effect": "Multiplicatively increase Maximum Mana based on Faction Coins gained and mana produced in this Era; spells cast and clicks made in this Reincarnation.",
+    "formula": "(0.4 * (0.3 * ln(1 + a) + ln(1 + b) + ln(1 + c) + 4 * ln(1 + d)) ^ 1.4)%, where a is Faction Coins (this Era), b is Mana produced (this Era), c is spells cast (this Reincarnation), d is clicks made (this Reincarnation).",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Economy",
+      "Spells & Mana",
+      "Activity"
+    ],
+    "window": [
+      "Era",
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "",
+    "beneficiaryFaction": [
+      "All"
+    ]
+  },
+  {
+    "id": "MKCR",
+    "name": "Gaia's Cradle",
+    "faction": "Makers",
+    "category": "Challenges",
+    "challengeReward": true,
+    "parentChallenge": "MKC5",
+    "lore": "",
+    "requirement": "",
+    "effect": "All Infinite Spiral effects scale 12% faster.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "parentSpell": "Infinite-Spiral",
+    "beneficiaryFaction": [
+      "Makers"
+    ]
+  }
+]
