@@ -1,0 +1,583 @@
+[
+  {
+    "id": "Fairy-H",
+    "name": "Fairy Heritage",
+    "faction": "Fairy",
+    "category": "Heritages",
+    "cost": "5,000 Fairy Coins",
+    "requirement": "Fairy Champion Trophy",
+    "effect": "Increase the production of all buildings by 0.075% per Farm, Inn and Blacksmith you own.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Elven-H",
+    "name": "Elven Heritage",
+    "faction": "Elven",
+    "category": "Heritages",
+    "cost": "5,000 Elven Coins",
+    "requirement": "Elven Champion Trophy",
+    "effect": "Increase your chance to find Faction Coins by +5% and increase your click reward based on your chance to find Faction Coins. Also autoclicks once per second.",
+    "formula": "(2 * ln(1 + x) ^ 2)%, where x is your chance to find Faction Coins.",
+    "effects": [
+      "FC Find Chance",
+      "Clicking Reward",
+      "Autoclick"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Angel-H",
+    "name": "Angelic Heritage",
+    "faction": "Angel",
+    "category": "Heritages",
+    "cost": "5,000 Angel Coins",
+    "requirement": "Angel Champion Trophy",
+    "effect": "Multiplicatively increase Mana Regeneration by 10%.",
+    "formula": "",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Goblin-H",
+    "name": "Goblin Heritage",
+    "faction": "Goblin",
+    "category": "Heritages",
+    "cost": "5,000 Goblin Coins",
+    "requirement": "Goblin Champion Trophy",
+    "effect": "Increase the production of all buildings based on Gems owned.",
+    "formula": "floor(7.5 * log10(1 + x))%, where x is Gems owned.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Undead-H",
+    "name": "Undead Heritage",
+    "faction": "Undead",
+    "category": "Heritages",
+    "cost": "5,000 Undead Coins",
+    "requirement": "Undead Champion Trophy",
+    "effect": "Increase Offline production based on time spent in this Era.",
+    "formula": "+(0.7 * x ^ 0.7), where x is time spent this Era.",
+    "effects": [
+      "Offline Production"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Demon-H",
+    "name": "Demonic Heritage",
+    "faction": "Demon",
+    "category": "Heritages",
+    "cost": "5,000 Demon Coins",
+    "requirement": "Demon Champion Trophy",
+    "effect": "Increase the production of all buildings by 0.3% per Hall of Legends you own.",
+    "formula": "",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Titan-H",
+    "name": "Titan Heritage",
+    "faction": "Titan",
+    "category": "Heritages",
+    "cost": "25,000 Angel Coins, 25,000 Goblin Coins",
+    "requirement": "Titan Champion Trophy",
+    "effect": "Increase Royal Exchange production bonus by an additional 15% each.",
+    "formula": "",
+    "effects": [
+      "Royal Exchange Production"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Druid-H",
+    "name": "Druid Heritage",
+    "faction": "Druid",
+    "category": "Heritages",
+    "cost": "25,000 Elven Coins, 25,000 Demon Coins",
+    "requirement": "Druid Champion Trophy",
+    "effect": "Increase Maximum Mana by +1 every 15 buildings you own.",
+    "formula": "",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Faceless-H",
+    "name": "Faceless Heritage",
+    "faction": "Faceless",
+    "category": "Heritages",
+    "cost": "25,000 Fairy Coins, 25,000 Undead Coins",
+    "requirement": "Faceless Champion Trophy",
+    "effect": "Increase the production of all buildings based on the highest amount of buildings purchased in a single Era this Reincarnation.",
+    "formula": "(0.25 * x ^ 0.75)%, where x is your Buildings Owned (Max) stat.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Dwarven-H",
+    "name": "Dwarven Heritage",
+    "faction": "Dwarven",
+    "category": "Heritages",
+    "cost": "75,000 Dwarven Coins",
+    "requirement": "Dwarven Champion Trophy",
+    "effect": "Increase the production of all buildings based on Excavation depth.",
+    "formula": "(2 * (x ^ 0.9))%, where x is Excavation depth.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Drow-H",
+    "name": "Drow Heritage",
+    "faction": "Drow",
+    "category": "Heritages",
+    "cost": "75,000 Drow Coins",
+    "requirement": "Drow Champion Trophy",
+    "effect": "Increase the production of assistants based on Royal Exchanges purchased.",
+    "formula": "(3 * x ^ 0.7)%, where x is Royal Exchanges purchased.",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Mercenary-H",
+    "name": "Mercenary Badge",
+    "faction": "Mercenary",
+    "category": "Heritages",
+    "cost": "100,000 of each Faction Coins",
+    "requirement": "Mercenary Champion Trophy",
+    "effect": "Increase the production of all buildings based on the highest amount of Coins gained in a single Era.",
+    "formula": "floor(5 * log10(1 + x))%, where x is your Coins Gained (Max) stat.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Misc"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Dragon-H",
+    "name": "Dragon Heritage",
+    "faction": "Dragon",
+    "category": "Heritages",
+    "cost": "400 B (4e11) Dwarven and Drow Coins",
+    "requirement": "Dragon Champion Trophy",
+    "effect": "Increase the production of assistants based on time spent as Dragon in this Reincarnation.",
+    "formula": "(0.7 * x ^ 0.85)%, where x is time spent as Dragon this Reincarnation.",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Archon-H",
+    "name": "Archon Heritage",
+    "faction": "Archon",
+    "category": "Heritages",
+    "cost": "1 Ud (1e36) Angel and Undead Coins",
+    "requirement": "Archon Champion Trophy",
+    "effect": "Buildings, Assistants, Royal Exchanges, Spells cast and Clicks count more by 10%.",
+    "formula": "",
+    "effects": [
+      "Building Count",
+      "Assistant Count",
+      "Royal Exchange Count",
+      "Spell Cast Count",
+      "Click Count"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Djinn-H",
+    "name": "Djinn Heritage",
+    "faction": "Djinn",
+    "category": "Heritages",
+    "cost": "1 Ud (1e36) Fairy and Demon Coins",
+    "requirement": "Djinn Champion Trophy",
+    "effect": "Increase the production of Unique Buildings based on Limited Wish activity time in this Reincarnation.",
+    "formula": "(30 + 0.3 * x ^ 0.65)%, where x is Limited Wish activity time this Reincarnation.",
+    "effects": [
+      "Unique Buildings"
+    ],
+    "scaling": [
+      "Spell Activity Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Makers-H",
+    "name": "Makers Heritage",
+    "faction": "Makers",
+    "category": "Heritages",
+    "cost": "1 Ud (1e36) Elven and Goblin Coins",
+    "requirement": "Makers Champion Trophy",
+    "effect": "Multiplicatively increase Maximum Mana based on Tax Collection casts in this Era.",
+    "formula": "(ln(1 + x) ^ 1.75)%, where x is Tax Collection casts this Era.",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Tax Collection"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": false
+  },
+  {
+    "id": "Fairy-AH",
+    "name": "Advanced Fairy Heritage",
+    "faction": "Fairy",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Fairy Coins",
+    "requirement": "Fairy Master Trophy, 1 hour Fairy Chanting activity time this Era.",
+    "effect": "Gain assistants based on Farms, Inns and Blacksmiths owned.",
+    "formula": "+(2 * x ^ 0.8), where x is Farms, Inns and Blacksmiths owned.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Specific Building Count"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Elven-AH",
+    "name": "Advanced Elven Heritage",
+    "faction": "Elven",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Elven Coins",
+    "requirement": "Elven Master Trophy, 1 hour Moon Blessing activity time this Era.",
+    "effect": "Multiplicatively increase Autoclick power based on Faction Coins found in this Era.",
+    "formula": "(0.2 * ln(1 + x) ^ 0.8)%, where x is Faction Coins found this Era.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Autoclick"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Angel-AH",
+    "name": "Advanced Angelic Heritage",
+    "faction": "Angel",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Angel Coins",
+    "requirement": "Angel Master Trophy, 1 hour God's Hand activity time this Era.",
+    "effect": "Increase Mana Regeneration based on spells cast this Era.",
+    "formula": "+(5 * x ^ 0.25), where x is spells cast this Era.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Goblin-AH",
+    "name": "Advanced Goblin Heritage",
+    "faction": "Goblin",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Goblin Coins",
+    "requirement": "Goblin Master Trophy, 1 hour Goblin's Greed activity time this Era.",
+    "effect": "Multiplicatively increase Tax Collection worth based on Gems owned.",
+    "formula": "(0.15 * ln(1 + x) ^ 0.95)%, where x is Gems owned.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Gems Owned"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Undead-AH",
+    "name": "Advanced Undead Heritage",
+    "faction": "Undead",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Undead Coins",
+    "requirement": "Undead Master Trophy, 1 hour Night Time activity time this Era.",
+    "effect": "Assistants count more based on time spent offline in this Reincarnation.",
+    "formula": "(0.5 * x ^ 0.5)%, where x is time spent offline this Reincarnation.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Assistant Count"
+    ],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Demon-AH",
+    "name": "Advanced Demonic Heritage",
+    "faction": "Demon",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Demon Coins",
+    "requirement": "Demon Master Trophy, 1 hour Hellfire Blast activity time this Era.",
+    "effect": "Increase the production of all buildings based on Trophies unlocked.",
+    "formula": "(0.25 * x ^ 0.75)%, where x is Trophies unlocked.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Titan-AH",
+    "name": "Advanced Titan Heritage",
+    "faction": "Titan",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Angel and Goblin Coins",
+    "requirement": "Titan Master Trophy, 1 hour Lightning Strike activity time this Era.",
+    "effect": "Increase Maximum Mana based on Royal Exchanges purchased.",
+    "formula": "(0.85 * ln(1 + x) ^ 1.15)%, where x is Royal Exchanges purchased.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Druid-AH",
+    "name": "Advanced Druid Heritage",
+    "faction": "Druid",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Elven and Demon Coins",
+    "requirement": "Druid Master Trophy, 1 hour Grand Balance activity time this Era.",
+    "effect": "Multiplicatively increase Faction Coin find chance based on the sum of all spell durations.",
+    "formula": "(9 * x ^ 0.3)%, where x is the sum of all spell durations.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spell Duration"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Faceless-AH",
+    "name": "Advanced Faceless Heritage",
+    "faction": "Faceless",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Fairy and Undead Coins",
+    "requirement": "Faceless Master Trophy, 1 hour Brainwave activity time this Era.",
+    "effect": "Gain assistants based on Unique Buildings built.",
+    "formula": "+(2.25 * x ^ 0.8), where x is Unique Buildings built.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Assistant Amount"
+    ],
+    "scaling": [
+      "Unique Buildings Built"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Dwarven-AH",
+    "name": "Advanced Dwarven Heritage",
+    "faction": "Dwarven",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Dwarven Coins",
+    "requirement": "Dwarven Master Trophy, 1 hour Diamond Pickaxe activity time this Era.",
+    "effect": "Increase the production of all buildings based on Excavation depth and Excavation Resets made in this Reincarnation.",
+    "formula": "(0.025 * (x * (1 + y + z)) ^ 0.65)%, where x is Excavation depth and y & z are free and ruby Excavation Resets this Reincarnation.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Excavations"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Drow-AH",
+    "name": "Advanced Drow Heritage",
+    "faction": "Drow",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Drow Coins",
+    "requirement": "Drow Master Trophy, 1 hour Combo Strike activity time this Era.",
+    "effect": "Increase the production of all buildings based on Offline production and time spent in this Era.",
+    "formula": "(0.2 * ln(1 + x) * y ^ 0.4)%, where x is Offline production and y is time spent this Era.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "All Buildings"
+    ],
+    "scaling": [
+      "Offline Production",
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  },
+  {
+    "id": "Dragon-AH",
+    "name": "Advanced Dragon Heritage",
+    "faction": "Dragon",
+    "category": "Advanced Heritages",
+    "cost": "1 Sp (1e24) Dwarven and Drow Coins",
+    "requirement": "Dragon Master Trophy, 1 hour Dragon's Breath activity time this Era.",
+    "effect": "Increase triggered Tax Collections based on Artifacts found.",
+    "formula": "+(1 + 0.05 * ln(1 + x) ^ 1.15), where x is Artifacts found.\n*(1 + 0.2 * L), where L is current Lineage level.",
+    "effects": [
+      "Tax Collection"
+    ],
+    "scaling": [
+      "Artifacts Found"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false,
+    "lineageScaling": true
+  }
+]

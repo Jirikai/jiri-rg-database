@@ -71,7 +71,7 @@
       "Mana Regeneration"
     ],
     "scaling": [
-      "Buildings Owned"
+      "Unique Buildings Built"
     ],
     "window": [
       "Era"
@@ -132,7 +132,7 @@
       "Specific Buildings"
     ],
     "scaling": [
-      "Buildings Owned"
+      "Unique Buildings Built"
     ],
     "window": [
       "Era"

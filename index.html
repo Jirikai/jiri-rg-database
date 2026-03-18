@@ -175,6 +175,10 @@ body{display:flex;flex-direction:column}
 @media(prefers-color-scheme:dark){.tag-penalty{background:#3a1a1a;color:#e88080;border-color:#7a3030}}
 .force-dark .tag-penalty{background:#3a1a1a!important;color:#e88080!important;border-color:#7a3030!important}
 .force-light .tag-penalty{background:#fde8e8!important;color:#9b2020!important;border-color:#e89090!important}
+.tag-lineage{background:#eeeaf8;color:#5340a0;border:1px solid #a090d8;font-size:10px;padding:2px 6px;border-radius:20px;white-space:nowrap;font-weight:700;cursor:default}
+@media(prefers-color-scheme:dark){.tag-lineage{background:#2a2040;color:#c0a8f0;border-color:#6050a0}}
+.force-dark .tag-lineage{background:#2a2040!important;color:#c0a8f0!important;border-color:#6050a0!important}
+.force-light .tag-lineage{background:#eeeaf8!important;color:#5340a0!important;border-color:#a090d8!important}
 
 /* Filter counts */
 .filter-count{font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0}
@@ -502,7 +506,7 @@ const SPELL_ICONS={
   'MKCR': 'RG icons/GaiasCradleChallengeReward.png',
 };
 const WINDOWS=['Era','Reincarnation','All Time'];
-const UPGRADE_TYPES=['Faction Upgrades','Spells','Challenges','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
+const UPGRADE_TYPES=['Faction Upgrades','Heritages','Advanced Heritages','Spells','Challenges','Spellcraft','Craftsmanship','Divine','Economics','Alchemy','Warfare'];
 const EFFECT_GROUPS={
   'Buildings':{open:true,items:['All Buildings','Specific Buildings','Unique Buildings','Non-Unique Buildings','Building Cost Reduction','Building Count']},
   'Clicking & Assistants':{open:true,items:['Clicking Reward','Base Clicking Reward','Building → Click Conversion','Autoclick','Click Count','Elven Luck','Assistant Amount','Assistant Production','Assistant Count']},
@@ -511,7 +515,7 @@ const EFFECT_GROUPS={
   'Other':{open:false,items:['Gems Bonus','Offline Production','Artifact Count','Trophy Count','Lineage Level','Excavation Cost Reduction','Reincarnation Count','Research Points Count','Misc']},
 };
 const SCALING_GROUPS={
-  'Buildings':{open:true,items:['Buildings Owned','Specific Building Count']},
+  'Buildings':{open:true,items:['Buildings Owned','Specific Building Count','Unique Buildings Built','Non-Unique Buildings Owned']},
   'Economy':{open:true,items:['Coins Owned','Faction Coins Found','Gems Owned','Royal Exchange Count','Assistants Owned']},
   'Spells & Mana':{open:false,items:['Max Mana','Mana Regeneration','Mana Produced','Spells Cast','Active Spells','Spell Activity Time','Spell Duration','Tax Collection']},
   'Activity':{open:false,items:['Time Played','Offline Time','Clicks','Alignment Time','Elven Luck']},
@@ -531,6 +535,7 @@ const FACTION_FILES=[
   'factions/mercenary','factions/archon','factions/djinn','factions/makers',
   'faction_addons/spells',
   'faction_addons/challenges',
+  'faction_addons/heritages',
   'research/spellcraft','research/craftsmanship','research/divine',
   'research/economics','research/alchemy','research/warfare'
 ];
@@ -669,6 +674,10 @@ function buildTypeList(){
 
   // Faction Upgrades
   el.appendChild(makeBtn('Faction Upgrades','Faction Upgrades','FactionUpgrades','#888'));
+
+  // Heritages
+  el.appendChild(makeBtn('Heritages','Heritages','Heritages','#c4a35a'));
+  el.appendChild(makeBtn('Advanced Heritages','Adv. Heritages','Advanced Heritages','#a07830'));
 
   // Spells collapsible group
   const spellsGroup=document.createElement('div');spellsGroup.className='faction-group';
@@ -942,20 +951,23 @@ function buildCards(filtered){
   filtered.forEach(u=>{
     const pinned=state.pinned.includes(u.id);
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
-    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'')+(u.challengeReward?' challenge-reward-card':'');
+    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'')+(u.challengeReward?' challenge-reward-card':'')+(u.category==='Advanced Heritages'?' spell-upgrade-card':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     else if(u.spellUpgrade||u.challengeReward)card.style.borderLeftColor=c.bg+'55';
     card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
-    const isResearch=!!u.category&&u.category!=='Spells'&&u.category!=='Challenges';
+    const isResearch=!!u.category&&u.category!=='Spells'&&u.category!=='Challenges'&&u.category!=='Heritages'&&u.category!=='Advanced Heritages';
     const isSpell=u.category==='Spells';
     const isChallenge=u.category==='Challenges';
+    const isHeritage=u.category==='Heritages'||u.category==='Advanced Heritages';
     const rc=isResearch?RESEARCH_COLORS[u.category]:null;
     const spellBadge={bg:'#7a6aaa',text:'#fff'};
     const challengeBadge={bg:'#c87a3a',text:'#fff'};
-    const badgeBg=isSpell?spellBadge.bg:isChallenge?challengeBadge.bg:rc?rc.bg:c.bg;
-    const badgeText=isSpell?spellBadge.text:isChallenge?challengeBadge.text:rc?rc.text:c.text;
-    const idBadgeBg=isChallenge?c.bg:badgeBg;
-    const idBadgeText=isChallenge?c.text:badgeText;
+    const heritageBadge={bg:'#c4a35a',text:'#fff'};
+    const advHeritageBadge={bg:'#a07830',text:'#fff'};
+    const badgeBg=isSpell?spellBadge.bg:isChallenge?challengeBadge.bg:isHeritage?(u.category==='Advanced Heritages'?advHeritageBadge.bg:heritageBadge.bg):rc?rc.bg:c.bg;
+    const badgeText=isSpell?spellBadge.text:isChallenge?challengeBadge.text:isHeritage?(u.category==='Advanced Heritages'?advHeritageBadge.text:heritageBadge.text):rc?rc.text:c.text;
+    const idBadgeBg=(isChallenge||isHeritage)?c.bg:badgeBg;
+    const idBadgeText=(isChallenge||isHeritage)?c.text:badgeText;
     const iconSrc=isSpell?(SPELL_ICONS[u.id]||null):u.challengeReward?(SPELL_ICONS[u.id]||ICONS[u.faction]):isResearch?ICONS[u.category]:ICONS[u.faction];
     const iconHtml=iconSrc
       ?`<img src="${iconSrc}" class="card-icon" alt="" onerror="this.style.display='none'">`
@@ -1012,6 +1024,9 @@ function buildCards(filtered){
           state.upgradeTypes.has(u.category)?state.upgradeTypes.delete(u.category):state.upgradeTypes.add(u.category);
         } else if(isChallenge){
           state.upgradeTypes.has('Challenges')?state.upgradeTypes.delete('Challenges'):state.upgradeTypes.add('Challenges');
+        } else if(isHeritage){
+          const hCat=u.category;
+          state.upgradeTypes.has(hCat)?state.upgradeTypes.delete(hCat):state.upgradeTypes.add(hCat);
         } else {
           const f=Array.isArray(u.faction)?u.faction[0]:u.faction;
           state.factions.has(f)?state.factions.delete(f):state.factions.add(f);
@@ -1065,6 +1080,14 @@ function buildCards(filtered){
        p.title='This upgrade\'s production bonus is reduced by Ascension penalty';
        p.textContent='A-Penalty';
        tagsWrap.appendChild(p);
+     }
+     // Lineage scaling chip — for Advanced Heritages
+     if(u.lineageScaling){
+       const l=document.createElement('span');
+       l.className='tag tag-lineage';
+       l.title='When using the matching Lineage, this upgrade\'s power is multiplied by *(1 + 0.2 * Lineage level)';
+       l.textContent='Lineage';
+       tagsWrap.appendChild(l);
      }
     el.appendChild(card);
   });

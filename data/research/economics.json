@@ -372,7 +372,7 @@
       "FC Find Chance"
     ],
     "scaling": [
-      "Buildings Owned"
+      "Unique Buildings Built"
     ],
     "window": [
       "Era"
@@ -559,7 +559,7 @@
       "Assistant Production"
     ],
     "scaling": [
-      "Buildings Owned"
+      "Non-Unique Buildings Owned"
     ],
     "window": [
       "Era"
