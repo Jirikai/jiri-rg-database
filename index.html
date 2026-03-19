@@ -715,7 +715,7 @@ function buildTypeList(){
   // Faction Upgrades collapsible group
   const factionGroup=document.createElement('div');factionGroup.className='faction-group';
   const factionOpen=state._factionOpen!==false;
-  const FACTION_SUBS=['Faction Upgrades','Heritages','Advanced Heritages','Unique Buildings','Unions'];
+  const FACTION_SUBS=['Faction Upgrades','Heritages','Advanced Heritages','Unique Buildings','Unions','Challenges'];
   const factionAnyActive=FACTION_SUBS.some(t=>state.upgradeTypes.has(t));
   const factionLbl=document.createElement('div');factionLbl.className='faction-group-lbl';
   factionLbl.style.cursor='pointer';
@@ -740,6 +740,7 @@ function buildTypeList(){
       ['Heritages',        'Heritages',       'Heritages',        '#c4a35a'],
       ['Unique Buildings', 'Unique Buildings','Unique Buildings',  '#6a9a6a'],
       ['Unions',           'Unions',          'Unions',           '#7a6aaa'],
+      ['Challenges',       'Challenges',      'Challenges',       '#c87a3a'],
     ].forEach(([key,label,iconKey,color])=>{
       const b=makeBtn(key,label,iconKey,color,()=>{});
       b.classList.add('sub-btn');
@@ -772,9 +773,6 @@ function buildTypeList(){
     });
   }
   el.appendChild(spellsGroup);
-
-  // Challenges
-  el.appendChild(makeBtn('Challenges','Challenges','Challenges','#c87a3a'));
 
   // Research collapsible group
   const researchGroup=document.createElement('div');researchGroup.className='faction-group';
