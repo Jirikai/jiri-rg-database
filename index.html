@@ -1021,10 +1021,10 @@ function buildCards(filtered){
   filtered.forEach(u=>{
     const pinned=state.pinned.includes(u.id);
     const c=FC[u.faction]||{bg:'#888',text:'#fff'};
-    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'')+(u.challengeReward?' challenge-reward-card':'')+(u.category==='Advanced Heritages'?' spell-upgrade-card':'');
+    const card=document.createElement('div');card.className='card'+(pinned?' pinned':'')+(u.spellUpgrade?' spell-upgrade-card':'')+(u.challengeReward?' challenge-reward-card':'');
     if(pinned)card.style.borderLeftColor=c.bg;
     else if(u.spellUpgrade||u.challengeReward)card.style.borderLeftColor=c.bg+'55';
-    card.onclick=()=>{pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
+    card.onclick=(e)=>{if(window.getSelection&&window.getSelection().toString().length>0)return;pinned?state.pinned=state.pinned.filter(p=>p!==u.id):state.pinned.push(u.id);render();};
     const isResearch=!!u.category&&u.category!=='Spells'&&u.category!=='Challenges'&&u.category!=='Heritages'&&u.category!=='Advanced Heritages'&&u.category!=='Unique Buildings'&&u.category!=='Unions';
     const isSpell=u.category==='Spells';
     const isChallenge=u.category==='Challenges';

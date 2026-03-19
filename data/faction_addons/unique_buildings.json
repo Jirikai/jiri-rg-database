@@ -15,7 +15,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "FRUB2",
@@ -33,7 +33,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ELUB1",
@@ -51,7 +51,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ELUB2",
@@ -69,7 +69,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ANUB1",
@@ -87,7 +87,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ANUB2",
@@ -107,7 +107,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "GBUB1",
@@ -125,7 +125,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "GBUB2",
@@ -143,7 +143,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "UDUB1",
@@ -163,7 +163,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "UDUB2",
@@ -181,7 +181,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DMUB1",
@@ -199,7 +199,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DMUB2",
@@ -219,7 +219,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "TTUB1",
@@ -237,7 +237,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "TTUB2",
@@ -255,7 +255,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DDUB1",
@@ -273,7 +273,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DDUB2",
@@ -291,7 +291,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "FCUB1",
@@ -311,7 +311,7 @@
       "Reincarnation"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "FCUB2",
@@ -331,7 +331,7 @@
       "Era"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DNUB1",
@@ -349,7 +349,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DNUB2",
@@ -369,7 +369,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DWUB1",
@@ -387,7 +387,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DWUB2",
@@ -405,7 +405,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DGUB1",
@@ -425,7 +425,7 @@
       "Era"
     ],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DGUB2",
@@ -443,7 +443,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "MCUB-Good",
@@ -461,7 +461,7 @@
     ],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "MCUB-Evil",
@@ -479,7 +479,7 @@
     ],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "MCUB-Neutral",
@@ -499,7 +499,7 @@
       "Era"
     ],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ARUB1",
@@ -519,7 +519,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DJUB1",
@@ -539,7 +539,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "MKUB1",
@@ -557,6 +557,6 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   }
 ]

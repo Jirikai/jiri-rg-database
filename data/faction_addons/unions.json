@@ -16,7 +16,7 @@
     ],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ELUN",
@@ -37,7 +37,7 @@
       "Reincarnation"
     ],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ANUN",
@@ -98,7 +98,7 @@
     ],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DMUN",
@@ -162,7 +162,7 @@
     ],
     "window": [],
     "minAscension": 1,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "FCUN",
@@ -206,7 +206,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DWUN",
@@ -232,7 +232,7 @@
       "Era"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "DGUN",
@@ -257,7 +257,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false
+    "ascensionPenalty": true
   },
   {
     "id": "ARUN",

@@ -16,7 +16,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -38,7 +38,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -76,7 +76,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -98,7 +98,7 @@
       "Era"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -118,7 +118,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -178,7 +178,7 @@
       "Reincarnation"
     ],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -198,7 +198,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -218,7 +218,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -238,7 +238,7 @@
     ],
     "window": [],
     "minAscension": 0,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -260,7 +260,7 @@
       "Reincarnation"
     ],
     "minAscension": 1,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -304,7 +304,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": false
   },
   {
@@ -452,7 +452,7 @@
     ],
     "window": [],
     "minAscension": 2,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": true
   },
   {
@@ -534,7 +534,7 @@
       "Reincarnation"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": true
   },
   {
@@ -557,7 +557,7 @@
       "Era"
     ],
     "minAscension": 2,
-    "ascensionPenalty": false,
+    "ascensionPenalty": true,
     "lineageScaling": true
   },
   {
