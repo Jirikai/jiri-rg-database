@@ -1,0 +1,321 @@
+[
+  {
+    "id": "FRUN",
+    "name": "Fairies Union",
+    "faction": "Fairy",
+    "category": "Unions",
+    "requirement": "Swarming Towers Unique Building",
+    "cost": "1 Qi (1e18) Fairy Coins",
+    "effect": "Increase assistant production based on amount of Enchanted Fields, Inns and Blacksmiths if building count is even, or all other buildings if building count is odd.",
+    "formula": "Even: (6 * x ^ 0.6)%, where x is Enchanted Fields, Inns and Blacksmiths. Odd: (6 * x ^ 0.6)%, where x is T4-T11 Buildings.",
+    "effects": [
+      "Assistant Production"
+    ],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ELUN",
+    "name": "Elven Union",
+    "faction": "Elven",
+    "category": "Unions",
+    "requirement": "Arboreal City Unique Building",
+    "cost": "1 Qi (1e18) Elven Coins",
+    "effect": "Increase click production based on Faction Coins found this Reincarnation. Also autoclicks 10 times per second.",
+    "formula": "(2 * ln(1 + x) ^ 2)%, where x is Faction Coins found this Reincarnation.",
+    "effects": [
+      "Clicking Reward"
+    ],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ANUN",
+    "name": "Angels Union",
+    "faction": "Angel",
+    "category": "Unions",
+    "requirement": "Holy Site Unique Building",
+    "cost": "1 Qi (1e18) Angel Coins",
+    "effect": "Increase Mana Regeneration multiplicatively based on Mana produced this Era.",
+    "formula": "(2.5 * ln(1 + x) ^ 2.5)%, where x is Mana produced this Era.",
+    "effects": [
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Mana Produced"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "GBUN",
+    "name": "Goblins Union",
+    "faction": "Goblin",
+    "category": "Unions",
+    "requirement": "Slave Market Unique Building",
+    "cost": "1 Qi (1e18) Goblin Coins",
+    "effect": "Multiplicatively increase Faction Coin find chance based on spells cast this Era.",
+    "formula": "(2.25 * log10(1 + x) ^ 2.25)%, where x is spells cast this Era.",
+    "effects": [
+      "FC Find Chance"
+    ],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UDUN",
+    "name": "Undead Union",
+    "faction": "Undead",
+    "category": "Unions",
+    "requirement": "Flesh Workshop Unique Building",
+    "cost": "1 Qi (1e18) Undead Coins",
+    "effect": "Increase the production of Unique Buildings based on Offline production.",
+    "formula": "(360 * ln(1 + x) ^ 3)%, where x is Offline production.",
+    "effects": [
+      "Unique Buildings"
+    ],
+    "scaling": [
+      "Offline Production"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DMUN",
+    "name": "Demons Union",
+    "faction": "Demon",
+    "category": "Unions",
+    "requirement": "Burning Abyss Unique Building",
+    "cost": "1 Qi (1e18) Demon Coins",
+    "effect": "A fraction of Non-Evil spells cast this Era count as Evil. Also Trophies count more based on time spent offline this Reincarnation.",
+    "formula": "Evil spells: (0.01 * x ^ 0.8), where x is Non-Evil spells cast this Era. Trophies: (30 + 0.3 * x ^ 0.6)%, where x is offline time this Reincarnation.",
+    "effects": [
+      "Misc"
+    ],
+    "scaling": [
+      "Spells Cast",
+      "Offline Time"
+    ],
+    "window": [
+      "Era",
+      "Reincarnation"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "TTUN",
+    "name": "Titans Union",
+    "faction": "Titan",
+    "category": "Unions",
+    "requirement": "Mountain Palace Unique Building",
+    "cost": "1 Qi (1e18) Angel and Goblin Coins",
+    "effect": "Multiplicatively increase Faction Coin find chance based on time spent this Era. Also increase Maximum Mana additively based on time spent this Era.",
+    "formula": "FC: (50 * (x / 3600) ^ 0.85)%, Mana: +(20 * x ^ 0.75), where x is time spent this Era.",
+    "effects": [
+      "FC Find Chance",
+      "Max Mana"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DDUN",
+    "name": "Druids Union",
+    "faction": "Druid",
+    "category": "Unions",
+    "requirement": "Ziggurat Unique Building",
+    "cost": "1 Qi (1e18) Elven and Demon Coins",
+    "effect": "Increase the production of Non-Unique buildings based on total Lineage level and maximum Grand Balance targets.",
+    "formula": "(x * y ^ 1.25)%, where x is total Lineage levels and y is buildings targeted by Grand Balance (max 11).",
+    "effects": [
+      "Non-Unique Buildings"
+    ],
+    "scaling": [
+      "Lineage Level"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "FCUN",
+    "name": "Faceless Union",
+    "faction": "Faceless",
+    "category": "Unions",
+    "requirement": "Forbidden Library Unique Building",
+    "cost": "1 Qi (1e18) Fairy and Undead Coins",
+    "effect": "Multiplicatively increase assistants based on total time spent as a random faction. Updates every 3 minutes.",
+    "formula": "(40 + 0.4 * x ^ 0.4), where x is time spent all time with a given faction.",
+    "effects": [
+      "Assistant Count"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DNUN",
+    "name": "Dwarven Union",
+    "faction": "Dwarven",
+    "category": "Unions",
+    "requirement": "High Bastion Unique Building",
+    "cost": "1 Sp (1e24) Dwarven Coins",
+    "effect": "Effect varies by alignment. Order: Increase all building production based on time spent this Reincarnation. Chaos: Multiplicatively increase assistants based on spells cast this Reincarnation. Balance: Increase Mana Regeneration based on clicks made this Reincarnation.",
+    "formula": "Order: (3.5 * x ^ 0.65)%. Chaos: ((sum(digit(x) ^ y)) ^ 0.8)%, y = floor(ln(1 + x) + 1) / 10 + 2. Balance: (1.5 * ln(1 + x) ^ 2.5)%.",
+    "effects": [
+      "All Buildings",
+      "Assistant Production",
+      "Mana Regeneration"
+    ],
+    "scaling": [
+      "Alignment Time",
+      "Spells Cast",
+      "Clicks"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DWUN",
+    "name": "Drow Union",
+    "faction": "Drow",
+    "category": "Unions",
+    "requirement": "Brothel Unique Building",
+    "cost": "1e24 Drow Coins",
+    "effect": "Effect varies by alignment. Order: Increase offline bonus based on Maximum Mana. Chaos: Increase production of a specific building tier based on time spent offline this Reincarnation. Balance: Multiplicatively increase Maximum Mana based on Tax Collections cast this Era.",
+    "formula": "Order: (0.1 * x ^ 0.85)%. Chaos: (100 + 3 * x ^ 0.87)%. Balance: (0.05 * ln(1 + x) ^ 2.5)%.",
+    "effects": [
+      "Offline Production",
+      "Specific Buildings",
+      "Max Mana"
+    ],
+    "scaling": [
+      "Max Mana",
+      "Offline Time",
+      "Tax Collections"
+    ],
+    "window": [
+      "Reincarnation",
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DGUN",
+    "name": "Dragon Union",
+    "faction": "Dragon",
+    "category": "Unions",
+    "requirement": "Dragon Pasture Unique Building",
+    "cost": "100 Sp (1e26) Dwarven and Drow Coins",
+    "effect": "Effect varies by alignment. Order: Increase the production of all buildings based on time spent as Order this Reincarnation. Chaos: Increase production of Unique or Non-Unique buildings based on assistants owned (target depends on FC chance). Balance: Multiplicatively increase Maximum Mana based on current Lineage level.",
+    "formula": "Order: (0.7 * x ^ 0.7)%. Chaos Unique: (2 * x ^ 0.3)%, Chaos Non-Unique: (6 * x ^ 0.3)%. Balance: (8 * x ^ 0.8)%.",
+    "effects": [
+      "All Buildings",
+      "Specific Buildings",
+      "Max Mana"
+    ],
+    "scaling": [
+      "Alignment Time",
+      "Assistants Owned",
+      "Lineage Level"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ARUN",
+    "name": "Archon Union",
+    "faction": "Archon",
+    "category": "Unions",
+    "requirement": "Nexus Unique Building",
+    "cost": "1 Dd (1e39) Angel and Undead Coins",
+    "effect": "Temporal Flux also increases Maximum Mana based on time spent this Era.",
+    "formula": "(0.35 * (x / 60) ^ 0.825)%, where x is time spent this Era.",
+    "effects": [
+      "Max Mana"
+    ],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DJUN",
+    "name": "Djinn Union",
+    "faction": "Djinn",
+    "category": "Unions",
+    "requirement": "Pavilion Unique Building",
+    "cost": "1 Dd (1e39) Fairy and Demon Coins",
+    "effect": "Maelstrom bonuses scale faster.",
+    "formula": "10% increase to the exponent of Maelstrom formulas.",
+    "effects": [
+      "Spell Potency"
+    ],
+    "scaling": [],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MKUN",
+    "name": "Makers Union",
+    "faction": "Makers",
+    "category": "Unions",
+    "requirement": "Hall of Origination Unique Building",
+    "cost": "1 Dd (1e39) Elven and Goblin Coins",
+    "effect": "All Creation production effect is based on the highest Mana Regeneration rate this Reincarnation. Does not affect Faction Coin find chance.",
+    "formula": "",
+    "effects": [
+      "Spell Potency"
+    ],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  }
+]

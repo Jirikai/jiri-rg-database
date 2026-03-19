@@ -1,0 +1,562 @@
+[
+  {
+    "id": "FRUB1",
+    "name": "Enchanted Field",
+    "faction": "Fairy",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Farms",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 2,250 Farms",
+    "effect": "Upgrade Farms to Enchanted Fields, boosting their production based on assistants owned.",
+    "formula": "(50 * (500 * x) ^ 0.5)%, where x is assistants owned.",
+    "effects": [],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "FRUB2",
+    "name": "Swarming Tower",
+    "faction": "Fairy",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Wizard Towers",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Swarming Tower Quest (1,000,000 assistants)",
+    "effect": "Upgrade Wizard Towers to Swarming Towers, boosting their production based on active spells.",
+    "formula": "(2.5 * x ^ 2.5)%, where x is active spells.",
+    "effects": [],
+    "scaling": [
+      "Active Spells"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ELUB1",
+    "name": "Elven Training Ground",
+    "faction": "Elven",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Warrior Barracks",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 1,750 Warrior Barracks",
+    "effect": "Upgrade Warrior Barracks to Elven Training Grounds, boosting their production based on clicks made this Reincarnation.",
+    "formula": "((50 * x ^ 0.85) + 50 * ln(1 + x) ^ 6)%, where x is total clicks all time.",
+    "effects": [],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ELUB2",
+    "name": "Arboreal City",
+    "faction": "Elven",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Citadels",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Arboreal City Quest (1e23 Elven Coins found)",
+    "effect": "Upgrade Citadels to Arboreal Cities, boosting their production based on Faction Coin find chance.",
+    "formula": "floor(20 * (ln(1 + x)) ^ 2)%, where x is FC find chance.",
+    "effects": [],
+    "scaling": [
+      "Misc"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ANUB1",
+    "name": "Heaven's Domain",
+    "faction": "Angel",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Heaven's Gates",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 1,500 Heaven's Gates",
+    "effect": "Upgrade Heaven's Gates to Heaven's Domains, boosting their production based on Mana Regeneration.",
+    "formula": "(7 * x ^ 0.7)%, where x is Mana Regeneration.",
+    "effects": [],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ANUB2",
+    "name": "Holy Site",
+    "faction": "Angel",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Cathedrals",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Holy Site Quest (3e6 Mana Regeneration)",
+    "effect": "Upgrade Cathedrals to Holy Sites, boosting their production based on time spent as Good this Reincarnation.",
+    "formula": "(1.8 * x ^ 0.9)%, where x is time spent as Good this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "GBUB1",
+    "name": "Goblin Bank",
+    "faction": "Goblin",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Witch Conclaves",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 1,750 Witch Conclaves",
+    "effect": "Upgrade Witch Conclaves to Goblin Banks, boosting their production based on Coins owned.",
+    "formula": "(650 + 10000 * (log10(1 + x)) ^ (3.1/(1 + 0.1 * (y + 1)))/30)%, where x is Coins owned and y is Ascension.",
+    "effects": [],
+    "scaling": [
+      "Coins Owned"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "GBUB2",
+    "name": "Slave Market",
+    "faction": "Goblin",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Slave Pens",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Slave Market Quest (30,000 Neutral buildings)",
+    "effect": "Upgrade Slave Pens to Slave Markets, boosting their production based on assistants.",
+    "formula": "(floor(0.25 * x ^ 0.75))%, where x is assistants owned.",
+    "effects": [],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UDUB1",
+    "name": "Undercity",
+    "faction": "Undead",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Necropolises",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 1,750 Necropolises",
+    "effect": "Upgrade Necropolises to Undercities, boosting their production based on time spent in this Era.",
+    "formula": "(80 + 80 * x ^ 0.8)%, where x is time spent this Era.",
+    "effects": [],
+    "scaling": [
+      "Time Played"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "UDUB2",
+    "name": "Flesh Workshop",
+    "faction": "Undead",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Orcish Arenas",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Flesh Workshop Quest (500,000% offline production bonus)",
+    "effect": "Upgrade Orcish Arenas to Flesh Workshops, boosting their production based on Mana Regeneration.",
+    "formula": "(35 * x ^ 0.65)%, where x is Mana Regeneration.",
+    "effects": [],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DMUB1",
+    "name": "Infernal Realm",
+    "faction": "Demon",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Hell Portals",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 1,500 Hell Portals",
+    "effect": "Upgrade Hell Portals to Infernal Realms, boosting their production by 40% per Trophy unlocked.",
+    "formula": "(125 * x)%, where x is Trophies unlocked.",
+    "effects": [],
+    "scaling": [
+      "Trophies"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DMUB2",
+    "name": "Burning Abyss",
+    "faction": "Demon",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Halls of Legends",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Burning Abyss Quest (3,600 seconds Call to Arms)",
+    "effect": "Upgrade Halls of Legends to Burning Abyss, boosting their production based on time spent as Evil this Reincarnation.",
+    "formula": "for each digit of floor(1.25 * x): sum(digit ^ (2 + (floor(log10(1 + 1.25 * x) + 1) / 10))%, where x is Evil time this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "TTUB1",
+    "name": "Olympian Hall",
+    "faction": "Titan",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Halls of Legends",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 2,000 Halls of Legends",
+    "effect": "Upgrade Halls of Legends to Olympian Halls, boosting their production based on Royal Exchanges purchased.",
+    "formula": "(6 * x ^ 1.2)%, where x is Royal Exchanges purchased.",
+    "effects": [],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "TTUB2",
+    "name": "Mountain Palace",
+    "faction": "Titan",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Deep Mines",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Mountain Palace Quest (4,000 Royal Exchanges)",
+    "effect": "Upgrade Deep Mines to Mountain Palaces, boosting their production based on buildings owned.",
+    "formula": "(0.75 * x ^ 0.75)%, where x is buildings owned.",
+    "effects": [],
+    "scaling": [
+      "Buildings Owned"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DDUB1",
+    "name": "Stonehenge",
+    "faction": "Druid",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Stone Pillars",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 2,000 Stone Pillars",
+    "effect": "Upgrade Stone Pillars to Stonehenges, boosting their production based on Maximum Mana.",
+    "formula": "(30 * x ^ 0.6)%, where x is Maximum Mana.",
+    "effects": [],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DDUB2",
+    "name": "Ziggurat",
+    "faction": "Druid",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Ancient Pyramids",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Ziggurat Quest (10,000 Stonehenges)",
+    "effect": "Upgrade Ancient Pyramids to Ziggurats, boosting their production based on total Lineage levels.",
+    "formula": "floor(x ^ 1.2)%, where x is total Lineage levels.",
+    "effects": [],
+    "scaling": [
+      "Lineage Level"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "FCUB1",
+    "name": "Sunken City",
+    "faction": "Faceless",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Labyrinths",
+    "cost": "10 Ttg (1e103) Coins",
+    "requirement": "Research, 2,000 Labyrinths",
+    "effect": "Upgrade Labyrinths to Sunken Cities, boosting their production based on longest Era this Reincarnation.",
+    "formula": "(75 + 7.5 * x ^ 0.75)%, where x is longest Era this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Misc"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "FCUB2",
+    "name": "Forbidden Library",
+    "faction": "Faceless",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Monasteries",
+    "cost": "1 Td (1e42) Emerald Coins",
+    "requirement": "A2, Forbidden Library Quest (5,000 Excavations)",
+    "effect": "Upgrade Monasteries to Forbidden Libraries, boosting their production based on spells cast this Era.",
+    "formula": "(30 * (ln(1 + x) / ln(2 + (x % 10))) ^ 3)%, where x is spells cast this Era.",
+    "effects": [],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DNUB1",
+    "name": "Dwarven Forge",
+    "faction": "Dwarven",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Blacksmiths",
+    "cost": "10 USxg (1e187) Coins",
+    "requirement": "Research, 3,500 Blacksmiths",
+    "effect": "Upgrade Blacksmiths to Dwarven Forges, boosting their production based on Mana Regeneration.",
+    "formula": "(300 * x ^ 0.6)%, where x is Mana Regeneration.",
+    "effects": [],
+    "scaling": [
+      "Mana Regeneration"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DNUB2",
+    "name": "High Bastion",
+    "faction": "Dwarven",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Royal Castles",
+    "cost": "100 Qivg (1e80) Coins",
+    "requirement": "A2, High Bastion Quest (5 free Excavation Resets this Reincarnation)",
+    "effect": "Upgrade Royal Castles to High Bastions, boosting their production based on clicks made this Reincarnation.",
+    "formula": "(5 * x ^ 0.5)%, where x is clicks this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Clicks"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DWUB1",
+    "name": "Spider Sanctuary",
+    "faction": "Drow",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Dark Temples",
+    "cost": "10 USxg (1e187) Coins",
+    "requirement": "Research, 2,000 Dark Temples",
+    "effect": "Upgrade Dark Temples to Spider Sanctuaries, boosting their production based on time spent offline this Reincarnation.",
+    "formula": "(45 * x ^ 0.9)%, where x is time spent offline this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Offline Time"
+    ],
+    "window": [],
+    "minAscension": 0,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DWUB2",
+    "name": "Brothel",
+    "faction": "Drow",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Inns",
+    "cost": "",
+    "requirement": "A2, Brothel Quest (1e9 spells cast this game)",
+    "effect": "Upgrade Inns to Brothels, boosting their production based on Royal Exchanges made this game.",
+    "formula": "(10 * x ^ 1.05)%, where x is Royal Exchanges this game.",
+    "effects": [],
+    "scaling": [
+      "Royal Exchange Count"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DGUB1",
+    "name": "Wyrm's Den",
+    "faction": "Dragon",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Iron Strongholds",
+    "cost": "10 Nod (1e61) Coins",
+    "requirement": "Wyrm's Den Quest (R46+, 4,500 Iron Strongholds)",
+    "effect": "Upgrade Iron Strongholds to Wyrm's Dens, boosting their production based on Faction Coins found this Era.",
+    "formula": "(0.25 * (ln(1 + x) ^ 5)%, where x is Faction Coins found this Era.",
+    "effects": [],
+    "scaling": [
+      "Faction Coins Found"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DGUB2",
+    "name": "Dragon Pasture",
+    "faction": "Dragon",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Farms",
+    "cost": "100 Qivg (1e80) Coins",
+    "requirement": "Dragon Pasture Quest (25 active spells)",
+    "effect": "Upgrade Farms to Dragon Pastures, boosting their production based on Maximum Mana.",
+    "formula": "(0.65 * x ^ 0.65)%, where x is Maximum Mana.",
+    "effects": [],
+    "scaling": [
+      "Max Mana"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MCUB-Good",
+    "name": "Mercenary Camp",
+    "faction": "Mercenary",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Knights Jousts",
+    "cost": "",
+    "requirement": "Mercenary, R75, 125,000 total buildings, Good alignment",
+    "effect": "Upgrade Knights Jousts to Mercenary Camps, boosting their production based on Non-Unique Buildings owned.",
+    "formula": "(1.5 * (1 + x))%, where x is Non-Unique Buildings owned.",
+    "effects": [],
+    "scaling": [
+      "Non-Unique Buildings Owned"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MCUB-Evil",
+    "name": "Tyrant Garrison",
+    "faction": "Mercenary",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Evil Fortresses",
+    "cost": "",
+    "requirement": "Mercenary, R75, 125,000 total buildings, Evil alignment",
+    "effect": "Upgrade Evil Fortresses to Tyrant Garrisons, boosting their production based on Offline production.",
+    "formula": "((85 + 8.5 * x ^ 0.85)%, where x is Offline production.",
+    "effects": [],
+    "scaling": [
+      "Offline Production"
+    ],
+    "window": [],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MCUB-Neutral",
+    "name": "Freemason's Hall",
+    "faction": "Mercenary",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Inns",
+    "cost": "",
+    "requirement": "Mercenary, R75, 125,000 total buildings, Neutral alignment",
+    "effect": "Upgrade Inns to Freemason's Halls, boosting their production based on Combo Strike counter.",
+    "formula": "(60 + 60 * x ^ 0.6)%, where x is Combo Strike counter.",
+    "effects": [],
+    "scaling": [
+      "Misc"
+    ],
+    "window": [
+      "Era"
+    ],
+    "minAscension": 1,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "ARUB1",
+    "name": "Nexus",
+    "faction": "Archon",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Wizard Towers / Witch Conclaves / Alchemist Labs",
+    "cost": "1 NoQig (1e180) Coins",
+    "requirement": "Nexus Quest (R130+, 25,000 Wizard Towers/Witch Conclaves/Alchemist Labs)",
+    "effect": "Upgrade Wizard Towers/Witch Conclaves/Alchemist Labs to Nexuses, boosting their production based on time spent as Order this Reincarnation.",
+    "formula": "(80 * x ^ 0.8)%, where x is time spent as Order this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Alignment Time"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "DJUB1",
+    "name": "Pavilion",
+    "faction": "Djinn",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Slave Pens / Warrior Barracks / Deep Mines",
+    "cost": "1 NoQig (1e180) Coins",
+    "requirement": "A2, Pavilion Quest (R130, 5 days of Chaos spells this game)",
+    "effect": "Upgrade Slave Pens/Warrior Barracks/Deep Mines to Pavilions, boosting their production based on spells cast this Reincarnation.",
+    "formula": "(12 * x ^ 0.6)%, where x is spells cast this Reincarnation.",
+    "effects": [],
+    "scaling": [
+      "Spells Cast"
+    ],
+    "window": [
+      "Reincarnation"
+    ],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  },
+  {
+    "id": "MKUB1",
+    "name": "Hall of Origination",
+    "faction": "Makers",
+    "category": "Unique Buildings",
+    "upgradesFrom": "Halls of Legends",
+    "cost": "1 NoQig (1e180) Coins",
+    "requirement": "A2, Hall of Origination Quest (R130+, 5 TD (5e42) Faction Coins)",
+    "effect": "Upgrade Halls of Legends to Halls of Origination, boosting their production based on assistants owned.",
+    "formula": "(0.75 * x ^ 0.75)%, where x is assistants owned.",
+    "effects": [],
+    "scaling": [
+      "Assistants Owned"
+    ],
+    "window": [],
+    "minAscension": 2,
+    "ascensionPenalty": false
+  }
+]

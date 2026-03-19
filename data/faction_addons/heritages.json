@@ -1,6 +1,6 @@
 [
   {
-    "id": "Fairy-H",
+    "id": "FRH",
     "name": "Fairy Heritage",
     "faction": "Fairy",
     "category": "Heritages",
@@ -20,7 +20,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Elven-H",
+    "id": "ELH",
     "name": "Elven Heritage",
     "faction": "Elven",
     "category": "Heritages",
@@ -42,7 +42,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Angel-H",
+    "id": "ANH",
     "name": "Angelic Heritage",
     "faction": "Angel",
     "category": "Heritages",
@@ -60,7 +60,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Goblin-H",
+    "id": "GBH",
     "name": "Goblin Heritage",
     "faction": "Goblin",
     "category": "Heritages",
@@ -80,7 +80,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Undead-H",
+    "id": "UDH",
     "name": "Undead Heritage",
     "faction": "Undead",
     "category": "Heritages",
@@ -102,7 +102,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Demon-H",
+    "id": "DMH",
     "name": "Demonic Heritage",
     "faction": "Demon",
     "category": "Heritages",
@@ -122,7 +122,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Titan-H",
+    "id": "TTH",
     "name": "Titan Heritage",
     "faction": "Titan",
     "category": "Heritages",
@@ -140,7 +140,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Druid-H",
+    "id": "DDH",
     "name": "Druid Heritage",
     "faction": "Druid",
     "category": "Heritages",
@@ -160,7 +160,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Faceless-H",
+    "id": "FCH",
     "name": "Faceless Heritage",
     "faction": "Faceless",
     "category": "Heritages",
@@ -182,7 +182,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Dwarven-H",
+    "id": "DNH",
     "name": "Dwarven Heritage",
     "faction": "Dwarven",
     "category": "Heritages",
@@ -202,7 +202,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Drow-H",
+    "id": "DWH",
     "name": "Drow Heritage",
     "faction": "Drow",
     "category": "Heritages",
@@ -222,7 +222,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Mercenary-H",
+    "id": "MCH",
     "name": "Mercenary Badge",
     "faction": "Mercenary",
     "category": "Heritages",
@@ -242,7 +242,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Dragon-H",
+    "id": "DGH",
     "name": "Dragon Heritage",
     "faction": "Dragon",
     "category": "Heritages",
@@ -264,7 +264,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Archon-H",
+    "id": "ARH",
     "name": "Archon Heritage",
     "faction": "Archon",
     "category": "Heritages",
@@ -286,7 +286,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Djinn-H",
+    "id": "DJH",
     "name": "Djinn Heritage",
     "faction": "Djinn",
     "category": "Heritages",
@@ -308,7 +308,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Makers-H",
+    "id": "MKH",
     "name": "Makers Heritage",
     "faction": "Makers",
     "category": "Heritages",
@@ -330,7 +330,7 @@
     "lineageScaling": false
   },
   {
-    "id": "Fairy-AH",
+    "id": "FRAH",
     "name": "Advanced Fairy Heritage",
     "faction": "Fairy",
     "category": "Advanced Heritages",
@@ -350,7 +350,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Elven-AH",
+    "id": "ELAH",
     "name": "Advanced Elven Heritage",
     "faction": "Elven",
     "category": "Advanced Heritages",
@@ -372,7 +372,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Angel-AH",
+    "id": "ANAH",
     "name": "Advanced Angelic Heritage",
     "faction": "Angel",
     "category": "Advanced Heritages",
@@ -394,7 +394,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Goblin-AH",
+    "id": "GBAH",
     "name": "Advanced Goblin Heritage",
     "faction": "Goblin",
     "category": "Advanced Heritages",
@@ -414,7 +414,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Undead-AH",
+    "id": "UDAH",
     "name": "Advanced Undead Heritage",
     "faction": "Undead",
     "category": "Advanced Heritages",
@@ -436,7 +436,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Demon-AH",
+    "id": "DMAH",
     "name": "Advanced Demonic Heritage",
     "faction": "Demon",
     "category": "Advanced Heritages",
@@ -456,7 +456,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Titan-AH",
+    "id": "TTAH",
     "name": "Advanced Titan Heritage",
     "faction": "Titan",
     "category": "Advanced Heritages",
@@ -476,7 +476,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Druid-AH",
+    "id": "DDAH",
     "name": "Advanced Druid Heritage",
     "faction": "Druid",
     "category": "Advanced Heritages",
@@ -496,7 +496,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Faceless-AH",
+    "id": "FCAH",
     "name": "Advanced Faceless Heritage",
     "faction": "Faceless",
     "category": "Advanced Heritages",
@@ -516,7 +516,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Dwarven-AH",
+    "id": "DNAH",
     "name": "Advanced Dwarven Heritage",
     "faction": "Dwarven",
     "category": "Advanced Heritages",
@@ -538,7 +538,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Drow-AH",
+    "id": "DWAH",
     "name": "Advanced Drow Heritage",
     "faction": "Drow",
     "category": "Advanced Heritages",
@@ -561,7 +561,7 @@
     "lineageScaling": true
   },
   {
-    "id": "Dragon-AH",
+    "id": "DGAH",
     "name": "Advanced Dragon Heritage",
     "faction": "Dragon",
     "category": "Advanced Heritages",

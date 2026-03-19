@@ -147,8 +147,8 @@
     "category": "Alchemy",
     "cost": "1.544e144",
     "requirement": "2,750 Blacksmiths",
-    "effect": "Increase production of all buildings based on Faction Coins found this game.",
-    "formula": "round(0.7 * ln(1+x)^3)%, where x = FC found this game",
+    "effect": "Increase production of all buildings based on Faction Coins found this Era.",
+    "formula": "round(0.7 * ln(1+x)^3)%, where x = FC found this Era",
     "effects": [
       "All Buildings"
     ],
@@ -377,8 +377,8 @@
     "category": "Alchemy",
     "cost": "2.552e179",
     "requirement": "2 days as Druids (All Time)",
-    "effect": "Increase FC find chance based on spells cast this game. Also increase FC chance by 100% multiplicatively.",
-    "formula": "floor(3.5 * ln(1+x)^3.5)%, where x = spells cast this game",
+    "effect": "Increase FC find chance based on spells cast this Era. Also increase FC chance by 100% multiplicatively.",
+    "formula": "floor(3.5 * ln(1+x)^3.5)%, where x = spells cast this Era",
     "effects": [
       "FC Find Chance"
     ],

@@ -8,8 +8,8 @@
     "category": "Craftsmanship",
     "cost": "7.5e125",
     "requirement": "None",
-    "effect": "Increase the production of Elven Training Grounds based on Faction Coins found this game.",
-    "formula": "(3 * ln(1+x)^3)%, where x = FC found this game",
+    "effect": "Increase the production of Elven Training Grounds based on Faction Coins found this Era.",
+    "formula": "(3 * ln(1+x)^3)%, where x = FC found this Era",
     "effects": [
       "Specific Buildings"
     ],
@@ -77,8 +77,8 @@
     "category": "Craftsmanship",
     "cost": "3.188e134",
     "requirement": "1e9 Faction Coins as Elf",
-    "effect": "Increase the production of Infernal Realms based on Demon Coins found this game.",
-    "formula": "(0.3 * ln(1+x)^3)%, where x = Demon Coins found this game",
+    "effect": "Increase the production of Infernal Realms based on Demon Coins found this Era.",
+    "formula": "(0.3 * ln(1+x)^3)%, where x = Demon Coins found this Era",
     "effects": [
       "Specific Buildings"
     ],
@@ -442,8 +442,8 @@
     "category": "Craftsmanship",
     "cost": "1.366e196",
     "requirement": "Research Magnetism (C250) & Weighting (C300)",
-    "effect": "Increase FC find chance additively based on FC found this game. Also increase FC chance by 100% multiplicatively.",
-    "formula": "+(3.5 * ln(x+1)^3)%, where x = FC found this game",
+    "effect": "Increase FC find chance additively based on FC found this Era. Also increase FC chance by 100% multiplicatively.",
+    "formula": "+(3.5 * ln(x+1)^3)%, where x = FC found this Era",
     "effects": [
       "FC Find Chance"
     ],

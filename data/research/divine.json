@@ -100,8 +100,8 @@
     "category": "Divine",
     "cost": "2.421e135",
     "requirement": "3e6 Mana produced (This Game)",
-    "effect": "Increase clicking reward based on spells cast this game.",
-    "formula": "(3 * x^0.7)%, where x = spells cast this game",
+    "effect": "Increase clicking reward based on spells cast this Era.",
+    "formula": "(3 * x^0.7)%, where x = spells cast this Era",
     "effects": [
       "Clicking Reward"
     ],
